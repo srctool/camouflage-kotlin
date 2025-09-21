@@ -36,9 +36,21 @@ This Code of Conduct applies within all community spaces, and also applies when 
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project team at contact@srctool.org. All complaints will be reviewed and investigated promptly and fairly.
+If you experience or witness unacceptable behavior, report it to the project team at contact@srctool.org.
 
-All community leaders are obligated to respect the privacy and security of the reporter of any incident.
+When reporting, please include (if possible):
+- A description of what happened and why it is unacceptable
+- Links, issue numbers, commit references, or screenshots (if available)
+- Date/time and location (repository, issue/PR link, chat, etc.)
+- Your preferred contact information for follow-up
+
+For non-sensitive concerns, you may also open an issue referencing "Code of Conduct" for transparency.
+
+We will review and investigate all reports promptly and fairly. You can expect an initial response within 72 hours. We may ask for additional information to aid the investigation.
+
+We will keep reports confidential to the extent possible and share details only with individuals who need the information to resolve the issue. All community leaders must respect the privacy and security of reporters.
+
+If you are in immediate danger, contact local emergency services first.
 
 ## Enforcement Guidelines
 
