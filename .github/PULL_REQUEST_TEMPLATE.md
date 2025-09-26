@@ -5,12 +5,12 @@ PR title must follow Conventional Commits:
   <type>(<scope>): <short description>
 
 - type: one of feat, fix, docs, style, refactor, test, chore
-- scope: affected module/package (e.g., kotlin-lib, core, logging)
+- scope: affected module/package (e.g., kotlin-lib, parser, cli)
 - short description: concise summary of the change
 
 Examples:
-- feat(kotlin-lib): add redact() helper for masked logging
-- fix(kotlin-lib): prevent NPE in TokenParser when input is blank
+- feat(kotlin-lib): support JSON5 in ConfigLoader
+- fix(kotlin-lib): avoid late initialization error in cache
 
 GitKraken users: GitKraken uses the first line of the commit message as the PR title. You can copy this PR title format directly when committing.
 -->
@@ -47,4 +47,4 @@ Describe any breaking changes and migration steps for users.
 Anything else reviewers should know.
 
 ---
-For sensitive disclosures, contact contact@srctool.org.
+When targeting the upstream repository, feature/bugfix PRs should target `develop` and will be merged using Squash & Merge. The squashed commit title comes from your PR title; the body comes from your PR description. Keep both clear and concise.
