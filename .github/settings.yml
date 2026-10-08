@@ -1,8 +1,7 @@
-# Repository settings for GitHub Settings app (Probot) to enforce merge methods
-# This file only has effect if the "Settings" GitHub App is installed on the kotlin-lib repository.
-# Note: GitHub merge method settings are repository-wide (not per-branch).
-# Upstream/org repository should enforce Squash & Merge only; forks can choose their own settings.
+# Repository settings for the GitHub Settings app (Probot); it has effect only if the app is installed.
+# Trunk-based: main is the only long-lived branch, and every PR is squash-merged into it.
 repository:
+  default_branch: main
   allow_merge_commit: false
   allow_rebase_merge: false
   allow_squash_merge: true
