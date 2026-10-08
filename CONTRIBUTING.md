@@ -1,21 +1,20 @@
 # Contributing to camouflage-kotlin
 
-Thanks for helping improve the Kotlin implementation of Camouflage!
+Thanks for helping improve the Kotlin implementation of Camouflage! This repository uses **trunk-based development**, like the rest of the Camouflage repositories: `main` is the only long-lived branch, every change reaches it through a squash-merged pull request, and releases are tags on `main`. The shared rules are on the [Git workflow](https://camouflage-dev.srctool.com/contributing/git-workflow) page.
 
 ## Getting started
-- Install a recent JDK (17+) and the Kotlin toolchain.
-- Use Gradle for builds and tests.
-- Recommended IDE: IntelliJ IDEA or Android Studio with Kotlin plugin.
+- JDK 17 and the Gradle wrapper in this repository (`./gradlew`).
+- IntelliJ IDEA or Android Studio; Xcode on macOS for the iOS targets.
 
 ## Development workflow
-1. Fork the repo and create a branch from `develop` (integration branch).
-   - Suggested: `feat/<scope>-<short-desc>` or `fix/<scope>-<short-desc>`
-2. Implement your change with small, focused commits.
-3. Before committing, run formatting and checks:
-   - Format: use the project’s formatter (ktfmt/ktlint if configured) or IntelliJ default Kotlin style.
-   - Build & tests: `./gradlew build test`
-4. Update README/docs if behavior changes.
-5. Open a Pull Request in the root repo targeting `develop` (files under `kotlin-lib/`) and fill out the PR template.
+1. Branch from the latest `main`, named `<type>/<short-description>` (for example `feat/date-picker-typing`, `fix/snackbar-overlap`).
+   - Maintainers push branches to `srctool/camouflage-kotlin`; everyone else forks it.
+2. Make small, focused commits.
+3. Before opening the PR, run:
+- Build and tests: `./gradlew check`
+- Format with the project's formatter (ktfmt/ktlint when configured) or the IDE's default Kotlin style.
+4. Update the README or docs if behavior changes.
+5. Open a pull request **into `main` of this repository** and fill out the template. If `main` moves while it's open, update your branch (`git pull --rebase origin main`, or the PR's **Update branch** button).
 
 ### PR title format (Conventional Commits)
 Format your PR title as:
@@ -25,30 +24,36 @@ Format your PR title as:
 ```
 
 - type: one of `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
-- scope: the affected module/package (e.g., `kotlin-lib`, `core`, `logging`)
-- short description: concise summary
+- scope: the affected module or package (for example `core`, `skin-minimal`, `bom`, or `ci`)
+- short description: a concise summary
 
-Examples:
-- feat(kotlin-lib): add redact() helper for masked logging
-- fix(kotlin-lib): prevent NPE in TokenParser when input is blank
-
-GitKraken tip: GitKraken uses the first line of the commit message as the PR title. You can copy the PR title format directly when committing.
+GitKraken tip: GitKraken uses the first line of the commit message as the PR title, so you can use this format when committing.
 
 ## Merging policy
-- Upstream repository: Squash and merge only on protected branches `main` and `develop`. Merge commits and rebase merges are not used on those branches.
-- Forks: You may use any workflow/merge strategy in your own fork. When proposing changes upstream, the final merge into `main`/`develop` will be squashed.
-- The final squashed commit title is taken from the PR title; the body is taken from the PR description.
-- Keep the PR title in Conventional Commits format and ensure the description explains the "what" and "why`. Maintainers may edit the final message for clarity.
+- Squash and merge only, into the protected `main`. Merge commits and rebase merges aren't used, and nobody pushes or force-pushes to `main` directly.
+- The squashed commit's title is the PR title and its body is the PR description, so keep both clear: what changed and why. Maintainers may edit the final message.
+- Branches are deleted automatically after the merge.
+
+## Releases
+A release is a tag on `main`: `vX.Y.Z` (for example `v0.3.0`).
+
+```bash
+git switch main && git pull
+git tag v0.3.0 && git push origin v0.3.0
+```
+
+The publish workflow checks the tag is on `main`, publishes `com.srctool.camouflage:*` to Maven Central from a single macOS job (the iOS artifacts need Xcode), then creates the GitHub Release. The tag decides the version.
+
+Before tagging, merge a PR that updates the version and `CHANGELOG.md`. A fix to a released version is an ordinary PR into `main` followed by a patch tag. After a release, the umbrella repository (`srctool/camouflage`) picks up the new commit through its Dependabot submodule PR.
 
 ## Testing
-- Add/adjust unit tests to cover new or changed behavior.
-- Ensure `./gradlew test` passes locally.
+- Add or adjust tests for new or changed behavior, and make sure `./gradlew check` passes.
 - Prefer deterministic tests; avoid relying on clock/time or networking unless mocked.
 
 ## Commit & PR guidelines
-- Write clear commit messages and PR descriptions; link issues (e.g., "Fixes #123").
+- Write clear commit messages and PR descriptions; link issues (for example "Fixes #123").
 - Keep PRs focused and reasonably small.
-- Include screenshots/logs for visible or behavioral changes when helpful.
+- Include screenshots or logs for visible or behavioral changes when helpful.
 
 ## Code of Conduct
 This project adheres to the Contributor Covenant.

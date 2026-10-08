@@ -47,4 +47,4 @@ Describe any breaking changes and migration steps for users.
 Anything else reviewers should know.
 
 ---
-When targeting the upstream repository, feature/bugfix PRs should target `develop` and will be merged using Squash & Merge. The squashed commit title comes from your PR title; the body comes from your PR description. Keep both clear and concise.
+Pull requests target `main` (trunk-based) and are merged with Squash & Merge. The squashed commit title comes from your PR title; the body comes from your PR description. Keep both clear and concise.
