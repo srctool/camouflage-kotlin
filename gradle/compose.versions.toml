@@ -1,0 +1,16 @@
+[versions]
+compose-multiplatform = "1.12.1"
+hot-reload = "1.2.0"
+
+# Explicit coordinates, not the compose.* shortcuts, so every version is visible here.
+# No Material artifacts in v1: core stays visually neutral (material-ripple joins with a Later Material skin).
+[libraries]
+runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
+ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-multiplatform" }
+foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-multiplatform" }
+ui-test = { module = "org.jetbrains.compose.ui:ui-test", version.ref = "compose-multiplatform" }
+gradle-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
+
+[plugins]
+compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+compose-hot-reload = { id = "org.jetbrains.compose.hot-reload", version.ref = "hot-reload" }

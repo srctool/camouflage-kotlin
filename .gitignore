@@ -22,3 +22,4 @@ Pods/
 
 # macOS
 .DS_Store
+*.xcuserstate

@@ -17,17 +17,36 @@ Kotlin implementation of Camouflage (part of the SRC Tool). This repository is a
 
 ---
 
+## Modules
+
+| Module | Holds |
+|---|---|
+| `camouflage-core` | the components, `CamoTheme` and the Skin contract; visually neutral, no Material |
+| `camouflage-skin-minimal` | the Minimal skin and `minimalTheme` |
+| `camouflage-navigation3` | Navigation 3 integration: dialog and bottom-sheet scene strategies (M6) |
+| `camouflage-skin-testing` | test-only checks for any skin (M3) |
+| `camouflage-bom` | pins the modules above to versions tested together |
+| `sample` | the sample app: `:sample:shared` (Android, iOS, desktop, web) and `:sample:androidApp` |
+| `build-logic` | the `com.srctool.*` convention plugins |
+
+Targets: Android, iOS (arm64, simulator arm64), JVM desktop and wasmJs. Status: milestone **M0** (skeleton): every module holds a placeholder until its milestone.
+
+---
+
 ## Development
 
-- Build and test: `./gradlew check`
-- Toolchain: JDK 17 (see CONTRIBUTING.md).
+- Toolchain: JDK 17+, the Android SDK (`local.properties` → `sdk.dir`), Xcode for iOS.
+- `./gradlew check`: tests on every target, `checkKotlinAbi`, Detekt, Kover and `checkModuleLayers` (the dependency layers).
+- `./gradlew -p build-logic test`: the convention plugins' tests.
+- After a deliberate public API change: `./gradlew updateKotlinAbi`, and commit the `api/` dumps.
+- Sample: `./gradlew :sample:shared:run` (desktop, with Compose Hot Reload), `:sample:androidApp:installDebug` (Android), `:sample:shared:wasmJsBrowserDevelopmentRun` (web); iOS: open `sample/iosApp/iosApp.xcodeproj`.
 - Branch from `main`, open a PR into `main`, squash merge; releases are tags on `main`. See CONTRIBUTING.md.
 
 ---
 
 ## Code of Conduct
 
-Participation is governed by CODE_OF_CONDUCT.md. For sensitive reports, email contact@srctool.org.
+Participation is governed by CODE_OF_CONDUCT.md. For sensitive reports, email contact@srctool.com.
 
 ---
 

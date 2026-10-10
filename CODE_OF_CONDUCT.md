@@ -36,7 +36,7 @@ This Code of Conduct applies within all community spaces, and also applies when 
 
 ## Enforcement
 
-If you experience or witness unacceptable behavior, report it to the project team at contact@srctool.org.
+If you experience or witness unacceptable behavior, report it to the project team at contact@srctool.com.
 
 When reporting, please include (if possible):
 - A description of what happened and why it is unacceptable

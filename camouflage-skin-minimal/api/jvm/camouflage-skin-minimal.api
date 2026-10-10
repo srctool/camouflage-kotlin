@@ -1,0 +1,4 @@
+public final class com/srctool/camouflage/skin/minimal/MinimalThemeKt {
+	public static final fun getMinimalTheme ()Lcom/srctool/camouflage/core/CamoTheme;
+}
+

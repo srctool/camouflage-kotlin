@@ -1,0 +1,16 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.srctool.camouflage:camouflage-navigation3>
+final object com.srctool.camouflage.navigation3/CamoNavigation3 { // com.srctool.camouflage.navigation3/CamoNavigation3|null[0]
+    final const val ARTIFACT // com.srctool.camouflage.navigation3/CamoNavigation3.ARTIFACT|{}ARTIFACT[0]
+        final fun <get-ARTIFACT>(): kotlin/String // com.srctool.camouflage.navigation3/CamoNavigation3.ARTIFACT.<get-ARTIFACT>|<get-ARTIFACT>(){}[0]
+}
+
+final val com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavigation3$stableprop // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavigation3$stableprop|#static{}com_srctool_camouflage_navigation3_CamoNavigation3$stableprop[0]
+
+final fun com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavigation3$stableprop_getter(): kotlin/Int // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavigation3$stableprop_getter|com_srctool_camouflage_navigation3_CamoNavigation3$stableprop_getter(){}[0]

@@ -1,0 +1,4 @@
+# Overrides on top of Detekt's default config (buildUponDefaultConfig). Keep this short.
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ['Composable']   # composables are PascalCase
