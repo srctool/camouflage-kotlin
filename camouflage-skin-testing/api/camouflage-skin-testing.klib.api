@@ -1,0 +1,16 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.srctool.camouflage:camouflage-skin-testing>
+final object com.srctool.camouflage.skin.testing/CamoSkinTesting { // com.srctool.camouflage.skin.testing/CamoSkinTesting|null[0]
+    final const val ARTIFACT // com.srctool.camouflage.skin.testing/CamoSkinTesting.ARTIFACT|{}ARTIFACT[0]
+        final fun <get-ARTIFACT>(): kotlin/String // com.srctool.camouflage.skin.testing/CamoSkinTesting.ARTIFACT.<get-ARTIFACT>|<get-ARTIFACT>(){}[0]
+}
+
+final val com.srctool.camouflage.skin.testing/com_srctool_camouflage_skin_testing_CamoSkinTesting$stableprop // com.srctool.camouflage.skin.testing/com_srctool_camouflage_skin_testing_CamoSkinTesting$stableprop|#static{}com_srctool_camouflage_skin_testing_CamoSkinTesting$stableprop[0]
+
+final fun com.srctool.camouflage.skin.testing/com_srctool_camouflage_skin_testing_CamoSkinTesting$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.testing/com_srctool_camouflage_skin_testing_CamoSkinTesting$stableprop_getter|com_srctool_camouflage_skin_testing_CamoSkinTesting$stableprop_getter(){}[0]

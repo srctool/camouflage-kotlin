@@ -1,0 +1,6 @@
+public final class com/srctool/camouflage/navigation3/CamoNavigation3 {
+	public static final field $stable I
+	public static final field ARTIFACT Ljava/lang/String;
+	public static final field INSTANCE Lcom/srctool/camouflage/navigation3/CamoNavigation3;
+}
+

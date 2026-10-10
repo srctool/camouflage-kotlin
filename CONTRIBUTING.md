@@ -57,7 +57,7 @@ Before tagging, merge a PR that updates the version and `CHANGELOG.md`. A fix to
 
 ## Code of Conduct
 This project adheres to the Contributor Covenant.
-See `CODE_OF_CONDUCT.md`. For sensitive reports, email contact@srctool.org.
+See `CODE_OF_CONDUCT.md`. For sensitive reports, email contact@srctool.com.
 
 ## License
 Contributions to `camouflage-kotlin` are made under the Apache 2.0 license found in `LICENSE`.

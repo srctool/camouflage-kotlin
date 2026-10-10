@@ -1,0 +1,66 @@
+name: CI
+
+# Camouflage for Kotlin: tests, the ABI check, Detekt, Kover and the module-layer check on every pull request
+# (see the docs: Project Setup and Testing).
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  jvm-and-android:
+    name: Check (JVM, Android, ABI, Detekt, layers)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Convention plugin tests
+        run: ./gradlew -p build-logic test
+      - name: Check
+        run: >-
+          ./gradlew checkModuleLayers checkKotlinAbi detekt koverVerify
+          jvmTest testAndroidHostTest
+          :sample:androidApp:assembleDebug
+
+  web:
+    name: Web (wasmJs)
+    runs-on: ubuntu-24.04
+    # Compose for web is Beta: a web failure is visible but never blocks (ADR-18).
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v6
+      - run: ./gradlew wasmJsTest :sample:shared:wasmJsBrowserDistribution
+
+  ios:
+    name: iOS (simulator tests, sample app)
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v6
+      - run: ./gradlew iosSimulatorArm64Test
+      - name: Build the iOS sample
+        run: >-
+          xcodebuild -project sample/iosApp/iosApp.xcodeproj -scheme iosApp
+          -sdk iphonesimulator -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO build

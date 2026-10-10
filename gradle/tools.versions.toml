@@ -1,0 +1,19 @@
+[versions]
+materialkolor = "5.0.1"
+vanniktech-publish = "0.37.0"
+dokka = "2.2.0"
+detekt = "2.0.0-alpha.6"
+kover = "0.9.11"
+
+[libraries]
+material-color-utilities = { module = "com.materialkolor:material-color-utilities", version.ref = "materialkolor" }
+vanniktech-publish-gradle-plugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "vanniktech-publish" }
+dokka-gradle-plugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
+detekt-gradle-plugin = { module = "dev.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+kover-gradle-plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
+
+[plugins]
+vanniktech-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech-publish" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
