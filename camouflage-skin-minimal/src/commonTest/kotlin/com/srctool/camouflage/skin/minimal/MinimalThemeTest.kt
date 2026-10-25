@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 
 class MinimalThemeTest {
     @Test
-    fun minimalThemeIsACoreTheme() {
-        assertEquals(0, minimalTheme.placeholder)
+    fun minimalThemeValidates() {
+        assertEquals(emptyList(), minimalTheme.validate())
     }
 }

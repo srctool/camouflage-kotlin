@@ -7,4 +7,4 @@
 
 // Library unique name: <com.srctool.camouflage:camouflage-skin-minimal>
 final val com.srctool.camouflage.skin.minimal/minimalTheme // com.srctool.camouflage.skin.minimal/minimalTheme|{}minimalTheme[0]
-    final fun <get-minimalTheme>(): com.srctool.camouflage.core/CamoTheme // com.srctool.camouflage.skin.minimal/minimalTheme.<get-minimalTheme>|<get-minimalTheme>(){}[0]
+    final fun <get-minimalTheme>(): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.minimal/minimalTheme.<get-minimalTheme>|<get-minimalTheme>(){}[0]
