@@ -57,7 +57,7 @@ private val PromoSeed = Color(0xFFE8710A)
 private const val FAKE_REQUEST_MILLIS = 2000L
 
 // The three skins the sample switches between, each with its own starter theme.
-private enum class SampleSkin(val skin: CamoSkin, val theme: (dark: Boolean) -> CamoTheme) {
+internal enum class SampleSkin(val skin: CamoSkin, val theme: (dark: Boolean) -> CamoTheme) {
     Minimal(MinimalSkin, { minimalTheme(dark = it) }),
     Fluent(FluentSkin, { fluentTheme(dark = it) }),
     Debug(DebugSkin, {
@@ -65,40 +65,72 @@ private enum class SampleSkin(val skin: CamoSkin, val theme: (dark: Boolean) -> 
     }),
 }
 
-/** The sample app. M3: the first components on DebugSkin, Minimal and Fluent, switched live. */
+/**
+ * A brand on a skin's starter theme, light or dark: everything the sample can switch. A skin with its own token
+ * set takes the brand color too (Fluent derives its hover and pressed steps from it), so the brand reaches every
+ * state, not only the roles.
+ */
+internal fun sampleTheme(skin: SampleSkin, brand: Brand, dark: Boolean): CamoTheme {
+    val seed = brand.tokens?.brand?.get(BRAND_SEED_STEP)
+    val base = if (skin == SampleSkin.Fluent && seed != null) {
+        fluentTheme(brand = seed, dark = dark)
+    } else {
+        skin.theme(dark)
+    }
+    return brand.on(base, dark)
+}
+
+private const val BRAND_SEED_STEP = 600
+
+/**
+ * The sample app. M4: one screen, two brands, two skins and dark mode, switched live at the provider; then the
+ * component gallery.
+ */
 @Composable
 fun SampleApp() {
     val systemDark = isSystemInDarkTheme()
     var dark by remember { mutableStateOf(systemDark) }
     var choice by remember { mutableStateOf(SampleSkin.Minimal) }
-    CamouflageProvider(skin = choice.skin, theme = animateCamoTheme(choice.theme(dark))) {
+    var brand by remember { mutableStateOf(Brand.Default) }
+    CamouflageProvider(skin = choice.skin, theme = animateCamoTheme(sampleTheme(choice, brand, dark))) {
         CamoSurface(Modifier.fillMaxSize()) {
             Column(
                 Modifier.verticalScroll(rememberScrollState()).padding(Camouflage.spacing.l),
                 verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.l),
             ) {
-                Row(horizontalArrangement = Arrangement.spacedBy(Camouflage.spacing.s)) {
-                    SampleSkin.entries.forEach {
-                        CamoButton(
-                            it.name,
-                            { choice = it },
-                            appearance = if (it == choice) Appearance.Solid else Appearance.Outline,
-                        )
-                    }
-                    CamoButton(if (dark) "Light" else "Dark", { dark = !dark }, appearance = Appearance.Ghost)
-                }
+                Switcher(SampleSkin.entries, choice, { it.name }) { choice = it }
+                Switcher(Brand.entries, brand, { it.label }) { brand = it }
+                CamoButton(if (dark) "Light" else "Dark", { dark = !dark }, appearance = Appearance.Ghost)
+                Checkout()
                 Section("Buttons") { Buttons() }
                 Section("Icon buttons") { IconButtons() }
                 Section("Text") { Texts() }
                 Section("Surfaces and dividers") { Surfaces() }
                 Section("Progress") { Progress() }
-                val promo = choice.theme(dark).copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
+                val promo = sampleTheme(choice, brand, dark).copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                 CamouflageProvider(theme = promo) {
                     Section("Nested provider: a promo theme") {
                         CamoButton("Claim offer", {}, suffixIcon = { AppIcon.ChevronRight() })
                     }
                 }
             }
+        }
+    }
+}
+
+// A row of buttons, one per option; the chosen one is solid.
+@Composable
+private fun <T> Switcher(options: List<T>, chosen: T, label: (T) -> String, onChoose: (T) -> Unit) {
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(Camouflage.spacing.s),
+        verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.s),
+    ) {
+        options.forEach {
+            CamoButton(
+                label(it),
+                { onChoose(it) },
+                appearance = if (it == chosen) Appearance.Solid else Appearance.Outline,
+            )
         }
     }
 }
