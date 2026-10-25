@@ -1,8 +1,9 @@
 package com.srctool.camouflage.core
 
 import androidx.compose.ui.graphics.Color
+import com.srctool.camouflage.core.provider.CamouflageMissingProviderException
 import com.srctool.camouflage.core.skin.InteractionFeedback
-import com.srctool.camouflage.core.skin.disabled
+import com.srctool.camouflage.core.util.disabled
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotSame

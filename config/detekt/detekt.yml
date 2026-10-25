@@ -7,3 +7,6 @@ naming:
 complexity:
   TooManyFunctions:
     excludes: ['**/test/**', '**/*Test/**', '**/skikoTest/**']
+style:
+  MagicNumber:
+    excludes: ['**/test/**', '**/*Test/**', '**/skikoTest/**']

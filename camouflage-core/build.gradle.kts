@@ -10,6 +10,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(toolLibs.material.color.utilities)   // CamoTheme.fromSeed (M1)
+            api(composeLibs.resources)                           // IconSource.Resource (M3)
             implementation(kotlinLibs.datetime)                  // the date and time pickers' types (M5, ADR-35)
         }
         commonTest.dependencies {

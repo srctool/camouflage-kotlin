@@ -24,3 +24,7 @@ public fun CamoElevation.of(level: ElevationLevel): Dp = when (level) {
     ElevationLevel.Level4 -> level4
     ElevationLevel.Level5 -> level5
 }
+
+/** The highest level whose depth is at most [elevation], for surface treatments that draw by level. */
+public fun CamoElevation.levelOf(elevation: Dp): ElevationLevel =
+    ElevationLevel.entries.lastOrNull { of(it) <= elevation } ?: ElevationLevel.Level0

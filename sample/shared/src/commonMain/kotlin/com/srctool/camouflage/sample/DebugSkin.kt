@@ -21,10 +21,22 @@ import com.srctool.camouflage.core.theme.CamoTheme
 import kotlinx.coroutines.launch
 
 /** A skin for proving the contract before any real skin exists: plain fills and no press feedback. */
-val DebugSkin = CamoSkin(name = "debug", surfaceTreatment = NoTreatment, feedback = NoFeedback)
+val DebugSkin = CamoSkin(
+    name = "debug",
+    surfaceTreatment = NoTreatment,
+    feedback = NoFeedback,
+    text = DebugTextRenderer,
+    icon = DebugIconRenderer,
+    surface = DebugSurfaceRenderer,
+    divider = DebugDividerRenderer,
+    button = DebugButtonRenderer,
+    iconButton = DebugIconButtonRenderer,
+    progressCircle = DebugProgressCircleRenderer,
+    tooltip = DebugTooltipRenderer,
+)
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */
-val DebugOutlineSkin = CamoSkin(name = "debug-outline", surfaceTreatment = OutlineTreatment, feedback = PressTint)
+val DebugOutlineSkin = DebugSkin.copy(name = "debug-outline", surfaceTreatment = OutlineTreatment, feedback = PressTint)
 
 /** Fills the container and nothing else: no depth, no border. */
 object NoTreatment : SurfaceTreatment {
@@ -40,7 +52,7 @@ object OutlineTreatment : SurfaceTreatment {
 
 /** Draws no feedback. DebugSkin's placeholders draw their own focus border. */
 object NoFeedback : InteractionFeedback {
-    override fun indication(contentColor: Color, theme: CamoTheme) = NoIndication
+    override fun indication(contentColor: Color, shape: Shape, theme: CamoTheme) = NoIndication
 
     object NoIndication : IndicationNodeFactory {
         override fun create(interactionSource: InteractionSource): DelegatableNode = object : Modifier.Node() {}
@@ -53,7 +65,7 @@ object NoFeedback : InteractionFeedback {
 object PressTint : InteractionFeedback {
     private const val PRESSED_ALPHA = 0.12f
 
-    override fun indication(contentColor: Color, theme: CamoTheme) = Tint(contentColor)
+    override fun indication(contentColor: Color, shape: Shape, theme: CamoTheme) = Tint(contentColor)
 
     data class Tint(val color: Color) : IndicationNodeFactory {
         override fun create(interactionSource: InteractionSource): DelegatableNode = TintNode(interactionSource, color)
