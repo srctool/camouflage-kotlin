@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.runDesktopComposeUiTest
+import com.github.takahirom.roborazzi.RoborazziOptions
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.skin.testing.ButtonGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
@@ -15,6 +16,12 @@ import kotlin.test.Test
 
 // Screenshot goldens: light and dark for every M3 component, plus one brand theme (an accent), light only
 // (Testing §3.2). Record with `./gradlew recordRoborazziJvm`, verify with `verifyRoborazziJvm`.
+// Skia antialiases edges slightly differently on macOS and Linux CI: up to 0.5% of the pixels may differ, while
+// a real change (a color, a size) moves far more.
+private val CrossPlatform = RoborazziOptions(
+    compareOptions = RoborazziOptions.CompareOptions(changeThreshold = 0.005f),
+)
+
 @OptIn(ExperimentalTestApi::class)
 class MinimalGoldenTest {
     private val themes = mapOf(
@@ -33,7 +40,10 @@ class MinimalGoldenTest {
         for ((key, theme) in themes) {
             runDesktopComposeUiTest(width, height) {
                 setContent { CamouflagePreview(MinimalSkin, theme.withGoldenFont(), content) }
-                onRoot().captureRoboImage("src/jvmTest/snapshots/${name}_minimal_$key.png")
+                onRoot().captureRoboImage(
+                    roborazziOptions = CrossPlatform,
+                    filePath = "src/jvmTest/snapshots/${name}_minimal_$key.png",
+                )
             }
         }
     }
