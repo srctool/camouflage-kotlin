@@ -11,3 +11,6 @@ public enum class Tone { Default, Error, Success, Warning, Info }
 
 /** How separated a surface is from the screen background, from `surface` to `surfaceContainerHighest`. */
 public enum class SurfaceLevel { Surface, Lowest, Low, Container, High, Highest }
+
+/** The visual weight of a component, from strongest to lightest. Each skin maps it to its own dialect. */
+public enum class Appearance { Solid, Soft, Raised, Outline, Ghost, Link }
