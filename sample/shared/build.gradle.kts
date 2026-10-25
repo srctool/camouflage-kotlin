@@ -21,11 +21,18 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.camouflageCore)
             implementation(projects.camouflageSkinMinimal)
+            implementation(projects.camouflageSkinFluent)
+            implementation(composeLibs.resources)       // the AppIcon drawables (Res)
         }
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)   // the desktop runtime for the OS building it
         }
     }
+}
+
+compose.resources {
+    packageOfResClass = "com.srctool.camouflage.sample.resources"
+    generateResClass = always
 }
 
 compose.desktop {

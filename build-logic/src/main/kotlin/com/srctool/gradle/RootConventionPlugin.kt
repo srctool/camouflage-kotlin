@@ -18,6 +18,9 @@ class RootConventionPlugin : Plugin<Project> {
         // Only declaration buckets count: plugins also create internal configurations that reference other modules
         // (e.g. Kotlin's SwiftPM lock-file aggregation), which aren't dependencies of the module.
         val declared = Regex("(?i).*(api|implementation|compileOnly|runtimeOnly)$")
+        // Test-only buckets (testImplementation, commonTestImplementation, skikoTestImplementation, …) may also
+        // point at the same layer: tests don't ship, and the skins test themselves with camouflage-skin-testing.
+        val testOnly = Regex("^test[A-Z].*|.*Test[A-Z].*")
         val edges = provider {
             subprojects.flatMap { p ->
                 p.configurations.filter { declared.matches(it.name) }.flatMap { c ->
@@ -27,7 +30,7 @@ class RootConventionPlugin : Plugin<Project> {
         }
         val layerCheck = tasks.register("checkModuleLayers") {
             group = "verification"
-            description = "Checks that every module depends only on modules of a lower layer (srctool.layers)."
+            description = "Checks that every module depends only on lower layers (tests: the same or lower)."
             val layers = srctool.layers
             inputs.property("layers", layers)
             inputs.property("edges", edges)
@@ -37,7 +40,12 @@ class RootConventionPlugin : Plugin<Project> {
                     val (from, to) = edge.substringBefore(" [").split(" -> ")
                     val fromLayer = layerOf[from] ?: return@mapNotNull "$edge: $from has no layer in srctool.layers"
                     val toLayer = layerOf[to] ?: return@mapNotNull "$edge: $to has no layer in srctool.layers"
-                    if (toLayer < fromLayer) null else "$edge: layer $fromLayer may not depend on layer $toLayer"
+                    val allowed = if (testOnly.matches(edge.substringAfter(" [").removeSuffix("]"))) {
+                        toLayer <= fromLayer
+                    } else {
+                        toLayer < fromLayer
+                    }
+                    if (allowed) null else "$edge: layer $fromLayer may not depend on layer $toLayer"
                 }
                 check(problems.isEmpty()) { "Module layer violations:\n" + problems.joinToString("\n") { "  $it" } }
             }

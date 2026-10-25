@@ -1,90 +1,213 @@
 package com.srctool.camouflage.sample
 
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.srctool.camouflage.core.Camouflage
-import com.srctool.camouflage.core.CamouflageProvider
+import com.srctool.camouflage.core.button.CamoButton
+import com.srctool.camouflage.core.divider.CamoDivider
+import com.srctool.camouflage.core.divider.DividerInset
+import com.srctool.camouflage.core.iconbutton.CamoIconButton
+import com.srctool.camouflage.core.progress.CamoProgressCircle
+import com.srctool.camouflage.core.progress.ProgressSize
+import com.srctool.camouflage.core.provider.Camouflage
+import com.srctool.camouflage.core.provider.CamouflageProvider
+import com.srctool.camouflage.core.skin.CamoSkin
+import com.srctool.camouflage.core.surface.CamoSurface
+import com.srctool.camouflage.core.text.CamoSpan
+import com.srctool.camouflage.core.text.CamoText
+import com.srctool.camouflage.core.theme.Appearance
 import com.srctool.camouflage.core.theme.CamoColors
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.theme.CamoTypography
+import com.srctool.camouflage.core.theme.ElevationLevel
+import com.srctool.camouflage.core.theme.ShapeRole
+import com.srctool.camouflage.core.theme.SurfaceLevel
+import com.srctool.camouflage.core.theme.Tone
 import com.srctool.camouflage.core.theme.animateCamoTheme
+import com.srctool.camouflage.skin.fluent.FluentSkin
+import com.srctool.camouflage.skin.fluent.fluentTheme
+import com.srctool.camouflage.skin.minimal.MinimalSkin
+import com.srctool.camouflage.skin.minimal.minimalTheme
+import kotlinx.coroutines.delay
 
-private val BlueSeed = Color(0xFF0B57D0)
-private val GreenSeed = Color(0xFF146C2E)
+private val DebugSeed = Color(0xFF0B57D0)
 private val PromoSeed = Color(0xFFE8710A)
+private const val FAKE_REQUEST_MILLIS = 2000L
 
-private enum class Brand(val label: String, val seed: Color) {
-    Blue("blue", BlueSeed),
-    Green("green", GreenSeed),
+// The three skins the sample switches between, each with its own starter theme.
+private enum class SampleSkin(val skin: CamoSkin, val theme: (dark: Boolean) -> CamoTheme) {
+    Minimal(MinimalSkin, { minimalTheme(dark = it) }),
+    Fluent(FluentSkin, { fluentTheme(dark = it) }),
+    Debug(DebugSkin, {
+        CamoTheme(colors = CamoColors.fromSeed(primary = DebugSeed, dark = it), typography = CamoTypography.system())
+    }),
 }
 
-private fun theme(seed: Color, dark: Boolean) =
-    CamoTheme(colors = CamoColors.fromSeed(primary = seed, dark = dark), typography = CamoTypography.system())
-
-/** The sample app. M2: placeholders drawn through DebugSkin, with nested providers and live switching. */
+/** The sample app. M3: the first components on DebugSkin, Minimal and Fluent, switched live. */
 @Composable
 fun SampleApp() {
     val systemDark = isSystemInDarkTheme()
     var dark by remember { mutableStateOf(systemDark) }
-    var brand by remember { mutableStateOf(Brand.Blue) }
-    var skin by remember { mutableStateOf(DebugSkin) }
-    val otherSkin = if (skin == DebugSkin) DebugOutlineSkin else DebugSkin
-
-    CamouflageProvider(skin = skin, theme = animateCamoTheme(theme(brand.seed, dark))) {
-        Section("Root provider", Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(Camouflage.spacing.s),
-                verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.s),
+    var choice by remember { mutableStateOf(SampleSkin.Minimal) }
+    CamouflageProvider(skin = choice.skin, theme = animateCamoTheme(choice.theme(dark))) {
+        CamoSurface(Modifier.fillMaxSize()) {
+            Column(
+                Modifier.verticalScroll(rememberScrollState()).padding(Camouflage.spacing.l),
+                verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.l),
             ) {
-                Placeholder("Skin: ${skin.name}", onClick = { skin = otherSkin })
-                Placeholder("Brand: ${brand.label}", onClick = {
-                    brand = Brand.entries[(brand.ordinal + 1) % Brand.entries.size]
-                })
-                Placeholder(if (dark) "Dark" else "Light", onClick = { dark = !dark })
-            }
-            Placeholder("Inherits the root skin and theme")
-            CamouflageProvider(theme = animateCamoTheme(theme(PromoSeed, dark))) {
-                Section("Nested provider: theme only") {
-                    Placeholder("Inherits the root skin, uses the promo theme")
+                Row(horizontalArrangement = Arrangement.spacedBy(Camouflage.spacing.s)) {
+                    SampleSkin.entries.forEach {
+                        CamoButton(
+                            it.name,
+                            { choice = it },
+                            appearance = if (it == choice) Appearance.Solid else Appearance.Outline,
+                        )
+                    }
+                    CamoButton(if (dark) "Light" else "Dark", { dark = !dark }, appearance = Appearance.Ghost)
                 }
-            }
-            CamouflageProvider(skin = otherSkin) {
-                Section("Nested provider: skin only") {
-                    Placeholder("Uses the other skin, inherits the root theme")
+                Section("Buttons") { Buttons() }
+                Section("Icon buttons") { IconButtons() }
+                Section("Text") { Texts() }
+                Section("Surfaces and dividers") { Surfaces() }
+                Section("Progress") { Progress() }
+                val promo = choice.theme(dark).copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
+                CamouflageProvider(theme = promo) {
+                    Section("Nested provider: a promo theme") {
+                        CamoButton("Claim offer", {}, suffixIcon = { AppIcon.ChevronRight() })
+                    }
                 }
             }
         }
     }
 }
 
-// A region on the theme's surface, drawn with the current skin's surface treatment.
 @Composable
-private fun Section(title: String, modifier: Modifier = Modifier, content: @Composable () -> Unit) {
-    val theme = Camouflage.theme
-    Column(
-        modifier
-            .fillMaxWidth()
-            .then(Camouflage.skin.surfaceTreatment.modifier(theme.colors.surface, theme.shapes.large, 0.dp, theme))
-            .padding(theme.spacing.l),
-        verticalArrangement = Arrangement.spacedBy(theme.spacing.m),
+private fun Section(title: String, content: @Composable () -> Unit) {
+    CamoSurface(Modifier.fillMaxWidth(), level = SurfaceLevel.Low, shape = ShapeRole.Large, border = true) {
+        Column(
+            Modifier.padding(Camouflage.spacing.l),
+            verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.m),
+        ) {
+            CamoText(title, style = Camouflage.typography.titleMedium)
+            content()
+        }
+    }
+}
+
+@Composable
+private fun Buttons() {
+    val spacing = Arrangement.spacedBy(Camouflage.spacing.s)
+    for (tone in listOf(Tone.Default, Tone.Error)) {
+        for (enabled in listOf(true, false)) {
+            FlowRow(horizontalArrangement = spacing, verticalArrangement = spacing) {
+                Appearance.entries.forEach { CamoButton(it.name, {}, appearance = it, tone = tone, enabled = enabled) }
+            }
+        }
+    }
+    FlowRow(horizontalArrangement = spacing, verticalArrangement = spacing) {
+        CamoButton("Search", {}, prefixIcon = { AppIcon.Search() })
+        CamoButton("Next", {}, appearance = Appearance.Outline, suffixIcon = { AppIcon.ChevronRight() })
+        CamoButton("Delete", {}, appearance = Appearance.Ghost, tone = Tone.Error, prefixIcon = { AppIcon.Delete() })
+    }
+    var loading by remember { mutableStateOf(false) }
+    LaunchedEffect(loading) {
+        if (loading) {
+            delay(FAKE_REQUEST_MILLIS)
+            loading = false
+        }
+    }
+    CamoButton("Submit", { loading = true }, Modifier.fillMaxWidth(), loading = loading)
+}
+
+@Composable
+private fun IconButtons() {
+    var favorite by remember { mutableStateOf(false) }
+    Row(horizontalArrangement = Arrangement.spacedBy(Camouflage.spacing.s)) {
+        CamoIconButton({ AppIcon.Back() }, "Back", {}, tooltip = "Back")
+        CamoIconButton({ AppIcon.Search() }, "Search", {}, appearance = Appearance.Soft, tooltip = "Search the library")
+        CamoIconButton(
+            { if (favorite) AppIcon.Star() else AppIcon.StarOutline() },
+            "Favorite",
+            { favorite = !favorite },
+            checked = favorite,
+            tooltip = "Add to favorites",
+        )
+        CamoIconButton({ AppIcon.Delete() }, "Delete", {}, tone = Tone.Error, tooltip = "Delete")
+        CamoIconButton({ AppIcon.Search() }, "Search", {}, appearance = Appearance.Solid)
+        CamoIconButton({ AppIcon.Search() }, "Search", {}, enabled = false)
+    }
+}
+
+@Composable
+private fun Texts() {
+    val t = Camouflage.typography
+    listOf(
+        "Display small" to t.displaySmall, "Headline medium" to t.headlineMedium, "Title large" to t.titleLarge,
+        "Title medium" to t.titleMedium, "Body large" to t.bodyLarge, "Body medium" to t.bodyMedium,
+        "Body small" to t.bodySmall, "Label large" to t.labelLarge, "Label small" to t.labelSmall,
+    ).forEach { (name, style) -> CamoText(name, style = style) }
+    CamoText("Bold body", style = t.bodyMedium.copy(fontWeight = FontWeight.Bold))
+    CamoText(
+        listOf(
+            CamoSpan("I agree to the "),
+            CamoSpan("Terms", link = {}),
+            CamoSpan(" and the "),
+            CamoSpan("Privacy Policy", link = {}),
+            CamoSpan("."),
+        ),
+    )
+    CamoText("Saved", color = Camouflage.colors.success)
+}
+
+@Composable
+private fun Surfaces() {
+    Row(horizontalArrangement = Arrangement.spacedBy(Camouflage.spacing.s)) {
+        SurfaceLevel.entries.forEach {
+            CamoSurface(Modifier.size(48.dp), level = it, shape = ShapeRole.Medium, border = true) {}
+        }
+        CamoSurface(Modifier.size(48.dp), shape = ShapeRole.Medium, elevation = ElevationLevel.Level3) {}
+    }
+    CamoDivider()
+    CamoDivider(inset = DividerInset.Start)
+    CamoDivider(inset = DividerInset.Middle)
+    Row(Modifier.height(IntrinsicSize.Min), verticalAlignment = Alignment.CenterVertically) {
+        CamoText("Left")
+        CamoDivider(Modifier.padding(horizontal = Camouflage.spacing.m), orientation = Orientation.Vertical)
+        CamoText("Right")
+    }
+}
+
+@Composable
+private fun Progress() {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(Camouflage.spacing.l),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        BasicText(title, style = theme.typography.titleMedium.copy(color = Camouflage.contentColor))
-        content()
+        CamoProgressCircle(size = ProgressSize.Small, label = "Loading")
+        CamoProgressCircle(label = "Loading")
+        CamoProgressCircle(progress = 0.6f, size = ProgressSize.Large, label = "Uploading")
+        CamoProgressCircle(progress = 0.3f, tone = Tone.Error, label = "Upload failed")
     }
 }

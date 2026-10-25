@@ -1,10 +1,580 @@
-public final class com/srctool/camouflage/core/Camouflage {
+public final class com/srctool/camouflage/core/button/ButtonColors {
 	public static final field $stable I
-	public static final field INSTANCE Lcom/srctool/camouflage/core/Camouflage;
+	public synthetic fun <init> (JJLandroidx/compose/ui/graphics/Color;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLandroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun copy-yT9C2bc (JJLandroidx/compose/ui/graphics/Color;)Lcom/srctool/camouflage/core/button/ButtonColors;
+	public static synthetic fun copy-yT9C2bc$default (Lcom/srctool/camouflage/core/button/ButtonColors;JJLandroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/srctool/camouflage/core/button/ButtonColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getContent-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/button/ButtonRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/button/ButtonState;Lcom/srctool/camouflage/core/button/ButtonSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/button/ButtonStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/button/ButtonStyle;
+}
+
+public final class com/srctool/camouflage/core/button/ButtonSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
+	public final fun getPrefixIcon ()Lkotlin/jvm/functions/Function2;
+	public final fun getSuffixIcon ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/srctool/camouflage/core/button/ButtonState {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;ZZLcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun component5 ()Lcom/srctool/camouflage/core/theme/Tone;
+	public final fun component6 ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun component7 ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun copy (Ljava/lang/String;ZZLcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;)Lcom/srctool/camouflage/core/button/ButtonState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/button/ButtonState;Ljava/lang/String;ZZLcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;ILjava/lang/Object;)Lcom/srctool/camouflage/core/button/ButtonState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAppearance ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun getEnabled ()Z
+	public final fun getInteraction ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun getInteractionSource ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun getLoading ()Z
+	public final fun getText ()Ljava/lang/String;
+	public final fun getTone ()Lcom/srctool/camouflage/core/theme/Tone;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/button/ButtonStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/theme/Appearance;FFLandroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;FFFLcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;FFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun colorsFor (Lcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component1 ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun component10-D9Ej5fM ()F
+	public final fun component11 ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun component12 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component13 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component14 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component15 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component16 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component17 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component18 ()F
+	public final fun component19 ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component5 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component6 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8-D9Ej5fM ()F
+	public final fun component9-D9Ej5fM ()F
+	public final fun copy-XvGVhDw (Lcom/srctool/camouflage/core/theme/Appearance;FFLandroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;FFFLcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;FF)Lcom/srctool/camouflage/core/button/ButtonStyle;
+	public static synthetic fun copy-XvGVhDw$default (Lcom/srctool/camouflage/core/button/ButtonStyle;Lcom/srctool/camouflage/core/theme/Appearance;FFLandroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;FFFLcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;FFILjava/lang/Object;)Lcom/srctool/camouflage/core/button/ButtonStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderWidth-D9Ej5fM ()F
+	public final fun getDefaultAppearance ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun getDisabledContainerAlpha ()F
+	public final fun getDisabledContentAlpha ()F
+	public final fun getGhostColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getHeight-D9Ej5fM ()F
+	public final fun getIconGap-D9Ej5fM ()F
+	public final fun getIconSize-D9Ej5fM ()F
+	public final fun getLinkColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getMinWidth-D9Ej5fM ()F
+	public final fun getOutlineColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getPaddingWithIcon ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getRaisedColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getRaisedElevation ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getSoftColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getSolidColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/button/ButtonTheme;)Lcom/srctool/camouflage/core/button/ButtonStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/button/ButtonTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Ljava/lang/Float;Ljava/lang/Float;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Ljava/lang/Float;Ljava/lang/Float;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun component10-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component11 ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun component12 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component13 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component14 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component15 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component16 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component17 ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun component18 ()Ljava/lang/Float;
+	public final fun component19 ()Ljava/lang/Float;
+	public final fun component2-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component3-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component4 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component5 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component6 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component9-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun copy-4bU1mGA (Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Ljava/lang/Float;Ljava/lang/Float;)Lcom/srctool/camouflage/core/button/ButtonTheme;
+	public static synthetic fun copy-4bU1mGA$default (Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Lcom/srctool/camouflage/core/button/ButtonColors;Ljava/lang/Float;Ljava/lang/Float;ILjava/lang/Object;)Lcom/srctool/camouflage/core/button/ButtonTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getDefaultAppearance ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun getDisabledContainerAlpha ()Ljava/lang/Float;
+	public final fun getDisabledContentAlpha ()Ljava/lang/Float;
+	public final fun getGhostColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getHeight-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getIconGap-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getIconSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getLinkColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getMinWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getOutlineColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getPaddingWithIcon ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getRaisedColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getRaisedElevation ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getSoftColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getSolidColors ()Lcom/srctool/camouflage/core/button/ButtonColors;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/button/CamoButtonKt {
+	public static final fun CamoButton (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;ZZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/button/DebugChecks {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/srctool/camouflage/core/button/DebugChecks;
+	public final fun getEnabled ()Z
+	public final fun setEnabled (Z)V
+}
+
+public final class com/srctool/camouflage/core/divider/CamoDividerKt {
+	public static final fun CamoDivider (Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/gestures/Orientation;Lcom/srctool/camouflage/core/divider/DividerInset;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/divider/DividerInset : java/lang/Enum {
+	public static final field Middle Lcom/srctool/camouflage/core/divider/DividerInset;
+	public static final field None Lcom/srctool/camouflage/core/divider/DividerInset;
+	public static final field Start Lcom/srctool/camouflage/core/divider/DividerInset;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/divider/DividerInset;
+	public static fun values ()[Lcom/srctool/camouflage/core/divider/DividerInset;
+}
+
+public abstract interface class com/srctool/camouflage/core/divider/DividerRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/divider/DividerState;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/divider/DividerStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/divider/DividerStyle;
+}
+
+public final class com/srctool/camouflage/core/divider/DividerState {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/foundation/gestures/Orientation;Lcom/srctool/camouflage/core/divider/DividerInset;)V
+	public final fun component1 ()Landroidx/compose/foundation/gestures/Orientation;
+	public final fun component2 ()Lcom/srctool/camouflage/core/divider/DividerInset;
+	public final fun copy (Landroidx/compose/foundation/gestures/Orientation;Lcom/srctool/camouflage/core/divider/DividerInset;)Lcom/srctool/camouflage/core/divider/DividerState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/divider/DividerState;Landroidx/compose/foundation/gestures/Orientation;Lcom/srctool/camouflage/core/divider/DividerInset;ILjava/lang/Object;)Lcom/srctool/camouflage/core/divider/DividerState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInset ()Lcom/srctool/camouflage/core/divider/DividerInset;
+	public final fun getOrientation ()Landroidx/compose/foundation/gestures/Orientation;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/divider/DividerStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FJFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun copy-B25TsWM (FJFF)Lcom/srctool/camouflage/core/divider/DividerStyle;
+	public static synthetic fun copy-B25TsWM$default (Lcom/srctool/camouflage/core/divider/DividerStyle;FJFFILjava/lang/Object;)Lcom/srctool/camouflage/core/divider/DividerStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-0d7_KjU ()J
+	public final fun getEndInset-D9Ej5fM ()F
+	public final fun getStartInset-D9Ej5fM ()F
+	public final fun getThickness-D9Ej5fM ()F
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/divider/DividerTheme;)Lcom/srctool/camouflage/core/divider/DividerStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/divider/DividerTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component2-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun component3-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component4-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun copy-JAdVReQ (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;)Lcom/srctool/camouflage/core/divider/DividerTheme;
+	public static synthetic fun copy-JAdVReQ$default (Lcom/srctool/camouflage/core/divider/DividerTheme;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;ILjava/lang/Object;)Lcom/srctool/camouflage/core/divider/DividerTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getEndInset-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getStartInset-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getThickness-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/icon/CamoIconKt {
+	public static final fun CamoIcon-xfPyhaw (Lcom/srctool/camouflage/core/icon/IconSource;Ljava/lang/String;Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
+	public static final fun IconImage (Lcom/srctool/camouflage/core/icon/IconState;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/srctool/camouflage/core/icon/IconRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/icon/IconState;Lcom/srctool/camouflage/core/theme/CamoTheme;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/icon/IconStyle;
+}
+
+public abstract interface class com/srctool/camouflage/core/icon/IconSource {
+	public abstract fun getAutoMirror ()Z
+	public abstract fun getOriginal ()Z
+}
+
+public final class com/srctool/camouflage/core/icon/IconSource$Paint : com/srctool/camouflage/core/icon/IconSource {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;ZZ)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/painter/Painter;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;ZZ)Lcom/srctool/camouflage/core/icon/IconSource$Paint;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/icon/IconSource$Paint;Landroidx/compose/ui/graphics/painter/Painter;ZZILjava/lang/Object;)Lcom/srctool/camouflage/core/icon/IconSource$Paint;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAutoMirror ()Z
+	public fun getOriginal ()Z
+	public final fun getPainter ()Landroidx/compose/ui/graphics/painter/Painter;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/icon/IconSource$Resource : com/srctool/camouflage/core/icon/IconSource {
+	public static final field $stable I
+	public fun <init> (Lorg/jetbrains/compose/resources/DrawableResource;ZZ)V
+	public synthetic fun <init> (Lorg/jetbrains/compose/resources/DrawableResource;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lorg/jetbrains/compose/resources/DrawableResource;
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun copy (Lorg/jetbrains/compose/resources/DrawableResource;ZZ)Lcom/srctool/camouflage/core/icon/IconSource$Resource;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/icon/IconSource$Resource;Lorg/jetbrains/compose/resources/DrawableResource;ZZILjava/lang/Object;)Lcom/srctool/camouflage/core/icon/IconSource$Resource;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAutoMirror ()Z
+	public final fun getDrawable ()Lorg/jetbrains/compose/resources/DrawableResource;
+	public fun getOriginal ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/icon/IconSource$Vector : com/srctool/camouflage/core/icon/IconSource {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;ZZ)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun copy (Landroidx/compose/ui/graphics/vector/ImageVector;ZZ)Lcom/srctool/camouflage/core/icon/IconSource$Vector;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/icon/IconSource$Vector;Landroidx/compose/ui/graphics/vector/ImageVector;ZZILjava/lang/Object;)Lcom/srctool/camouflage/core/icon/IconSource$Vector;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAutoMirror ()Z
+	public final fun getImage ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public fun getOriginal ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/icon/IconState {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/icon/IconSource;FJLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-0d7_KjU ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy-xT4_qwU (Lcom/srctool/camouflage/core/icon/IconSource;FJLjava/lang/String;)Lcom/srctool/camouflage/core/icon/IconState;
+	public static synthetic fun copy-xT4_qwU$default (Lcom/srctool/camouflage/core/icon/IconState;Lcom/srctool/camouflage/core/icon/IconSource;FJLjava/lang/String;ILjava/lang/Object;)Lcom/srctool/camouflage/core/icon/IconState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-0d7_KjU ()J
+	public final fun getContentDescription ()Ljava/lang/String;
+	public final fun getSize-D9Ej5fM ()F
+	public final fun getSource ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/icon/IconStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-0d7_KjU ()J
+	public final fun copy-cXLIe8U (FJ)Lcom/srctool/camouflage/core/icon/IconStyle;
+	public static synthetic fun copy-cXLIe8U$default (Lcom/srctool/camouflage/core/icon/IconStyle;FJILjava/lang/Object;)Lcom/srctool/camouflage/core/icon/IconStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-0d7_KjU ()J
+	public final fun getSize-D9Ej5fM ()F
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/icon/IconTheme;)Lcom/srctool/camouflage/core/icon/IconStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/icon/IconTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component2-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun copy-Qr3XMzc (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;)Lcom/srctool/camouflage/core/icon/IconTheme;
+	public static synthetic fun copy-Qr3XMzc$default (Lcom/srctool/camouflage/core/icon/IconTheme;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/srctool/camouflage/core/icon/IconTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/iconbutton/CamoIconButtonKt {
+	public static final fun CamoIconButton (Lkotlin/jvm/functions/Function2;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;ZLjava/lang/Boolean;ZLjava/lang/String;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/srctool/camouflage/core/iconbutton/IconButtonColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJLandroidx/compose/ui/graphics/Color;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLandroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun copy-yT9C2bc (JJLandroidx/compose/ui/graphics/Color;)Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public static synthetic fun copy-yT9C2bc$default (Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;JJLandroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getContent-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/iconbutton/IconButtonRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/iconbutton/IconButtonState;Lcom/srctool/camouflage/core/iconbutton/IconButtonSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/iconbutton/IconButtonStyle;
+}
+
+public final class com/srctool/camouflage/core/iconbutton/IconButtonSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
+	public final fun getIcon ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/srctool/camouflage/core/iconbutton/IconButtonState {
+	public static final field $stable I
+	public fun <init> (ZLjava/lang/Boolean;ZLcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Z
+	public final fun component4 ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun component5 ()Lcom/srctool/camouflage/core/theme/Tone;
+	public final fun component6 ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun component7 ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun copy (ZLjava/lang/Boolean;ZLcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;)Lcom/srctool/camouflage/core/iconbutton/IconButtonState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/iconbutton/IconButtonState;ZLjava/lang/Boolean;ZLcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;ILjava/lang/Object;)Lcom/srctool/camouflage/core/iconbutton/IconButtonState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAppearance ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun getChecked ()Ljava/lang/Boolean;
+	public final fun getEnabled ()Z
+	public final fun getInteraction ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun getInteractionSource ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun getLoading ()Z
+	public final fun getTone ()Lcom/srctool/camouflage/core/theme/Tone;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/iconbutton/IconButtonStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/theme/Appearance;FLandroidx/compose/ui/graphics/Shape;FFLcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;FFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun colorsFor (Lcom/srctool/camouflage/core/theme/Appearance;Lcom/srctool/camouflage/core/theme/Tone;ZLcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component1 ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun component10 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component11 ()F
+	public final fun component12 ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component7 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component8 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component9 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun copy-Vp-2Xh0 (Lcom/srctool/camouflage/core/theme/Appearance;FLandroidx/compose/ui/graphics/Shape;FFLcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;FF)Lcom/srctool/camouflage/core/iconbutton/IconButtonStyle;
+	public static synthetic fun copy-Vp-2Xh0$default (Lcom/srctool/camouflage/core/iconbutton/IconButtonStyle;Lcom/srctool/camouflage/core/theme/Appearance;FLandroidx/compose/ui/graphics/Shape;FFLcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;FFILjava/lang/Object;)Lcom/srctool/camouflage/core/iconbutton/IconButtonStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderWidth-D9Ej5fM ()F
+	public final fun getCheckedColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun getContainerSize-D9Ej5fM ()F
+	public final fun getDefaultAppearance ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun getDisabledContainerAlpha ()F
+	public final fun getDisabledContentAlpha ()F
+	public final fun getGhostColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun getIconSize-D9Ej5fM ()F
+	public final fun getOutlineColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getSoftColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun getSolidColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;)Lcom/srctool/camouflage/core/iconbutton/IconButtonStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/iconbutton/IconButtonTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Ljava/lang/Float;Ljava/lang/Float;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Ljava/lang/Float;Ljava/lang/Float;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun component10 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component11 ()Ljava/lang/Float;
+	public final fun component12 ()Ljava/lang/Float;
+	public final fun component2-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component3 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component4-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component5-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component6 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component7 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component8 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun component9 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun copy-UY8s2VY (Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Ljava/lang/Float;Ljava/lang/Float;)Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;
+	public static synthetic fun copy-UY8s2VY$default (Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;Ljava/lang/Float;Ljava/lang/Float;ILjava/lang/Object;)Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getCheckedColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun getContainerSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getDefaultAppearance ()Lcom/srctool/camouflage/core/theme/Appearance;
+	public final fun getDisabledContainerAlpha ()Ljava/lang/Float;
+	public final fun getDisabledContentAlpha ()Ljava/lang/Float;
+	public final fun getGhostColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun getIconSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getOutlineColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getSoftColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public final fun getSolidColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/progress/CamoProgressKt {
+	public static final fun CamoProgressCircle (Landroidx/compose/ui/Modifier;Ljava/lang/Float;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/progress/ProgressSize;Ljava/lang/String;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/srctool/camouflage/core/progress/ProgressCircleRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/progress/ProgressState;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/progress/ProgressStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/progress/ProgressStyle;
+}
+
+public final class com/srctool/camouflage/core/progress/ProgressColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun copy--OWjLjI (JJ)Lcom/srctool/camouflage/core/progress/ProgressColors;
+	public static synthetic fun copy--OWjLjI$default (Lcom/srctool/camouflage/core/progress/ProgressColors;JJILjava/lang/Object;)Lcom/srctool/camouflage/core/progress/ProgressColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActive-0d7_KjU ()J
+	public final fun getTrack-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/progress/ProgressSize : java/lang/Enum {
+	public static final field Large Lcom/srctool/camouflage/core/progress/ProgressSize;
+	public static final field Medium Lcom/srctool/camouflage/core/progress/ProgressSize;
+	public static final field Small Lcom/srctool/camouflage/core/progress/ProgressSize;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/progress/ProgressSize;
+	public static fun values ()[Lcom/srctool/camouflage/core/progress/ProgressSize;
+}
+
+public final class com/srctool/camouflage/core/progress/ProgressState {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/Float;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/progress/ProgressSize;)V
+	public final fun component1 ()Ljava/lang/Float;
+	public final fun component2 ()Lcom/srctool/camouflage/core/theme/Tone;
+	public final fun component3 ()Lcom/srctool/camouflage/core/progress/ProgressSize;
+	public final fun copy (Ljava/lang/Float;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/progress/ProgressSize;)Lcom/srctool/camouflage/core/progress/ProgressState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/progress/ProgressState;Ljava/lang/Float;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/progress/ProgressSize;ILjava/lang/Object;)Lcom/srctool/camouflage/core/progress/ProgressState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getProgress ()Ljava/lang/Float;
+	public final fun getSize ()Lcom/srctool/camouflage/core/progress/ProgressSize;
+	public final fun getTone ()Lcom/srctool/camouflage/core/theme/Tone;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/progress/ProgressStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFLcom/srctool/camouflage/core/progress/ProgressColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun circleSizeOf-u2uoSUM (Lcom/srctool/camouflage/core/progress/ProgressSize;)F
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5 ()Lcom/srctool/camouflage/core/progress/ProgressColors;
+	public final fun copy-lDy3nrA (FFFFLcom/srctool/camouflage/core/progress/ProgressColors;)Lcom/srctool/camouflage/core/progress/ProgressStyle;
+	public static synthetic fun copy-lDy3nrA$default (Lcom/srctool/camouflage/core/progress/ProgressStyle;FFFFLcom/srctool/camouflage/core/progress/ProgressColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/progress/ProgressStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCircleSizeLarge-D9Ej5fM ()F
+	public final fun getCircleSizeMedium-D9Ej5fM ()F
+	public final fun getCircleSizeSmall-D9Ej5fM ()F
+	public final fun getCircleStroke-D9Ej5fM ()F
+	public final fun getColors ()Lcom/srctool/camouflage/core/progress/ProgressColors;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/progress/ProgressTheme;)Lcom/srctool/camouflage/core/progress/ProgressStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/progress/ProgressTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/progress/ProgressColors;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/progress/ProgressColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component2-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component3-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component4-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component5 ()Lcom/srctool/camouflage/core/progress/ProgressColors;
+	public final fun copy-r6S9DUQ (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/progress/ProgressColors;)Lcom/srctool/camouflage/core/progress/ProgressTheme;
+	public static synthetic fun copy-r6S9DUQ$default (Lcom/srctool/camouflage/core/progress/ProgressTheme;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/progress/ProgressColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/progress/ProgressTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCircleSizeLarge-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getCircleSizeMedium-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getCircleSizeSmall-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getCircleStroke-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getColors ()Lcom/srctool/camouflage/core/progress/ProgressColors;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/provider/Camouflage {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/srctool/camouflage/core/provider/Camouflage;
 	public final fun getColors (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoColors;
 	public final fun getContentColor (Landroidx/compose/runtime/Composer;I)J
 	public final fun getElevation (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoElevation;
-	public final fun getIconStyle (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/skin/IconStyle;
+	public final fun getIconStyle (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/icon/IconStyle;
 	public final fun getMotion (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoMotion;
 	public final fun getShapes (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoShapes;
 	public final fun getSkin (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/skin/CamoSkin;
@@ -15,60 +585,56 @@ public final class com/srctool/camouflage/core/Camouflage {
 	public final fun getTypography (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoTypography;
 }
 
-public final class com/srctool/camouflage/core/CamouflageKt {
+public final class com/srctool/camouflage/core/provider/CamouflageKt {
 	public static final fun missingTokenSet (Ljava/lang/String;)Ljava/lang/Void;
 	public static final fun requireSkin (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/skin/CamoSkin;
 	public static final fun requireTheme (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoTheme;
 }
 
-public final class com/srctool/camouflage/core/CamouflageMissingProviderException : java/lang/IllegalStateException {
+public final class com/srctool/camouflage/core/provider/CamouflageMissingProviderException : java/lang/IllegalStateException {
 	public static final field $stable I
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
 }
 
-public final class com/srctool/camouflage/core/CamouflageProviderKt {
+public final class com/srctool/camouflage/core/provider/CamouflageProviderKt {
 	public static final fun CamouflagePreview (Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 	public static final fun CamouflageProvider (Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public static final field $stable I
-	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;)V
+	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;)V
 	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;
+	public final fun component11 ()Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;
 	public final fun component2 ()Lcom/srctool/camouflage/core/skin/SurfaceTreatment;
 	public final fun component3 ()Lcom/srctool/camouflage/core/skin/InteractionFeedback;
-	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;)Lcom/srctool/camouflage/core/skin/CamoSkin;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public final fun component4 ()Lcom/srctool/camouflage/core/text/TextRenderer;
+	public final fun component5 ()Lcom/srctool/camouflage/core/icon/IconRenderer;
+	public final fun component6 ()Lcom/srctool/camouflage/core/surface/SurfaceRenderer;
+	public final fun component7 ()Lcom/srctool/camouflage/core/divider/DividerRenderer;
+	public final fun component8 ()Lcom/srctool/camouflage/core/button/ButtonRenderer;
+	public final fun component9 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;
+	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getButton ()Lcom/srctool/camouflage/core/button/ButtonRenderer;
+	public final fun getDivider ()Lcom/srctool/camouflage/core/divider/DividerRenderer;
 	public final fun getFeedback ()Lcom/srctool/camouflage/core/skin/InteractionFeedback;
+	public final fun getIcon ()Lcom/srctool/camouflage/core/icon/IconRenderer;
+	public final fun getIconButton ()Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;
 	public final fun getName ()Ljava/lang/String;
+	public final fun getProgressCircle ()Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;
+	public final fun getSurface ()Lcom/srctool/camouflage/core/surface/SurfaceRenderer;
 	public final fun getSurfaceTreatment ()Lcom/srctool/camouflage/core/skin/SurfaceTreatment;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/srctool/camouflage/core/skin/ContentStyleKt {
-	public static final fun ProvideContentStyle-3J-VO9M (JLcom/srctool/camouflage/core/skin/IconStyle;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
-	public static final fun disabled-DxMtmZc (JF)J
-	public static final fun rememberSkinIndication-ek8zF_U (JLandroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/Indication;
-}
-
-public final class com/srctool/camouflage/core/skin/IconStyle {
-	public static final field $stable I
-	public synthetic fun <init> (FJLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-D9Ej5fM ()F
-	public final fun component2-0d7_KjU ()J
-	public final fun copy-cXLIe8U (FJ)Lcom/srctool/camouflage/core/skin/IconStyle;
-	public static synthetic fun copy-cXLIe8U$default (Lcom/srctool/camouflage/core/skin/IconStyle;FJILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/IconStyle;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getColor-0d7_KjU ()J
-	public final fun getSize-D9Ej5fM ()F
+	public final fun getText ()Lcom/srctool/camouflage/core/text/TextRenderer;
+	public final fun getTooltip ()Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public abstract interface class com/srctool/camouflage/core/skin/InteractionFeedback {
-	public abstract fun indication-DxMtmZc (JLcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/foundation/Indication;
+	public abstract fun indication-ek8zF_U (JLandroidx/compose/ui/graphics/Shape;Lcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/foundation/Indication;
 }
 
 public final class com/srctool/camouflage/core/skin/InteractionState {
@@ -98,6 +664,128 @@ public final class com/srctool/camouflage/core/skin/InteractionState$Companion {
 
 public abstract interface class com/srctool/camouflage/core/skin/SurfaceTreatment {
 	public abstract fun modifier-hhQwkJs (JLandroidx/compose/ui/graphics/Shape;FLcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/ui/Modifier;
+}
+
+public final class com/srctool/camouflage/core/surface/CamoSurfaceKt {
+	public static final fun CamoSurface (Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/core/theme/SurfaceLevel;Lcom/srctool/camouflage/core/theme/ShapeRole;Lcom/srctool/camouflage/core/theme/ElevationLevel;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun surfaceOf (Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/SurfaceLevel;)J
+}
+
+public abstract interface class com/srctool/camouflage/core/surface/SurfaceRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/surface/SurfaceState;Lcom/srctool/camouflage/core/surface/SurfaceSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/surface/SurfaceStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/surface/SurfaceStyle;
+}
+
+public final class com/srctool/camouflage/core/surface/SurfaceSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
+	public final fun getContent ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/srctool/camouflage/core/surface/SurfaceState {
+	public static final field $stable I
+	public fun <init> (Lcom/srctool/camouflage/core/theme/SurfaceLevel;Lcom/srctool/camouflage/core/theme/ShapeRole;Lcom/srctool/camouflage/core/theme/ElevationLevel;Z)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/theme/SurfaceLevel;
+	public final fun component2 ()Lcom/srctool/camouflage/core/theme/ShapeRole;
+	public final fun component3 ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun component4 ()Z
+	public final fun copy (Lcom/srctool/camouflage/core/theme/SurfaceLevel;Lcom/srctool/camouflage/core/theme/ShapeRole;Lcom/srctool/camouflage/core/theme/ElevationLevel;Z)Lcom/srctool/camouflage/core/surface/SurfaceState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/surface/SurfaceState;Lcom/srctool/camouflage/core/theme/SurfaceLevel;Lcom/srctool/camouflage/core/theme/ShapeRole;Lcom/srctool/camouflage/core/theme/ElevationLevel;ZILjava/lang/Object;)Lcom/srctool/camouflage/core/surface/SurfaceState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder ()Z
+	public final fun getElevation ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun getLevel ()Lcom/srctool/camouflage/core/theme/SurfaceLevel;
+	public final fun getShape ()Lcom/srctool/camouflage/core/theme/ShapeRole;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/surface/SurfaceStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-0d7_KjU ()J
+	public final fun copy-cXLIe8U (FJ)Lcom/srctool/camouflage/core/surface/SurfaceStyle;
+	public static synthetic fun copy-cXLIe8U$default (Lcom/srctool/camouflage/core/surface/SurfaceStyle;FJILjava/lang/Object;)Lcom/srctool/camouflage/core/surface/SurfaceStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-0d7_KjU ()J
+	public final fun getBorderWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/surface/SurfaceTheme;)Lcom/srctool/camouflage/core/surface/SurfaceStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/surface/SurfaceTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component2-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun copy-Qr3XMzc (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;)Lcom/srctool/camouflage/core/surface/SurfaceTheme;
+	public static synthetic fun copy-Qr3XMzc$default (Lcom/srctool/camouflage/core/surface/SurfaceTheme;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/srctool/camouflage/core/surface/SurfaceTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderColor-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBorderWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/text/CamoSpan {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/font/FontWeight;Ljava/lang/Boolean;JLjava/lang/Boolean;Lkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/font/FontWeight;Ljava/lang/Boolean;JLjava/lang/Boolean;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component3 ()Landroidx/compose/ui/text/font/FontWeight;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun component5-0d7_KjU ()J
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component7 ()Lkotlin/jvm/functions/Function0;
+	public final fun copy-qFjXxE8 (Ljava/lang/String;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/font/FontWeight;Ljava/lang/Boolean;JLjava/lang/Boolean;Lkotlin/jvm/functions/Function0;)Lcom/srctool/camouflage/core/text/CamoSpan;
+	public static synthetic fun copy-qFjXxE8$default (Lcom/srctool/camouflage/core/text/CamoSpan;Ljava/lang/String;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/font/FontWeight;Ljava/lang/Boolean;JLjava/lang/Boolean;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/srctool/camouflage/core/text/CamoSpan;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-0d7_KjU ()J
+	public final fun getFontWeight ()Landroidx/compose/ui/text/font/FontWeight;
+	public final fun getItalic ()Ljava/lang/Boolean;
+	public final fun getLink ()Lkotlin/jvm/functions/Function0;
+	public final fun getStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getText ()Ljava/lang/String;
+	public final fun getUnderline ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/text/CamoTextKt {
+	public static final fun CamoText-5dEDNTE (Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/text/TextStyle;JIIILandroidx/compose/runtime/Composer;II)V
+	public static final fun CamoText-5dEDNTE (Ljava/util/List;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/text/TextStyle;JIIILandroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/srctool/camouflage/core/text/TextRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/text/TextState;Lcom/srctool/camouflage/core/theme/CamoTheme;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun linkStyles (Lcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/ui/text/TextLinkStyles;
+}
+
+public final class com/srctool/camouflage/core/text/TextState {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/text/AnnotatedString;Landroidx/compose/ui/text/TextStyle;JIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/text/AnnotatedString;
+	public final fun component2 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component3-0d7_KjU ()J
+	public final fun component4 ()I
+	public final fun component5-gIe3tQ8 ()I
+	public final fun component6-e0LSkKk ()I
+	public final fun copy-jIJ3mMQ (Landroidx/compose/ui/text/AnnotatedString;Landroidx/compose/ui/text/TextStyle;JIII)Lcom/srctool/camouflage/core/text/TextState;
+	public static synthetic fun copy-jIJ3mMQ$default (Lcom/srctool/camouflage/core/text/TextState;Landroidx/compose/ui/text/AnnotatedString;Landroidx/compose/ui/text/TextStyle;JIIIILjava/lang/Object;)Lcom/srctool/camouflage/core/text/TextState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-0d7_KjU ()J
+	public final fun getContent ()Landroidx/compose/ui/text/AnnotatedString;
+	public final fun getMaxLines ()I
+	public final fun getOverflow-gIe3tQ8 ()I
+	public final fun getStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTextAlign-e0LSkKk ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/srctool/camouflage/core/theme/Appearance : java/lang/Enum {
@@ -228,7 +916,25 @@ public final class com/srctool/camouflage/core/theme/CamoColorsKt {
 public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public static final field $stable I
 	public fun <init> ()V
+	public fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/icon/IconTheme;
+	public final fun component2 ()Lcom/srctool/camouflage/core/surface/SurfaceTheme;
+	public final fun component3 ()Lcom/srctool/camouflage/core/divider/DividerTheme;
+	public final fun component4 ()Lcom/srctool/camouflage/core/button/ButtonTheme;
+	public final fun component5 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;
+	public final fun component6 ()Lcom/srctool/camouflage/core/progress/ProgressTheme;
+	public final fun component7 ()Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
+	public final fun copy (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getButton ()Lcom/srctool/camouflage/core/button/ButtonTheme;
+	public final fun getDivider ()Lcom/srctool/camouflage/core/divider/DividerTheme;
+	public final fun getIcon ()Lcom/srctool/camouflage/core/icon/IconTheme;
+	public final fun getIconButton ()Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;
+	public final fun getProgress ()Lcom/srctool/camouflage/core/progress/ProgressTheme;
+	public final fun getSurface ()Lcom/srctool/camouflage/core/surface/SurfaceTheme;
+	public final fun getTooltip ()Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -266,6 +972,7 @@ public final class com/srctool/camouflage/core/theme/CamoElevation {
 }
 
 public final class com/srctool/camouflage/core/theme/CamoElevationKt {
+	public static final fun levelOf-3ABfNKs (Lcom/srctool/camouflage/core/theme/CamoElevation;F)Lcom/srctool/camouflage/core/theme/ElevationLevel;
 	public static final fun of (Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/ElevationLevel;)F
 }
 
@@ -556,5 +1263,113 @@ public final class com/srctool/camouflage/core/theme/ToneColors {
 	public final fun getStrong-0d7_KjU ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/tooltip/CamoTooltipKt {
+	public static final fun CamoTooltip (Ljava/lang/String;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/tooltip/TooltipColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun copy--OWjLjI (JJ)Lcom/srctool/camouflage/core/tooltip/TooltipColors;
+	public static synthetic fun copy--OWjLjI$default (Lcom/srctool/camouflage/core/tooltip/TooltipColors;JJILjava/lang/Object;)Lcom/srctool/camouflage/core/tooltip/TooltipColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getText-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/tooltip/TooltipRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/tooltip/TooltipState;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/tooltip/TooltipStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/tooltip/TooltipStyle;
+}
+
+public final class com/srctool/camouflage/core/tooltip/TooltipState {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Z)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun copy (Ljava/lang/String;Z)Lcom/srctool/camouflage/core/tooltip/TooltipState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/tooltip/TooltipState;Ljava/lang/String;ZILjava/lang/Object;)Lcom/srctool/camouflage/core/tooltip/TooltipState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getText ()Ljava/lang/String;
+	public final fun getVisible ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/tooltip/TooltipStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;FLandroidx/compose/ui/text/TextStyle;IIFLcom/srctool/camouflage/core/tooltip/TooltipColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component2 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5 ()I
+	public final fun component6 ()I
+	public final fun component7-D9Ej5fM ()F
+	public final fun component8 ()Lcom/srctool/camouflage/core/tooltip/TooltipColors;
+	public final fun copy-bs7tm-s (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;FLandroidx/compose/ui/text/TextStyle;IIFLcom/srctool/camouflage/core/tooltip/TooltipColors;)Lcom/srctool/camouflage/core/tooltip/TooltipStyle;
+	public static synthetic fun copy-bs7tm-s$default (Lcom/srctool/camouflage/core/tooltip/TooltipStyle;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;FLandroidx/compose/ui/text/TextStyle;IIFLcom/srctool/camouflage/core/tooltip/TooltipColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/tooltip/TooltipStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColors ()Lcom/srctool/camouflage/core/tooltip/TooltipColors;
+	public final fun getHideDelayMillis ()I
+	public final fun getMaxWidth-D9Ej5fM ()F
+	public final fun getOffset-D9Ej5fM ()F
+	public final fun getPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getShowDelayMillis ()I
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/tooltip/TooltipTheme;)Lcom/srctool/camouflage/core/tooltip/TooltipStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/tooltip/TooltipTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/text/TextStyle;Ljava/lang/Integer;Ljava/lang/Integer;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/tooltip/TooltipColors;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/text/TextStyle;Ljava/lang/Integer;Ljava/lang/Integer;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/tooltip/TooltipColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component2 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component3-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5 ()Ljava/lang/Integer;
+	public final fun component6 ()Ljava/lang/Integer;
+	public final fun component7-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component8 ()Lcom/srctool/camouflage/core/tooltip/TooltipColors;
+	public final fun copy-NmKz9y0 (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/text/TextStyle;Ljava/lang/Integer;Ljava/lang/Integer;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/tooltip/TooltipColors;)Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
+	public static synthetic fun copy-NmKz9y0$default (Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/text/TextStyle;Ljava/lang/Integer;Ljava/lang/Integer;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/tooltip/TooltipColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColors ()Lcom/srctool/camouflage/core/tooltip/TooltipColors;
+	public final fun getHideDelayMillis ()Ljava/lang/Integer;
+	public final fun getMaxWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getOffset-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getShowDelayMillis ()Ljava/lang/Integer;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/util/ContentStyleKt {
+	public static final fun ProvideContentStyle-3J-VO9M (JLcom/srctool/camouflage/core/icon/IconStyle;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public static final fun disabled-DxMtmZc (JF)J
+	public static final fun rememberSkinIndication-Iv8Zu3U (JLandroidx/compose/ui/graphics/Shape;Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/Indication;
+}
+
+public final class com/srctool/camouflage/core/util/InteractionKt {
+	public static final fun collectInteractionState (Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/skin/InteractionState;
+}
+
+public final class com/srctool/camouflage/core/util/TouchTargetKt {
+	public static final fun getMinimumTouchTarget ()F
+	public static final fun minimumTouchTarget-3ABfNKs (Landroidx/compose/ui/Modifier;F)Landroidx/compose/ui/Modifier;
+	public static synthetic fun minimumTouchTarget-3ABfNKs$default (Landroidx/compose/ui/Modifier;FILjava/lang/Object;)Landroidx/compose/ui/Modifier;
 }
 

@@ -1,6 +1,29 @@
-public final class com/srctool/camouflage/skin/testing/CamoSkinTesting {
-	public static final field $stable I
-	public static final field ARTIFACT Ljava/lang/String;
-	public static final field INSTANCE Lcom/srctool/camouflage/skin/testing/CamoSkinTesting;
+public final class com/srctool/camouflage/skin/testing/CamoSkinTestingKt {
+	public static final field CAMO_CONTENT_TAG Ljava/lang/String;
+	public static final fun ProvideComponentThemes (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public static final fun assertNoLiterals (Landroidx/compose/ui/test/ComposeUiTest;Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;)V
+	public static final fun assertRendererAppliesBehavior (Landroidx/compose/ui/test/ComposeUiTest;Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Lkotlin/jvm/functions/Function3;)V
+	public static final fun setCamoContent (Landroidx/compose/ui/test/ComposeUiTest;Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;FZLkotlin/jvm/functions/Function2;)V
+	public static synthetic fun setCamoContent$default (Landroidx/compose/ui/test/ComposeUiTest;Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;FZLkotlin/jvm/functions/Function2;ILjava/lang/Object;)V
+}
+
+public final class com/srctool/camouflage/skin/testing/ComposableSingletons$GalleryKt {
+	public static final field INSTANCE Lcom/srctool/camouflage/skin/testing/ComposableSingletons$GalleryKt;
+	public fun <init> ()V
+	public final fun getLambda$-1005296741$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1919867444$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-60424818$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$18839315$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2142290504$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$291275602$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$417061936$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$829758072$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/srctool/camouflage/skin/testing/GalleryKt {
+	public static final fun ButtonGallery (Landroidx/compose/runtime/Composer;I)V
+	public static final fun IconButtonGallery (Landroidx/compose/runtime/Composer;I)V
+	public static final fun PrimitiveGallery (Landroidx/compose/runtime/Composer;I)V
+	public static final fun getGalleryIcon ()Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 

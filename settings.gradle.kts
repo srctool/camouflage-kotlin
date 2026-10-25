@@ -24,6 +24,6 @@ dependencyResolutionManagement {
 }
 
 include(
-    ":camouflage-core", ":camouflage-skin-minimal", ":camouflage-navigation3", ":camouflage-skin-testing", ":camouflage-bom",
+    ":camouflage-core", ":camouflage-skin-minimal", ":camouflage-skin-fluent", ":camouflage-navigation3", ":camouflage-skin-testing", ":camouflage-bom",
     ":sample:shared", ":sample:androidApp",
 )

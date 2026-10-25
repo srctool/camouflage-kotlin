@@ -10,6 +10,7 @@ plugins {
     alias(toolLibs.plugins.dokka) apply false
     alias(toolLibs.plugins.detekt) apply false
     alias(toolLibs.plugins.kover) apply false
+    alias(toolLibs.plugins.roborazzi) apply false
 }
 
 srctool {
@@ -21,6 +22,7 @@ srctool {
     layers = mapOf(
         ":camouflage-core" to 0,
         ":camouflage-skin-minimal" to 1,
+        ":camouflage-skin-fluent" to 1,
         ":camouflage-navigation3" to 1,
         ":camouflage-skin-testing" to 1,
         ":camouflage-bom" to 3,

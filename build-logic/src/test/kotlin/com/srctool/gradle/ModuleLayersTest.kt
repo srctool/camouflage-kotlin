@@ -25,11 +25,27 @@ class ModuleLayersTest {
     }
 
     @Test
-    fun testOnlyDependencyOnSameLayerFails() {
+    fun testOnlyDependencyOnSameLayerPasses() {
         val project = fixture(topDependsOn = null, baseDependsOn = null, extraModule = ":peer")
         File(project, "top/build.gradle.kts").appendText("dependencies { testImplementation(project(\":peer\")) }\n")
+        val result = runner(project).build()
+        assertEquals(TaskOutcome.SUCCESS, result.task(":checkModuleLayers")?.outcome)
+    }
+
+    @Test
+    fun shippedDependencyOnSameLayerFails() {
+        val project = fixture(topDependsOn = null, baseDependsOn = null, extraModule = ":peer")
+        File(project, "top/build.gradle.kts").appendText("dependencies { implementation(project(\":peer\")) }\n")
         val result = runner(project).buildAndFail()
-        assertContains(result.output, ":top -> :peer [testImplementation]: layer 1 may not depend on layer 1")
+        assertContains(result.output, ":top -> :peer [implementation]: layer 1 may not depend on layer 1")
+    }
+
+    @Test
+    fun testOnlyDependencyOnHigherLayerFails() {
+        val project = fixture(topDependsOn = null, baseDependsOn = null)
+        File(project, "base/build.gradle.kts").appendText("dependencies { testImplementation(project(\":top\")) }\n")
+        val result = runner(project).buildAndFail()
+        assertContains(result.output, ":base -> :top [testImplementation]: layer 0 may not depend on layer 1")
     }
 
     @Test

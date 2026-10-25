@@ -31,7 +31,7 @@ jobs:
       - name: Check
         run: >-
           ./gradlew checkModuleLayers checkKotlinAbi detekt koverVerify
-          jvmTest testAndroidHostTest
+          jvmTest testAndroidHostTest verifyRoborazziJvm
           :sample:androidApp:assembleDebug
 
   web:

@@ -6,5 +6,50 @@
 // - Show declarations: true
 
 // Library unique name: <com.srctool.camouflage:camouflage-skin-minimal>
-final val com.srctool.camouflage.skin.minimal/minimalTheme // com.srctool.camouflage.skin.minimal/minimalTheme|{}minimalTheme[0]
-    final fun <get-minimalTheme>(): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.minimal/minimalTheme.<get-minimalTheme>|<get-minimalTheme>(){}[0]
+final class com.srctool.camouflage.skin.minimal/FadeIndication : androidx.compose.foundation/IndicationNodeFactory { // com.srctool.camouflage.skin.minimal/FadeIndication|null[0]
+    constructor <init>(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.graphics/Color, kotlin/Int) // com.srctool.camouflage.skin.minimal/FadeIndication.<init>|<init>(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.graphics.Color;kotlin.Int){}[0]
+
+    final val contentColor // com.srctool.camouflage.skin.minimal/FadeIndication.contentColor|{}contentColor[0]
+        final fun <get-contentColor>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.minimal/FadeIndication.contentColor.<get-contentColor>|<get-contentColor>(){}[0]
+    final val durationMillis // com.srctool.camouflage.skin.minimal/FadeIndication.durationMillis|{}durationMillis[0]
+        final fun <get-durationMillis>(): kotlin/Int // com.srctool.camouflage.skin.minimal/FadeIndication.durationMillis.<get-durationMillis>|<get-durationMillis>(){}[0]
+    final val ringColor // com.srctool.camouflage.skin.minimal/FadeIndication.ringColor|{}ringColor[0]
+        final fun <get-ringColor>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.minimal/FadeIndication.ringColor.<get-ringColor>|<get-ringColor>(){}[0]
+    final val shape // com.srctool.camouflage.skin.minimal/FadeIndication.shape|{}shape[0]
+        final fun <get-shape>(): androidx.compose.ui.graphics/Shape // com.srctool.camouflage.skin.minimal/FadeIndication.shape.<get-shape>|<get-shape>(){}[0]
+
+    final fun component1(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.minimal/FadeIndication.component1|component1(){}[0]
+    final fun component2(): androidx.compose.ui.graphics/Shape // com.srctool.camouflage.skin.minimal/FadeIndication.component2|component2(){}[0]
+    final fun component3(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.minimal/FadeIndication.component3|component3(){}[0]
+    final fun component4(): kotlin/Int // com.srctool.camouflage.skin.minimal/FadeIndication.component4|component4(){}[0]
+    final fun copy(androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Shape = ..., androidx.compose.ui.graphics/Color = ..., kotlin/Int = ...): com.srctool.camouflage.skin.minimal/FadeIndication // com.srctool.camouflage.skin.minimal/FadeIndication.copy|copy(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.graphics.Color;kotlin.Int){}[0]
+    final fun create(androidx.compose.foundation.interaction/InteractionSource): androidx.compose.ui.node/DelegatableNode // com.srctool.camouflage.skin.minimal/FadeIndication.create|create(androidx.compose.foundation.interaction.InteractionSource){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.skin.minimal/FadeIndication.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.skin.minimal/FadeIndication.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.skin.minimal/FadeIndication.toString|toString(){}[0]
+}
+
+final object com.srctool.camouflage.skin.minimal/Fade : com.srctool.camouflage.core.skin/InteractionFeedback { // com.srctool.camouflage.skin.minimal/Fade|null[0]
+    final fun indication(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, com.srctool.camouflage.core.theme/CamoTheme): com.srctool.camouflage.skin.minimal/FadeIndication // com.srctool.camouflage.skin.minimal/Fade.indication|indication(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;com.srctool.camouflage.core.theme.CamoTheme){}[0]
+}
+
+final object com.srctool.camouflage.skin.minimal/Flat : com.srctool.camouflage.core.skin/SurfaceTreatment { // com.srctool.camouflage.skin.minimal/Flat|null[0]
+    final fun modifier(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.unit/Dp, com.srctool.camouflage.core.theme/CamoTheme): androidx.compose.ui/Modifier // com.srctool.camouflage.skin.minimal/Flat.modifier|modifier(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.unit.Dp;com.srctool.camouflage.core.theme.CamoTheme){}[0]
+}
+
+final val com.srctool.camouflage.skin.minimal/MinimalSkin // com.srctool.camouflage.skin.minimal/MinimalSkin|{}MinimalSkin[0]
+    final fun <get-MinimalSkin>(): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.skin.minimal/MinimalSkin.<get-MinimalSkin>|<get-MinimalSkin>(){}[0]
+final val com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_Fade$stableprop // com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_Fade$stableprop|#static{}com_srctool_camouflage_skin_minimal_Fade$stableprop[0]
+final val com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_FadeIndication$stableprop // com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_FadeIndication$stableprop|#static{}com_srctool_camouflage_skin_minimal_FadeIndication$stableprop[0]
+final val com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_Flat$stableprop // com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_Flat$stableprop|#static{}com_srctool_camouflage_skin_minimal_Flat$stableprop[0]
+final val com.srctool.camouflage.skin.minimal/minimalDark // com.srctool.camouflage.skin.minimal/minimalDark|{}minimalDark[0]
+    final fun <get-minimalDark>(): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.minimal/minimalDark.<get-minimalDark>|<get-minimalDark>(){}[0]
+final val com.srctool.camouflage.skin.minimal/minimalLight // com.srctool.camouflage.skin.minimal/minimalLight|{}minimalLight[0]
+    final fun <get-minimalLight>(): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.minimal/minimalLight.<get-minimalLight>|<get-minimalLight>(){}[0]
+
+final fun com.srctool.camouflage.skin.minimal/MinimalPreview(kotlin/Boolean, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.skin.minimal/MinimalPreview|MinimalPreview(kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_Fade$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_Fade$stableprop_getter|com_srctool_camouflage_skin_minimal_Fade$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_FadeIndication$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_FadeIndication$stableprop_getter|com_srctool_camouflage_skin_minimal_FadeIndication$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_Flat$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.minimal/com_srctool_camouflage_skin_minimal_Flat$stableprop_getter|com_srctool_camouflage_skin_minimal_Flat$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.skin.minimal/minimalSkin(): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.skin.minimal/minimalSkin|minimalSkin(){}[0]
+final fun com.srctool.camouflage.skin.minimal/minimalTheme(androidx.compose.ui.graphics/Color? = ..., kotlin/Boolean = ..., com.srctool.camouflage.core.theme/CamoTypography = ...): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.minimal/minimalTheme|minimalTheme(androidx.compose.ui.graphics.Color?;kotlin.Boolean;com.srctool.camouflage.core.theme.CamoTypography){}[0]
