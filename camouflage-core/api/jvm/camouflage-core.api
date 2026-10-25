@@ -1,3 +1,117 @@
+public final class com/srctool/camouflage/core/Camouflage {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/srctool/camouflage/core/Camouflage;
+	public final fun getColors (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoColors;
+	public final fun getContentColor (Landroidx/compose/runtime/Composer;I)J
+	public final fun getElevation (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoElevation;
+	public final fun getIconStyle (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/skin/IconStyle;
+	public final fun getMotion (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoMotion;
+	public final fun getShapes (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoShapes;
+	public final fun getSkin (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public final fun getSkinOrNull (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public final fun getSpacing (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoSpacing;
+	public final fun getTheme (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoTheme;
+	public final fun getThemeOrNull (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoTheme;
+	public final fun getTypography (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoTypography;
+}
+
+public final class com/srctool/camouflage/core/CamouflageKt {
+	public static final fun missingTokenSet (Ljava/lang/String;)Ljava/lang/Void;
+	public static final fun requireSkin (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public static final fun requireTheme (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/theme/CamoTheme;
+}
+
+public final class com/srctool/camouflage/core/CamouflageMissingProviderException : java/lang/IllegalStateException {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+}
+
+public final class com/srctool/camouflage/core/CamouflageProviderKt {
+	public static final fun CamouflagePreview (Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public static final fun CamouflageProvider (Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/skin/CamoSkin {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/srctool/camouflage/core/skin/SurfaceTreatment;
+	public final fun component3 ()Lcom/srctool/camouflage/core/skin/InteractionFeedback;
+	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeedback ()Lcom/srctool/camouflage/core/skin/InteractionFeedback;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSurfaceTreatment ()Lcom/srctool/camouflage/core/skin/SurfaceTreatment;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/skin/ContentStyleKt {
+	public static final fun ProvideContentStyle-3J-VO9M (JLcom/srctool/camouflage/core/skin/IconStyle;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public static final fun disabled-DxMtmZc (JF)J
+	public static final fun rememberSkinIndication-ek8zF_U (JLandroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/Indication;
+}
+
+public final class com/srctool/camouflage/core/skin/IconStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-0d7_KjU ()J
+	public final fun copy-cXLIe8U (FJ)Lcom/srctool/camouflage/core/skin/IconStyle;
+	public static synthetic fun copy-cXLIe8U$default (Lcom/srctool/camouflage/core/skin/IconStyle;FJILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/IconStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-0d7_KjU ()J
+	public final fun getSize-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/skin/InteractionFeedback {
+	public abstract fun indication-DxMtmZc (JLcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/foundation/Indication;
+}
+
+public final class com/srctool/camouflage/core/skin/InteractionState {
+	public static final field $stable I
+	public static final field Companion Lcom/srctool/camouflage/core/skin/InteractionState$Companion;
+	public fun <init> ()V
+	public fun <init> (ZZZZ)V
+	public synthetic fun <init> (ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun copy (ZZZZ)Lcom/srctool/camouflage/core/skin/InteractionState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/InteractionState;ZZZZILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/InteractionState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDragged ()Z
+	public final fun getFocused ()Z
+	public final fun getHovered ()Z
+	public final fun getPressed ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/skin/InteractionState$Companion {
+	public final fun getNone ()Lcom/srctool/camouflage/core/skin/InteractionState;
+}
+
+public abstract interface class com/srctool/camouflage/core/skin/SurfaceTreatment {
+	public abstract fun modifier-hhQwkJs (JLandroidx/compose/ui/graphics/Shape;FLcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/ui/Modifier;
+}
+
+public final class com/srctool/camouflage/core/theme/Appearance : java/lang/Enum {
+	public static final field Ghost Lcom/srctool/camouflage/core/theme/Appearance;
+	public static final field Link Lcom/srctool/camouflage/core/theme/Appearance;
+	public static final field Outline Lcom/srctool/camouflage/core/theme/Appearance;
+	public static final field Raised Lcom/srctool/camouflage/core/theme/Appearance;
+	public static final field Soft Lcom/srctool/camouflage/core/theme/Appearance;
+	public static final field Solid Lcom/srctool/camouflage/core/theme/Appearance;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/theme/Appearance;
+	public static fun values ()[Lcom/srctool/camouflage/core/theme/Appearance;
+}
+
 public final class com/srctool/camouflage/core/theme/CamoColorScale {
 	public static final field $stable I
 	public fun <init> (Ljava/util/Map;)V

@@ -5,6 +5,7 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
+import org.jetbrains.compose.ComposePlugin
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
@@ -20,10 +21,26 @@ class ComposeConventionPlugin : Plugin<Project> {
             @OptIn(ExperimentalWasmDsl::class)
             wasmJs { binaries.executable() }
 
+            // skikoMain/skikoTest: the targets Compose draws with Skiko (JVM, iOS, wasmJs). Compose UI tests live in
+            // skikoTest, because on the Android host they'd need Robolectric.
+            applyDefaultHierarchyTemplate {
+                common {
+                    group("skiko") {
+                        withJvm()
+                        group("ios") { withIos() }
+                        withWasmJs()
+                    }
+                }
+            }
+
             sourceSets.getByName("commonMain").dependencies {
                 implementation(compose.findLibrary("runtime").get())
                 implementation(compose.findLibrary("ui").get())
                 implementation(compose.findLibrary("foundation").get())
+            }
+            // Compose UI tests on the JVM render through Skia, whose native library comes with the desktop runtime.
+            sourceSets.matching { it.name == "jvmTest" }.configureEach {
+                dependencies { implementation(ComposePlugin.DesktopDependencies.currentOs) }
             }
         }
     }

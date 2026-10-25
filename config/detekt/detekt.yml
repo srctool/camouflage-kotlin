@@ -2,3 +2,8 @@
 naming:
   FunctionNaming:
     ignoreAnnotated: ['Composable']   # composables are PascalCase
+
+# The default test excludes don't know skikoTest (Compose UI tests on JVM, iOS and wasmJs), so add it.
+complexity:
+  TooManyFunctions:
+    excludes: ['**/test/**', '**/*Test/**', '**/skikoTest/**']

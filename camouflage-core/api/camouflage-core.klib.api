@@ -6,6 +6,21 @@
 // - Show declarations: true
 
 // Library unique name: <com.srctool.camouflage:camouflage-core>
+final enum class com.srctool.camouflage.core.theme/Appearance : kotlin/Enum<com.srctool.camouflage.core.theme/Appearance> { // com.srctool.camouflage.core.theme/Appearance|null[0]
+    enum entry Ghost // com.srctool.camouflage.core.theme/Appearance.Ghost|null[0]
+    enum entry Link // com.srctool.camouflage.core.theme/Appearance.Link|null[0]
+    enum entry Outline // com.srctool.camouflage.core.theme/Appearance.Outline|null[0]
+    enum entry Raised // com.srctool.camouflage.core.theme/Appearance.Raised|null[0]
+    enum entry Soft // com.srctool.camouflage.core.theme/Appearance.Soft|null[0]
+    enum entry Solid // com.srctool.camouflage.core.theme/Appearance.Solid|null[0]
+
+    final val entries // com.srctool.camouflage.core.theme/Appearance.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.srctool.camouflage.core.theme/Appearance> // com.srctool.camouflage.core.theme/Appearance.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.srctool.camouflage.core.theme/Appearance // com.srctool.camouflage.core.theme/Appearance.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.srctool.camouflage.core.theme/Appearance> // com.srctool.camouflage.core.theme/Appearance.values|values#static(){}[0]
+}
+
 final enum class com.srctool.camouflage.core.theme/ElevationLevel : kotlin/Enum<com.srctool.camouflage.core.theme/ElevationLevel> { // com.srctool.camouflage.core.theme/ElevationLevel|null[0]
     enum entry Level0 // com.srctool.camouflage.core.theme/ElevationLevel.Level0|null[0]
     enum entry Level1 // com.srctool.camouflage.core.theme/ElevationLevel.Level1|null[0]
@@ -68,6 +83,14 @@ final enum class com.srctool.camouflage.core.theme/Tone : kotlin/Enum<com.srctoo
 
 abstract interface <#A: com.srctool.camouflage.core.theme/CamoTokenSet<#A>> com.srctool.camouflage.core.theme/CamoTokenSet { // com.srctool.camouflage.core.theme/CamoTokenSet|null[0]
     abstract fun lerp(#A, kotlin/Float): #A // com.srctool.camouflage.core.theme/CamoTokenSet.lerp|lerp(1:0;kotlin.Float){}[0]
+}
+
+abstract interface com.srctool.camouflage.core.skin/InteractionFeedback { // com.srctool.camouflage.core.skin/InteractionFeedback|null[0]
+    abstract fun indication(androidx.compose.ui.graphics/Color, com.srctool.camouflage.core.theme/CamoTheme): androidx.compose.foundation/Indication // com.srctool.camouflage.core.skin/InteractionFeedback.indication|indication(androidx.compose.ui.graphics.Color;com.srctool.camouflage.core.theme.CamoTheme){}[0]
+}
+
+abstract interface com.srctool.camouflage.core.skin/SurfaceTreatment { // com.srctool.camouflage.core.skin/SurfaceTreatment|null[0]
+    abstract fun modifier(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.unit/Dp, com.srctool.camouflage.core.theme/CamoTheme): androidx.compose.ui/Modifier // com.srctool.camouflage.core.skin/SurfaceTreatment.modifier|modifier(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.unit.Dp;com.srctool.camouflage.core.theme.CamoTheme){}[0]
 }
 
 sealed interface com.srctool.camouflage.core.theme/ThemeIssue { // com.srctool.camouflage.core.theme/ThemeIssue|null[0]
@@ -133,6 +156,68 @@ sealed interface com.srctool.camouflage.core.theme/ThemeIssue { // com.srctool.c
         final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.core.theme/ThemeIssue.SmallTarget.equals|equals(kotlin.Any?){}[0]
         final fun hashCode(): kotlin/Int // com.srctool.camouflage.core.theme/ThemeIssue.SmallTarget.hashCode|hashCode(){}[0]
         final fun toString(): kotlin/String // com.srctool.camouflage.core.theme/ThemeIssue.SmallTarget.toString|toString(){}[0]
+    }
+}
+
+final class com.srctool.camouflage.core.skin/CamoSkin { // com.srctool.camouflage.core.skin/CamoSkin|null[0]
+    constructor <init>(kotlin/String, com.srctool.camouflage.core.skin/SurfaceTreatment, com.srctool.camouflage.core.skin/InteractionFeedback) // com.srctool.camouflage.core.skin/CamoSkin.<init>|<init>(kotlin.String;com.srctool.camouflage.core.skin.SurfaceTreatment;com.srctool.camouflage.core.skin.InteractionFeedback){}[0]
+
+    final val feedback // com.srctool.camouflage.core.skin/CamoSkin.feedback|{}feedback[0]
+        final fun <get-feedback>(): com.srctool.camouflage.core.skin/InteractionFeedback // com.srctool.camouflage.core.skin/CamoSkin.feedback.<get-feedback>|<get-feedback>(){}[0]
+    final val name // com.srctool.camouflage.core.skin/CamoSkin.name|{}name[0]
+        final fun <get-name>(): kotlin/String // com.srctool.camouflage.core.skin/CamoSkin.name.<get-name>|<get-name>(){}[0]
+    final val surfaceTreatment // com.srctool.camouflage.core.skin/CamoSkin.surfaceTreatment|{}surfaceTreatment[0]
+        final fun <get-surfaceTreatment>(): com.srctool.camouflage.core.skin/SurfaceTreatment // com.srctool.camouflage.core.skin/CamoSkin.surfaceTreatment.<get-surfaceTreatment>|<get-surfaceTreatment>(){}[0]
+
+    final fun component1(): kotlin/String // com.srctool.camouflage.core.skin/CamoSkin.component1|component1(){}[0]
+    final fun component2(): com.srctool.camouflage.core.skin/SurfaceTreatment // com.srctool.camouflage.core.skin/CamoSkin.component2|component2(){}[0]
+    final fun component3(): com.srctool.camouflage.core.skin/InteractionFeedback // com.srctool.camouflage.core.skin/CamoSkin.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., com.srctool.camouflage.core.skin/SurfaceTreatment = ..., com.srctool.camouflage.core.skin/InteractionFeedback = ...): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.core.skin/CamoSkin.copy|copy(kotlin.String;com.srctool.camouflage.core.skin.SurfaceTreatment;com.srctool.camouflage.core.skin.InteractionFeedback){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.core.skin/CamoSkin.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.core.skin/CamoSkin.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.core.skin/CamoSkin.toString|toString(){}[0]
+}
+
+final class com.srctool.camouflage.core.skin/IconStyle { // com.srctool.camouflage.core.skin/IconStyle|null[0]
+    constructor <init>(androidx.compose.ui.unit/Dp, androidx.compose.ui.graphics/Color) // com.srctool.camouflage.core.skin/IconStyle.<init>|<init>(androidx.compose.ui.unit.Dp;androidx.compose.ui.graphics.Color){}[0]
+
+    final val color // com.srctool.camouflage.core.skin/IconStyle.color|{}color[0]
+        final fun <get-color>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.core.skin/IconStyle.color.<get-color>|<get-color>(){}[0]
+    final val size // com.srctool.camouflage.core.skin/IconStyle.size|{}size[0]
+        final fun <get-size>(): androidx.compose.ui.unit/Dp // com.srctool.camouflage.core.skin/IconStyle.size.<get-size>|<get-size>(){}[0]
+
+    final fun component1(): androidx.compose.ui.unit/Dp // com.srctool.camouflage.core.skin/IconStyle.component1|component1(){}[0]
+    final fun component2(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.core.skin/IconStyle.component2|component2(){}[0]
+    final fun copy(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.graphics/Color = ...): com.srctool.camouflage.core.skin/IconStyle // com.srctool.camouflage.core.skin/IconStyle.copy|copy(androidx.compose.ui.unit.Dp;androidx.compose.ui.graphics.Color){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.core.skin/IconStyle.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.core.skin/IconStyle.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.core.skin/IconStyle.toString|toString(){}[0]
+}
+
+final class com.srctool.camouflage.core.skin/InteractionState { // com.srctool.camouflage.core.skin/InteractionState|null[0]
+    constructor <init>(kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // com.srctool.camouflage.core.skin/InteractionState.<init>|<init>(kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+
+    final val dragged // com.srctool.camouflage.core.skin/InteractionState.dragged|{}dragged[0]
+        final fun <get-dragged>(): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.dragged.<get-dragged>|<get-dragged>(){}[0]
+    final val focused // com.srctool.camouflage.core.skin/InteractionState.focused|{}focused[0]
+        final fun <get-focused>(): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.focused.<get-focused>|<get-focused>(){}[0]
+    final val hovered // com.srctool.camouflage.core.skin/InteractionState.hovered|{}hovered[0]
+        final fun <get-hovered>(): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.hovered.<get-hovered>|<get-hovered>(){}[0]
+    final val pressed // com.srctool.camouflage.core.skin/InteractionState.pressed|{}pressed[0]
+        final fun <get-pressed>(): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.pressed.<get-pressed>|<get-pressed>(){}[0]
+
+    final fun component1(): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.component1|component1(){}[0]
+    final fun component2(): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.component4|component4(){}[0]
+    final fun copy(kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): com.srctool.camouflage.core.skin/InteractionState // com.srctool.camouflage.core.skin/InteractionState.copy|copy(kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.core.skin/InteractionState.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.core.skin/InteractionState.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.core.skin/InteractionState.toString|toString(){}[0]
+
+    final object Companion { // com.srctool.camouflage.core.skin/InteractionState.Companion|null[0]
+        final val None // com.srctool.camouflage.core.skin/InteractionState.Companion.None|{}None[0]
+            final fun <get-None>(): com.srctool.camouflage.core.skin/InteractionState // com.srctool.camouflage.core.skin/InteractionState.Companion.None.<get-None>|<get-None>(){}[0]
     }
 }
 
@@ -537,6 +622,42 @@ final class com.srctool.camouflage.core.theme/ToneColors { // com.srctool.camouf
     final fun toString(): kotlin/String // com.srctool.camouflage.core.theme/ToneColors.toString|toString(){}[0]
 }
 
+final class com.srctool.camouflage.core/CamouflageMissingProviderException : kotlin/IllegalStateException { // com.srctool.camouflage.core/CamouflageMissingProviderException|null[0]
+    constructor <init>(kotlin/String, kotlin/String) // com.srctool.camouflage.core/CamouflageMissingProviderException.<init>|<init>(kotlin.String;kotlin.String){}[0]
+}
+
+final object com.srctool.camouflage.core/Camouflage { // com.srctool.camouflage.core/Camouflage|null[0]
+    final val colors // com.srctool.camouflage.core/Camouflage.colors|{}colors[0]
+        final fun <get-colors>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoColors // com.srctool.camouflage.core/Camouflage.colors.<get-colors>|<get-colors>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val contentColor // com.srctool.camouflage.core/Camouflage.contentColor|{}contentColor[0]
+        final fun <get-contentColor>(androidx.compose.runtime/Composer?, kotlin/Int): androidx.compose.ui.graphics/Color // com.srctool.camouflage.core/Camouflage.contentColor.<get-contentColor>|<get-contentColor>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val elevation // com.srctool.camouflage.core/Camouflage.elevation|{}elevation[0]
+        final fun <get-elevation>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoElevation // com.srctool.camouflage.core/Camouflage.elevation.<get-elevation>|<get-elevation>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val iconStyle // com.srctool.camouflage.core/Camouflage.iconStyle|{}iconStyle[0]
+        final fun <get-iconStyle>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.skin/IconStyle // com.srctool.camouflage.core/Camouflage.iconStyle.<get-iconStyle>|<get-iconStyle>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val motion // com.srctool.camouflage.core/Camouflage.motion|{}motion[0]
+        final fun <get-motion>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoMotion // com.srctool.camouflage.core/Camouflage.motion.<get-motion>|<get-motion>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val shapes // com.srctool.camouflage.core/Camouflage.shapes|{}shapes[0]
+        final fun <get-shapes>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoShapes // com.srctool.camouflage.core/Camouflage.shapes.<get-shapes>|<get-shapes>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val skin // com.srctool.camouflage.core/Camouflage.skin|{}skin[0]
+        final fun <get-skin>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.core/Camouflage.skin.<get-skin>|<get-skin>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val skinOrNull // com.srctool.camouflage.core/Camouflage.skinOrNull|{}skinOrNull[0]
+        final fun <get-skinOrNull>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.skin/CamoSkin? // com.srctool.camouflage.core/Camouflage.skinOrNull.<get-skinOrNull>|<get-skinOrNull>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val spacing // com.srctool.camouflage.core/Camouflage.spacing|{}spacing[0]
+        final fun <get-spacing>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoSpacing // com.srctool.camouflage.core/Camouflage.spacing.<get-spacing>|<get-spacing>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val theme // com.srctool.camouflage.core/Camouflage.theme|{}theme[0]
+        final fun <get-theme>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.core/Camouflage.theme.<get-theme>|<get-theme>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val themeOrNull // com.srctool.camouflage.core/Camouflage.themeOrNull|{}themeOrNull[0]
+        final fun <get-themeOrNull>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoTheme? // com.srctool.camouflage.core/Camouflage.themeOrNull.<get-themeOrNull>|<get-themeOrNull>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final val typography // com.srctool.camouflage.core/Camouflage.typography|{}typography[0]
+        final fun <get-typography>(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoTypography // com.srctool.camouflage.core/Camouflage.typography.<get-typography>|<get-typography>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+    final inline fun <#A1: reified com.srctool.camouflage.core.theme/CamoTokenSet<#A1>> tokens(androidx.compose.runtime/Composer?, kotlin/Int): #A1 // com.srctool.camouflage.core/Camouflage.tokens|tokens(androidx.compose.runtime.Composer?;kotlin.Int){0§<com.srctool.camouflage.core.theme.CamoTokenSet<0:0>>}[0]
+}
+
+final val com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_CamoSkin$stableprop // com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_CamoSkin$stableprop|#static{}com_srctool_camouflage_core_skin_CamoSkin$stableprop[0]
+final val com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_IconStyle$stableprop // com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_IconStyle$stableprop|#static{}com_srctool_camouflage_core_skin_IconStyle$stableprop[0]
+final val com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_InteractionState$stableprop // com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_InteractionState$stableprop|#static{}com_srctool_camouflage_core_skin_InteractionState$stableprop[0]
 final val com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoColorScale$stableprop // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoColorScale$stableprop|#static{}com_srctool_camouflage_core_theme_CamoColorScale$stableprop[0]
 final val com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoColors$stableprop // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoColors$stableprop|#static{}com_srctool_camouflage_core_theme_CamoColors$stableprop[0]
 final val com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoComponentThemes$stableprop // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoComponentThemes$stableprop|#static{}com_srctool_camouflage_core_theme_CamoComponentThemes$stableprop[0]
@@ -552,10 +673,18 @@ final val com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_Th
 final val com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ThemeIssue_ShadowedRole$stableprop // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ThemeIssue_ShadowedRole$stableprop|#static{}com_srctool_camouflage_core_theme_ThemeIssue_ShadowedRole$stableprop[0]
 final val com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ThemeIssue_SmallTarget$stableprop // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ThemeIssue_SmallTarget$stableprop|#static{}com_srctool_camouflage_core_theme_ThemeIssue_SmallTarget$stableprop[0]
 final val com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ToneColors$stableprop // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ToneColors$stableprop|#static{}com_srctool_camouflage_core_theme_ToneColors$stableprop[0]
+final val com.srctool.camouflage.core/com_srctool_camouflage_core_Camouflage$stableprop // com.srctool.camouflage.core/com_srctool_camouflage_core_Camouflage$stableprop|#static{}com_srctool_camouflage_core_Camouflage$stableprop[0]
+final val com.srctool.camouflage.core/com_srctool_camouflage_core_CamouflageMissingProviderException$stableprop // com.srctool.camouflage.core/com_srctool_camouflage_core_CamouflageMissingProviderException$stableprop|#static{}com_srctool_camouflage_core_CamouflageMissingProviderException$stableprop[0]
 
+final fun (androidx.compose.ui.graphics/Color).com.srctool.camouflage.core.skin/disabled(kotlin/Float): androidx.compose.ui.graphics/Color // com.srctool.camouflage.core.skin/disabled|disabled@androidx.compose.ui.graphics.Color(kotlin.Float){}[0]
 final fun (com.srctool.camouflage.core.theme/CamoColors).com.srctool.camouflage.core.theme/family(com.srctool.camouflage.core.theme/Tone): com.srctool.camouflage.core.theme/ToneColors // com.srctool.camouflage.core.theme/family|family@com.srctool.camouflage.core.theme.CamoColors(com.srctool.camouflage.core.theme.Tone){}[0]
 final fun (com.srctool.camouflage.core.theme/CamoElevation).com.srctool.camouflage.core.theme/of(com.srctool.camouflage.core.theme/ElevationLevel): androidx.compose.ui.unit/Dp // com.srctool.camouflage.core.theme/of|of@com.srctool.camouflage.core.theme.CamoElevation(com.srctool.camouflage.core.theme.ElevationLevel){}[0]
 final fun (com.srctool.camouflage.core.theme/CamoShapes).com.srctool.camouflage.core.theme/of(com.srctool.camouflage.core.theme/ShapeRole): androidx.compose.foundation.shape/CornerBasedShape // com.srctool.camouflage.core.theme/of|of@com.srctool.camouflage.core.theme.CamoShapes(com.srctool.camouflage.core.theme.ShapeRole){}[0]
+final fun com.srctool.camouflage.core.skin/ProvideContentStyle(androidx.compose.ui.graphics/Color, com.srctool.camouflage.core.skin/IconStyle, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int) // com.srctool.camouflage.core.skin/ProvideContentStyle|ProvideContentStyle(androidx.compose.ui.graphics.Color;com.srctool.camouflage.core.skin.IconStyle;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_CamoSkin$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_CamoSkin$stableprop_getter|com_srctool_camouflage_core_skin_CamoSkin$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_IconStyle$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_IconStyle$stableprop_getter|com_srctool_camouflage_core_skin_IconStyle$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_InteractionState$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.skin/com_srctool_camouflage_core_skin_InteractionState$stableprop_getter|com_srctool_camouflage_core_skin_InteractionState$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core.skin/rememberSkinIndication(androidx.compose.ui.graphics/Color, androidx.compose.runtime/Composer?, kotlin/Int): androidx.compose.foundation/Indication // com.srctool.camouflage.core.skin/rememberSkinIndication|rememberSkinIndication(androidx.compose.ui.graphics.Color;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun com.srctool.camouflage.core.theme/animateCamoTheme(com.srctool.camouflage.core.theme/CamoTheme, kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.core.theme/animateCamoTheme|animateCamoTheme(com.srctool.camouflage.core.theme.CamoTheme;kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
 final fun com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoColorScale$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoColorScale$stableprop_getter|com_srctool_camouflage_core_theme_CamoColorScale$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoColors$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_CamoColors$stableprop_getter|com_srctool_camouflage_core_theme_CamoColors$stableprop_getter(){}[0]
@@ -573,3 +702,10 @@ final fun com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_Th
 final fun com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ThemeIssue_SmallTarget$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ThemeIssue_SmallTarget$stableprop_getter|com_srctool_camouflage_core_theme_ThemeIssue_SmallTarget$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ToneColors$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.theme/com_srctool_camouflage_core_theme_ToneColors$stableprop_getter|com_srctool_camouflage_core_theme_ToneColors$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.theme/lerp(com.srctool.camouflage.core.theme/CamoTheme, com.srctool.camouflage.core.theme/CamoTheme, kotlin/Float): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.core.theme/lerp|lerp(com.srctool.camouflage.core.theme.CamoTheme;com.srctool.camouflage.core.theme.CamoTheme;kotlin.Float){}[0]
+final fun com.srctool.camouflage.core/CamouflagePreview(com.srctool.camouflage.core.skin/CamoSkin, com.srctool.camouflage.core.theme/CamoTheme, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int) // com.srctool.camouflage.core/CamouflagePreview|CamouflagePreview(com.srctool.camouflage.core.skin.CamoSkin;com.srctool.camouflage.core.theme.CamoTheme;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.srctool.camouflage.core/CamouflageProvider(com.srctool.camouflage.core.skin/CamoSkin?, com.srctool.camouflage.core.theme/CamoTheme?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.core/CamouflageProvider|CamouflageProvider(com.srctool.camouflage.core.skin.CamoSkin?;com.srctool.camouflage.core.theme.CamoTheme?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.core/com_srctool_camouflage_core_Camouflage$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core/com_srctool_camouflage_core_Camouflage$stableprop_getter|com_srctool_camouflage_core_Camouflage$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core/com_srctool_camouflage_core_CamouflageMissingProviderException$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core/com_srctool_camouflage_core_CamouflageMissingProviderException$stableprop_getter|com_srctool_camouflage_core_CamouflageMissingProviderException$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core/missingTokenSet(kotlin/String?): kotlin/Nothing // com.srctool.camouflage.core/missingTokenSet|missingTokenSet(kotlin.String?){}[0]
+final fun com.srctool.camouflage.core/requireSkin(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.core/requireSkin|requireSkin(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.srctool.camouflage.core/requireTheme(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.core/requireTheme|requireTheme(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
