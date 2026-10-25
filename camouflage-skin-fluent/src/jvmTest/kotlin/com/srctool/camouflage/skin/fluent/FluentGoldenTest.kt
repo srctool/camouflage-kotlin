@@ -37,15 +37,19 @@ class FluentGoldenTest {
 
     @Test fun primitives() = golden("primitives", width = 420, height = 360) { PrimitiveGallery() }
 
+    // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {
-        for ((key, theme) in themes) {
-            runDesktopComposeUiTest(width, height) {
-                setContent { CamouflagePreview(FluentSkin, theme.withGoldenFont(), content) }
-                onRoot().captureRoboImage(
-                    roborazziOptions = CrossPlatform,
-                    filePath = "src/jvmTest/snapshots/${name}_fluent_$key.png",
-                )
-            }
+        val failures = themes.mapNotNull { (key, theme) ->
+            runCatching {
+                runDesktopComposeUiTest(width, height) {
+                    setContent { CamouflagePreview(FluentSkin, theme.withGoldenFont(), content) }
+                    onRoot().captureRoboImage(
+                        roborazziOptions = CrossPlatform,
+                        filePath = "src/jvmTest/snapshots/${name}_fluent_$key.png",
+                    )
+                }
+            }.exceptionOrNull()
         }
+        failures.firstOrNull()?.let { throw it }
     }
 }
