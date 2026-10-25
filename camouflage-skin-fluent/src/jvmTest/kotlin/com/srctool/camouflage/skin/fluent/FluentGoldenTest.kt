@@ -15,7 +15,8 @@ import io.github.takahirom.roborazzi.captureRoboImage
 import kotlin.test.Test
 
 // Screenshot goldens: light and dark at Medium density, Small density in light, and one brand theme
-// (Testing §3.2). Record with `./gradlew recordRoborazziJvm`, verify with `verifyRoborazziJvm`.
+// (Testing §3.2). The goldens are Linux renders, the OS CI verifies on: when one changes on purpose, take the
+// `*_actual.png` from the PR's `roborazzi-outputs` artifact. `recordRoborazziJvm` works for a first local look.
 // Skia antialiases edges slightly differently on macOS and Linux CI: up to 0.5% of the pixels may differ, while
 // a real change (a color, a size) moves far more.
 private val CrossPlatform = RoborazziOptions(
