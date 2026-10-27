@@ -11,6 +11,10 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressCircleRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentRadioRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSearchFieldRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentMenuRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentBottomSheetRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentDatePickerRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentTimePickerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSegmentedControlRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSliderRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentStepperRenderer
@@ -47,6 +51,10 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     stepper = FluentStepperRenderer,
     textField = FluentTextFieldRenderer,
     searchField = FluentSearchFieldRenderer,
+    menu = FluentMenuRenderer,
+    bottomSheet = FluentBottomSheetRenderer,
+    datePicker = FluentDatePickerRenderer,
+    timePicker = FluentTimePickerRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

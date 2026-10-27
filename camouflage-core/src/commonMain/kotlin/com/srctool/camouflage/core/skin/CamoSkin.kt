@@ -1,11 +1,14 @@
 package com.srctool.camouflage.core.skin
 
 import androidx.compose.runtime.Immutable
+import com.srctool.camouflage.core.bottomsheet.BottomSheetRenderer
 import com.srctool.camouflage.core.button.ButtonRenderer
 import com.srctool.camouflage.core.checkbox.CheckboxRenderer
+import com.srctool.camouflage.core.datepicker.DatePickerRenderer
 import com.srctool.camouflage.core.divider.DividerRenderer
 import com.srctool.camouflage.core.icon.IconRenderer
 import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
+import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.progress.ProgressCircleRenderer
 import com.srctool.camouflage.core.search.SearchFieldRenderer
 import com.srctool.camouflage.core.radio.RadioRenderer
@@ -16,6 +19,7 @@ import com.srctool.camouflage.core.surface.SurfaceRenderer
 import com.srctool.camouflage.core.switch.SwitchRenderer
 import com.srctool.camouflage.core.text.TextRenderer
 import com.srctool.camouflage.core.textfield.TextFieldRenderer
+import com.srctool.camouflage.core.timepicker.TimePickerRenderer
 import com.srctool.camouflage.core.tooltip.TooltipRenderer
 
 /**
@@ -48,4 +52,8 @@ public data class CamoSkin(
     val stepper: StepperRenderer,
     val textField: TextFieldRenderer,
     val searchField: SearchFieldRenderer,
+    val menu: MenuRenderer,
+    val bottomSheet: BottomSheetRenderer,
+    val datePicker: DatePickerRenderer,
+    val timePicker: TimePickerRenderer,
 )

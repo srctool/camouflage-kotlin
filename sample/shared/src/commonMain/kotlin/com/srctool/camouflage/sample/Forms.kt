@@ -32,6 +32,10 @@ import com.srctool.camouflage.core.textfield.CamoFieldAction
 import com.srctool.camouflage.core.textfield.CamoInputFilter
 import com.srctool.camouflage.core.theme.Appearance
 import kotlinx.coroutines.delay
+import com.srctool.camouflage.core.form.CamoDateFormField
+import kotlin.time.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.todayIn
 
 private val PasswordRules = listOf(
     CamoRules.required("Password is required"),
@@ -123,6 +127,13 @@ private fun DetailFields() {
         inputFilter = CamoInputFilter.digitsOnly(maxLength = 13),
         displayFormat = CamoDisplayFormat.pattern("####-####-#####"),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+    )
+    CamoDateFormField(
+        key = "birthDate",
+        modifier = Modifier.fillMaxWidth(),
+        label = "Birth date",
+        maxDate = remember { Clock.System.todayIn(TimeZone.currentSystemDefault()) },
+        rules = listOf(CamoRules.required("Enter your birth date")),
     )
     CamoTextFormField(
         key = "budget",

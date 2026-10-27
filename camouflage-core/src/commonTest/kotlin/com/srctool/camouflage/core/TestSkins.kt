@@ -240,7 +240,7 @@ internal data class Brand(val accent: Color) : CamoTokenSet<Brand> {
 internal val skinA = CamoSkin(
     "a", Fill, NoFeedback, PlainText, PlainIcon, PlainSurface, PlainDivider, PlainButton, PlainIconButton,
     PlainProgressCircle, PlainTooltip, PlainCheckbox, PlainSwitch, PlainRadio, PlainSegmented, PlainSlider,
-    PlainStepper, PlainTextField, PlainSearchField,
+    PlainStepper, PlainTextField, PlainSearchField, PlainMenu, PlainBottomSheet, PlainDatePicker, PlainTimePicker,
 )
 internal val skinB = skinA.copy(name = "b")
 internal val themeT = CamoTheme(
