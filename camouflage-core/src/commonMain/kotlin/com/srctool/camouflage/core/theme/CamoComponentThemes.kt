@@ -2,11 +2,17 @@ package com.srctool.camouflage.core.theme
 
 import androidx.compose.runtime.Immutable
 import com.srctool.camouflage.core.button.ButtonTheme
+import com.srctool.camouflage.core.checkbox.CheckboxTheme
 import com.srctool.camouflage.core.divider.DividerTheme
 import com.srctool.camouflage.core.icon.IconTheme
 import com.srctool.camouflage.core.iconbutton.IconButtonTheme
 import com.srctool.camouflage.core.progress.ProgressTheme
+import com.srctool.camouflage.core.radio.RadioTheme
+import com.srctool.camouflage.core.segmented.SegmentedControlTheme
+import com.srctool.camouflage.core.slider.SliderTheme
+import com.srctool.camouflage.core.stepper.StepperTheme
 import com.srctool.camouflage.core.surface.SurfaceTheme
+import com.srctool.camouflage.core.switch.SwitchTheme
 import com.srctool.camouflage.core.tooltip.TooltipTheme
 
 /**
@@ -22,4 +28,10 @@ public data class CamoComponentThemes(
     val iconButton: IconButtonTheme? = null,
     val progress: ProgressTheme? = null,
     val tooltip: TooltipTheme? = null,
+    val checkbox: CheckboxTheme? = null,
+    val switch: SwitchTheme? = null,
+    val radio: RadioTheme? = null,
+    val segmentedControl: SegmentedControlTheme? = null,
+    val slider: SliderTheme? = null,
+    val stepper: StepperTheme? = null,
 )

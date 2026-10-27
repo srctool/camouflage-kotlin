@@ -107,6 +107,7 @@ fun SampleApp() {
                 Section("Text") { Texts() }
                 Section("Surfaces and dividers") { Surfaces() }
                 Section("Progress") { Progress() }
+                Section("Selection controls") { SelectionControls() }
                 val promo = sampleTheme(choice, brand, dark).copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                 CamouflageProvider(theme = promo) {
                     Section("Nested provider: a promo theme") {

@@ -2,11 +2,17 @@ package com.srctool.camouflage.core.skin
 
 import androidx.compose.runtime.Immutable
 import com.srctool.camouflage.core.button.ButtonRenderer
+import com.srctool.camouflage.core.checkbox.CheckboxRenderer
 import com.srctool.camouflage.core.divider.DividerRenderer
 import com.srctool.camouflage.core.icon.IconRenderer
 import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
 import com.srctool.camouflage.core.progress.ProgressCircleRenderer
+import com.srctool.camouflage.core.radio.RadioRenderer
+import com.srctool.camouflage.core.segmented.SegmentedControlRenderer
+import com.srctool.camouflage.core.slider.SliderRenderer
+import com.srctool.camouflage.core.stepper.StepperRenderer
 import com.srctool.camouflage.core.surface.SurfaceRenderer
+import com.srctool.camouflage.core.switch.SwitchRenderer
 import com.srctool.camouflage.core.text.TextRenderer
 import com.srctool.camouflage.core.tooltip.TooltipRenderer
 
@@ -32,4 +38,10 @@ public data class CamoSkin(
     val iconButton: IconButtonRenderer,
     val progressCircle: ProgressCircleRenderer,
     val tooltip: TooltipRenderer,
+    val checkbox: CheckboxRenderer,
+    val switch: SwitchRenderer,
+    val radio: RadioRenderer,
+    val segmentedControl: SegmentedControlRenderer,
+    val slider: SliderRenderer,
+    val stepper: StepperRenderer,
 )

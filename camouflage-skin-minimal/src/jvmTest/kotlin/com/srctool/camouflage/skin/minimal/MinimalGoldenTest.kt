@@ -9,12 +9,13 @@ import com.github.takahirom.roborazzi.RoborazziOptions
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.skin.testing.ButtonGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
+import com.srctool.camouflage.skin.testing.InputGallery
 import com.srctool.camouflage.skin.testing.PrimitiveGallery
 import com.srctool.camouflage.skin.testing.withGoldenFont
 import io.github.takahirom.roborazzi.captureRoboImage
 import kotlin.test.Test
 
-// Screenshot goldens: light and dark for every M3 component, plus one brand theme (an accent), light only
+// Screenshot goldens: light and dark for every component so far, plus one brand theme (an accent), light only
 // (Testing §3.2). The goldens are Linux renders, the OS CI verifies on: when one changes on purpose, take the
 // `*_actual.png` from the PR's `roborazzi-outputs` artifact. `recordRoborazziJvm` works for a first local look.
 // Skia antialiases edges slightly differently on macOS and Linux CI: up to 0.5% of the pixels may differ, while
@@ -36,6 +37,8 @@ class MinimalGoldenTest {
     @Test fun iconButtons() = golden("iconbutton", width = 420, height = 80) { IconButtonGallery() }
 
     @Test fun primitives() = golden("primitives", width = 420, height = 360) { PrimitiveGallery() }
+
+    @Test fun inputs() = golden("inputs", width = 520, height = 720) { InputGallery() }
 
     // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {

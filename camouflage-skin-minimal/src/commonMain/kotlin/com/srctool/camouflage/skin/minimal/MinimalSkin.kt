@@ -4,11 +4,17 @@ import androidx.compose.runtime.Composable
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalCheckboxRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDividerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressCircleRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalRadioRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalSegmentedControlRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalSliderRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalStepperRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSurfaceRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalSwitchRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTextRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTooltipRenderer
 
@@ -28,6 +34,12 @@ public fun minimalSkin(): CamoSkin = CamoSkin(
     iconButton = MinimalIconButtonRenderer,
     progressCircle = MinimalProgressCircleRenderer,
     tooltip = MinimalTooltipRenderer,
+    checkbox = MinimalCheckboxRenderer,
+    switch = MinimalSwitchRenderer,
+    radio = MinimalRadioRenderer,
+    segmentedControl = MinimalSegmentedControlRenderer,
+    slider = MinimalSliderRenderer,
+    stepper = MinimalStepperRenderer,
 )
 
 /** The Minimal skin. */
