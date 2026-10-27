@@ -7,6 +7,7 @@ import com.srctool.camouflage.core.divider.DividerRenderer
 import com.srctool.camouflage.core.icon.IconRenderer
 import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
 import com.srctool.camouflage.core.progress.ProgressCircleRenderer
+import com.srctool.camouflage.core.search.SearchFieldRenderer
 import com.srctool.camouflage.core.radio.RadioRenderer
 import com.srctool.camouflage.core.segmented.SegmentedControlRenderer
 import com.srctool.camouflage.core.slider.SliderRenderer
@@ -14,6 +15,7 @@ import com.srctool.camouflage.core.stepper.StepperRenderer
 import com.srctool.camouflage.core.surface.SurfaceRenderer
 import com.srctool.camouflage.core.switch.SwitchRenderer
 import com.srctool.camouflage.core.text.TextRenderer
+import com.srctool.camouflage.core.textfield.TextFieldRenderer
 import com.srctool.camouflage.core.tooltip.TooltipRenderer
 
 /**
@@ -44,4 +46,6 @@ public data class CamoSkin(
     val segmentedControl: SegmentedControlRenderer,
     val slider: SliderRenderer,
     val stepper: StepperRenderer,
+    val textField: TextFieldRenderer,
+    val searchField: SearchFieldRenderer,
 )

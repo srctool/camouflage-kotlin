@@ -39,6 +39,8 @@ val DebugSkin = CamoSkin(
     segmentedControl = DebugSegmentedControlRenderer,
     slider = DebugSliderRenderer,
     stepper = DebugStepperRenderer,
+    textField = DebugTextFieldRenderer,
+    searchField = DebugSearchFieldRenderer,
 )
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */

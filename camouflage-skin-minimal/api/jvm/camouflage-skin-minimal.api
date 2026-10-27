@@ -34,7 +34,8 @@ public final class com/srctool/camouflage/skin/minimal/Flat : com/srctool/camouf
 public final class com/srctool/camouflage/skin/minimal/MinimalSkinKt {
 	public static final fun MinimalPreview (ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun getMinimalSkin ()Lcom/srctool/camouflage/core/skin/CamoSkin;
-	public static final fun minimalSkin ()Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public static final fun minimalSkin (Lcom/srctool/camouflage/core/textfield/LabelPlacement;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public static synthetic fun minimalSkin$default (Lcom/srctool/camouflage/core/textfield/LabelPlacement;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
 }
 
 public final class com/srctool/camouflage/skin/minimal/MinimalThemeKt {

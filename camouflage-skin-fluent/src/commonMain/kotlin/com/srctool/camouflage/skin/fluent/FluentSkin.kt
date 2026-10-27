@@ -10,11 +10,13 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentIconButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressCircleRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentRadioRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentSearchFieldRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSegmentedControlRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSliderRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentStepperRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSurfaceRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSwitchRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentTextFieldRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTextRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTooltipRenderer
 
@@ -43,6 +45,8 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     segmentedControl = FluentSegmentedControlRenderer,
     slider = FluentSliderRenderer,
     stepper = FluentStepperRenderer,
+    textField = FluentTextFieldRenderer,
+    searchField = FluentSearchFieldRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

@@ -28,6 +28,7 @@ import com.srctool.camouflage.core.progress.CamoProgressCircle
 import com.srctool.camouflage.core.progress.ProgressSize
 import com.srctool.camouflage.core.provider.Camouflage
 import com.srctool.camouflage.core.radio.CamoRadioGroup
+import com.srctool.camouflage.core.search.CamoSearchField
 import com.srctool.camouflage.core.radio.RadioOption
 import com.srctool.camouflage.core.segmented.CamoSegmentedControl
 import com.srctool.camouflage.core.segmented.Segment
@@ -37,6 +38,11 @@ import com.srctool.camouflage.core.surface.CamoSurface
 import com.srctool.camouflage.core.switch.CamoSwitch
 import com.srctool.camouflage.core.text.CamoSpan
 import com.srctool.camouflage.core.text.CamoText
+import com.srctool.camouflage.core.textfield.CamoFieldAction
+import com.srctool.camouflage.core.textfield.CamoFieldFrame
+import com.srctool.camouflage.core.textfield.CamoTextField
+import com.srctool.camouflage.core.textfield.LabelPlacement
+import com.srctool.camouflage.core.textfield.TextFieldTheme
 import com.srctool.camouflage.core.theme.Appearance
 import com.srctool.camouflage.core.theme.ElevationLevel
 import com.srctool.camouflage.core.theme.ShapeRole
@@ -169,3 +175,32 @@ private const val GALLERY_MAX = 9
 private const val VOLUME = 0.3f
 private const val RATING = 0.5f
 private const val RATING_STEPS = 3
+
+/**
+ * The M5 text inputs in their states: empty with a placeholder, filled with an icon and prefix text, with
+ * supporting text, an error, disabled, a floating label, a custom input in [CamoFieldFrame], and search fields.
+ */
+@Composable
+public fun TextInputGallery() {
+    Column(Modifier.padding(16.dp).width(320.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        CamoTextField("", {}, label = "Email", placeholder = "you@example.com", supportingText = "We never share it")
+        CamoTextField("0812345", {}, label = "Phone", prefixIcon = { Icon() }, prefixText = "+62")
+        CamoTextField("ab", {}, label = "Password", secure = true, error = "Use at least 8 characters",
+            suffixIcon = { CamoFieldAction({ Icon() }, "Show password", {}) })
+        CamoTextField("Locked", {}, label = "Company", enabled = false)
+        val floating = TextFieldTheme(labelPlacement = LabelPlacement.Floating)
+        ProvideComponentThemes(Camouflage.theme.components.copy(textField = floating)) {
+            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                CamoTextField("", {}, label = "Floating, resting")
+                CamoTextField("Ann", {}, label = "Floating, floated", suffixText = "kg")
+            }
+        }
+        CamoFieldFrame(focused = false, isEmpty = false, label = "Code") {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) { repeat(GALLERY_CODE) { CamoText("•") } }
+        }
+        CamoSearchField("", {}, {})
+        CamoSearchField("tea", {}, {}, placeholder = "Search drinks")
+    }
+}
+
+private const val GALLERY_CODE = 4
