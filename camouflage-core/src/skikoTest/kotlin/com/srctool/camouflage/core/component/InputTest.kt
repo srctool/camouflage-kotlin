@@ -233,8 +233,9 @@ class InputTest {
     @Test
     fun anIconOnlySegmentWithoutADescriptionFails() {
         assertTrue(DebugChecks.enabled)
-        assertFails {
-            runComposeUiTest {
+        // Inside the test body: on wasm runComposeUiTest returns a promise, so a failure can't be caught outside it.
+        runComposeUiTest {
+            assertFails {
                 camo { CamoSegmentedControl(listOf(Segment("g", icon = {}), Segment("l", "List")), "g", {}) }
                 waitForIdle()
             }
