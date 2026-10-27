@@ -23,6 +23,7 @@ public final class com/srctool/camouflage/skin/testing/ComposableSingletons$Gall
 public final class com/srctool/camouflage/skin/testing/GalleryKt {
 	public static final fun ButtonGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun IconButtonGallery (Landroidx/compose/runtime/Composer;I)V
+	public static final fun InputGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun PrimitiveGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun getGalleryIcon ()Landroidx/compose/ui/graphics/vector/ImageVector;
 }

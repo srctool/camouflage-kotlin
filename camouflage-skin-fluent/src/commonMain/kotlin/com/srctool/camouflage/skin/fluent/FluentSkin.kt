@@ -4,11 +4,17 @@ import androidx.compose.runtime.Composable
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentCheckboxRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDividerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressCircleRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentRadioRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentSegmentedControlRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentSliderRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentStepperRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSurfaceRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentSwitchRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTextRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTooltipRenderer
 
@@ -31,6 +37,12 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     iconButton = FluentIconButtonRenderer,
     progressCircle = FluentProgressCircleRenderer,
     tooltip = FluentTooltipRenderer,
+    checkbox = FluentCheckboxRenderer,
+    switch = FluentSwitchRenderer,
+    radio = FluentRadioRenderer,
+    segmentedControl = FluentSegmentedControlRenderer,
+    slider = FluentSliderRenderer,
+    stepper = FluentStepperRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

@@ -9,6 +9,7 @@ import com.github.takahirom.roborazzi.RoborazziOptions
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.skin.testing.ButtonGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
+import com.srctool.camouflage.skin.testing.InputGallery
 import com.srctool.camouflage.skin.testing.PrimitiveGallery
 import com.srctool.camouflage.skin.testing.withGoldenFont
 import io.github.takahirom.roborazzi.captureRoboImage
@@ -37,6 +38,8 @@ class FluentGoldenTest {
     @Test fun iconButtons() = golden("iconbutton", width = 420, height = 80) { IconButtonGallery() }
 
     @Test fun primitives() = golden("primitives", width = 420, height = 360) { PrimitiveGallery() }
+
+    @Test fun inputs() = golden("inputs", width = 520, height = 720) { InputGallery() }
 
     // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {

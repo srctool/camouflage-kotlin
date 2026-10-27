@@ -91,7 +91,7 @@ import com.srctool.camouflage.core.util.rememberSkinIndication
 // labelled boxes from the style and theme, plus a magenta border while focused, so a skin's behavior can be
 // checked before any real dialect exists.
 
-private val DebugFocus = Color.Magenta
+internal val DebugFocus = Color.Magenta
 
 object DebugTextRenderer : TextRenderer {
     override fun linkStyles(theme: CamoTheme) =
