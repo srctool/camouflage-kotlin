@@ -25,6 +25,10 @@ import com.srctool.camouflage.core.stepper.StepperLayout
 import com.srctool.camouflage.core.stepper.StepperTheme
 import com.srctool.camouflage.core.switch.CamoSwitch
 import com.srctool.camouflage.core.switch.SwitchTheme
+import com.srctool.camouflage.core.search.CamoSearchField
+import com.srctool.camouflage.core.search.SearchFieldTheme
+import com.srctool.camouflage.core.textfield.CamoTextField
+import com.srctool.camouflage.core.textfield.TextFieldTheme
 import com.srctool.camouflage.core.theme.CamoComponentThemes
 import com.srctool.camouflage.skin.testing.ProvideComponentThemes
 import com.srctool.camouflage.skin.testing.assertNoLiterals
@@ -112,6 +116,20 @@ class FluentInputRendererTest {
                 ProvideComponentThemes(CamoComponentThemes(stepper = it)) { CamoStepper(2, {}, label = "Qty") }
             }, measure = { it.size.height == px(70) })
         }
+    }
+
+    @Test
+    fun textFieldHonorsHeight() = runComposeUiTest {
+        assertNoLiterals(skin, theme, TextFieldTheme(height = 77.dp), render = {
+            ProvideComponentThemes(CamoComponentThemes(textField = it)) { CamoTextField("", {}) }
+        }, measure = { it.size.height >= px(77) && it.size.height < px(100) })
+    }
+
+    @Test
+    fun searchFieldHonorsHeight() = runComposeUiTest {
+        assertNoLiterals(skin, theme, SearchFieldTheme(height = 77.dp), render = {
+            ProvideComponentThemes(CamoComponentThemes(searchField = it)) { CamoSearchField("", {}, {}) }
+        }, measure = { it.size.height == px(77) })
     }
 
     private fun ComposeUiTest.px(dp: Int) = (dp * density.density).roundToInt()

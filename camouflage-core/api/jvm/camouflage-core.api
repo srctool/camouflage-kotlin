@@ -339,6 +339,80 @@ public final class com/srctool/camouflage/core/divider/DividerTheme {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/srctool/camouflage/core/form/CamoFormFieldState {
+	public static final field $stable I
+	public final fun didChange (Ljava/lang/Object;)V
+	public final fun getError ()Ljava/lang/String;
+	public final fun getHasInteracted ()Z
+	public final fun getValue ()Ljava/lang/Object;
+	public final fun isDirty ()Z
+	public final fun onFocusChanged (Z)V
+	public final fun validate ()Z
+}
+
+public final class com/srctool/camouflage/core/form/CamoFormKt {
+	public static final fun CamoForm (Lcom/srctool/camouflage/core/form/CamoFormState;Landroidx/compose/foundation/lazy/LazyListState;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/core/form/ValidateMode;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun CamoForm (Lcom/srctool/camouflage/core/form/CamoFormState;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/core/form/ValidateMode;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun CamoFormField (Ljava/lang/String;Ljava/lang/Object;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;ZZLjava/lang/String;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun rememberCamoFormState (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/form/CamoFormState;
+}
+
+public final class com/srctool/camouflage/core/form/CamoFormState {
+	public static final field $stable I
+	public static final field Companion Lcom/srctool/camouflage/core/form/CamoFormState$Companion;
+	public final fun declare (Ljava/lang/String;Ljava/lang/Object;Ljava/util/List;)V
+	public static synthetic fun declare$default (Lcom/srctool/camouflage/core/form/CamoFormState;Ljava/lang/String;Ljava/lang/Object;Ljava/util/List;ILjava/lang/Object;)V
+	public final fun isDirty ()Z
+	public final fun isDirty (Ljava/lang/String;)Z
+	public final fun isValid ()Z
+	public final fun remove (Ljava/lang/String;)V
+	public final fun reset ()V
+	public final fun save ()V
+	public final fun setErrors (Ljava/util/Map;)V
+	public final fun validate ()Z
+	public final fun value (Ljava/lang/String;)Ljava/lang/Object;
+}
+
+public final class com/srctool/camouflage/core/form/CamoFormState$Companion {
+	public final fun getSaver ()Landroidx/compose/runtime/saveable/Saver;
+}
+
+public abstract interface class com/srctool/camouflage/core/form/CamoRule {
+	public abstract fun validate (Ljava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/form/CamoRules {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/srctool/camouflage/core/form/CamoRules;
+	public final fun email (Ljava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+	public final fun matches (Ljava/lang/String;Ljava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+	public final fun max (DLjava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+	public final fun maxLength (ILjava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+	public final fun min (DLjava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+	public final fun minLength (ILjava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+	public final fun pattern (Lkotlin/text/Regex;Ljava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+	public final fun required (Ljava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+	public final fun requiredTrue (Ljava/lang/String;)Lcom/srctool/camouflage/core/form/CamoRule;
+}
+
+public final class com/srctool/camouflage/core/form/FormFieldsKt {
+	public static final fun CamoCheckboxFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;ZLjava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;Ljava/lang/String;ZLandroidx/compose/runtime/Composer;III)V
+	public static final fun CamoRadioGroupFormField (Ljava/lang/String;Ljava/util/List;Landroidx/compose/ui/Modifier;Ljava/lang/Object;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Landroidx/compose/foundation/gestures/Orientation;ZLandroidx/compose/runtime/Composer;III)V
+	public static final fun CamoStepperFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;ILjava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLkotlin/ranges/IntRange;ILjava/lang/String;ZLkotlin/jvm/functions/Function1;ZLandroidx/compose/runtime/Composer;III)V
+	public static final fun CamoSwitchFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;ZLjava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;Ljava/lang/String;ZLandroidx/compose/runtime/Composer;III)V
+	public static final fun CamoTextFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Ljava/lang/String;Ljava/lang/String;ZZZLcom/srctool/camouflage/core/textfield/CamoInputFilter;Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/input/KeyboardActionHandler;Landroidx/compose/runtime/Composer;IIII)V
+}
+
+public final class com/srctool/camouflage/core/form/ValidateMode : java/lang/Enum {
+	public static final field Always Lcom/srctool/camouflage/core/form/ValidateMode;
+	public static final field Disabled Lcom/srctool/camouflage/core/form/ValidateMode;
+	public static final field OnUnfocus Lcom/srctool/camouflage/core/form/ValidateMode;
+	public static final field OnUserInteraction Lcom/srctool/camouflage/core/form/ValidateMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/form/ValidateMode;
+	public static fun values ()[Lcom/srctool/camouflage/core/form/ValidateMode;
+}
+
 public final class com/srctool/camouflage/core/icon/CamoIconKt {
 	public static final fun CamoIcon-xfPyhaw (Lcom/srctool/camouflage/core/icon/IconSource;Ljava/lang/String;Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V
 	public static final fun IconImage (Lcom/srctool/camouflage/core/icon/IconState;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
@@ -833,6 +907,121 @@ public final class com/srctool/camouflage/core/radio/RadioTheme {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/srctool/camouflage/core/search/CamoSearchFieldKt {
+	public static final fun CamoSearchField (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/functions/Function1;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/search/SearchFieldColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-0d7_KjU ()J
+	public final fun component4-0d7_KjU ()J
+	public final fun copy-jRlVdoo (JJJJ)Lcom/srctool/camouflage/core/search/SearchFieldColors;
+	public static synthetic fun copy-jRlVdoo$default (Lcom/srctool/camouflage/core/search/SearchFieldColors;JJJJILjava/lang/Object;)Lcom/srctool/camouflage/core/search/SearchFieldColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getIcon-0d7_KjU ()J
+	public final fun getPlaceholder-0d7_KjU ()J
+	public final fun getText-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/search/SearchFieldRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/search/SearchFieldState;Lcom/srctool/camouflage/core/search/SearchFieldSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/search/SearchFieldStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/search/SearchFieldStyle;
+}
+
+public final class com/srctool/camouflage/core/search/SearchFieldSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
+	public final fun getClear ()Lkotlin/jvm/functions/Function2;
+	public final fun getInput ()Lkotlin/jvm/functions/Function2;
+	public final fun getLeading ()Lkotlin/jvm/functions/Function2;
+	public final fun getTrailing ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/srctool/camouflage/core/search/SearchFieldState {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ZZZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun component7 ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;ZZZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;)Lcom/srctool/camouflage/core/search/SearchFieldState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/search/SearchFieldState;Ljava/lang/String;Ljava/lang/String;ZZZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;ILjava/lang/Object;)Lcom/srctool/camouflage/core/search/SearchFieldState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnabled ()Z
+	public final fun getFocused ()Z
+	public final fun getInteraction ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun getInteractionSource ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun getPlaceholder ()Ljava/lang/String;
+	public final fun getQuery ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isEmpty ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/search/SearchFieldStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FLandroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/search/SearchFieldColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component3 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component7 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component8 ()Lcom/srctool/camouflage/core/search/SearchFieldColors;
+	public final fun copy-pCx_U_g (FLandroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/search/SearchFieldColors;)Lcom/srctool/camouflage/core/search/SearchFieldStyle;
+	public static synthetic fun copy-pCx_U_g$default (Lcom/srctool/camouflage/core/search/SearchFieldStyle;FLandroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/search/SearchFieldColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/search/SearchFieldStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClearIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getColors ()Lcom/srctool/camouflage/core/search/SearchFieldColors;
+	public final fun getHeight-D9Ej5fM ()F
+	public final fun getIconSize-D9Ej5fM ()F
+	public final fun getPlaceholderStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getSearchIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/search/SearchFieldTheme;)Lcom/srctool/camouflage/core/search/SearchFieldStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/search/SearchFieldTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/search/SearchFieldColors;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/search/SearchFieldColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component2 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component3 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component6 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component7 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component8 ()Lcom/srctool/camouflage/core/search/SearchFieldColors;
+	public final fun copy-271jOyw (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/search/SearchFieldColors;)Lcom/srctool/camouflage/core/search/SearchFieldTheme;
+	public static synthetic fun copy-271jOyw$default (Lcom/srctool/camouflage/core/search/SearchFieldTheme;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/search/SearchFieldColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/search/SearchFieldTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClearIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getColors ()Lcom/srctool/camouflage/core/search/SearchFieldColors;
+	public final fun getHeight-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getIconSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getPlaceholderStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getSearchIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/srctool/camouflage/core/segmented/CamoSegmentedControlKt {
 	public static final fun CamoSegmentButton (Landroidx/compose/foundation/layout/RowScope;Lcom/srctool/camouflage/core/segmented/Segment;ZLkotlin/jvm/functions/Function0;Lcom/srctool/camouflage/core/skin/ItemPosition;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun CamoSegmentedContainer (Landroidx/compose/ui/Modifier;ZILkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
@@ -981,7 +1170,7 @@ public final class com/srctool/camouflage/core/segmented/SegmentedControlTheme {
 
 public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public static final field $stable I
-	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;)V
+	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;
 	public final fun component11 ()Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;
@@ -991,6 +1180,8 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun component15 ()Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;
 	public final fun component16 ()Lcom/srctool/camouflage/core/slider/SliderRenderer;
 	public final fun component17 ()Lcom/srctool/camouflage/core/stepper/StepperRenderer;
+	public final fun component18 ()Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;
+	public final fun component19 ()Lcom/srctool/camouflage/core/search/SearchFieldRenderer;
 	public final fun component2 ()Lcom/srctool/camouflage/core/skin/SurfaceTreatment;
 	public final fun component3 ()Lcom/srctool/camouflage/core/skin/InteractionFeedback;
 	public final fun component4 ()Lcom/srctool/camouflage/core/text/TextRenderer;
@@ -999,8 +1190,8 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun component7 ()Lcom/srctool/camouflage/core/divider/DividerRenderer;
 	public final fun component8 ()Lcom/srctool/camouflage/core/button/ButtonRenderer;
 	public final fun component9 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;
-	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;)Lcom/srctool/camouflage/core/skin/CamoSkin;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getButton ()Lcom/srctool/camouflage/core/button/ButtonRenderer;
 	public final fun getCheckbox ()Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;
@@ -1011,6 +1202,7 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun getName ()Ljava/lang/String;
 	public final fun getProgressCircle ()Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;
 	public final fun getRadio ()Lcom/srctool/camouflage/core/radio/RadioRenderer;
+	public final fun getSearchField ()Lcom/srctool/camouflage/core/search/SearchFieldRenderer;
 	public final fun getSegmentedControl ()Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;
 	public final fun getSlider ()Lcom/srctool/camouflage/core/slider/SliderRenderer;
 	public final fun getStepper ()Lcom/srctool/camouflage/core/stepper/StepperRenderer;
@@ -1018,6 +1210,7 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun getSurfaceTreatment ()Lcom/srctool/camouflage/core/skin/SurfaceTreatment;
 	public final fun getSwitch ()Lcom/srctool/camouflage/core/switch/SwitchRenderer;
 	public final fun getText ()Lcom/srctool/camouflage/core/text/TextRenderer;
+	public final fun getTextField ()Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;
 	public final fun getTooltip ()Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1614,6 +1807,219 @@ public final class com/srctool/camouflage/core/text/TextState {
 	public fun toString ()Ljava/lang/String;
 }
 
+public abstract interface class com/srctool/camouflage/core/textfield/CamoDisplayFormat {
+	public static final field Companion Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat$Companion;
+	public abstract fun format (Ljava/lang/String;)Ljava/lang/String;
+	public fun rawToShown (ILjava/lang/String;)I
+	public fun shownToRaw (ILjava/lang/String;)I
+}
+
+public final class com/srctool/camouflage/core/textfield/CamoDisplayFormat$Companion {
+	public final fun decimal (ICC)Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;
+	public static synthetic fun decimal$default (Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat$Companion;ICCILjava/lang/Object;)Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;
+	public final fun grouping (CI)Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;
+	public static synthetic fun grouping$default (Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat$Companion;CIILjava/lang/Object;)Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;
+	public final fun pattern (Ljava/lang/String;)Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;
+}
+
+public final class com/srctool/camouflage/core/textfield/CamoDisplayFormat$DefaultImpls {
+	public static fun rawToShown (Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;ILjava/lang/String;)I
+	public static fun shownToRaw (Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;ILjava/lang/String;)I
+}
+
+public final class com/srctool/camouflage/core/textfield/CamoFieldActionKt {
+	public static final fun CamoFieldAction (Lkotlin/jvm/functions/Function2;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/srctool/camouflage/core/textfield/CamoInputFilter {
+	public static final field Companion Lcom/srctool/camouflage/core/textfield/CamoInputFilter$Companion;
+	public abstract fun filter (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/textfield/CamoInputFilter$Companion {
+	public final fun decimal (IC)Lcom/srctool/camouflage/core/textfield/CamoInputFilter;
+	public static synthetic fun decimal$default (Lcom/srctool/camouflage/core/textfield/CamoInputFilter$Companion;ICILjava/lang/Object;)Lcom/srctool/camouflage/core/textfield/CamoInputFilter;
+	public final fun digitsOnly (Ljava/lang/Integer;)Lcom/srctool/camouflage/core/textfield/CamoInputFilter;
+	public static synthetic fun digitsOnly$default (Lcom/srctool/camouflage/core/textfield/CamoInputFilter$Companion;Ljava/lang/Integer;ILjava/lang/Object;)Lcom/srctool/camouflage/core/textfield/CamoInputFilter;
+	public final fun maxLength (I)Lcom/srctool/camouflage/core/textfield/CamoInputFilter;
+	public final fun pattern (Lkotlin/text/Regex;)Lcom/srctool/camouflage/core/textfield/CamoInputFilter;
+}
+
+public abstract interface class com/srctool/camouflage/core/textfield/CamoInsertingFormat : com/srctool/camouflage/core/textfield/CamoDisplayFormat {
+	public fun format (Ljava/lang/String;)Ljava/lang/String;
+	public abstract fun getInserted ()Ljava/util/Set;
+	public abstract fun insertions (Ljava/lang/String;)Ljava/util/List;
+	public fun rawToShown (ILjava/lang/String;)I
+	public fun shownToRaw (ILjava/lang/String;)I
+}
+
+public final class com/srctool/camouflage/core/textfield/CamoInsertingFormat$DefaultImpls {
+	public static fun format (Lcom/srctool/camouflage/core/textfield/CamoInsertingFormat;Ljava/lang/String;)Ljava/lang/String;
+	public static fun rawToShown (Lcom/srctool/camouflage/core/textfield/CamoInsertingFormat;ILjava/lang/String;)I
+	public static fun shownToRaw (Lcom/srctool/camouflage/core/textfield/CamoInsertingFormat;ILjava/lang/String;)I
+}
+
+public final class com/srctool/camouflage/core/textfield/CamoTextFieldKt {
+	public static final fun CamoFieldFrame (ZZLandroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun CamoTextField (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Ljava/lang/String;Ljava/lang/String;ZZZLkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/textfield/CamoInputFilter;Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/input/KeyboardActionHandler;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/srctool/camouflage/core/textfield/LabelPlacement : java/lang/Enum {
+	public static final field Above Lcom/srctool/camouflage/core/textfield/LabelPlacement;
+	public static final field Floating Lcom/srctool/camouflage/core/textfield/LabelPlacement;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/textfield/LabelPlacement;
+	public static fun values ()[Lcom/srctool/camouflage/core/textfield/LabelPlacement;
+}
+
+public final class com/srctool/camouflage/core/textfield/TextFieldColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-0d7_KjU ()J
+	public final fun component4-0d7_KjU ()J
+	public final fun component5-0d7_KjU ()J
+	public final fun component6-0d7_KjU ()J
+	public final fun component7-0d7_KjU ()J
+	public final fun component8-0d7_KjU ()J
+	public final fun copy-FD3wquc (JJJJJJJJ)Lcom/srctool/camouflage/core/textfield/TextFieldColors;
+	public static synthetic fun copy-FD3wquc$default (Lcom/srctool/camouflage/core/textfield/TextFieldColors;JJJJJJJJILjava/lang/Object;)Lcom/srctool/camouflage/core/textfield/TextFieldColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder-0d7_KjU ()J
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getErrorBorder-0d7_KjU ()J
+	public final fun getFocusedBorder-0d7_KjU ()J
+	public final fun getIcon-0d7_KjU ()J
+	public final fun getLabel-0d7_KjU ()J
+	public final fun getPlaceholder-0d7_KjU ()J
+	public final fun getText-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/textfield/TextFieldRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/textfield/TextFieldState;Lcom/srctool/camouflage/core/textfield/TextFieldSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/textfield/TextFieldStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/textfield/TextFieldStyle;
+}
+
+public final class com/srctool/camouflage/core/textfield/TextFieldSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
+	public final fun getInput ()Lkotlin/jvm/functions/Function2;
+	public final fun getPrefixIcon ()Lkotlin/jvm/functions/Function2;
+	public final fun getSuffixIcon ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/srctool/camouflage/core/textfield/TextFieldState {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component11 ()Z
+	public final fun component12 ()Z
+	public final fun component13 ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun component14 ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Z
+	public final fun component9 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;)Lcom/srctool/camouflage/core/textfield/TextFieldState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/textfield/TextFieldState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;ILjava/lang/Object;)Lcom/srctool/camouflage/core/textfield/TextFieldState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnabled ()Z
+	public final fun getError ()Ljava/lang/String;
+	public final fun getFocused ()Z
+	public final fun getInteraction ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun getInteractionSource ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getPlaceholder ()Ljava/lang/String;
+	public final fun getPrefixText ()Ljava/lang/String;
+	public final fun getSecure ()Z
+	public final fun getSingleLine ()Z
+	public final fun getSuffixText ()Ljava/lang/String;
+	public final fun getSupportingText ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isEmpty ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/textfield/TextFieldStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/textfield/LabelPlacement;FLandroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFLcom/srctool/camouflage/core/textfield/TextFieldColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/textfield/LabelPlacement;
+	public final fun component10-D9Ej5fM ()F
+	public final fun component11-D9Ej5fM ()F
+	public final fun component12 ()Lcom/srctool/camouflage/core/textfield/TextFieldColors;
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component4 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component5 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component6 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component9-D9Ej5fM ()F
+	public final fun copy-8aYvS9g (Lcom/srctool/camouflage/core/textfield/LabelPlacement;FLandroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFLcom/srctool/camouflage/core/textfield/TextFieldColors;)Lcom/srctool/camouflage/core/textfield/TextFieldStyle;
+	public static synthetic fun copy-8aYvS9g$default (Lcom/srctool/camouflage/core/textfield/TextFieldStyle;Lcom/srctool/camouflage/core/textfield/LabelPlacement;FLandroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFLcom/srctool/camouflage/core/textfield/TextFieldColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/textfield/TextFieldStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderWidth-D9Ej5fM ()F
+	public final fun getColors ()Lcom/srctool/camouflage/core/textfield/TextFieldColors;
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getFloatingLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getFocusedBorderWidth-D9Ej5fM ()F
+	public final fun getHeight-D9Ej5fM ()F
+	public final fun getIconSize-D9Ej5fM ()F
+	public final fun getLabelPlacement ()Lcom/srctool/camouflage/core/textfield/LabelPlacement;
+	public final fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getSupportingTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/textfield/TextFieldTheme;)Lcom/srctool/camouflage/core/textfield/TextFieldStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/textfield/TextFieldTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/textfield/LabelPlacement;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/textfield/TextFieldColors;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/textfield/LabelPlacement;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/textfield/TextFieldColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/textfield/LabelPlacement;
+	public final fun component10-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component11-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component12 ()Lcom/srctool/camouflage/core/textfield/TextFieldColors;
+	public final fun component2-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component3 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component4 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component5 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component6 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component9-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun copy-egml_N0 (Lcom/srctool/camouflage/core/textfield/LabelPlacement;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/textfield/TextFieldColors;)Lcom/srctool/camouflage/core/textfield/TextFieldTheme;
+	public static synthetic fun copy-egml_N0$default (Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/textfield/LabelPlacement;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/textfield/TextFieldColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/textfield/TextFieldTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getColors ()Lcom/srctool/camouflage/core/textfield/TextFieldColors;
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getFloatingLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getFocusedBorderWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getHeight-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getIconSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getLabelPlacement ()Lcom/srctool/camouflage/core/textfield/LabelPlacement;
+	public final fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getSupportingTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/srctool/camouflage/core/theme/Appearance : java/lang/Enum {
 	public static final field Ghost Lcom/srctool/camouflage/core/theme/Appearance;
 	public static final field Link Lcom/srctool/camouflage/core/theme/Appearance;
@@ -1742,13 +2148,15 @@ public final class com/srctool/camouflage/core/theme/CamoColorsKt {
 public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public static final field $stable I
 	public fun <init> ()V
-	public fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;)V
-	public synthetic fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lcom/srctool/camouflage/core/icon/IconTheme;
 	public final fun component10 ()Lcom/srctool/camouflage/core/radio/RadioTheme;
 	public final fun component11 ()Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;
 	public final fun component12 ()Lcom/srctool/camouflage/core/slider/SliderTheme;
 	public final fun component13 ()Lcom/srctool/camouflage/core/stepper/StepperTheme;
+	public final fun component14 ()Lcom/srctool/camouflage/core/textfield/TextFieldTheme;
+	public final fun component15 ()Lcom/srctool/camouflage/core/search/SearchFieldTheme;
 	public final fun component2 ()Lcom/srctool/camouflage/core/surface/SurfaceTheme;
 	public final fun component3 ()Lcom/srctool/camouflage/core/divider/DividerTheme;
 	public final fun component4 ()Lcom/srctool/camouflage/core/button/ButtonTheme;
@@ -1757,8 +2165,8 @@ public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public final fun component7 ()Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
 	public final fun component8 ()Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;
 	public final fun component9 ()Lcom/srctool/camouflage/core/switch/SwitchTheme;
-	public final fun copy (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
+	public final fun copy (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getButton ()Lcom/srctool/camouflage/core/button/ButtonTheme;
 	public final fun getCheckbox ()Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;
@@ -1767,11 +2175,13 @@ public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public final fun getIconButton ()Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;
 	public final fun getProgress ()Lcom/srctool/camouflage/core/progress/ProgressTheme;
 	public final fun getRadio ()Lcom/srctool/camouflage/core/radio/RadioTheme;
+	public final fun getSearchField ()Lcom/srctool/camouflage/core/search/SearchFieldTheme;
 	public final fun getSegmentedControl ()Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;
 	public final fun getSlider ()Lcom/srctool/camouflage/core/slider/SliderTheme;
 	public final fun getStepper ()Lcom/srctool/camouflage/core/stepper/StepperTheme;
 	public final fun getSurface ()Lcom/srctool/camouflage/core/surface/SurfaceTheme;
 	public final fun getSwitch ()Lcom/srctool/camouflage/core/switch/SwitchTheme;
+	public final fun getTextField ()Lcom/srctool/camouflage/core/textfield/TextFieldTheme;
 	public final fun getTooltip ()Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2203,6 +2613,10 @@ public final class com/srctool/camouflage/core/util/ContentStyleKt {
 
 public final class com/srctool/camouflage/core/util/ErrorKt {
 	public static final fun camoError (Landroidx/compose/ui/Modifier;Ljava/lang/String;)Landroidx/compose/ui/Modifier;
+}
+
+public final class com/srctool/camouflage/core/util/FloatingLabelKt {
+	public static final fun FloatingLabelBox-HR_ku5s (Ljava/lang/String;ZLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;JJFLcom/srctool/camouflage/core/theme/CamoTheme;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/srctool/camouflage/core/util/InteractionKt {
