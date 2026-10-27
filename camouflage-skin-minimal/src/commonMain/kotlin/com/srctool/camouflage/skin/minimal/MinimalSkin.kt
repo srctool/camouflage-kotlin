@@ -12,6 +12,10 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalIconRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressCircleRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalRadioRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSearchFieldRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalMenuRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalBottomSheetRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalDatePickerRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalTimePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSegmentedControlRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSliderRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalStepperRenderer
@@ -46,6 +50,10 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     stepper = MinimalStepperRenderer,
     textField = MinimalTextFieldRenderer(labelPlacement),
     searchField = MinimalSearchFieldRenderer,
+    menu = MinimalMenuRenderer,
+    bottomSheet = MinimalBottomSheetRenderer,
+    datePicker = MinimalDatePickerRenderer,
+    timePicker = MinimalTimePickerRenderer,
 )
 
 /** The Minimal skin. */

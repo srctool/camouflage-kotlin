@@ -1,3 +1,134 @@
+public abstract interface class com/srctool/camouflage/core/bottomsheet/BottomSheetRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/bottomsheet/BottomSheetState;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/bottomsheet/BottomSheetStyle;
+}
+
+public final class com/srctool/camouflage/core/bottomsheet/BottomSheetSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
+	public final fun getContent ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/srctool/camouflage/core/bottomsheet/BottomSheetState {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;FZLkotlin/jvm/functions/Function0;Z)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()F
+	public final fun component3 ()Z
+	public final fun component4 ()Lkotlin/jvm/functions/Function0;
+	public final fun component5 ()Z
+	public final fun copy (Ljava/lang/String;FZLkotlin/jvm/functions/Function0;Z)Lcom/srctool/camouflage/core/bottomsheet/BottomSheetState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/bottomsheet/BottomSheetState;Ljava/lang/String;FZLkotlin/jvm/functions/Function0;ZILjava/lang/Object;)Lcom/srctool/camouflage/core/bottomsheet/BottomSheetState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCentered ()Z
+	public final fun getDismissible ()Z
+	public final fun getDragProgress ()F
+	public final fun getOnDismissRequest ()Lkotlin/jvm/functions/Function0;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/bottomsheet/BottomSheetStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;FLandroidx/compose/foundation/layout/PaddingValues;ZJJLandroidx/compose/ui/text/TextStyle;Lcom/srctool/camouflage/core/skin/TitleAlign;ZLcom/srctool/camouflage/core/icon/IconSource;JFLcom/srctool/camouflage/core/bottomsheet/WidePresentation;Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component10 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component11-0d7_KjU ()J
+	public final fun component12 ()F
+	public final fun component13 ()Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;
+	public final fun component14 ()Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component4 ()Z
+	public final fun component5-MYxV2XQ ()J
+	public final fun component6-0d7_KjU ()J
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8 ()Lcom/srctool/camouflage/core/skin/TitleAlign;
+	public final fun component9 ()Z
+	public final fun copy-vBp2dX8 (Landroidx/compose/ui/graphics/Shape;FLandroidx/compose/foundation/layout/PaddingValues;ZJJLandroidx/compose/ui/text/TextStyle;Lcom/srctool/camouflage/core/skin/TitleAlign;ZLcom/srctool/camouflage/core/icon/IconSource;JFLcom/srctool/camouflage/core/bottomsheet/WidePresentation;Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;)Lcom/srctool/camouflage/core/bottomsheet/BottomSheetStyle;
+	public static synthetic fun copy-vBp2dX8$default (Lcom/srctool/camouflage/core/bottomsheet/BottomSheetStyle;Landroidx/compose/ui/graphics/Shape;FLandroidx/compose/foundation/layout/PaddingValues;ZJJLandroidx/compose/ui/text/TextStyle;Lcom/srctool/camouflage/core/skin/TitleAlign;ZLcom/srctool/camouflage/core/icon/IconSource;JFLcom/srctool/camouflage/core/bottomsheet/WidePresentation;Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;ILjava/lang/Object;)Lcom/srctool/camouflage/core/bottomsheet/BottomSheetStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCloseIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getContainerColor-0d7_KjU ()J
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getHandleColor-0d7_KjU ()J
+	public final fun getHandleSize-MYxV2XQ ()J
+	public final fun getMaxWidth-D9Ej5fM ()F
+	public final fun getScrimAlpha ()F
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getShowCloseButton ()Z
+	public final fun getShowHandle ()Z
+	public final fun getStackedScrim ()Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;
+	public final fun getTitleAlign ()Lcom/srctool/camouflage/core/skin/TitleAlign;
+	public final fun getTitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getWidePresentation ()Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;)Lcom/srctool/camouflage/core/bottomsheet/BottomSheetStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/bottomsheet/BottomSheetTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Ljava/lang/Boolean;Landroidx/compose/ui/unit/DpSize;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/text/TextStyle;Lcom/srctool/camouflage/core/skin/TitleAlign;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/icon/IconSource;Landroidx/compose/ui/graphics/Color;Ljava/lang/Float;Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Ljava/lang/Boolean;Landroidx/compose/ui/unit/DpSize;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/text/TextStyle;Lcom/srctool/camouflage/core/skin/TitleAlign;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/icon/IconSource;Landroidx/compose/ui/graphics/Color;Ljava/lang/Float;Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component10 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component11-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun component12 ()Ljava/lang/Float;
+	public final fun component13 ()Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;
+	public final fun component14 ()Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;
+	public final fun component2-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component3 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun component5-rqqXlrw ()Landroidx/compose/ui/unit/DpSize;
+	public final fun component6-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8 ()Lcom/srctool/camouflage/core/skin/TitleAlign;
+	public final fun component9 ()Ljava/lang/Boolean;
+	public final fun copy-MJ-2uzc (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Ljava/lang/Boolean;Landroidx/compose/ui/unit/DpSize;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/text/TextStyle;Lcom/srctool/camouflage/core/skin/TitleAlign;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/icon/IconSource;Landroidx/compose/ui/graphics/Color;Ljava/lang/Float;Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;)Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;
+	public static synthetic fun copy-MJ-2uzc$default (Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Ljava/lang/Boolean;Landroidx/compose/ui/unit/DpSize;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/text/TextStyle;Lcom/srctool/camouflage/core/skin/TitleAlign;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/icon/IconSource;Landroidx/compose/ui/graphics/Color;Ljava/lang/Float;Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;ILjava/lang/Object;)Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCloseIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getContainerColor-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getHandleColor-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getHandleSize-rqqXlrw ()Landroidx/compose/ui/unit/DpSize;
+	public final fun getMaxWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getScrimAlpha ()Ljava/lang/Float;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getShowCloseButton ()Ljava/lang/Boolean;
+	public final fun getShowHandle ()Ljava/lang/Boolean;
+	public final fun getStackedScrim ()Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;
+	public final fun getTitleAlign ()Lcom/srctool/camouflage/core/skin/TitleAlign;
+	public final fun getTitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getWidePresentation ()Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/bottomsheet/CamoBottomSheetKt {
+	public static final fun CamoBottomSheet (Landroidx/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun CamoSheetFrame (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/bottomsheet/StackedScrim : java/lang/Enum {
+	public static final field Each Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;
+	public static final field TopOnly Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;
+	public static fun values ()[Lcom/srctool/camouflage/core/bottomsheet/StackedScrim;
+}
+
+public final class com/srctool/camouflage/core/bottomsheet/WidePresentation : java/lang/Enum {
+	public static final field Centered Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;
+	public static final field Sheet Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;
+	public static fun values ()[Lcom/srctool/camouflage/core/bottomsheet/WidePresentation;
+}
+
 public final class com/srctool/camouflage/core/button/ButtonColors {
 	public static final field $stable I
 	public synthetic fun <init> (JJLandroidx/compose/ui/graphics/Color;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -268,6 +399,353 @@ public final class com/srctool/camouflage/core/checkbox/CheckboxTheme {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/srctool/camouflage/core/datepicker/AllowTyping : java/lang/Enum {
+	public static final field Always Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+	public static final field Auto Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+	public static final field Never Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+	public static fun values ()[Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+}
+
+public final class com/srctool/camouflage/core/datepicker/CalendarCell {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;ZZZLcom/srctool/camouflage/core/datepicker/RangePosition;ZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/ui/Modifier;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Landroidx/compose/ui/Modifier;
+	public final fun component2 ()Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public final fun component7 ()Z
+	public final fun component8 ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun component9 ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;ZZZLcom/srctool/camouflage/core/datepicker/RangePosition;ZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/ui/Modifier;)Lcom/srctool/camouflage/core/datepicker/CalendarCell;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/datepicker/CalendarCell;Ljava/lang/String;Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;ZZZLcom/srctool/camouflage/core/datepicker/RangePosition;ZLcom/srctool/camouflage/core/skin/InteractionState;Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/ui/Modifier;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/CalendarCell;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBehavior ()Landroidx/compose/ui/Modifier;
+	public final fun getEnabled ()Z
+	public final fun getInMonth ()Z
+	public final fun getInteraction ()Lcom/srctool/camouflage/core/skin/InteractionState;
+	public final fun getInteractionSource ()Landroidx/compose/foundation/interaction/InteractionSource;
+	public final fun getKind ()Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getRangePosition ()Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public final fun getSelected ()Z
+	public fun hashCode ()I
+	public final fun isToday ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datepicker/CalendarCellKind : java/lang/Enum {
+	public static final field Day Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;
+	public static final field Year Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;
+	public static fun values ()[Lcom/srctool/camouflage/core/datepicker/CalendarCellKind;
+}
+
+public final class com/srctool/camouflage/core/datepicker/CalendarDay {
+	public static final field $stable I
+	public fun <init> (Lkotlinx/datetime/LocalDate;ZZZLcom/srctool/camouflage/core/datepicker/RangePosition;Z)V
+	public final fun component1 ()Lkotlinx/datetime/LocalDate;
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public final fun component6 ()Z
+	public final fun copy (Lkotlinx/datetime/LocalDate;ZZZLcom/srctool/camouflage/core/datepicker/RangePosition;Z)Lcom/srctool/camouflage/core/datepicker/CalendarDay;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/datepicker/CalendarDay;Lkotlinx/datetime/LocalDate;ZZZLcom/srctool/camouflage/core/datepicker/RangePosition;ZILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/CalendarDay;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDate ()Lkotlinx/datetime/LocalDate;
+	public final fun getEnabled ()Z
+	public final fun getInMonth ()Z
+	public final fun getRangePosition ()Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public final fun getSelected ()Z
+	public fun hashCode ()I
+	public final fun isToday ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/datepicker/CalendarSelection {
+}
+
+public final class com/srctool/camouflage/core/datepicker/CalendarSelection$Range : com/srctool/camouflage/core/datepicker/CalendarSelection {
+	public static final field $stable I
+	public fun <init> (Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;)V
+	public final fun component1 ()Lkotlinx/datetime/LocalDate;
+	public final fun component2 ()Lkotlinx/datetime/LocalDate;
+	public final fun copy (Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;)Lcom/srctool/camouflage/core/datepicker/CalendarSelection$Range;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/datepicker/CalendarSelection$Range;Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/CalendarSelection$Range;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnd ()Lkotlinx/datetime/LocalDate;
+	public final fun getStart ()Lkotlinx/datetime/LocalDate;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datepicker/CalendarSelection$Single : com/srctool/camouflage/core/datepicker/CalendarSelection {
+	public static final field $stable I
+	public fun <init> (Lkotlinx/datetime/LocalDate;)V
+	public final fun component1 ()Lkotlinx/datetime/LocalDate;
+	public final fun copy (Lkotlinx/datetime/LocalDate;)Lcom/srctool/camouflage/core/datepicker/CalendarSelection$Single;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/datepicker/CalendarSelection$Single;Lkotlinx/datetime/LocalDate;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/CalendarSelection$Single;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDate ()Lkotlinx/datetime/LocalDate;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datepicker/CalendarSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;)V
+	public final fun getDay ()Lkotlin/jvm/functions/Function3;
+	public final fun getHeader ()Lkotlin/jvm/functions/Function2;
+	public final fun getNext ()Lkotlin/jvm/functions/Function2;
+	public final fun getPrevious ()Lkotlin/jvm/functions/Function2;
+	public final fun getYears ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/srctool/camouflage/core/datepicker/CalendarState {
+	public static final field $stable I
+	public fun <init> (Lkotlinx/datetime/YearMonth;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ZZ)V
+	public final fun component1 ()Lkotlinx/datetime/YearMonth;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Z
+	public final fun component6 ()Z
+	public final fun copy (Lkotlinx/datetime/YearMonth;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ZZ)Lcom/srctool/camouflage/core/datepicker/CalendarState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/datepicker/CalendarState;Lkotlinx/datetime/YearMonth;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ZZILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/CalendarState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChoosingYear ()Z
+	public final fun getDays ()Ljava/util/List;
+	public final fun getMonthLabel ()Ljava/lang/String;
+	public final fun getShowOutsideDays ()Z
+	public final fun getVisibleMonth ()Lkotlinx/datetime/YearMonth;
+	public final fun getWeekdayLabels ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datepicker/CamoCalendarKt {
+	public static final fun CamoCalendar (Lcom/srctool/camouflage/core/datepicker/CalendarSelection;Lkotlin/jvm/functions/Function1;Lkotlinx/datetime/YearMonth;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;Lkotlin/jvm/functions/Function1;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/datepicker/CamoDateFieldKt {
+	public static final fun CamoDateField (Lkotlinx/datetime/LocalDate;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/datepicker/PickerPresentation;ZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+	public static final fun CamoDateRangeField (Lkotlinx/datetime/LocalDateRange;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;Lkotlin/jvm/functions/Function1;Ljava/lang/Integer;Lcom/srctool/camouflage/core/datepicker/PickerPresentation;ZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/srctool/camouflage/core/datepicker/DatePickerColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-0d7_KjU ()J
+	public final fun component4-0d7_KjU ()J
+	public final fun component5-0d7_KjU ()J
+	public final fun component6-0d7_KjU ()J
+	public final fun component7-0d7_KjU ()J
+	public final fun component8-0d7_KjU ()J
+	public final fun copy-FD3wquc (JJJJJJJJ)Lcom/srctool/camouflage/core/datepicker/DatePickerColors;
+	public static synthetic fun copy-FD3wquc$default (Lcom/srctool/camouflage/core/datepicker/DatePickerColors;JJJJJJJJILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/DatePickerColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDay-0d7_KjU ()J
+	public final fun getDisabled-0d7_KjU ()J
+	public final fun getOnRange-0d7_KjU ()J
+	public final fun getOnSelected-0d7_KjU ()J
+	public final fun getRange-0d7_KjU ()J
+	public final fun getSelected-0d7_KjU ()J
+	public final fun getToday-0d7_KjU ()J
+	public final fun getWeekday-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datepicker/DatePickerForm : java/lang/Enum {
+	public static final field Calendar Lcom/srctool/camouflage/core/datepicker/DatePickerForm;
+	public static final field Wheel Lcom/srctool/camouflage/core/datepicker/DatePickerForm;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/datepicker/DatePickerForm;
+	public static fun values ()[Lcom/srctool/camouflage/core/datepicker/DatePickerForm;
+}
+
+public abstract interface class com/srctool/camouflage/core/datepicker/DatePickerRenderer {
+	public abstract fun Calendar (Lcom/srctool/camouflage/core/datepicker/CalendarState;Lcom/srctool/camouflage/core/datepicker/CalendarSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun Cell (Lcom/srctool/camouflage/core/datepicker/CalendarCell;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun Wheels (Ljava/util/List;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/datepicker/DatePickerStyle;
+}
+
+public final class com/srctool/camouflage/core/datepicker/DatePickerStrings {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Ljava/lang/String;
+	public final fun component13 ()Ljava/lang/String;
+	public final fun component14 ()Ljava/lang/String;
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component16 ()Ljava/lang/String;
+	public final fun component17 ()Ljava/lang/String;
+	public final fun component18 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCancel ()Ljava/lang/String;
+	public final fun getChooseDate ()Ljava/lang/String;
+	public final fun getChooseYear ()Ljava/lang/String;
+	public final fun getClear ()Ljava/lang/String;
+	public final fun getDay ()Ljava/lang/String;
+	public final fun getDone ()Ljava/lang/String;
+	public final fun getInRange ()Ljava/lang/String;
+	public final fun getInvalidDate ()Ljava/lang/String;
+	public final fun getMonth ()Ljava/lang/String;
+	public final fun getNextMonth ()Ljava/lang/String;
+	public final fun getOk ()Ljava/lang/String;
+	public final fun getOutOfRange ()Ljava/lang/String;
+	public final fun getPreviousMonth ()Ljava/lang/String;
+	public final fun getRangeEnd ()Ljava/lang/String;
+	public final fun getRangeStart ()Ljava/lang/String;
+	public final fun getToday ()Ljava/lang/String;
+	public final fun getUnavailable ()Ljava/lang/String;
+	public final fun getYear ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datepicker/DatePickerStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/datepicker/DatePickerForm;Lkotlinx/datetime/DayOfWeek;Ljava/lang/String;ZLcom/srctool/camouflage/core/datepicker/AllowTyping;ZFFLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/datepicker/DatePickerColors;Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/datepicker/DatePickerForm;
+	public final fun component10 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component11 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component12 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component13 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component14-D9Ej5fM ()F
+	public final fun component15 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component16 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component17 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component18 ()Lcom/srctool/camouflage/core/datepicker/DatePickerColors;
+	public final fun component19 ()Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;
+	public final fun component2 ()Lkotlinx/datetime/DayOfWeek;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Z
+	public final fun component5 ()Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+	public final fun component6 ()Z
+	public final fun component7-D9Ej5fM ()F
+	public final fun component8-D9Ej5fM ()F
+	public final fun component9 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun copy-7Zxso2k (Lcom/srctool/camouflage/core/datepicker/DatePickerForm;Lkotlinx/datetime/DayOfWeek;Ljava/lang/String;ZLcom/srctool/camouflage/core/datepicker/AllowTyping;ZFFLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/datepicker/DatePickerColors;Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;)Lcom/srctool/camouflage/core/datepicker/DatePickerStyle;
+	public static synthetic fun copy-7Zxso2k$default (Lcom/srctool/camouflage/core/datepicker/DatePickerStyle;Lcom/srctool/camouflage/core/datepicker/DatePickerForm;Lkotlinx/datetime/DayOfWeek;Ljava/lang/String;ZLcom/srctool/camouflage/core/datepicker/AllowTyping;ZFFLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/datepicker/DatePickerColors;Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/DatePickerStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowTyping ()Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+	public final fun getAutoPopupMinWidth-D9Ej5fM ()F
+	public final fun getCalendarIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getColors ()Lcom/srctool/camouflage/core/datepicker/DatePickerColors;
+	public final fun getConfirmButton ()Z
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getDaySize-D9Ej5fM ()F
+	public final fun getDayStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getDisplayFormat ()Ljava/lang/String;
+	public final fun getFirstDayOfWeek ()Lkotlinx/datetime/DayOfWeek;
+	public final fun getForm ()Lcom/srctool/camouflage/core/datepicker/DatePickerForm;
+	public final fun getHeaderStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getNextIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getPreviousIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getShowOutsideDays ()Z
+	public final fun getStrings ()Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;
+	public final fun getWeekdayStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getWheelItemHeight-D9Ej5fM ()F
+	public final fun getWheelTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;)Lcom/srctool/camouflage/core/datepicker/DatePickerStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datepicker/DatePickerTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/datepicker/DatePickerForm;Lkotlinx/datetime/DayOfWeek;Ljava/lang/String;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/datepicker/AllowTyping;Ljava/lang/Boolean;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/datepicker/DatePickerColors;Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/datepicker/DatePickerForm;Lkotlinx/datetime/DayOfWeek;Ljava/lang/String;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/datepicker/AllowTyping;Ljava/lang/Boolean;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/datepicker/DatePickerColors;Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/datepicker/DatePickerForm;
+	public final fun component10 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component11 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component12 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component13 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component14-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component15 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component16 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component17 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component18 ()Lcom/srctool/camouflage/core/datepicker/DatePickerColors;
+	public final fun component19 ()Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;
+	public final fun component2 ()Lkotlinx/datetime/DayOfWeek;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun component5 ()Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component7-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component8-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component9 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun copy-xEp6gFw (Lcom/srctool/camouflage/core/datepicker/DatePickerForm;Lkotlinx/datetime/DayOfWeek;Ljava/lang/String;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/datepicker/AllowTyping;Ljava/lang/Boolean;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/datepicker/DatePickerColors;Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;)Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;
+	public static synthetic fun copy-xEp6gFw$default (Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerForm;Lkotlinx/datetime/DayOfWeek;Ljava/lang/String;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/datepicker/AllowTyping;Ljava/lang/Boolean;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/datepicker/DatePickerColors;Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowTyping ()Lcom/srctool/camouflage/core/datepicker/AllowTyping;
+	public final fun getAutoPopupMinWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getCalendarIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getColors ()Lcom/srctool/camouflage/core/datepicker/DatePickerColors;
+	public final fun getConfirmButton ()Ljava/lang/Boolean;
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getDaySize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getDayStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getDisplayFormat ()Ljava/lang/String;
+	public final fun getFirstDayOfWeek ()Lkotlinx/datetime/DayOfWeek;
+	public final fun getForm ()Lcom/srctool/camouflage/core/datepicker/DatePickerForm;
+	public final fun getHeaderStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getNextIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getPreviousIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getShowOutsideDays ()Ljava/lang/Boolean;
+	public final fun getStrings ()Lcom/srctool/camouflage/core/datepicker/DatePickerStrings;
+	public final fun getWeekdayStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getWheelItemHeight-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getWheelTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datepicker/PickerPresentation : java/lang/Enum {
+	public static final field Auto Lcom/srctool/camouflage/core/datepicker/PickerPresentation;
+	public static final field Popup Lcom/srctool/camouflage/core/datepicker/PickerPresentation;
+	public static final field Sheet Lcom/srctool/camouflage/core/datepicker/PickerPresentation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/datepicker/PickerPresentation;
+	public static fun values ()[Lcom/srctool/camouflage/core/datepicker/PickerPresentation;
+}
+
+public final class com/srctool/camouflage/core/datepicker/RangePosition : java/lang/Enum {
+	public static final field End Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public static final field Middle Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public static final field None Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public static final field Single Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public static final field Start Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/datepicker/RangePosition;
+	public static fun values ()[Lcom/srctool/camouflage/core/datepicker/RangePosition;
+}
+
 public final class com/srctool/camouflage/core/divider/CamoDividerKt {
 	public static final fun CamoDivider (Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/gestures/Orientation;Lcom/srctool/camouflage/core/divider/DividerInset;Landroidx/compose/runtime/Composer;II)V
 }
@@ -401,6 +879,12 @@ public final class com/srctool/camouflage/core/form/FormFieldsKt {
 	public static final fun CamoStepperFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;ILjava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLkotlin/ranges/IntRange;ILjava/lang/String;ZLkotlin/jvm/functions/Function1;ZLandroidx/compose/runtime/Composer;III)V
 	public static final fun CamoSwitchFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;ZLjava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;Ljava/lang/String;ZLandroidx/compose/runtime/Composer;III)V
 	public static final fun CamoTextFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Ljava/lang/String;Ljava/lang/String;ZZZLcom/srctool/camouflage/core/textfield/CamoInputFilter;Lcom/srctool/camouflage/core/textfield/CamoDisplayFormat;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/input/KeyboardActionHandler;Landroidx/compose/runtime/Composer;IIII)V
+}
+
+public final class com/srctool/camouflage/core/form/PickerFormFieldsKt {
+	public static final fun CamoDateFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;Lkotlinx/datetime/LocalDate;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/datepicker/PickerPresentation;ZLandroidx/compose/runtime/Composer;III)V
+	public static final fun CamoDateRangeFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;Lkotlinx/datetime/LocalDateRange;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;Lkotlin/jvm/functions/Function1;Ljava/lang/Integer;Lcom/srctool/camouflage/core/datepicker/PickerPresentation;ZLandroidx/compose/runtime/Composer;III)V
+	public static final fun CamoTimeFormField (Ljava/lang/String;Landroidx/compose/ui/Modifier;Lkotlinx/datetime/LocalTime;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/form/ValidateMode;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Boolean;Lkotlinx/datetime/LocalTime;Lkotlinx/datetime/LocalTime;Lcom/srctool/camouflage/core/datepicker/PickerPresentation;ZLandroidx/compose/runtime/Composer;III)V
 }
 
 public final class com/srctool/camouflage/core/form/ValidateMode : java/lang/Enum {
@@ -654,6 +1138,108 @@ public final class com/srctool/camouflage/core/iconbutton/IconButtonTheme {
 	public final fun getSolidColors ()Lcom/srctool/camouflage/core/iconbutton/IconButtonColors;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/menu/CamoMenuKt {
+	public static final fun CamoMenuPanel (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/menu/CheckPosition : java/lang/Enum {
+	public static final field Leading Lcom/srctool/camouflage/core/menu/CheckPosition;
+	public static final field Trailing Lcom/srctool/camouflage/core/menu/CheckPosition;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/menu/CheckPosition;
+	public static fun values ()[Lcom/srctool/camouflage/core/menu/CheckPosition;
+}
+
+public final class com/srctool/camouflage/core/menu/MenuColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-0d7_KjU ()J
+	public final fun component4-0d7_KjU ()J
+	public final fun copy-jRlVdoo (JJJJ)Lcom/srctool/camouflage/core/menu/MenuColors;
+	public static synthetic fun copy-jRlVdoo$default (Lcom/srctool/camouflage/core/menu/MenuColors;JJJJILjava/lang/Object;)Lcom/srctool/camouflage/core/menu/MenuColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getIcon-0d7_KjU ()J
+	public final fun getText-0d7_KjU ()J
+	public final fun getTrailingText-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/menu/MenuRenderer {
+	public abstract fun Panel (Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/menu/MenuStyle;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/menu/MenuStyle;
+}
+
+public final class com/srctool/camouflage/core/menu/MenuStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;FFFLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/menu/CheckPosition;Lcom/srctool/camouflage/core/menu/MenuColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component10 ()Lcom/srctool/camouflage/core/menu/MenuColors;
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component6 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component7-D9Ej5fM ()F
+	public final fun component8 ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun component9 ()Lcom/srctool/camouflage/core/menu/CheckPosition;
+	public final fun copy-dYR75D4 (Landroidx/compose/ui/graphics/Shape;FFFLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/menu/CheckPosition;Lcom/srctool/camouflage/core/menu/MenuColors;)Lcom/srctool/camouflage/core/menu/MenuStyle;
+	public static synthetic fun copy-dYR75D4$default (Lcom/srctool/camouflage/core/menu/MenuStyle;Landroidx/compose/ui/graphics/Shape;FFFLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/menu/CheckPosition;Lcom/srctool/camouflage/core/menu/MenuColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/menu/MenuStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCheckPosition ()Lcom/srctool/camouflage/core/menu/CheckPosition;
+	public final fun getColors ()Lcom/srctool/camouflage/core/menu/MenuColors;
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getElevation ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun getIconSize-D9Ej5fM ()F
+	public final fun getItemHeight-D9Ej5fM ()F
+	public final fun getMaxWidth-D9Ej5fM ()F
+	public final fun getMinWidth-D9Ej5fM ()F
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/menu/MenuTheme;)Lcom/srctool/camouflage/core/menu/MenuStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/menu/MenuTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/menu/CheckPosition;Lcom/srctool/camouflage/core/menu/MenuColors;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/menu/CheckPosition;Lcom/srctool/camouflage/core/menu/MenuColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component10 ()Lcom/srctool/camouflage/core/menu/MenuColors;
+	public final fun component2-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component3-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component4-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component5 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component6 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component7-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component8 ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun component9 ()Lcom/srctool/camouflage/core/menu/CheckPosition;
+	public final fun copy-rVJM7UY (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/menu/CheckPosition;Lcom/srctool/camouflage/core/menu/MenuColors;)Lcom/srctool/camouflage/core/menu/MenuTheme;
+	public static synthetic fun copy-rVJM7UY$default (Lcom/srctool/camouflage/core/menu/MenuTheme;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ElevationLevel;Lcom/srctool/camouflage/core/menu/CheckPosition;Lcom/srctool/camouflage/core/menu/MenuColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/menu/MenuTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCheckPosition ()Lcom/srctool/camouflage/core/menu/CheckPosition;
+	public final fun getColors ()Lcom/srctool/camouflage/core/menu/MenuColors;
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getElevation ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun getIconSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getItemHeight-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getMaxWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getMinWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/overlay/CamoAnchoredPopupKt {
+	public static final fun CamoAnchoredPopup (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/srctool/camouflage/core/progress/CamoProgressKt {
@@ -1170,7 +1756,7 @@ public final class com/srctool/camouflage/core/segmented/SegmentedControlTheme {
 
 public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public static final field $stable I
-	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;)V
+	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;
 	public final fun component11 ()Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;
@@ -1183,6 +1769,10 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun component18 ()Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;
 	public final fun component19 ()Lcom/srctool/camouflage/core/search/SearchFieldRenderer;
 	public final fun component2 ()Lcom/srctool/camouflage/core/skin/SurfaceTreatment;
+	public final fun component20 ()Lcom/srctool/camouflage/core/menu/MenuRenderer;
+	public final fun component21 ()Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;
+	public final fun component22 ()Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;
+	public final fun component23 ()Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;
 	public final fun component3 ()Lcom/srctool/camouflage/core/skin/InteractionFeedback;
 	public final fun component4 ()Lcom/srctool/camouflage/core/text/TextRenderer;
 	public final fun component5 ()Lcom/srctool/camouflage/core/icon/IconRenderer;
@@ -1190,15 +1780,18 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun component7 ()Lcom/srctool/camouflage/core/divider/DividerRenderer;
 	public final fun component8 ()Lcom/srctool/camouflage/core/button/ButtonRenderer;
 	public final fun component9 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;
-	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;)Lcom/srctool/camouflage/core/skin/CamoSkin;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBottomSheet ()Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;
 	public final fun getButton ()Lcom/srctool/camouflage/core/button/ButtonRenderer;
 	public final fun getCheckbox ()Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;
+	public final fun getDatePicker ()Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;
 	public final fun getDivider ()Lcom/srctool/camouflage/core/divider/DividerRenderer;
 	public final fun getFeedback ()Lcom/srctool/camouflage/core/skin/InteractionFeedback;
 	public final fun getIcon ()Lcom/srctool/camouflage/core/icon/IconRenderer;
 	public final fun getIconButton ()Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;
+	public final fun getMenu ()Lcom/srctool/camouflage/core/menu/MenuRenderer;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getProgressCircle ()Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;
 	public final fun getRadio ()Lcom/srctool/camouflage/core/radio/RadioRenderer;
@@ -1211,6 +1804,7 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun getSwitch ()Lcom/srctool/camouflage/core/switch/SwitchRenderer;
 	public final fun getText ()Lcom/srctool/camouflage/core/text/TextRenderer;
 	public final fun getTextField ()Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;
+	public final fun getTimePicker ()Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;
 	public final fun getTooltip ()Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1271,6 +1865,14 @@ public final class com/srctool/camouflage/core/skin/LabelPosition : java/lang/En
 
 public abstract interface class com/srctool/camouflage/core/skin/SurfaceTreatment {
 	public abstract fun modifier-hhQwkJs (JLandroidx/compose/ui/graphics/Shape;FLcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/ui/Modifier;
+}
+
+public final class com/srctool/camouflage/core/skin/TitleAlign : java/lang/Enum {
+	public static final field Center Lcom/srctool/camouflage/core/skin/TitleAlign;
+	public static final field Start Lcom/srctool/camouflage/core/skin/TitleAlign;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/skin/TitleAlign;
+	public static fun values ()[Lcom/srctool/camouflage/core/skin/TitleAlign;
 }
 
 public final class com/srctool/camouflage/core/slider/CamoSliderKt {
@@ -2148,8 +2750,8 @@ public final class com/srctool/camouflage/core/theme/CamoColorsKt {
 public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public static final field $stable I
 	public fun <init> ()V
-	public fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;)V
-	public synthetic fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lcom/srctool/camouflage/core/icon/IconTheme;
 	public final fun component10 ()Lcom/srctool/camouflage/core/radio/RadioTheme;
 	public final fun component11 ()Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;
@@ -2157,6 +2759,10 @@ public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public final fun component13 ()Lcom/srctool/camouflage/core/stepper/StepperTheme;
 	public final fun component14 ()Lcom/srctool/camouflage/core/textfield/TextFieldTheme;
 	public final fun component15 ()Lcom/srctool/camouflage/core/search/SearchFieldTheme;
+	public final fun component16 ()Lcom/srctool/camouflage/core/menu/MenuTheme;
+	public final fun component17 ()Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;
+	public final fun component18 ()Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;
+	public final fun component19 ()Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;
 	public final fun component2 ()Lcom/srctool/camouflage/core/surface/SurfaceTheme;
 	public final fun component3 ()Lcom/srctool/camouflage/core/divider/DividerTheme;
 	public final fun component4 ()Lcom/srctool/camouflage/core/button/ButtonTheme;
@@ -2165,14 +2771,17 @@ public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public final fun component7 ()Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
 	public final fun component8 ()Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;
 	public final fun component9 ()Lcom/srctool/camouflage/core/switch/SwitchTheme;
-	public final fun copy (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
+	public final fun copy (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBottomSheet ()Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;
 	public final fun getButton ()Lcom/srctool/camouflage/core/button/ButtonTheme;
 	public final fun getCheckbox ()Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;
+	public final fun getDatePicker ()Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;
 	public final fun getDivider ()Lcom/srctool/camouflage/core/divider/DividerTheme;
 	public final fun getIcon ()Lcom/srctool/camouflage/core/icon/IconTheme;
 	public final fun getIconButton ()Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;
+	public final fun getMenu ()Lcom/srctool/camouflage/core/menu/MenuTheme;
 	public final fun getProgress ()Lcom/srctool/camouflage/core/progress/ProgressTheme;
 	public final fun getRadio ()Lcom/srctool/camouflage/core/radio/RadioTheme;
 	public final fun getSearchField ()Lcom/srctool/camouflage/core/search/SearchFieldTheme;
@@ -2182,6 +2791,7 @@ public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public final fun getSurface ()Lcom/srctool/camouflage/core/surface/SurfaceTheme;
 	public final fun getSwitch ()Lcom/srctool/camouflage/core/switch/SwitchTheme;
 	public final fun getTextField ()Lcom/srctool/camouflage/core/textfield/TextFieldTheme;
+	public final fun getTimePicker ()Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;
 	public final fun getTooltip ()Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2509,6 +3119,219 @@ public final class com/srctool/camouflage/core/theme/ToneColors {
 	public final fun getOnContainer-0d7_KjU ()J
 	public final fun getOnStrong-0d7_KjU ()J
 	public final fun getStrong-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/timepicker/CamoTimePickerKt {
+	public static final field DIAL_INNER_RING F
+	public static final fun CamoTimeField (Lkotlinx/datetime/LocalTime;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Boolean;Lkotlinx/datetime/LocalTime;Lkotlinx/datetime/LocalTime;Lcom/srctool/camouflage/core/datepicker/PickerPresentation;ZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+	public static final fun CamoTimeInput (Lkotlinx/datetime/LocalTime;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ILjava/lang/Boolean;ZLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/timepicker/DayPeriod : java/lang/Enum {
+	public static final field Am Lcom/srctool/camouflage/core/timepicker/DayPeriod;
+	public static final field Pm Lcom/srctool/camouflage/core/timepicker/DayPeriod;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/timepicker/DayPeriod;
+	public static fun values ()[Lcom/srctool/camouflage/core/timepicker/DayPeriod;
+}
+
+public final class com/srctool/camouflage/core/timepicker/DialState {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Ljava/util/List;IZFLcom/srctool/camouflage/core/timepicker/TimePart;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()I
+	public final fun component4 ()Z
+	public final fun component5 ()F
+	public final fun component6 ()Lcom/srctool/camouflage/core/timepicker/TimePart;
+	public final fun copy (Ljava/util/List;Ljava/util/List;IZFLcom/srctool/camouflage/core/timepicker/TimePart;)Lcom/srctool/camouflage/core/timepicker/DialState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/timepicker/DialState;Ljava/util/List;Ljava/util/List;IZFLcom/srctool/camouflage/core/timepicker/TimePart;ILjava/lang/Object;)Lcom/srctool/camouflage/core/timepicker/DialState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHandAngle ()F
+	public final fun getInnerLabels ()Ljava/util/List;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun getPart ()Lcom/srctool/camouflage/core/timepicker/TimePart;
+	public final fun getSelectedIndex ()I
+	public final fun getSelectedInner ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/timepicker/TimePart : java/lang/Enum {
+	public static final field Hour Lcom/srctool/camouflage/core/timepicker/TimePart;
+	public static final field Minute Lcom/srctool/camouflage/core/timepicker/TimePart;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/timepicker/TimePart;
+	public static fun values ()[Lcom/srctool/camouflage/core/timepicker/TimePart;
+}
+
+public final class com/srctool/camouflage/core/timepicker/TimePickerColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-0d7_KjU ()J
+	public final fun component4-0d7_KjU ()J
+	public final fun component5-0d7_KjU ()J
+	public final fun copy-t635Npw (JJJJJ)Lcom/srctool/camouflage/core/timepicker/TimePickerColors;
+	public static synthetic fun copy-t635Npw$default (Lcom/srctool/camouflage/core/timepicker/TimePickerColors;JJJJJILjava/lang/Object;)Lcom/srctool/camouflage/core/timepicker/TimePickerColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActive-0d7_KjU ()J
+	public final fun getActiveContainer-0d7_KjU ()J
+	public final fun getDigits-0d7_KjU ()J
+	public final fun getFace-0d7_KjU ()J
+	public final fun getPeriod-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/timepicker/TimePickerForm : java/lang/Enum {
+	public static final field Dial Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+	public static final field Fields Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+	public static final field Wheel Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+	public static fun values ()[Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+}
+
+public abstract interface class com/srctool/camouflage/core/timepicker/TimePickerRenderer {
+	public abstract fun Dial (Lcom/srctool/camouflage/core/timepicker/DialState;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun Render (Lcom/srctool/camouflage/core/timepicker/TimePickerState;Lcom/srctool/camouflage/core/timepicker/TimePickerSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun Wheels (Ljava/util/List;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/timepicker/TimePickerStyle;
+}
+
+public final class com/srctool/camouflage/core/timepicker/TimePickerSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Ljava/util/List;)V
+	public final fun getDial ()Lkotlin/jvm/functions/Function2;
+	public final fun getHour ()Lkotlin/jvm/functions/Function2;
+	public final fun getMinute ()Lkotlin/jvm/functions/Function2;
+	public final fun getPeriod ()Lkotlin/jvm/functions/Function2;
+	public final fun getWheels ()Ljava/util/List;
+}
+
+public final class com/srctool/camouflage/core/timepicker/TimePickerState {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;ZLcom/srctool/camouflage/core/timepicker/DayPeriod;Lcom/srctool/camouflage/core/timepicker/TimePart;IZ)V
+	public final fun component1 ()Ljava/lang/Integer;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Z
+	public final fun component4 ()Lcom/srctool/camouflage/core/timepicker/DayPeriod;
+	public final fun component5 ()Lcom/srctool/camouflage/core/timepicker/TimePart;
+	public final fun component6 ()I
+	public final fun component7 ()Z
+	public final fun copy (Ljava/lang/Integer;Ljava/lang/Integer;ZLcom/srctool/camouflage/core/timepicker/DayPeriod;Lcom/srctool/camouflage/core/timepicker/TimePart;IZ)Lcom/srctool/camouflage/core/timepicker/TimePickerState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/timepicker/TimePickerState;Ljava/lang/Integer;Ljava/lang/Integer;ZLcom/srctool/camouflage/core/timepicker/DayPeriod;Lcom/srctool/camouflage/core/timepicker/TimePart;IZILjava/lang/Object;)Lcom/srctool/camouflage/core/timepicker/TimePickerState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivePart ()Lcom/srctool/camouflage/core/timepicker/TimePart;
+	public final fun getEnabled ()Z
+	public final fun getHour ()Ljava/lang/Integer;
+	public final fun getMinute ()Ljava/lang/Integer;
+	public final fun getMinuteStep ()I
+	public final fun getPeriod ()Lcom/srctool/camouflage/core/timepicker/DayPeriod;
+	public fun hashCode ()I
+	public final fun is24Hour ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/timepicker/TimePickerStrings {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCancel ()Ljava/lang/String;
+	public final fun getChooseTime ()Ljava/lang/String;
+	public final fun getHour ()Ljava/lang/String;
+	public final fun getMinute ()Ljava/lang/String;
+	public final fun getOk ()Ljava/lang/String;
+	public final fun getPeriod ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/timepicker/TimePickerStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/timepicker/TimePickerForm;ZLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFFLandroidx/compose/foundation/layout/PaddingValues;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/timepicker/TimePickerColors;Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+	public final fun component10 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component11 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component12 ()Lcom/srctool/camouflage/core/timepicker/TimePickerColors;
+	public final fun component13 ()Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;
+	public final fun component2 ()Z
+	public final fun component3 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component6-D9Ej5fM ()F
+	public final fun component7-D9Ej5fM ()F
+	public final fun component8-D9Ej5fM ()F
+	public final fun component9-D9Ej5fM ()F
+	public final fun copy-IxK7UME (Lcom/srctool/camouflage/core/timepicker/TimePickerForm;ZLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFFLandroidx/compose/foundation/layout/PaddingValues;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/timepicker/TimePickerColors;Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;)Lcom/srctool/camouflage/core/timepicker/TimePickerStyle;
+	public static synthetic fun copy-IxK7UME$default (Lcom/srctool/camouflage/core/timepicker/TimePickerStyle;Lcom/srctool/camouflage/core/timepicker/TimePickerForm;ZLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFFLandroidx/compose/foundation/layout/PaddingValues;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/timepicker/TimePickerColors;Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;ILjava/lang/Object;)Lcom/srctool/camouflage/core/timepicker/TimePickerStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAutoPopupMinWidth-D9Ej5fM ()F
+	public final fun getClockIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getColors ()Lcom/srctool/camouflage/core/timepicker/TimePickerColors;
+	public final fun getConfirmButton ()Z
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getDialSize-D9Ej5fM ()F
+	public final fun getDialTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getDigitStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getFieldSize-D9Ej5fM ()F
+	public final fun getForm ()Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+	public final fun getStrings ()Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;
+	public final fun getWheelItemHeight-D9Ej5fM ()F
+	public final fun getWheelTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;)Lcom/srctool/camouflage/core/timepicker/TimePickerStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/timepicker/TimePickerTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/timepicker/TimePickerForm;Ljava/lang/Boolean;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/timepicker/TimePickerColors;Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/timepicker/TimePickerForm;Ljava/lang/Boolean;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/timepicker/TimePickerColors;Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+	public final fun component10 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun component11 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component12 ()Lcom/srctool/camouflage/core/timepicker/TimePickerColors;
+	public final fun component13 ()Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component6-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component7-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component8-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component9-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun copy-dvH8LAY (Lcom/srctool/camouflage/core/timepicker/TimePickerForm;Ljava/lang/Boolean;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/timepicker/TimePickerColors;Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;)Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;
+	public static synthetic fun copy-dvH8LAY$default (Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerForm;Ljava/lang/Boolean;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Landroidx/compose/foundation/layout/PaddingValues;Lcom/srctool/camouflage/core/icon/IconSource;Lcom/srctool/camouflage/core/timepicker/TimePickerColors;Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;ILjava/lang/Object;)Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAutoPopupMinWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getClockIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getColors ()Lcom/srctool/camouflage/core/timepicker/TimePickerColors;
+	public final fun getConfirmButton ()Ljava/lang/Boolean;
+	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun getDialSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getDialTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getDigitStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getFieldSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getForm ()Lcom/srctool/camouflage/core/timepicker/TimePickerForm;
+	public final fun getStrings ()Lcom/srctool/camouflage/core/timepicker/TimePickerStrings;
+	public final fun getWheelItemHeight-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getWheelTextStyle ()Landroidx/compose/ui/text/TextStyle;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

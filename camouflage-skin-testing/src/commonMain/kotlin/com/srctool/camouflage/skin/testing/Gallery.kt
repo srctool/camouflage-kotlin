@@ -49,6 +49,19 @@ import com.srctool.camouflage.core.theme.ShapeRole
 import com.srctool.camouflage.core.theme.SurfaceLevel
 import com.srctool.camouflage.core.theme.Tone
 import com.srctool.camouflage.core.tooltip.TooltipState
+import com.srctool.camouflage.core.bottomsheet.CamoBottomSheet
+import com.srctool.camouflage.core.datepicker.CalendarSelection
+import com.srctool.camouflage.core.datepicker.CamoCalendar
+import com.srctool.camouflage.core.datepicker.CamoDateField
+import com.srctool.camouflage.core.datepicker.PickerPresentation
+import com.srctool.camouflage.core.menu.CamoMenuPanel
+import com.srctool.camouflage.core.timepicker.CamoTimeField
+import com.srctool.camouflage.core.timepicker.CamoTimeInput
+import com.srctool.camouflage.core.timepicker.TimePickerForm
+import com.srctool.camouflage.core.timepicker.TimePickerTheme
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalTime
+import kotlinx.datetime.YearMonth
 
 // The components in their states, for screenshot goldens of any skin. Static: no animation, no input.
 
@@ -204,3 +217,35 @@ public fun TextInputGallery() {
 }
 
 private const val GALLERY_CODE = 4
+
+private const val GALLERY_STEP = 15
+
+private val GalleryMonth = YearMonth.parse("2024-03")
+
+/**
+ * The M5 pickers and overlay looks, inline: a calendar with a selected day and one with a range, the time
+ * input in its three forms, closed date and time fields, a bottom sheet's content and a popup panel. The month is
+ * fixed in the past, so today never shows and the goldens stay put.
+ */
+@Composable
+public fun PickerGallery() {
+    Column(Modifier.padding(16.dp).width(360.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        val picked = CalendarSelection.Single(LocalDate.parse("2024-03-14"))
+        CamoCalendar(picked, {}, GalleryMonth, {}, minDate = LocalDate.parse("2024-03-04"))
+        val stay = CalendarSelection.Range(LocalDate.parse("2024-03-11"), LocalDate.parse("2024-03-15"))
+        CamoCalendar(stay, {}, GalleryMonth, {})
+        CamoTimeInput(LocalTime.parse("14:30"), {}, use24Hour = true)
+        CamoTimeInput(LocalTime.parse("09:05"), {}, use24Hour = false)
+        val components = Camouflage.theme.components
+        ProvideComponentThemes(components.copy(timePicker = TimePickerTheme(form = TimePickerForm.Dial))) {
+            CamoTimeInput(LocalTime.parse("14:30"), {}, use24Hour = true)
+        }
+        ProvideComponentThemes(components.copy(timePicker = TimePickerTheme(form = TimePickerForm.Wheel))) {
+            CamoTimeInput(LocalTime.parse("09:15"), {}, minuteStep = GALLERY_STEP, use24Hour = false)
+        }
+        CamoDateField(LocalDate.parse("2024-03-14"), {}, label = "Birth date", presentation = PickerPresentation.Popup)
+        CamoTimeField(null, {}, label = "Pickup", placeholder = "Choose a time")
+        CamoBottomSheet(title = "Filters") { CamoText("Sheet content") }
+        CamoMenuPanel { CamoText("Popup content", Modifier.padding(8.dp)) }
+    }
+}

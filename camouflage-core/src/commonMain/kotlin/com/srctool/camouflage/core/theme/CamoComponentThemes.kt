@@ -1,11 +1,14 @@
 package com.srctool.camouflage.core.theme
 
 import androidx.compose.runtime.Immutable
+import com.srctool.camouflage.core.bottomsheet.BottomSheetTheme
 import com.srctool.camouflage.core.button.ButtonTheme
 import com.srctool.camouflage.core.checkbox.CheckboxTheme
+import com.srctool.camouflage.core.datepicker.DatePickerTheme
 import com.srctool.camouflage.core.divider.DividerTheme
 import com.srctool.camouflage.core.icon.IconTheme
 import com.srctool.camouflage.core.iconbutton.IconButtonTheme
+import com.srctool.camouflage.core.menu.MenuTheme
 import com.srctool.camouflage.core.progress.ProgressTheme
 import com.srctool.camouflage.core.search.SearchFieldTheme
 import com.srctool.camouflage.core.radio.RadioTheme
@@ -15,6 +18,7 @@ import com.srctool.camouflage.core.stepper.StepperTheme
 import com.srctool.camouflage.core.surface.SurfaceTheme
 import com.srctool.camouflage.core.switch.SwitchTheme
 import com.srctool.camouflage.core.textfield.TextFieldTheme
+import com.srctool.camouflage.core.timepicker.TimePickerTheme
 import com.srctool.camouflage.core.tooltip.TooltipTheme
 
 /**
@@ -38,4 +42,8 @@ public data class CamoComponentThemes(
     val stepper: StepperTheme? = null,
     val textField: TextFieldTheme? = null,
     val searchField: SearchFieldTheme? = null,
+    val menu: MenuTheme? = null,
+    val bottomSheet: BottomSheetTheme? = null,
+    val datePicker: DatePickerTheme? = null,
+    val timePicker: TimePickerTheme? = null,
 )

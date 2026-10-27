@@ -14,3 +14,6 @@ public data class ItemPosition(val index: Int, val count: Int) {
     /** The last item. */
     val isLast: Boolean get() = index == count - 1
 }
+
+/** Where a header's title sits: at the start, or centered. */
+public enum class TitleAlign { Start, Center }

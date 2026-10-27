@@ -26,6 +26,9 @@ import androidx.compose.ui.focus.focusRequester
 import com.srctool.camouflage.core.button.DebugChecks
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateRange
+import kotlinx.datetime.LocalTime
 
 /** When a form field validates (Flutter's `AutovalidateMode`). */
 public enum class ValidateMode {
@@ -163,7 +166,7 @@ public class CamoFormState internal constructor(restored: Map<String, List<Any?>
     internal fun entry(key: String, initialValue: Any?): FormEntry = entries.getOrPut(key) {
         FormEntry(key, initialValue, nextOrder++).also { entry ->
             restored.remove(key)?.let { (value, error, interacted) ->
-                entry.value = value
+                entry.value = restoredValue(value)
                 entry.error = error as String?
                 entry.hasInteracted = interacted == true
             }
@@ -209,11 +212,11 @@ public class CamoFormState internal constructor(restored: Map<String, List<Any?>
     }
 
     internal fun saved(): Map<String, List<Any?>> = entries.values
-        .filter { it.value == null || it.value.let { v -> v is String || v is Boolean || v is Number } }
-        .associate { it.key to listOf(it.value, it.error, it.hasInteracted) }
+        .filter { it.value.let { v -> v == null || v is String || v is Boolean || v is Number || savable(v) != null } }
+        .associate { it.key to listOf(savable(it.value) ?: it.value, it.error, it.hasInteracted) }
 
     public companion object {
-        /** Saves values (text, booleans and numbers), errors and interaction across recreation. */
+        /** Saves values (text, booleans, numbers, dates, times, ranges), errors and interaction across recreation. */
         public val Saver: Saver<CamoFormState, Any> = Saver(
             save = { it.saved() },
             restore = { @Suppress("UNCHECKED_CAST") CamoFormState(it as Map<String, List<Any?>>) },
@@ -397,4 +400,26 @@ internal suspend fun focusSoon(requester: FocusRequester, bring: BringIntoViewRe
         bring?.bringIntoView()
         if (requester.requestFocus()) return
     }
+}
+
+// Dates, times and date ranges saved as tagged text, so a form keeps a picked date across process death.
+private const val DATE = "camo:date:"
+private const val TIME = "camo:time:"
+private const val RANGE = "camo:range:"
+
+private fun savable(value: Any?): String? = when (value) {
+    is LocalDate -> DATE + value
+    is LocalTime -> TIME + value
+    is LocalDateRange -> RANGE + value.start + "/" + value.endInclusive
+    else -> null
+}
+
+private fun restoredValue(value: Any?): Any? = when {
+    value !is String -> value
+    value.startsWith(DATE) -> LocalDate.parse(value.removePrefix(DATE))
+    value.startsWith(TIME) -> LocalTime.parse(value.removePrefix(TIME))
+    value.startsWith(RANGE) -> value.removePrefix(RANGE).split('/').let { (start, end) ->
+        LocalDate.parse(start)..LocalDate.parse(end)
+    }
+    else -> value
 }
