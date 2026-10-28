@@ -17,6 +17,7 @@ import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.semantics.toggleableState
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.Dp
+import com.srctool.camouflage.core.badge.badgeAnchor
 import com.srctool.camouflage.core.button.BUSY
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
@@ -197,6 +198,7 @@ private fun IconButtonImpl(
         else -> a
     }
     val behavior = modifier
+        .badgeAnchor()
         .semantics(mergeDescendants = true) {
             this.contentDescription = contentDescription
             if (checked != null) toggleableState = ToggleableState(checked)

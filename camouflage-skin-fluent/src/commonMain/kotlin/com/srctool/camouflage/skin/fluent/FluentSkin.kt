@@ -4,10 +4,13 @@ import androidx.compose.runtime.Composable
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.skin.fluent.renderer.FluentAccordionRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentAvatarRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentBadgeRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBottomSheetRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCardRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCheckboxRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentChipRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDatePickerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDialogRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDividerRenderer
@@ -70,6 +73,9 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     topBar = FluentTopBarRenderer,
     pagedList = FluentPagedListRenderer,
     dialog = FluentDialogRenderer,
+    chip = FluentChipRenderer,
+    badge = FluentBadgeRenderer,
+    avatar = FluentAvatarRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */
