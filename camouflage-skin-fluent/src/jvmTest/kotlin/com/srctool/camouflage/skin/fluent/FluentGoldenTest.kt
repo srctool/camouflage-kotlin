@@ -12,6 +12,7 @@ import com.srctool.camouflage.skin.testing.IconButtonGallery
 import com.srctool.camouflage.skin.testing.InputGallery
 import com.srctool.camouflage.skin.testing.PrimitiveGallery
 import com.srctool.camouflage.skin.testing.PickerGallery
+import com.srctool.camouflage.skin.testing.StructureGallery
 import com.srctool.camouflage.skin.testing.TextInputGallery
 import com.srctool.camouflage.skin.testing.withGoldenFont
 import io.github.takahirom.roborazzi.captureRoboImage
@@ -46,6 +47,8 @@ class FluentGoldenTest {
     @Test fun textInputs() = golden("textinputs", width = 360, height = 820) { TextInputGallery() }
 
     @Test fun pickers() = golden("pickers", width = 400, height = 1900) { PickerGallery() }
+
+    @Test fun structure() = golden("structure", width = 400, height = 1300) { StructureGallery() }
 
     // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {

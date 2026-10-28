@@ -111,6 +111,11 @@ fun SampleApp() {
                 Section("Sign-up form") { SignUpForm() }
                 Section("Search") { CountrySearch() }
                 Section("Dates and times") { DatesAndTimes() }
+                Section("Settings screen") { SettingsScreen() }
+                Section("Cards") { Cards() }
+                Section("Accordions") { Faq() }
+                Section("Loading placeholders") { LoadingProfile() }
+                Section("Paged list") { Products() }
                 val promo = sampleTheme(choice, brand, dark).copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                 CamouflageProvider(theme = promo) {
                     Section("Nested provider: a promo theme") {

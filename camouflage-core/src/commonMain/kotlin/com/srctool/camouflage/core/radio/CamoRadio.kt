@@ -32,6 +32,7 @@ import com.srctool.camouflage.core.skin.LabelPosition
 import com.srctool.camouflage.core.text.CamoSpan
 import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.core.theme.CamoTheme
+import com.srctool.camouflage.core.util.ReportRowToggle
 import com.srctool.camouflage.core.util.camoError
 import com.srctool.camouflage.core.util.collectInteractionState
 import com.srctool.camouflage.core.util.disabled
@@ -156,6 +157,7 @@ private fun RadioImpl(
     val interaction = source.collectInteractionState()
     val style = remember(skin, theme) { skin.radio.defaults(theme).merge(theme.components.radio) }
     val behavior = if (onClick == null) {
+        ReportRowToggle(Role.RadioButton, selected = selected)
         modifier
     } else {
         modifier

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -17,21 +18,40 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
+import com.srctool.camouflage.core.accordion.CamoAccordionGroup
+import com.srctool.camouflage.core.accordion.CamoAccordionItem
+import com.srctool.camouflage.core.bottomsheet.CamoBottomSheet
 import com.srctool.camouflage.core.button.CamoButton
+import com.srctool.camouflage.core.card.CamoCard
 import com.srctool.camouflage.core.checkbox.CamoCheckbox
+import com.srctool.camouflage.core.datepicker.CalendarSelection
+import com.srctool.camouflage.core.datepicker.CamoCalendar
+import com.srctool.camouflage.core.datepicker.CamoDateField
+import com.srctool.camouflage.core.datepicker.PickerPresentation
 import com.srctool.camouflage.core.divider.CamoDivider
 import com.srctool.camouflage.core.divider.DividerInset
 import com.srctool.camouflage.core.icon.CamoIcon
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.iconbutton.CamoIconButton
+import com.srctool.camouflage.core.list.CamoListItem
+import com.srctool.camouflage.core.list.CamoListSection
+import com.srctool.camouflage.core.menu.CamoMenuPanel
+import com.srctool.camouflage.core.pagedlist.CamoPagedList
+import com.srctool.camouflage.core.pagedlist.CamoPagedListState
+import com.srctool.camouflage.core.pagedlist.PagedError
+import com.srctool.camouflage.core.pagedlist.PagedErrorScope
 import com.srctool.camouflage.core.progress.CamoProgressCircle
 import com.srctool.camouflage.core.progress.ProgressSize
 import com.srctool.camouflage.core.provider.Camouflage
 import com.srctool.camouflage.core.radio.CamoRadioGroup
-import com.srctool.camouflage.core.search.CamoSearchField
 import com.srctool.camouflage.core.radio.RadioOption
+import com.srctool.camouflage.core.search.CamoSearchField
 import com.srctool.camouflage.core.segmented.CamoSegmentedControl
 import com.srctool.camouflage.core.segmented.Segment
+import com.srctool.camouflage.core.skeleton.CamoSkeleton
+import com.srctool.camouflage.core.skeleton.CamoSkeletonCircle
+import com.srctool.camouflage.core.skeleton.CamoSkeletonListItem
+import com.srctool.camouflage.core.skeleton.CamoSkeletonText
 import com.srctool.camouflage.core.slider.CamoSlider
 import com.srctool.camouflage.core.stepper.CamoStepper
 import com.srctool.camouflage.core.surface.CamoSurface
@@ -48,17 +68,12 @@ import com.srctool.camouflage.core.theme.ElevationLevel
 import com.srctool.camouflage.core.theme.ShapeRole
 import com.srctool.camouflage.core.theme.SurfaceLevel
 import com.srctool.camouflage.core.theme.Tone
-import com.srctool.camouflage.core.tooltip.TooltipState
-import com.srctool.camouflage.core.bottomsheet.CamoBottomSheet
-import com.srctool.camouflage.core.datepicker.CalendarSelection
-import com.srctool.camouflage.core.datepicker.CamoCalendar
-import com.srctool.camouflage.core.datepicker.CamoDateField
-import com.srctool.camouflage.core.datepicker.PickerPresentation
-import com.srctool.camouflage.core.menu.CamoMenuPanel
 import com.srctool.camouflage.core.timepicker.CamoTimeField
 import com.srctool.camouflage.core.timepicker.CamoTimeInput
 import com.srctool.camouflage.core.timepicker.TimePickerForm
 import com.srctool.camouflage.core.timepicker.TimePickerTheme
+import com.srctool.camouflage.core.tooltip.TooltipState
+import com.srctool.camouflage.core.topbar.CamoTopBar
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlinx.datetime.YearMonth
@@ -247,5 +262,68 @@ public fun PickerGallery() {
         CamoTimeField(null, {}, label = "Pickup", placeholder = "Choose a time")
         CamoBottomSheet(title = "Filters") { CamoText("Sheet content") }
         CamoMenuPanel { CamoText("Popup content", Modifier.padding(8.dp)) }
+    }
+}
+
+private val GalleryOrders = listOf("Order 1041", "Order 1042")
+
+/**
+ * The M6 structure components: a resting and a scrolled top bar, cards in every appearance (a status panel and a
+ * selected card too), a list section, an accordion group with one section open, skeletons, and a paged list's
+ * empty state and next-page retry row. Skeletons are captured at the start of their cycle.
+ */
+@Composable
+public fun StructureGallery() {
+    Column(Modifier.width(400.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        CamoTopBar("Settings", navigation = { CamoIconButton({ Icon() }, "Back", {}) },
+            actions = { CamoIconButton({ Icon() }, "Search", {}) }, windowInsets = WindowInsets(0))
+        CamoTopBar("Inbox", scrollOffset = 8.dp, windowInsets = WindowInsets(0))
+        Column(Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                for (a in listOf(Appearance.Solid, Appearance.Soft, Appearance.Raised, Appearance.Outline)) {
+                    CamoCard(Modifier.weight(1f), appearance = a) { CamoText(a.name, Modifier.padding(12.dp)) }
+                }
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                CamoCard(Modifier.weight(1f), appearance = Appearance.Soft, tone = Tone.Warning) {
+                    CamoText("Low stock", Modifier.padding(12.dp))
+                }
+                CamoCard(Modifier.weight(1f), tone = Tone.Error) { CamoText("Payment failed", Modifier.padding(12.dp)) }
+                CamoCard(Modifier.weight(1f), onClick = {}, selected = true) {
+                    CamoText("Pro plan", Modifier.padding(12.dp))
+                }
+            }
+        }
+        CamoListSection(title = "Network", footer = "Changes apply right away.") {
+            CamoListItem("Wi-Fi", leading = { Icon() }, trailing = { CamoSwitch(true, null) }, onClick = {})
+            CamoListItem("Bluetooth", supporting = "2 devices", leading = { Icon() }, onClick = {})
+            CamoListItem("VPN", overline = "Work", supporting = "Connected since 09:00", leading = { Icon() },
+                selected = true, onClick = {})
+        }
+        CamoAccordionGroup(
+            setOf("ship"),
+            {},
+            listOf(
+                CamoAccordionItem("ship", "Shipping", subtitle = "2 to 4 days") { CamoText("Free over 50.") },
+                CamoAccordionItem("returns", "Returns") { CamoText("30 days.") },
+            ),
+        )
+        Column(Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+                CamoSkeletonCircle(40.dp)
+                CamoSkeletonText(Modifier.weight(1f), lines = 2)
+            }
+            CamoSkeleton(height = 80.dp)
+        }
+        CamoSkeletonListItem()
+        CamoPagedList(CamoPagedListState<String>(), { it }, {}, {}, { _, _ -> }, Modifier.height(140.dp))
+        CamoPagedList(
+            CamoPagedListState(GalleryOrders, error = PagedError("Couldn't load more", PagedErrorScope.NextPage)),
+            { it },
+            {},
+            {},
+            { value, _ -> CamoListItem(value) },
+            Modifier.height(200.dp),
+        )
     }
 }

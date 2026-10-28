@@ -4,26 +4,32 @@ import androidx.compose.runtime.Composable
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.core.textfield.LabelPlacement
+import com.srctool.camouflage.skin.minimal.renderer.MinimalAccordionRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalBottomSheetRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalCardRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCheckboxRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalDatePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDividerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalListItemRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalMenuRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalPagedListRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressCircleRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalRadioRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSearchFieldRenderer
-import com.srctool.camouflage.skin.minimal.renderer.MinimalMenuRenderer
-import com.srctool.camouflage.skin.minimal.renderer.MinimalBottomSheetRenderer
-import com.srctool.camouflage.skin.minimal.renderer.MinimalDatePickerRenderer
-import com.srctool.camouflage.skin.minimal.renderer.MinimalTimePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSegmentedControlRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalSkeletonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSliderRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalStepperRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSurfaceRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSwitchRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTextFieldRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTextRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalTimePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTooltipRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalTopBarRenderer
 
 /**
  * Camouflage's own neutral dialect: flat surfaces with hairlines, a quiet fade for feedback, ink as the
@@ -54,6 +60,12 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     bottomSheet = MinimalBottomSheetRenderer,
     datePicker = MinimalDatePickerRenderer,
     timePicker = MinimalTimePickerRenderer,
+    card = MinimalCardRenderer,
+    listItem = MinimalListItemRenderer,
+    accordion = MinimalAccordionRenderer,
+    skeleton = MinimalSkeletonRenderer,
+    topBar = MinimalTopBarRenderer,
+    pagedList = MinimalPagedListRenderer,
 )
 
 /** The Minimal skin. */
