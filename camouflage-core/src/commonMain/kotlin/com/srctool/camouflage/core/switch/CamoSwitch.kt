@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
@@ -29,6 +30,7 @@ import com.srctool.camouflage.core.skin.InteractionState
 import com.srctool.camouflage.core.skin.LabelPosition
 import com.srctool.camouflage.core.text.CamoSpan
 import com.srctool.camouflage.core.theme.CamoTheme
+import com.srctool.camouflage.core.util.ReportRowToggle
 import com.srctool.camouflage.core.util.camoError
 import com.srctool.camouflage.core.util.collectInteractionState
 import com.srctool.camouflage.core.util.minimumTouchTarget
@@ -169,6 +171,7 @@ public fun CamoSwitch(
         dragFraction = (from + direction * delta / travel).coerceIn(0f, 1f)
     }
     val behavior = if (onCheckedChange == null) {
+        ReportRowToggle(Role.Switch, ToggleableState(checked))
         modifier
     } else {
         modifier

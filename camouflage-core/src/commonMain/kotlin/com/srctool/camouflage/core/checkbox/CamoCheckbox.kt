@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.srctool.camouflage.core.provider.requireSkin
@@ -19,6 +20,7 @@ import com.srctool.camouflage.core.skin.InteractionState
 import com.srctool.camouflage.core.skin.LabelPosition
 import com.srctool.camouflage.core.text.CamoSpan
 import com.srctool.camouflage.core.theme.CamoTheme
+import com.srctool.camouflage.core.util.ReportRowToggle
 import com.srctool.camouflage.core.util.camoError
 import com.srctool.camouflage.core.util.collectInteractionState
 import com.srctool.camouflage.core.util.minimumTouchTarget
@@ -127,6 +129,7 @@ public fun CamoCheckbox(
     val style = remember(skin, theme) { skin.checkbox.defaults(theme).merge(theme.components.checkbox) }
     val spans = labelSpans ?: label?.let { listOf(CamoSpan(it)) }
     val behavior = if (onCheckedChange == null) {
+        ReportRowToggle(Role.Checkbox, ToggleableState(checked))
         modifier
     } else {
         modifier

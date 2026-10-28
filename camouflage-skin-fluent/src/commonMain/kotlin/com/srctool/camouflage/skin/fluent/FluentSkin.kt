@@ -3,26 +3,32 @@ package com.srctool.camouflage.skin.fluent
 import androidx.compose.runtime.Composable
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.core.skin.CamoSkin
+import com.srctool.camouflage.skin.fluent.renderer.FluentAccordionRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentBottomSheetRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentCardRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCheckboxRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentDatePickerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDividerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentListItemRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentMenuRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentPagedListRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressCircleRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentRadioRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSearchFieldRenderer
-import com.srctool.camouflage.skin.fluent.renderer.FluentMenuRenderer
-import com.srctool.camouflage.skin.fluent.renderer.FluentBottomSheetRenderer
-import com.srctool.camouflage.skin.fluent.renderer.FluentDatePickerRenderer
-import com.srctool.camouflage.skin.fluent.renderer.FluentTimePickerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSegmentedControlRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentSkeletonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSliderRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentStepperRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSurfaceRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSwitchRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTextFieldRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTextRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentTimePickerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTooltipRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentTopBarRenderer
 
 /**
  * Microsoft's Fluent 2, drawn on Compose foundation: [FluentSolid] surfaces, [Subtle] feedback with the
@@ -55,6 +61,12 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     bottomSheet = FluentBottomSheetRenderer,
     datePicker = FluentDatePickerRenderer,
     timePicker = FluentTimePickerRenderer,
+    card = FluentCardRenderer,
+    listItem = FluentListItemRenderer,
+    accordion = FluentAccordionRenderer,
+    skeleton = FluentSkeletonRenderer,
+    topBar = FluentTopBarRenderer,
+    pagedList = FluentPagedListRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

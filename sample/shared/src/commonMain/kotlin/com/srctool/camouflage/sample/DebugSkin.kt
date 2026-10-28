@@ -45,6 +45,12 @@ val DebugSkin = CamoSkin(
     bottomSheet = DebugBottomSheetRenderer,
     datePicker = DebugDatePickerRenderer,
     timePicker = DebugTimePickerRenderer,
+    card = DebugCardRenderer,
+    listItem = DebugListItemRenderer,
+    accordion = DebugAccordionRenderer,
+    skeleton = DebugSkeletonRenderer,
+    topBar = DebugTopBarRenderer,
+    pagedList = DebugPagedListRenderer,
 )
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */
