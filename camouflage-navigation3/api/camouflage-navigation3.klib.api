@@ -6,11 +6,37 @@
 // - Show declarations: true
 
 // Library unique name: <com.srctool.camouflage:camouflage-navigation3>
-final object com.srctool.camouflage.navigation3/CamoNavigation3 { // com.srctool.camouflage.navigation3/CamoNavigation3|null[0]
-    final const val ARTIFACT // com.srctool.camouflage.navigation3/CamoNavigation3.ARTIFACT|{}ARTIFACT[0]
-        final fun <get-ARTIFACT>(): kotlin/String // com.srctool.camouflage.navigation3/CamoNavigation3.ARTIFACT.<get-ARTIFACT>|<get-ARTIFACT>(){}[0]
+final class <#A: kotlin/Any> com.srctool.camouflage.navigation3/CamoBottomSheetSceneStrategy : androidx.navigation3.scene/SceneStrategy<#A> { // com.srctool.camouflage.navigation3/CamoBottomSheetSceneStrategy|null[0]
+    constructor <init>() // com.srctool.camouflage.navigation3/CamoBottomSheetSceneStrategy.<init>|<init>(){}[0]
+
+    final fun (androidx.navigation3.scene/SceneStrategyScope<#A>).calculateScene(kotlin.collections/List<androidx.navigation3.runtime/NavEntry<#A>>): androidx.navigation3.scene/Scene<#A>? // com.srctool.camouflage.navigation3/CamoBottomSheetSceneStrategy.calculateScene|calculateScene@androidx.navigation3.scene.SceneStrategyScope<1:0>(kotlin.collections.List<androidx.navigation3.runtime.NavEntry<1:0>>){}[0]
+
+    final object Companion { // com.srctool.camouflage.navigation3/CamoBottomSheetSceneStrategy.Companion|null[0]
+        final fun bottomSheet(kotlin/Boolean = ..., kotlin/Boolean = ...): kotlin.collections/Map<kotlin/String, kotlin/Any> // com.srctool.camouflage.navigation3/CamoBottomSheetSceneStrategy.Companion.bottomSheet|bottomSheet(kotlin.Boolean;kotlin.Boolean){}[0]
+    }
 }
 
-final val com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavigation3$stableprop // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavigation3$stableprop|#static{}com_srctool_camouflage_navigation3_CamoNavigation3$stableprop[0]
+final class <#A: kotlin/Any> com.srctool.camouflage.navigation3/CamoDialogSceneStrategy : androidx.navigation3.scene/SceneStrategy<#A> { // com.srctool.camouflage.navigation3/CamoDialogSceneStrategy|null[0]
+    constructor <init>() // com.srctool.camouflage.navigation3/CamoDialogSceneStrategy.<init>|<init>(){}[0]
 
-final fun com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavigation3$stableprop_getter(): kotlin/Int // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavigation3$stableprop_getter|com_srctool_camouflage_navigation3_CamoNavigation3$stableprop_getter(){}[0]
+    final fun (androidx.navigation3.scene/SceneStrategyScope<#A>).calculateScene(kotlin.collections/List<androidx.navigation3.runtime/NavEntry<#A>>): androidx.navigation3.scene/Scene<#A>? // com.srctool.camouflage.navigation3/CamoDialogSceneStrategy.calculateScene|calculateScene@androidx.navigation3.scene.SceneStrategyScope<1:0>(kotlin.collections.List<androidx.navigation3.runtime.NavEntry<1:0>>){}[0]
+
+    final object Companion { // com.srctool.camouflage.navigation3/CamoDialogSceneStrategy.Companion|null[0]
+        final fun dialog(kotlin/Boolean = ...): kotlin.collections/Map<kotlin/String, kotlin/Any> // com.srctool.camouflage.navigation3/CamoDialogSceneStrategy.Companion.dialog|dialog(kotlin.Boolean){}[0]
+    }
+}
+
+final class com.srctool.camouflage.navigation3/CamoNavResults { // com.srctool.camouflage.navigation3/CamoNavResults|null[0]
+    final fun <#A1: kotlin/Any?> consume(kotlin/Any, kotlin/Function1<#A1, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int) // com.srctool.camouflage.navigation3/CamoNavResults.consume|consume(kotlin.Any;kotlin.Function1<0:0,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int){0§<kotlin.Any?>}[0]
+    final fun <#A1: kotlin/Any?> set(kotlin/Any, #A1) // com.srctool.camouflage.navigation3/CamoNavResults.set|set(kotlin.Any;0:0){0§<kotlin.Any?>}[0]
+}
+
+final val com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoBottomSheetSceneStrategy$stableprop // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoBottomSheetSceneStrategy$stableprop|#static{}com_srctool_camouflage_navigation3_CamoBottomSheetSceneStrategy$stableprop[0]
+final val com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoDialogSceneStrategy$stableprop // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoDialogSceneStrategy$stableprop|#static{}com_srctool_camouflage_navigation3_CamoDialogSceneStrategy$stableprop[0]
+final val com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavResults$stableprop // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavResults$stableprop|#static{}com_srctool_camouflage_navigation3_CamoNavResults$stableprop[0]
+
+final fun com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoBottomSheetSceneStrategy$stableprop_getter(): kotlin/Int // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoBottomSheetSceneStrategy$stableprop_getter|com_srctool_camouflage_navigation3_CamoBottomSheetSceneStrategy$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoDialogSceneStrategy$stableprop_getter(): kotlin/Int // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoDialogSceneStrategy$stableprop_getter|com_srctool_camouflage_navigation3_CamoDialogSceneStrategy$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavResults$stableprop_getter(): kotlin/Int // com.srctool.camouflage.navigation3/com_srctool_camouflage_navigation3_CamoNavResults$stableprop_getter|com_srctool_camouflage_navigation3_CamoNavResults$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.navigation3/rememberCamoNavResults(androidx.compose.runtime/Composer?, kotlin/Int): com.srctool.camouflage.navigation3/CamoNavResults // com.srctool.camouflage.navigation3/rememberCamoNavResults|rememberCamoNavResults(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final suspend fun <#A: kotlin/Any, #B: kotlin/Any?> (kotlin.collections/MutableList<#A>).com.srctool.camouflage.navigation3/showForResult(#A, com.srctool.camouflage.navigation3/CamoNavResults): #B? // com.srctool.camouflage.navigation3/showForResult|showForResult@kotlin.collections.MutableList<0:0>(0:0;com.srctool.camouflage.navigation3.CamoNavResults){0§<kotlin.Any>;1§<kotlin.Any?>}[0]

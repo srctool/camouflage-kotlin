@@ -7,6 +7,7 @@ import com.srctool.camouflage.core.button.ButtonRenderer
 import com.srctool.camouflage.core.card.CardRenderer
 import com.srctool.camouflage.core.checkbox.CheckboxRenderer
 import com.srctool.camouflage.core.datepicker.DatePickerRenderer
+import com.srctool.camouflage.core.dialog.DialogRenderer
 import com.srctool.camouflage.core.divider.DividerRenderer
 import com.srctool.camouflage.core.icon.IconRenderer
 import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
@@ -68,4 +69,5 @@ public data class CamoSkin(
     val skeleton: SkeletonRenderer,
     val topBar: TopBarRenderer,
     val pagedList: PagedListRenderer,
+    val dialog: DialogRenderer,
 )

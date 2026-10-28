@@ -40,7 +40,6 @@ import com.srctool.camouflage.core.bottomsheet.BottomSheetRenderer
 import com.srctool.camouflage.core.bottomsheet.BottomSheetSlots
 import com.srctool.camouflage.core.bottomsheet.BottomSheetState
 import com.srctool.camouflage.core.bottomsheet.BottomSheetStyle
-import com.srctool.camouflage.core.bottomsheet.StackedScrim
 import com.srctool.camouflage.core.bottomsheet.WidePresentation
 import com.srctool.camouflage.core.datepicker.AllowTyping
 import com.srctool.camouflage.core.datepicker.CalendarCell
@@ -60,6 +59,7 @@ import com.srctool.camouflage.core.menu.CheckPosition
 import com.srctool.camouflage.core.menu.MenuColors
 import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.menu.MenuStyle
+import com.srctool.camouflage.core.overlay.StackedScrim
 import com.srctool.camouflage.core.provider.Camouflage
 import com.srctool.camouflage.core.skin.TitleAlign
 import com.srctool.camouflage.core.text.CamoText
@@ -88,7 +88,6 @@ import kotlin.math.sin
 
 private const val WEEK = 7
 private const val DISABLED = 0.38f
-private const val SCRIM = 0.4f
 private const val WHEEL_ROWS = 5
 private const val OUTER_LABELS = 0.8f
 private const val INNER_LABELS = 0.45f
@@ -108,7 +107,8 @@ internal object FluentMenuRenderer : MenuRenderer {
             contentPadding = PaddingValues(theme.spacing.xs),
             textStyle = theme.typography.bodyMedium,
             iconSize = 20.dp,
-            elevation = ElevationLevel.Level3,
+            // shadow16: Fluent's flyout depth, where Acrylic applies.
+            elevation = ElevationLevel.Level4,
             checkPosition = CheckPosition.Leading,
             colors = MenuColors(c.surface, c.onSurface, c.onSurfaceVariant, c.onSurfaceVariant),
         )
@@ -151,7 +151,7 @@ internal object FluentBottomSheetRenderer : BottomSheetRenderer {
             showCloseButton = true,
             closeIcon = IconSource.Vector(DismissIcon),
             containerColor = c.surface,
-            scrimAlpha = SCRIM,
+            scrimAlpha = fluentSmoke(theme),
             widePresentation = WidePresentation.Sheet,
             stackedScrim = StackedScrim.Each,
         )

@@ -7,6 +7,7 @@ import com.srctool.camouflage.core.button.ButtonTheme
 import com.srctool.camouflage.core.card.CardTheme
 import com.srctool.camouflage.core.checkbox.CheckboxTheme
 import com.srctool.camouflage.core.datepicker.DatePickerTheme
+import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.divider.DividerTheme
 import com.srctool.camouflage.core.icon.IconTheme
 import com.srctool.camouflage.core.iconbutton.IconButtonTheme
@@ -58,4 +59,5 @@ public data class CamoComponentThemes(
     val skeleton: SkeletonTheme? = null,
     val topBar: TopBarTheme? = null,
     val pagedList: PagedListTheme? = null,
+    val dialog: DialogTheme? = null,
 )

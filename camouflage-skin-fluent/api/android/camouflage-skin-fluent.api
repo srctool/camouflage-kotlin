@@ -1,3 +1,13 @@
+public final class com/srctool/camouflage/skin/fluent/FluentAcrylic : com/srctool/camouflage/core/skin/SurfaceTreatment {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/srctool/camouflage/skin/fluent/FluentAcrylic;
+	public fun modifier-hhQwkJs (JLandroidx/compose/ui/graphics/Shape;FLcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/ui/Modifier;
+}
+
+public final class com/srctool/camouflage/skin/fluent/FluentAcrylicKt {
+	public static final fun FluentBackdrop (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
 public final class com/srctool/camouflage/skin/fluent/FluentDensity : java/lang/Enum {
 	public static final field Medium Lcom/srctool/camouflage/skin/fluent/FluentDensity;
 	public static final field Small Lcom/srctool/camouflage/skin/fluent/FluentDensity;
@@ -12,7 +22,7 @@ public final class com/srctool/camouflage/skin/fluent/FluentPaletteKt {
 }
 
 public final class com/srctool/camouflage/skin/fluent/FluentSkinKt {
-	public static final fun FluentPreview (ZLcom/srctool/camouflage/skin/fluent/FluentDensity;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun FluentPreview (ZLcom/srctool/camouflage/skin/fluent/FluentDensity;Lcom/srctool/camouflage/skin/fluent/FluentSurface;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun fluentSkin (Lcom/srctool/camouflage/skin/fluent/FluentSurface;)Lcom/srctool/camouflage/core/skin/CamoSkin;
 	public static synthetic fun fluentSkin$default (Lcom/srctool/camouflage/skin/fluent/FluentSurface;ILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
 	public static final fun getFluentSkin ()Lcom/srctool/camouflage/core/skin/CamoSkin;
@@ -25,6 +35,7 @@ public final class com/srctool/camouflage/skin/fluent/FluentSolid : com/srctool/
 }
 
 public final class com/srctool/camouflage/skin/fluent/FluentSurface : java/lang/Enum {
+	public static final field Acrylic Lcom/srctool/camouflage/skin/fluent/FluentSurface;
 	public static final field Solid Lcom/srctool/camouflage/skin/fluent/FluentSurface;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/skin/fluent/FluentSurface;

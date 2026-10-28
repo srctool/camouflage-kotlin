@@ -4,6 +4,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.test.ComposeUiTest
@@ -11,14 +14,20 @@ import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.click
 import androidx.compose.ui.test.isHeading
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.runComposeUiTest
 import androidx.compose.ui.unit.dp
 import com.srctool.camouflage.core.accordion.AccordionTheme
 import com.srctool.camouflage.core.accordion.CamoAccordion
+import com.srctool.camouflage.core.button.CamoButton
 import com.srctool.camouflage.core.card.CamoCard
 import com.srctool.camouflage.core.card.CardTheme
+import com.srctool.camouflage.core.dialog.CamoDialog
+import com.srctool.camouflage.core.dialog.CamoDialogFrame
+import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.list.CamoListItem
 import com.srctool.camouflage.core.list.CamoListSection
 import com.srctool.camouflage.core.list.ListItemTheme
@@ -90,6 +99,25 @@ class FluentStructureRendererTest {
         assertNoLiterals(skin, theme, CardTheme(contentPadding = PaddingValues(13.dp)), render = {
             ProvideComponentThemes(CamoComponentThemes(card = it)) { CamoCard { Box(Modifier.size(10.dp)) } }
         }, measure = { it.size.width == px(36) })
+    }
+
+    @Test
+    fun theCloseButtonShowsOnlyWhenDismissibleAndAsked() = runComposeUiTest {
+        var dismissed = 0
+        var dismissible by mutableStateOf(true)
+        setCamoContent(skin, theme) {
+            ProvideComponentThemes(CamoComponentThemes(dialog = DialogTheme(showCloseButton = true))) {
+                CamoDialogFrame({ dismissed++ }, dismissible = dismissible) {
+                    CamoDialog("Saved.", confirm = { CamoButton("OK", {}) }, title = "Done")
+                }
+            }
+        }
+        onNodeWithContentDescription("Close").performClick()
+        waitForIdle()
+        assertEquals(1, dismissed)
+        dismissible = false
+        waitForIdle()
+        onNodeWithContentDescription("Close").assertDoesNotExist()
     }
 
     private fun ComposeUiTest.px(dp: Int) = (dp * density.density).roundToInt()

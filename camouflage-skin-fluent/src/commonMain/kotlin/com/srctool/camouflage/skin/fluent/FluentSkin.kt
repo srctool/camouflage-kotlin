@@ -9,6 +9,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCardRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCheckboxRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDatePickerRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentDialogRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDividerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
@@ -39,6 +40,7 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     name = "fluent",
     surfaceTreatment = when (surface) {
         FluentSurface.Solid -> FluentSolid
+        FluentSurface.Acrylic -> FluentAcrylic
     },
     feedback = Subtle,
     text = FluentTextRenderer,
@@ -67,17 +69,23 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     skeleton = FluentSkeletonRenderer,
     topBar = FluentTopBarRenderer,
     pagedList = FluentPagedListRenderer,
+    dialog = FluentDialogRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */
 public val FluentSkin: CamoSkin = fluentSkin()
 
-/** A provider for `@Preview`s with [FluentSkin] and [fluentTheme]. */
+/**
+ * A provider for `@Preview`s with [FluentSkin] (or the skin for [surface]) and [fluentTheme], inside a
+ * [FluentBackdrop] so Acrylic surfaces have something to blur.
+ */
 @Composable
 public fun FluentPreview(
     dark: Boolean = false,
     density: FluentDensity = FluentDensity.Medium,
+    surface: FluentSurface = FluentSurface.Solid,
     content: @Composable () -> Unit,
 ) {
-    CamouflagePreview(FluentSkin, fluentTheme(dark = dark, density = density), content)
+    val skin = if (surface == FluentSurface.Solid) FluentSkin else fluentSkin(surface)
+    CamouflagePreview(skin, fluentTheme(dark = dark, density = density)) { FluentBackdrop { content() } }
 }

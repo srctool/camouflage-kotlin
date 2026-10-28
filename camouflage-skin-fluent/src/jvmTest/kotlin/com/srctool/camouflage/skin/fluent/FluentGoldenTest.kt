@@ -1,17 +1,32 @@
 package com.srctool.camouflage.skin.fluent
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.ExperimentalTestApi
+import androidx.compose.ui.test.isRoot
+import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.runDesktopComposeUiTest
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Popup
 import com.github.takahirom.roborazzi.RoborazziOptions
+import com.srctool.camouflage.core.menu.CamoMenuPanel
 import com.srctool.camouflage.core.provider.CamouflagePreview
+import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.skin.testing.ButtonGallery
+import com.srctool.camouflage.skin.testing.DialogGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
 import com.srctool.camouflage.skin.testing.InputGallery
-import com.srctool.camouflage.skin.testing.PrimitiveGallery
 import com.srctool.camouflage.skin.testing.PickerGallery
+import com.srctool.camouflage.skin.testing.PrimitiveGallery
 import com.srctool.camouflage.skin.testing.StructureGallery
 import com.srctool.camouflage.skin.testing.TextInputGallery
 import com.srctool.camouflage.skin.testing.withGoldenFont
@@ -50,6 +65,31 @@ class FluentGoldenTest {
 
     @Test fun structure() = golden("structure", width = 400, height = 1300) { StructureGallery() }
 
+    @Test fun dialogs() = golden("dialogs", width = 420, height = 1000) { DialogGallery() }
+
+    // Acrylic: a panel at flyout depth in a popup over a striped backdrop, the way flyouts and dialogs open.
+    @Test
+    fun acrylic() = runDesktopComposeUiTest(360, 200) {
+        setContent {
+            CamouflagePreview(fluentSkin(FluentSurface.Acrylic), fluentTheme().withGoldenFont()) {
+                FluentBackdrop(Modifier.fillMaxSize()) {
+                    Column(Modifier.fillMaxSize()) {
+                        repeat(STRIPES) {
+                            val color = if (it % 2 == 0) Color(0xFF0F6CBD) else Color(0xFFF7630C)
+                            Box(Modifier.fillMaxWidth().weight(1f).background(color))
+                        }
+                    }
+                    Popup(alignment = Alignment.Center) {
+                        CamoMenuPanel { CamoText("Acrylic", Modifier.padding(24.dp)) }
+                    }
+                }
+            }
+        }
+        // The popup is a second root; the first one is the window, popup included.
+        onAllNodes(isRoot()).onFirst()
+            .captureRoboImage(roborazziOptions = CrossPlatform, filePath = "src/jvmTest/snapshots/acrylic_fluent.png")
+    }
+
     // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {
         val failures = themes.mapNotNull { (key, theme) ->
@@ -66,3 +106,5 @@ class FluentGoldenTest {
         failures.firstOrNull()?.let { throw it }
     }
 }
+
+private const val STRIPES = 8

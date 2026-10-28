@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
@@ -35,6 +36,13 @@ import com.srctool.camouflage.core.card.CardRenderer
 import com.srctool.camouflage.core.card.CardSlots
 import com.srctool.camouflage.core.card.CardState
 import com.srctool.camouflage.core.card.CardStyle
+import com.srctool.camouflage.core.dialog.DialogActionsLayout
+import com.srctool.camouflage.core.dialog.DialogColors
+import com.srctool.camouflage.core.dialog.DialogRenderer
+import com.srctool.camouflage.core.dialog.DialogSlots
+import com.srctool.camouflage.core.dialog.DialogState
+import com.srctool.camouflage.core.dialog.DialogStyle
+import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.list.ListDividers
 import com.srctool.camouflage.core.list.ListItemColors
 import com.srctool.camouflage.core.list.ListItemRenderer
@@ -43,6 +51,7 @@ import com.srctool.camouflage.core.list.ListItemState
 import com.srctool.camouflage.core.list.ListItemStyle
 import com.srctool.camouflage.core.list.ListSectionSlots
 import com.srctool.camouflage.core.list.ListSectionState
+import com.srctool.camouflage.core.overlay.StackedScrim
 import com.srctool.camouflage.core.pagedlist.PagedListRenderer
 import com.srctool.camouflage.core.pagedlist.PagedListState
 import com.srctool.camouflage.core.pagedlist.PagedListStrings
@@ -243,5 +252,31 @@ internal object PlainPagedList : PagedListRenderer {
     ) = Column(modifier) {
         BasicText(message)
         CamoButton(style.strings.retry, onRetry, Modifier.focusRequester(retryFocus))
+    }
+}
+
+internal object PlainDialog : DialogRenderer {
+    override fun defaults(theme: CamoTheme) = DialogStyle(
+        RectangleShape, 280.dp, 560.dp, PaddingValues(24.dp), theme.typography.titleLarge, theme.typography.bodyMedium,
+        TitleAlign.Start, DialogActionsLayout.End, 8.dp, 16.dp, false,
+        IconSource.Vector(ImageVector.Builder("x", 24.dp, 24.dp, 24f, 24f).build()), ElevationLevel.Level0, 0.32f,
+        StackedScrim.Each, theme.colors.let { DialogColors(it.surface, it.onSurface, it.onSurfaceVariant) },
+    )
+
+    @Composable
+    override fun Render(
+        state: DialogState,
+        slots: DialogSlots,
+        theme: CamoTheme,
+        style: DialogStyle,
+        modifier: Modifier,
+    ) = Column(modifier.background(style.colors.container)) {
+        state.title?.let { BasicText(it) }
+        BasicText(state.message)
+        slots.content?.invoke(this)
+        Row {
+            slots.dismiss?.invoke()
+            slots.confirm()
+        }
     }
 }

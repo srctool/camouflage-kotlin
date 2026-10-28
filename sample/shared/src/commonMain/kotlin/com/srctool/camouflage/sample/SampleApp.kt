@@ -46,7 +46,10 @@ import com.srctool.camouflage.core.theme.ShapeRole
 import com.srctool.camouflage.core.theme.SurfaceLevel
 import com.srctool.camouflage.core.theme.Tone
 import com.srctool.camouflage.core.theme.animateCamoTheme
+import com.srctool.camouflage.skin.fluent.FluentBackdrop
 import com.srctool.camouflage.skin.fluent.FluentSkin
+import com.srctool.camouflage.skin.fluent.FluentSurface
+import com.srctool.camouflage.skin.fluent.fluentSkin
 import com.srctool.camouflage.skin.fluent.fluentTheme
 import com.srctool.camouflage.skin.minimal.MinimalSkin
 import com.srctool.camouflage.skin.minimal.minimalTheme
@@ -60,6 +63,7 @@ private const val FAKE_REQUEST_MILLIS = 2000L
 internal enum class SampleSkin(val skin: CamoSkin, val theme: (dark: Boolean) -> CamoTheme) {
     Minimal(MinimalSkin, { minimalTheme(dark = it) }),
     Fluent(FluentSkin, { fluentTheme(dark = it) }),
+    FluentAcrylic(fluentSkin(FluentSurface.Acrylic), { fluentTheme(dark = it) }),
     Debug(DebugSkin, {
         CamoTheme(colors = CamoColors.fromSeed(primary = DebugSeed, dark = it), typography = CamoTypography.system())
     }),
@@ -72,7 +76,8 @@ internal enum class SampleSkin(val skin: CamoSkin, val theme: (dark: Boolean) ->
  */
 internal fun sampleTheme(skin: SampleSkin, brand: Brand, dark: Boolean): CamoTheme {
     val seed = brand.tokens?.brand?.get(BRAND_SEED_STEP)
-    val base = if (skin == SampleSkin.Fluent && seed != null) {
+    val fluent = skin == SampleSkin.Fluent || skin == SampleSkin.FluentAcrylic
+    val base = if (fluent && seed != null) {
         fluentTheme(brand = seed, dark = dark)
     } else {
         skin.theme(dark)
@@ -93,33 +98,38 @@ fun SampleApp() {
     var choice by remember { mutableStateOf(SampleSkin.Minimal) }
     var brand by remember { mutableStateOf(Brand.Default) }
     CamouflageProvider(skin = choice.skin, theme = animateCamoTheme(sampleTheme(choice, brand, dark))) {
-        CamoSurface(Modifier.fillMaxSize()) {
-            Column(
-                Modifier.verticalScroll(rememberScrollState()).padding(Camouflage.spacing.l),
-                verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.l),
-            ) {
-                Switcher(SampleSkin.entries, choice, { it.name }) { choice = it }
-                Switcher(Brand.entries, brand, { it.label }) { brand = it }
-                CamoButton(if (dark) "Light" else "Dark", { dark = !dark }, appearance = Appearance.Ghost)
-                Checkout()
-                Section("Buttons") { Buttons() }
-                Section("Icon buttons") { IconButtons() }
-                Section("Text") { Texts() }
-                Section("Surfaces and dividers") { Surfaces() }
-                Section("Progress") { Progress() }
-                Section("Selection controls") { SelectionControls() }
-                Section("Sign-up form") { SignUpForm() }
-                Section("Search") { CountrySearch() }
-                Section("Dates and times") { DatesAndTimes() }
-                Section("Settings screen") { SettingsScreen() }
-                Section("Cards") { Cards() }
-                Section("Accordions") { Faq() }
-                Section("Loading placeholders") { LoadingProfile() }
-                Section("Paged list") { Products() }
-                val promo = sampleTheme(choice, brand, dark).copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
-                CamouflageProvider(theme = promo) {
-                    Section("Nested provider: a promo theme") {
-                        CamoButton("Claim offer", {}, suffixIcon = { AppIcon.ChevronRight() })
+        // The source Fluent Acrylic blurs; with other skins it only records.
+        FluentBackdrop(Modifier.fillMaxSize()) {
+            CamoSurface(Modifier.fillMaxSize()) {
+                Column(
+                    Modifier.verticalScroll(rememberScrollState()).padding(Camouflage.spacing.l),
+                    verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.l),
+                ) {
+                    Switcher(SampleSkin.entries, choice, { it.name }) { choice = it }
+                    Switcher(Brand.entries, brand, { it.label }) { brand = it }
+                    CamoButton(if (dark) "Light" else "Dark", { dark = !dark }, appearance = Appearance.Ghost)
+                    Checkout()
+                    Section("Buttons") { Buttons() }
+                    Section("Icon buttons") { IconButtons() }
+                    Section("Text") { Texts() }
+                    Section("Surfaces and dividers") { Surfaces() }
+                    Section("Progress") { Progress() }
+                    Section("Selection controls") { SelectionControls() }
+                    Section("Sign-up form") { SignUpForm() }
+                    Section("Search") { CountrySearch() }
+                    Section("Dates and times") { DatesAndTimes() }
+                    Section("Settings screen") { SettingsScreen() }
+                    Section("Cards") { Cards() }
+                    Section("Accordions") { Faq() }
+                    Section("Loading placeholders") { LoadingProfile() }
+                    Section("Paged list") { Products() }
+                    Section("Overlays") { OverlayDemo() }
+                    val promo = sampleTheme(choice, brand, dark)
+                        .copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
+                    CamouflageProvider(theme = promo) {
+                        Section("Nested provider: a promo theme") {
+                            CamoButton("Claim offer", {}, suffixIcon = { AppIcon.ChevronRight() })
+                        }
                     }
                 }
             }

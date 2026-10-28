@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
@@ -34,6 +35,13 @@ import com.srctool.camouflage.core.card.CardRenderer
 import com.srctool.camouflage.core.card.CardSlots
 import com.srctool.camouflage.core.card.CardState
 import com.srctool.camouflage.core.card.CardStyle
+import com.srctool.camouflage.core.dialog.DialogActionsLayout
+import com.srctool.camouflage.core.dialog.DialogColors
+import com.srctool.camouflage.core.dialog.DialogRenderer
+import com.srctool.camouflage.core.dialog.DialogSlots
+import com.srctool.camouflage.core.dialog.DialogState
+import com.srctool.camouflage.core.dialog.DialogStyle
+import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.list.ListDividers
 import com.srctool.camouflage.core.list.ListItemColors
 import com.srctool.camouflage.core.list.ListItemRenderer
@@ -42,6 +50,7 @@ import com.srctool.camouflage.core.list.ListItemState
 import com.srctool.camouflage.core.list.ListItemStyle
 import com.srctool.camouflage.core.list.ListSectionSlots
 import com.srctool.camouflage.core.list.ListSectionState
+import com.srctool.camouflage.core.overlay.StackedScrim
 import com.srctool.camouflage.core.pagedlist.PagedListRenderer
 import com.srctool.camouflage.core.pagedlist.PagedListState
 import com.srctool.camouflage.core.pagedlist.PagedListStrings
@@ -250,5 +259,42 @@ object DebugPagedListRenderer : PagedListRenderer {
     ) = Column(modifier) {
         BasicText(message)
         CamoButton(style.strings.retry, onRetry, Modifier.focusRequester(retryFocus))
+    }
+}
+
+private const val MIN_WIDTH = 280
+private const val MAX_WIDTH = 560
+private const val PADDING = 24
+private const val GAP = 8
+private const val SECTION = 16
+private const val SCRIM = 0.32f
+private const val ICON = 24
+private const val ICON_GRID = 24f
+
+/** Debug dialogs: a column of texts and a row of actions, outlined. */
+object DebugDialogRenderer : DialogRenderer {
+    override fun defaults(theme: CamoTheme) = DialogStyle(
+        RectangleShape, MIN_WIDTH.dp, MAX_WIDTH.dp, PaddingValues(PADDING.dp), theme.typography.titleLarge,
+        theme.typography.bodyMedium, TitleAlign.Start, DialogActionsLayout.End, GAP.dp, SECTION.dp, false,
+        IconSource.Vector(ImageVector.Builder("x", ICON.dp, ICON.dp, ICON_GRID, ICON_GRID).build()),
+        ElevationLevel.Level0, SCRIM,
+        StackedScrim.Each, theme.colors.let { DialogColors(it.surface, it.onSurface, it.onSurfaceVariant) },
+    )
+
+    @Composable
+    override fun Render(
+        state: DialogState,
+        slots: DialogSlots,
+        theme: CamoTheme,
+        style: DialogStyle,
+        modifier: Modifier,
+    ) = Column(modifier.background(style.colors.container).border(1.dp, theme.colors.outline).padding(style.padding)) {
+        state.title?.let { BasicText(it) }
+        BasicText(state.message)
+        slots.content?.invoke(this)
+        Row {
+            slots.dismiss?.invoke()
+            slots.confirm()
+        }
     }
 }
