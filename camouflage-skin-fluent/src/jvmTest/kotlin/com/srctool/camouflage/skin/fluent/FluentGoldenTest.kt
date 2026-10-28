@@ -21,6 +21,7 @@ import com.srctool.camouflage.core.menu.CamoMenuPanel
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.skin.testing.ButtonGallery
+import com.srctool.camouflage.skin.testing.DataDisplayGallery
 import com.srctool.camouflage.skin.testing.DialogGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
 import com.srctool.camouflage.skin.testing.InputGallery
@@ -68,6 +69,8 @@ class FluentGoldenTest {
     @Test fun dialogs() = golden("dialogs", width = 420, height = 1000) { DialogGallery() }
 
     @Test fun menus() = golden("menus", width = 360, height = 480) { MenuGallery() }
+
+    @Test fun dataDisplay() = golden("datadisplay", width = 560, height = 420) { DataDisplayGallery() }
 
     // Acrylic: a panel at flyout depth in a popup over a striped backdrop, the way flyouts and dialogs open.
     @Test

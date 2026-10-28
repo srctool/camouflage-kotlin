@@ -5,10 +5,13 @@ import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.core.textfield.LabelPlacement
 import com.srctool.camouflage.skin.minimal.renderer.MinimalAccordionRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalAvatarRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalBadgeRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalBottomSheetRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCardRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCheckboxRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalChipRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDatePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDialogRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDividerRenderer
@@ -68,6 +71,9 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     topBar = MinimalTopBarRenderer,
     pagedList = MinimalPagedListRenderer,
     dialog = MinimalDialogRenderer,
+    chip = MinimalChipRenderer,
+    badge = MinimalBadgeRenderer,
+    avatar = MinimalAvatarRenderer,
 )
 
 /** The Minimal skin. */

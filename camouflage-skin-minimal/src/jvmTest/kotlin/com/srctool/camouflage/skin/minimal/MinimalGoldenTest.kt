@@ -9,6 +9,7 @@ import androidx.compose.ui.test.runDesktopComposeUiTest
 import com.github.takahirom.roborazzi.RoborazziOptions
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.skin.testing.ButtonGallery
+import com.srctool.camouflage.skin.testing.DataDisplayGallery
 import com.srctool.camouflage.skin.testing.DialogGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
 import com.srctool.camouflage.skin.testing.InputGallery
@@ -55,6 +56,8 @@ class MinimalGoldenTest {
     @Test fun dialogs() = golden("dialogs", width = 420, height = 1000) { DialogGallery() }
 
     @Test fun menus() = golden("menus", width = 360, height = 480) { MenuGallery() }
+
+    @Test fun dataDisplay() = golden("datadisplay", width = 560, height = 420) { DataDisplayGallery() }
 
     // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {

@@ -19,6 +19,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.toggleableState
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
+import com.srctool.camouflage.core.avatar.LocalAvatarInRow
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
 import com.srctool.camouflage.core.skin.InteractionState
@@ -228,7 +229,11 @@ public fun CamoListItem(
         skin.listItem.Render(
             ListItemState(headline, supporting, overline, lines, onClick != null, selected, enabled, interaction,
                 source),
-            ListItemSlots(leading, trailing),
+            // The row says the name, so an avatar in the leading slot is decorative.
+            ListItemSlots(
+                leading?.let { { CompositionLocalProvider(LocalAvatarInRow provides true, content = it) } },
+                trailing,
+            ),
             theme,
             style,
             behavior,

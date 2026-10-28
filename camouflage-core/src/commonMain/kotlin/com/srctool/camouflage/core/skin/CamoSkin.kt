@@ -2,9 +2,12 @@ package com.srctool.camouflage.core.skin
 
 import androidx.compose.runtime.Immutable
 import com.srctool.camouflage.core.accordion.AccordionRenderer
+import com.srctool.camouflage.core.avatar.AvatarRenderer
+import com.srctool.camouflage.core.badge.BadgeRenderer
 import com.srctool.camouflage.core.bottomsheet.BottomSheetRenderer
 import com.srctool.camouflage.core.button.ButtonRenderer
 import com.srctool.camouflage.core.card.CardRenderer
+import com.srctool.camouflage.core.chip.ChipRenderer
 import com.srctool.camouflage.core.checkbox.CheckboxRenderer
 import com.srctool.camouflage.core.datepicker.DatePickerRenderer
 import com.srctool.camouflage.core.dialog.DialogRenderer
@@ -70,4 +73,7 @@ public data class CamoSkin(
     val topBar: TopBarRenderer,
     val pagedList: PagedListRenderer,
     val dialog: DialogRenderer,
+    val chip: ChipRenderer,
+    val badge: BadgeRenderer,
+    val avatar: AvatarRenderer,
 )

@@ -22,10 +22,20 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import com.srctool.camouflage.core.accordion.CamoAccordionGroup
 import com.srctool.camouflage.core.accordion.CamoAccordionItem
+import com.srctool.camouflage.core.avatar.AvatarShape
+import com.srctool.camouflage.core.avatar.AvatarSize
+import com.srctool.camouflage.core.avatar.CamoAvatar
+import com.srctool.camouflage.core.avatar.CamoAvatarGroup
+import com.srctool.camouflage.core.avatar.Presence
+import com.srctool.camouflage.core.badge.CamoBadge
+import com.srctool.camouflage.core.badge.CamoBadgedBox
 import com.srctool.camouflage.core.bottomsheet.CamoBottomSheet
 import com.srctool.camouflage.core.button.CamoButton
 import com.srctool.camouflage.core.card.CamoCard
 import com.srctool.camouflage.core.checkbox.CamoCheckbox
+import com.srctool.camouflage.core.chip.CamoChip
+import com.srctool.camouflage.core.chip.CamoChipGroup
+import com.srctool.camouflage.core.chip.ChipOption
 import com.srctool.camouflage.core.datepicker.CalendarSelection
 import com.srctool.camouflage.core.datepicker.CamoCalendar
 import com.srctool.camouflage.core.datepicker.CamoDateField
@@ -400,5 +410,59 @@ public fun MenuGallery() {
             ),
             controller = open,
         ) { CamoButton("More", it, appearance = Appearance.Outline) }
+    }
+}
+
+/**
+ * The M7 data display components: tags in each appearance and tone, filter, input and action chips, a single-choice
+ * group, badges (dot, count, "99+", tones) on icons, and avatars in each size, shape and presence, plus a group.
+ */
+@Composable
+public fun DataDisplayGallery() {
+    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoChip("Outline", appearance = Appearance.Outline)
+            CamoChip("Soft", appearance = Appearance.Soft)
+            CamoChip("Solid", appearance = Appearance.Solid)
+            CamoChip("Paid", appearance = Appearance.Soft, tone = Tone.Success)
+            CamoChip("Overdue", appearance = Appearance.Outline, tone = Tone.Error)
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoChip("Open", onClick = {}, selected = false)
+            CamoChip("Open now", onClick = {}, selected = true)
+            CamoChip("Starred", onClick = {}, selected = false, leading = { Icon() })
+            CamoChip("Off", onClick = {}, selected = false, enabled = false)
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoChip("Ada", onRemove = {}, leading = { CamoAvatar(name = "Ada Lovelace", size = AvatarSize.Small) })
+            CamoChip("Grace", onRemove = {})
+            CamoChip("Add to calendar", onClick = {}, leading = { Icon() })
+        }
+        CamoChipGroup(
+            listOf("Newest", "Oldest", "Popular").map { ChipOption(it, it) },
+            setOf("Oldest"),
+            {},
+            multiSelect = false,
+        )
+        Row(horizontalArrangement = Arrangement.spacedBy(24.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoBadgedBox(badge = { CamoBadge() }) { Icon() }
+            CamoBadgedBox(badge = { CamoBadge(count = 3) }) { Icon() }
+            CamoBadgedBox(badge = { CamoBadge(count = 120) }) { Icon() }
+            CamoBadgedBox(badge = { CamoBadge(count = 7, tone = Tone.Info, appearance = Appearance.Soft) }) { Icon() }
+            CamoBadgedBox(badge = { CamoBadge(count = 12, appearance = Appearance.Outline) }) { Icon() }
+            CamoBadgedBox(badge = { CamoBadge(count = 2) }) { CamoAvatar(name = "Grace Hopper") }
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoAvatar(name = "Dwiki Riyadi", size = AvatarSize.Small)
+            CamoAvatar(name = "Dwiki Riyadi", presence = Presence.Online)
+            CamoAvatar(name = "Ada Lovelace", size = AvatarSize.Large, presence = Presence.Busy)
+            CamoAvatar(name = "Grace Hopper", shape = AvatarShape.Rounded, presence = Presence.Away)
+            CamoAvatar(name = "Alan Turing", shape = AvatarShape.Square, presence = Presence.Offline)
+            CamoAvatar()
+        }
+        CamoAvatarGroup(
+            listOf("Ada Lovelace", "Grace Hopper", "Alan Turing", "Edsger Dijkstra", "Barbara Liskov")
+                .map { name -> { CamoAvatar(name = name) } },
+        )
     }
 }

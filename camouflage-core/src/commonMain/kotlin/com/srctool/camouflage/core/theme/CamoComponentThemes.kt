@@ -2,10 +2,13 @@ package com.srctool.camouflage.core.theme
 
 import androidx.compose.runtime.Immutable
 import com.srctool.camouflage.core.accordion.AccordionTheme
+import com.srctool.camouflage.core.avatar.AvatarTheme
+import com.srctool.camouflage.core.badge.BadgeTheme
 import com.srctool.camouflage.core.bottomsheet.BottomSheetTheme
 import com.srctool.camouflage.core.button.ButtonTheme
 import com.srctool.camouflage.core.card.CardTheme
 import com.srctool.camouflage.core.checkbox.CheckboxTheme
+import com.srctool.camouflage.core.chip.ChipTheme
 import com.srctool.camouflage.core.datepicker.DatePickerTheme
 import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.divider.DividerTheme
@@ -17,8 +20,8 @@ import com.srctool.camouflage.core.pagedlist.PagedListTheme
 import com.srctool.camouflage.core.progress.ProgressTheme
 import com.srctool.camouflage.core.radio.RadioTheme
 import com.srctool.camouflage.core.search.SearchFieldTheme
-import com.srctool.camouflage.core.select.SelectTheme
 import com.srctool.camouflage.core.segmented.SegmentedControlTheme
+import com.srctool.camouflage.core.select.SelectTheme
 import com.srctool.camouflage.core.skeleton.SkeletonTheme
 import com.srctool.camouflage.core.slider.SliderTheme
 import com.srctool.camouflage.core.stepper.StepperTheme
@@ -62,4 +65,7 @@ public data class CamoComponentThemes(
     val pagedList: PagedListTheme? = null,
     val dialog: DialogTheme? = null,
     val select: SelectTheme? = null,
+    val chip: ChipTheme? = null,
+    val badge: BadgeTheme? = null,
+    val avatar: AvatarTheme? = null,
 )
