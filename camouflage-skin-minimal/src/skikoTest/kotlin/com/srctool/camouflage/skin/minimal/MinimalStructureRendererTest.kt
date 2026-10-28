@@ -105,7 +105,8 @@ class MinimalStructureRendererTest {
     fun theCloseButtonShowsOnlyWhenDismissibleAndAsked() = runComposeUiTest {
         var dismissed = 0
         var dismissible by mutableStateOf(true)
-        setCamoContent(skin, theme) {
+        // Reduced motion: no fade to wait for (a shadowed frame animates slowly on CI's GPU-less browser).
+        setCamoContent(skin, theme.copy(motion = theme.motion.reduced())) {
             ProvideComponentThemes(CamoComponentThemes(dialog = DialogTheme(showCloseButton = true))) {
                 CamoDialogFrame({ dismissed++ }, dismissible = dismissible) {
                     CamoDialog("Saved.", confirm = { CamoButton("OK", {}) }, title = "Done")
@@ -113,8 +114,8 @@ class MinimalStructureRendererTest {
             }
         }
         onNodeWithContentDescription("Close").performClick()
-        // The frame fades out before it reports the dismissal: wait for the report, not just an idle frame.
-        waitUntil { dismissed == 1 }
+        // The frame reports a dismissal after its exit: wait for the report, not just an idle frame.
+        waitUntil(timeoutMillis = DISMISS_TIMEOUT) { dismissed == 1 }
         assertEquals(1, dismissed)
         dismissible = false
         waitForIdle()
@@ -123,3 +124,5 @@ class MinimalStructureRendererTest {
 
     private fun ComposeUiTest.px(dp: Int) = (dp * density.density).roundToInt()
 }
+
+private const val DISMISS_TIMEOUT = 10_000L
