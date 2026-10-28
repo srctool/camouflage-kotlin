@@ -64,6 +64,7 @@ internal data class MinimalTextFieldRenderer(private val labelPlacement: LabelPl
             iconSize = 18.dp,
             borderWidth = Hairline,
             focusedBorderWidth = 2.dp,
+            dropdownIcon = IconSource.Vector(ChevronDown),
             colors = TextFieldColors(
                 container = Color.Transparent,
                 border = c.outline,

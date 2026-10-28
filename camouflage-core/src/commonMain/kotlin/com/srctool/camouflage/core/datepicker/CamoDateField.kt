@@ -235,6 +235,8 @@ internal fun PickerFieldFrame(
     enabled: Boolean,
     focusRequester: FocusRequester,
     onFocusChanged: ((Boolean) -> Unit)?,
+    prefixIcon: (@Composable () -> Unit)? = null,
+    modifier: Modifier = Modifier,
     onOpen: () -> Unit,
 ) {
     val skin = requireSkin("CamoDateField")
@@ -249,10 +251,12 @@ internal fun PickerFieldFrame(
         isEmpty = text == null,
         modifier = Modifier
             .focusRequester(focusRequester)
-            .clickable(source, indication = null, enabled = enabled, role = Role.DropdownList, onClick = onOpen),
+            .clickable(source, indication = null, enabled = enabled, role = Role.DropdownList, onClick = onOpen)
+            .then(modifier),
         label = label,
         supportingText = supportingText,
         error = error,
+        prefixIcon = prefixIcon,
         suffixIcon = { CamoIcon(icon, null) },
         enabled = enabled,
     ) {

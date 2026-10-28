@@ -1,5 +1,6 @@
 package com.srctool.camouflage.core.menu
 
+import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -17,10 +18,13 @@ import androidx.compose.ui.input.key.type
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
+import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
+import com.srctool.camouflage.core.skin.InteractionState
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.theme.ElevationLevel
+import com.srctool.camouflage.core.theme.Tone
 
 /** Where a checked menu item's checkmark sits. */
 public enum class CheckPosition { Leading, Trailing }
@@ -41,6 +45,8 @@ public data class MenuTheme(
     val iconSize: Dp? = null,
     val elevation: ElevationLevel? = null,
     val checkPosition: CheckPosition? = null,
+    /** The checkmark of a checked item (and of the current option in a select's sheet). */
+    val checkIcon: IconSource? = null,
     val colors: MenuColors? = null,
 )
 
@@ -56,6 +62,7 @@ public data class MenuStyle(
     val iconSize: Dp,
     val elevation: ElevationLevel,
     val checkPosition: CheckPosition,
+    val checkIcon: IconSource,
     val colors: MenuColors,
 ) {
     /** This style with [overrides]' non-null fields applied. */
@@ -72,14 +79,39 @@ public data class MenuStyle(
             iconSize = overrides.iconSize ?: iconSize,
             elevation = overrides.elevation ?: elevation,
             checkPosition = overrides.checkPosition ?: checkPosition,
+            checkIcon = overrides.checkIcon ?: checkIcon,
             colors = overrides.colors ?: colors,
         )
     }
 }
 
 /**
- * Draws menus. In M5 it draws the popup panel, the surface every anchored popup sits on (a date picker's
- * calendar, a custom menu); the menu's rows arrive with `CamoMenu` in M6.
+ * What a menu row renderer draws: [text] with [trailingText] (a shortcut) at the end, in [tone] (`Error` for
+ * destructive items) and dimmed when not [enabled]. [checked] is `null` for a plain item; otherwise draw the
+ * check when `true`, at `style.checkPosition`. Keep the text aligned across the menu: leave the check column
+ * when [reserveCheck] (some item is checkable) and the icon column when [reserveIcon] (some item has an icon).
+ * Show the highlight from [interaction] (hovered, focused, pressed).
+ */
+@Immutable
+public data class MenuItemState(
+    val text: String,
+    val trailingText: String?,
+    val tone: Tone,
+    val enabled: Boolean,
+    val checked: Boolean?,
+    val reserveCheck: Boolean,
+    val reserveIcon: Boolean,
+    val interaction: InteractionState,
+    val interactionSource: InteractionSource,
+)
+
+/** The item's leading icon, if any. */
+@Stable
+public class MenuItemSlots(public val leadingIcon: (@Composable () -> Unit)?)
+
+/**
+ * Draws menus: the popup panel, the surface every anchored popup sits on (a menu, a date picker's calendar),
+ * and the menu's rows.
  */
 @Stable
 public interface MenuRenderer {
@@ -89,6 +121,13 @@ public interface MenuRenderer {
     /** The popup's container around [content], within `minWidth`…`maxWidth` unless the content asks for more. */
     @Composable
     public fun Panel(theme: CamoTheme, style: MenuStyle, modifier: Modifier, content: @Composable () -> Unit)
+
+    /**
+     * Draws one row, `style.itemHeight` tall and filling the panel's width. Apply `modifier` (the row's
+     * behavior) to the outermost node, and keep the text in the semantics tree.
+     */
+    @Composable
+    public fun Item(state: MenuItemState, slots: MenuItemSlots, theme: CamoTheme, style: MenuStyle, modifier: Modifier)
 }
 
 /**

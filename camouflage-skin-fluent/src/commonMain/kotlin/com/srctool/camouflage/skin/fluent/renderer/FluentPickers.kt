@@ -11,10 +11,12 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +34,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.LayoutDirection
@@ -54,9 +57,12 @@ import com.srctool.camouflage.core.datepicker.DatePickerStyle
 import com.srctool.camouflage.core.datepicker.RangePosition
 import com.srctool.camouflage.core.icon.CamoIcon
 import com.srctool.camouflage.core.icon.IconSource
+import com.srctool.camouflage.core.icon.IconStyle
 import com.srctool.camouflage.core.iconbutton.CamoIconButton
 import com.srctool.camouflage.core.menu.CheckPosition
 import com.srctool.camouflage.core.menu.MenuColors
+import com.srctool.camouflage.core.menu.MenuItemSlots
+import com.srctool.camouflage.core.menu.MenuItemState
 import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.menu.MenuStyle
 import com.srctool.camouflage.core.overlay.StackedScrim
@@ -66,6 +72,8 @@ import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.core.theme.Appearance
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.theme.ElevationLevel
+import com.srctool.camouflage.core.theme.Tone
+import com.srctool.camouflage.core.theme.family
 import com.srctool.camouflage.core.theme.of
 import com.srctool.camouflage.core.timepicker.DialState
 import com.srctool.camouflage.core.timepicker.TimePart
@@ -77,6 +85,7 @@ import com.srctool.camouflage.core.timepicker.TimePickerState
 import com.srctool.camouflage.core.timepicker.TimePickerStrings
 import com.srctool.camouflage.core.timepicker.TimePickerStyle
 import com.srctool.camouflage.core.util.ProvideContentStyle
+import com.srctool.camouflage.core.util.disabled
 import com.srctool.camouflage.core.util.rememberSkinIndication
 import com.srctool.camouflage.skin.fluent.FluentTokens
 import kotlin.math.PI
@@ -110,8 +119,61 @@ internal object FluentMenuRenderer : MenuRenderer {
             // shadow16: Fluent's flyout depth, where Acrylic applies.
             elevation = ElevationLevel.Level4,
             checkPosition = CheckPosition.Leading,
+            checkIcon = IconSource.Vector(FluentCheckIcon),
             colors = MenuColors(c.surface, c.onSurface, c.onSurfaceVariant, c.onSurfaceVariant),
         )
+    }
+
+    // Fluent's menu item: a rounded row inset in the flyout, the check leading, the shortcut in neutral 3.
+    @Composable
+    override fun Item(
+        state: MenuItemState,
+        slots: MenuItemSlots,
+        theme: CamoTheme,
+        style: MenuStyle,
+        modifier: Modifier,
+    ) {
+        val alpha = if (state.enabled) 1f else DISABLED
+        val toned = state.tone != Tone.Default
+        val text = (if (toned) theme.colors.family(state.tone).strong else style.colors.text).disabled(alpha)
+        val icon = (if (toned) text else style.colors.icon).disabled(alpha)
+        val gap = theme.spacing.s
+        Row(
+            modifier
+                .indication(state.interactionSource, rememberSkinIndication(style.colors.text, theme.shapes.small))
+                .fillMaxWidth()
+                .heightIn(min = style.itemHeight)
+                .padding(horizontal = gap),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            ProvideContentStyle(text, IconStyle(style.iconSize, icon)) {
+                val leadingCheck = style.checkPosition == CheckPosition.Leading
+                if (leadingCheck && state.reserveCheck) {
+                    Box(Modifier.padding(end = gap).size(style.iconSize)) {
+                        if (state.checked == true) CamoIcon(style.checkIcon, null, tint = text, size = style.iconSize)
+                    }
+                }
+                if (state.reserveIcon) {
+                    Box(Modifier.padding(end = gap).size(style.iconSize), contentAlignment = Alignment.Center) {
+                        slots.leadingIcon?.invoke()
+                    }
+                }
+                BasicText(
+                    state.text,
+                    Modifier.weight(1f).padding(end = theme.spacing.l),
+                    style = style.textStyle.copy(color = text),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                state.trailingText?.let {
+                    val shortcut = theme.typography.bodySmall.copy(color = style.colors.trailingText.disabled(alpha))
+                    BasicText(it, style = shortcut)
+                }
+                if (!leadingCheck && state.checked == true) {
+                    CamoIcon(style.checkIcon, null, Modifier.padding(start = gap), tint = text, size = style.iconSize)
+                }
+            }
+        }
     }
 
     @Composable
@@ -512,4 +574,8 @@ internal val FluentChevronEnd: ImageVector = icon("chevron-end") { moveTo(10f, 6
 
 internal val DismissIcon: ImageVector = icon("dismiss") {
     moveTo(6f, 6f); lineTo(18f, 18f); moveTo(18f, 6f); lineTo(6f, 18f)
+}
+
+internal val FluentCheckIcon: ImageVector = icon("checkmark") {
+    moveTo(5f, 12.5f); lineTo(9.5f, 17f); lineTo(19f, 7.5f)
 }

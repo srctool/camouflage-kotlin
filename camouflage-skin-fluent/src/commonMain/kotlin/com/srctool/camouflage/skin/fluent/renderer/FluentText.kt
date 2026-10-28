@@ -72,6 +72,7 @@ internal object FluentTextFieldRenderer : TextFieldRenderer {
             iconSize = 20.dp,
             borderWidth = Hairline,
             focusedBorderWidth = 2.dp,
+            dropdownIcon = IconSource.Vector(ChevronDown),
             colors = TextFieldColors(
                 container = c.surface,
                 border = theme.tokens<FluentTokens>()?.neutralStroke1 ?: c.outlineVariant,

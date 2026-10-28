@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.BasicText
@@ -35,6 +37,8 @@ import com.srctool.camouflage.core.datepicker.DatePickerStyle
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.menu.CheckPosition
 import com.srctool.camouflage.core.menu.MenuColors
+import com.srctool.camouflage.core.menu.MenuItemSlots
+import com.srctool.camouflage.core.menu.MenuItemState
 import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.menu.MenuStyle
 import com.srctool.camouflage.core.overlay.StackedScrim
@@ -61,13 +65,27 @@ private val Square = IconSource.Vector(
 internal object PlainMenu : MenuRenderer {
     override fun defaults(theme: CamoTheme) = MenuStyle(
         RectangleShape, 112.dp, 280.dp, 48.dp, PaddingValues(8.dp), theme.typography.labelLarge, 24.dp,
-        ElevationLevel.Level2, CheckPosition.Trailing,
+        ElevationLevel.Level2, CheckPosition.Trailing, Square,
         theme.colors.let { MenuColors(it.surface, it.onSurface, it.onSurfaceVariant, it.onSurfaceVariant) },
     )
 
     @Composable
     override fun Panel(theme: CamoTheme, style: MenuStyle, modifier: Modifier, content: @Composable () -> Unit) =
         Box(modifier.background(style.colors.container).widthIn(min = style.minWidth)) { content() }
+
+    @Composable
+    override fun Item(
+        state: MenuItemState,
+        slots: MenuItemSlots,
+        theme: CamoTheme,
+        style: MenuStyle,
+        modifier: Modifier,
+    ) =
+        Row(modifier.fillMaxWidth().heightIn(min = style.itemHeight)) {
+            slots.leadingIcon?.invoke()
+            BasicText(state.text)
+            state.trailingText?.let { BasicText(it) }
+        }
 }
 
 internal object PlainBottomSheet : BottomSheetRenderer {

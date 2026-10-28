@@ -47,7 +47,7 @@ internal object PlainTextField : TextFieldRenderer {
         val t = theme.typography
         return TextFieldStyle(
             LabelPlacement.Above, 48.dp, RectangleShape, PaddingValues(horizontal = 12.dp), t.bodyLarge, t.bodyLarge,
-            t.bodySmall, t.bodySmall, 24.dp, 1.dp, 2.dp,
+            t.bodySmall, t.bodySmall, 24.dp, 1.dp, 2.dp, Dot,
             TextFieldColors(Color.Transparent, c.outline, c.primary, c.error, c.onSurface, c.onSurfaceVariant,
                 c.onSurfaceVariant, c.onSurfaceVariant),
         )

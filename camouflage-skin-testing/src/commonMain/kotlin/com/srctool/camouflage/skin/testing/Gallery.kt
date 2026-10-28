@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -38,6 +40,10 @@ import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.iconbutton.CamoIconButton
 import com.srctool.camouflage.core.list.CamoListItem
 import com.srctool.camouflage.core.list.CamoListSection
+import com.srctool.camouflage.core.menu.CamoMenuAnchor
+import com.srctool.camouflage.core.menu.CamoMenuController
+import com.srctool.camouflage.core.menu.CamoMenuDivider
+import com.srctool.camouflage.core.menu.CamoMenuItem
 import com.srctool.camouflage.core.menu.CamoMenuPanel
 import com.srctool.camouflage.core.pagedlist.CamoPagedList
 import com.srctool.camouflage.core.pagedlist.CamoPagedListState
@@ -51,6 +57,8 @@ import com.srctool.camouflage.core.radio.RadioOption
 import com.srctool.camouflage.core.search.CamoSearchField
 import com.srctool.camouflage.core.segmented.CamoSegmentedControl
 import com.srctool.camouflage.core.segmented.Segment
+import com.srctool.camouflage.core.select.CamoSelect
+import com.srctool.camouflage.core.select.SelectOption
 import com.srctool.camouflage.core.skeleton.CamoSkeleton
 import com.srctool.camouflage.core.skeleton.CamoSkeletonCircle
 import com.srctool.camouflage.core.skeleton.CamoSkeletonListItem
@@ -366,5 +374,31 @@ public fun DialogGallery() {
                 CamoRadioGroup("newest", {}, listOf(RadioOption("newest", "Newest"), RadioOption("price", "Price")))
             }
         }
+    }
+}
+
+/**
+ * The M6 menu, open (a popup: capture the window root): icons, a shortcut, a disabled item, a checkable item,
+ * a destructive item and dividers; above it, a closed select showing its value and the dropdown chevron.
+ */
+@Composable
+public fun MenuGallery() {
+    // The window's full height, so the capture reaches the popup below the content.
+    Column(Modifier.fillMaxHeight().padding(16.dp).width(320.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        val sorts = listOf(SelectOption("newest", "Newest"), SelectOption("price", "Price"))
+        CamoSelect("newest", {}, sorts, label = "Sort by")
+        val open = remember { CamoMenuController().apply { open() } }
+        CamoMenuAnchor(
+            items = listOf(
+                CamoMenuItem("Share", {}, leadingIcon = { Icon() }),
+                CamoMenuItem("Edit", {}, leadingIcon = { Icon() }, trailingText = "Ctrl+E"),
+                CamoMenuItem("Archive", {}, enabled = false),
+                CamoMenuDivider,
+                CamoMenuItem("Show hidden files", {}, checked = true),
+                CamoMenuDivider,
+                CamoMenuItem("Delete", {}, tone = Tone.Error),
+            ),
+            controller = open,
+        ) { CamoButton("More", it, appearance = Appearance.Outline) }
     }
 }
