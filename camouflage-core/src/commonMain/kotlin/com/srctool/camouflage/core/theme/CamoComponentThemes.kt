@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import com.srctool.camouflage.core.accordion.AccordionTheme
 import com.srctool.camouflage.core.avatar.AvatarTheme
 import com.srctool.camouflage.core.badge.BadgeTheme
+import com.srctool.camouflage.core.banner.BannerTheme
 import com.srctool.camouflage.core.bottomsheet.BottomSheetTheme
 import com.srctool.camouflage.core.button.ButtonTheme
 import com.srctool.camouflage.core.card.CardTheme
@@ -24,6 +25,7 @@ import com.srctool.camouflage.core.segmented.SegmentedControlTheme
 import com.srctool.camouflage.core.select.SelectTheme
 import com.srctool.camouflage.core.skeleton.SkeletonTheme
 import com.srctool.camouflage.core.slider.SliderTheme
+import com.srctool.camouflage.core.snackbar.SnackbarTheme
 import com.srctool.camouflage.core.stepper.StepperTheme
 import com.srctool.camouflage.core.surface.SurfaceTheme
 import com.srctool.camouflage.core.switch.SwitchTheme
@@ -68,4 +70,6 @@ public data class CamoComponentThemes(
     val chip: ChipTheme? = null,
     val badge: BadgeTheme? = null,
     val avatar: AvatarTheme? = null,
+    val snackbar: SnackbarTheme? = null,
+    val banner: BannerTheme? = null,
 )

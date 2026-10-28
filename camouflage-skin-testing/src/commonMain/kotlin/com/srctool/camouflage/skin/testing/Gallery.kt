@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions") // one gallery per component group
+
 package com.srctool.camouflage.skin.testing
 
 import androidx.compose.foundation.gestures.Orientation
@@ -11,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -29,6 +32,7 @@ import com.srctool.camouflage.core.avatar.CamoAvatarGroup
 import com.srctool.camouflage.core.avatar.Presence
 import com.srctool.camouflage.core.badge.CamoBadge
 import com.srctool.camouflage.core.badge.CamoBadgedBox
+import com.srctool.camouflage.core.banner.CamoBanner
 import com.srctool.camouflage.core.bottomsheet.CamoBottomSheet
 import com.srctool.camouflage.core.button.CamoButton
 import com.srctool.camouflage.core.card.CamoCard
@@ -59,6 +63,7 @@ import com.srctool.camouflage.core.pagedlist.CamoPagedList
 import com.srctool.camouflage.core.pagedlist.CamoPagedListState
 import com.srctool.camouflage.core.pagedlist.PagedError
 import com.srctool.camouflage.core.pagedlist.PagedErrorScope
+import com.srctool.camouflage.core.progress.CamoProgressBar
 import com.srctool.camouflage.core.progress.CamoProgressCircle
 import com.srctool.camouflage.core.progress.ProgressSize
 import com.srctool.camouflage.core.provider.Camouflage
@@ -73,8 +78,11 @@ import com.srctool.camouflage.core.skeleton.CamoSkeleton
 import com.srctool.camouflage.core.skeleton.CamoSkeletonCircle
 import com.srctool.camouflage.core.skeleton.CamoSkeletonListItem
 import com.srctool.camouflage.core.skeleton.CamoSkeletonText
+import com.srctool.camouflage.core.skin.InteractionState
 import com.srctool.camouflage.core.skin.TitleAlign
 import com.srctool.camouflage.core.slider.CamoSlider
+import com.srctool.camouflage.core.snackbar.SnackbarSlots
+import com.srctool.camouflage.core.snackbar.SnackbarState
 import com.srctool.camouflage.core.stepper.CamoStepper
 import com.srctool.camouflage.core.surface.CamoSurface
 import com.srctool.camouflage.core.switch.CamoSwitch
@@ -464,5 +472,50 @@ public fun DataDisplayGallery() {
             listOf("Ada Lovelace", "Grace Hopper", "Alan Turing", "Edsger Dijkstra", "Barbara Liskov")
                 .map { name -> { CamoAvatar(name = name) } },
         )
+    }
+}
+
+/**
+ * The M7 feedback components: determinate bars in two tones, banners in each tone and appearance (with a title,
+ * actions and a ✕), and snackbars drawn by the renderer as they appear: plain, with an action, with a ✕ and a tone
+ * icon. Static: no indeterminate animation.
+ */
+@Composable
+public fun FeedbackGallery() {
+    val theme = Camouflage.theme
+    Column(Modifier.padding(16.dp).width(IntrinsicSize.Max), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        CamoProgressBar(Modifier.width(320.dp), progress = 0.4f)
+        CamoProgressBar(Modifier.width(320.dp), progress = 0.75f, tone = Tone.Error)
+        CamoBanner("Your trial ends in 3 days.", title = "Trial", actions = {
+            CamoButton("Upgrade", {}, appearance = Appearance.Ghost)
+        }, onDismiss = {})
+        CamoBanner("Payment received.", tone = Tone.Success)
+        CamoBanner("Storage is almost full.", tone = Tone.Warning, appearance = Appearance.Outline)
+        CamoBanner("Couldn't sync.", tone = Tone.Error, appearance = Appearance.Solid, actions = {
+            CamoButton("Retry", {}, appearance = Appearance.Ghost)
+        })
+        val renderer = Camouflage.skin.snackbar
+        val style = renderer.defaults(theme).merge(theme.components.snackbar)
+        val toneIcons = Camouflage.skin.banner.defaults(theme).merge(theme.components.banner).toneIcons
+        val action: @Composable () -> Unit = {
+            BasicText("Undo", style = style.actionStyle.copy(color = Camouflage.contentColor))
+        }
+        val dismiss: @Composable () -> Unit = {
+            CamoFieldAction({ CamoIcon(style.dismissIcon, null) }, "Dismiss", {})
+        }
+        for ((tone, slots) in listOf(
+            Tone.Default to SnackbarSlots(null, null, null),
+            Tone.Default to SnackbarSlots(null, action, null),
+            Tone.Error to SnackbarSlots({ CamoIcon(toneIcons.error, null) }, null, dismiss),
+        )) {
+            renderer.Render(
+                SnackbarState("Message archived", null, tone, slots.dismiss != null, slots.icon != null,
+                    style.position, InteractionState.None),
+                slots,
+                theme,
+                style,
+                Modifier.width(360.dp),
+            )
+        }
     }
 }

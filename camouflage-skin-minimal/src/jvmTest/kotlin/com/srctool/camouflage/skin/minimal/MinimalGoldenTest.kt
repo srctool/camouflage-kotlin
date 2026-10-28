@@ -11,6 +11,7 @@ import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.skin.testing.ButtonGallery
 import com.srctool.camouflage.skin.testing.DataDisplayGallery
 import com.srctool.camouflage.skin.testing.DialogGallery
+import com.srctool.camouflage.skin.testing.FeedbackGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
 import com.srctool.camouflage.skin.testing.InputGallery
 import com.srctool.camouflage.skin.testing.MenuGallery
@@ -58,6 +59,8 @@ class MinimalGoldenTest {
     @Test fun menus() = golden("menus", width = 360, height = 480) { MenuGallery() }
 
     @Test fun dataDisplay() = golden("datadisplay", width = 560, height = 420) { DataDisplayGallery() }
+
+    @Test fun feedback() = golden("feedback", width = 420, height = 720) { FeedbackGallery() }
 
     // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {

@@ -215,6 +215,10 @@ internal object MinimalProgressCircleRenderer : ProgressCircleRenderer {
         circleSizeMedium = 32.dp,
         circleSizeLarge = 48.dp,
         colors = ProgressColors(theme.colors.primary, theme.colors.outlineVariant),
+        // A 2 px ink bar on a hairline track, no gap, no stop dot.
+        barHeight = 2.dp,
+        trackGap = 0.dp,
+        showStopIndicator = false,
     )
 
     @Composable

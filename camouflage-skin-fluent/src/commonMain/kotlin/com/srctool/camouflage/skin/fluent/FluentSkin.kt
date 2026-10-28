@@ -6,6 +6,7 @@ import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.skin.fluent.renderer.FluentAccordionRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentAvatarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBadgeRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentBannerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBottomSheetRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCardRenderer
@@ -19,12 +20,14 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentListItemRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentMenuRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentPagedListRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentProgressBarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressCircleRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentRadioRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSearchFieldRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSegmentedControlRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSkeletonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSliderRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentSnackbarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentStepperRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSurfaceRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSwitchRenderer
@@ -53,6 +56,7 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     button = FluentButtonRenderer,
     iconButton = FluentIconButtonRenderer,
     progressCircle = FluentProgressCircleRenderer,
+    progressBar = FluentProgressBarRenderer,
     tooltip = FluentTooltipRenderer,
     checkbox = FluentCheckboxRenderer,
     switch = FluentSwitchRenderer,
@@ -76,6 +80,8 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     chip = FluentChipRenderer,
     badge = FluentBadgeRenderer,
     avatar = FluentAvatarRenderer,
+    snackbar = FluentSnackbarRenderer,
+    banner = FluentBannerRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

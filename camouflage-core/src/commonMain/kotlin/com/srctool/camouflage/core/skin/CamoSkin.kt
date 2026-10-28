@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import com.srctool.camouflage.core.accordion.AccordionRenderer
 import com.srctool.camouflage.core.avatar.AvatarRenderer
 import com.srctool.camouflage.core.badge.BadgeRenderer
+import com.srctool.camouflage.core.banner.BannerRenderer
 import com.srctool.camouflage.core.bottomsheet.BottomSheetRenderer
 import com.srctool.camouflage.core.button.ButtonRenderer
 import com.srctool.camouflage.core.card.CardRenderer
@@ -17,12 +18,14 @@ import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
 import com.srctool.camouflage.core.list.ListItemRenderer
 import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.pagedlist.PagedListRenderer
+import com.srctool.camouflage.core.progress.ProgressBarRenderer
 import com.srctool.camouflage.core.progress.ProgressCircleRenderer
 import com.srctool.camouflage.core.radio.RadioRenderer
 import com.srctool.camouflage.core.search.SearchFieldRenderer
 import com.srctool.camouflage.core.segmented.SegmentedControlRenderer
 import com.srctool.camouflage.core.skeleton.SkeletonRenderer
 import com.srctool.camouflage.core.slider.SliderRenderer
+import com.srctool.camouflage.core.snackbar.SnackbarRenderer
 import com.srctool.camouflage.core.stepper.StepperRenderer
 import com.srctool.camouflage.core.surface.SurfaceRenderer
 import com.srctool.camouflage.core.switch.SwitchRenderer
@@ -53,6 +56,7 @@ public data class CamoSkin(
     val button: ButtonRenderer,
     val iconButton: IconButtonRenderer,
     val progressCircle: ProgressCircleRenderer,
+    val progressBar: ProgressBarRenderer,
     val tooltip: TooltipRenderer,
     val checkbox: CheckboxRenderer,
     val switch: SwitchRenderer,
@@ -76,4 +80,6 @@ public data class CamoSkin(
     val chip: ChipRenderer,
     val badge: BadgeRenderer,
     val avatar: AvatarRenderer,
+    val snackbar: SnackbarRenderer,
+    val banner: BannerRenderer,
 )

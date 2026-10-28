@@ -282,6 +282,10 @@ internal object FluentProgressCircleRenderer : ProgressCircleRenderer {
         circleSizeMedium = 32.dp,
         circleSizeLarge = 40.dp,
         colors = ProgressColors(theme.colors.primary, theme.colors.primaryContainer),
+        // Fluent's ProgressBar: 2 px, rounded, no gap or stop dot.
+        barHeight = 2.dp,
+        trackGap = 0.dp,
+        showStopIndicator = false,
     )
 
     @Composable

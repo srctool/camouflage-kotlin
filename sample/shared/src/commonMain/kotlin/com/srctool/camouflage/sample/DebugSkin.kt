@@ -32,6 +32,7 @@ val DebugSkin = CamoSkin(
     button = DebugButtonRenderer,
     iconButton = DebugIconButtonRenderer,
     progressCircle = DebugProgressCircleRenderer,
+    progressBar = DebugProgressBarRenderer,
     tooltip = DebugTooltipRenderer,
     checkbox = DebugCheckboxRenderer,
     switch = DebugSwitchRenderer,
@@ -55,6 +56,8 @@ val DebugSkin = CamoSkin(
     chip = DebugChipRenderer,
     badge = DebugBadgeRenderer,
     avatar = DebugAvatarRenderer,
+    snackbar = DebugSnackbarRenderer,
+    banner = DebugBannerRenderer,
 )
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */
