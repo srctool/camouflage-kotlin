@@ -113,7 +113,8 @@ class MinimalStructureRendererTest {
             }
         }
         onNodeWithContentDescription("Close").performClick()
-        waitForIdle()
+        // The frame fades out before it reports the dismissal: wait for the report, not just an idle frame.
+        waitUntil { dismissed == 1 }
         assertEquals(1, dismissed)
         dismissible = false
         waitForIdle()
