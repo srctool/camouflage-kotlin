@@ -21,6 +21,7 @@ public final class com/srctool/camouflage/skin/testing/ComposableSingletons$Gall
 	public final fun getLambda$-1258520345$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1340714031$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1357774108$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1550199686$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda$-163804853$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1642102018$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1782877043$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function5;
@@ -70,6 +71,7 @@ public final class com/srctool/camouflage/skin/testing/ComposableSingletons$Gall
 	public final fun getLambda$733921126$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$829758072$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$830449919$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$880127297$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda$913693637$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 }
 
@@ -77,6 +79,7 @@ public final class com/srctool/camouflage/skin/testing/GalleryKt {
 	public static final fun ButtonGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun DataDisplayGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun DialogGallery (Landroidx/compose/runtime/Composer;I)V
+	public static final fun FeedbackGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun IconButtonGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun InputGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun MenuGallery (Landroidx/compose/runtime/Composer;I)V

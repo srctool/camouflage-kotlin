@@ -7,22 +7,26 @@ import androidx.compose.ui.unit.Dp
 import com.srctool.camouflage.core.icon.CamoIcon
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.sample.resources.Res
+import com.srctool.camouflage.sample.resources.ic_archive
 import com.srctool.camouflage.sample.resources.ic_back
 import com.srctool.camouflage.sample.resources.ic_chevron
 import com.srctool.camouflage.sample.resources.ic_delete
 import com.srctool.camouflage.sample.resources.ic_edit
 import com.srctool.camouflage.sample.resources.ic_more
+import com.srctool.camouflage.sample.resources.ic_notifications
 import com.srctool.camouflage.sample.resources.ic_search
 import com.srctool.camouflage.sample.resources.ic_share
 import com.srctool.camouflage.sample.resources.ic_sort
 import com.srctool.camouflage.sample.resources.ic_star
 import com.srctool.camouflage.sample.resources.ic_star_outline
+import com.srctool.camouflage.sample.resources.ic_upload
 import org.jetbrains.compose.resources.DrawableResource
 
 /**
  * The app's icons (CamoIcon §3, the `AppIcon` pattern): one composable per asset, with no size or color unless
  * given, so each takes the style of the component it's placed in. Decorative by default.
  */
+@Suppress("TooManyFunctions") // one function per asset
 object AppIcon {
     @Composable fun Back(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_back, modifier, autoMirror = true)
 
@@ -45,6 +49,12 @@ object AppIcon {
     @Composable fun Share(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_share, modifier)
 
     @Composable fun Edit(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_edit, modifier)
+
+    @Composable fun Archive(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_archive, modifier)
+
+    @Composable fun Notifications(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_notifications, modifier)
+
+    @Composable fun Upload(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_upload, modifier)
 
     @Composable
     private fun Icon(

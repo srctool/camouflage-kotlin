@@ -302,6 +302,9 @@ object DebugProgressCircleRenderer : ProgressCircleRenderer {
         circleSizeMedium = 40.dp,
         circleSizeLarge = 56.dp,
         colors = ProgressColors(theme.colors.primary, theme.colors.outlineVariant),
+        barHeight = 4.dp,
+        trackGap = 4.dp,
+        showStopIndicator = true,
     )
 
     @Composable

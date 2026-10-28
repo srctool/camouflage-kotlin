@@ -7,6 +7,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import com.srctool.camouflage.core.skin.CamoSkin
+import com.srctool.camouflage.core.snackbar.ProvideMessenger
 import com.srctool.camouflage.core.theme.CamoTheme
 
 /**
@@ -15,6 +16,7 @@ import com.srctool.camouflage.core.theme.CamoTheme
  *
  * It applies reduced motion to the theme once, and resets the content color and icon style for its subtree.
  * A provider with nothing to provide doesn't throw: the first component that needs the value does, by name.
+ * The root provider also installs the app's `CamoMessenger` (snackbars).
  */
 @Composable
 public fun CamouflageProvider(
@@ -50,8 +52,10 @@ internal fun ProvideCamouflage(
         LocalCamoTheme provides effectiveTheme,
         LocalCamoContentColor provides (effectiveTheme?.colors?.onSurface ?: LocalCamoContentColor.current),
         LocalCamoIconStyle provides (rootIcon ?: LocalCamoIconStyle.current),
-        content = content,
-    )
+    ) {
+        // The root provider installs the app's messenger; nested ones use it.
+        ProvideMessenger(content)
+    }
 }
 
 /**

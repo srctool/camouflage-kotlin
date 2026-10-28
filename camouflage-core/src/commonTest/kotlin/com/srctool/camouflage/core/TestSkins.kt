@@ -213,8 +213,7 @@ internal object PlainIconButton : IconButtonRenderer {
 }
 
 internal object PlainProgressCircle : ProgressCircleRenderer {
-    override fun defaults(theme: CamoTheme) =
-        ProgressStyle(4.dp, 24.dp, 48.dp, 64.dp, ProgressColors(theme.colors.primary, theme.colors.outlineVariant))
+    override fun defaults(theme: CamoTheme) = plainProgressStyle(theme)
 
     @Composable
     override fun Render(state: ProgressState, theme: CamoTheme, style: ProgressStyle, modifier: Modifier) {
@@ -239,10 +238,10 @@ internal data class Brand(val accent: Color) : CamoTokenSet<Brand> {
 
 internal val skinA = CamoSkin(
     "a", Fill, NoFeedback, PlainText, PlainIcon, PlainSurface, PlainDivider, PlainButton, PlainIconButton,
-    PlainProgressCircle, PlainTooltip, PlainCheckbox, PlainSwitch, PlainRadio, PlainSegmented, PlainSlider,
-    PlainStepper, PlainTextField, PlainSearchField, PlainMenu, PlainBottomSheet, PlainDatePicker, PlainTimePicker,
-    PlainCard, PlainListItem, PlainAccordion, PlainSkeleton, PlainTopBar, PlainPagedList, PlainDialog, PlainChip,
-    PlainBadge, PlainAvatar,
+    PlainProgressCircle, PlainProgressBar, PlainTooltip, PlainCheckbox, PlainSwitch, PlainRadio, PlainSegmented,
+    PlainSlider, PlainStepper, PlainTextField, PlainSearchField, PlainMenu, PlainBottomSheet, PlainDatePicker,
+    PlainTimePicker, PlainCard, PlainListItem, PlainAccordion, PlainSkeleton, PlainTopBar, PlainPagedList,
+    PlainDialog, PlainChip, PlainBadge, PlainAvatar, PlainSnackbar, PlainBanner,
 )
 internal val skinB = skinA.copy(name = "b")
 internal val themeT = CamoTheme(
