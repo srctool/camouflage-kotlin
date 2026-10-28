@@ -28,6 +28,9 @@ import com.srctool.camouflage.core.datepicker.CalendarSelection
 import com.srctool.camouflage.core.datepicker.CamoCalendar
 import com.srctool.camouflage.core.datepicker.CamoDateField
 import com.srctool.camouflage.core.datepicker.PickerPresentation
+import com.srctool.camouflage.core.dialog.CamoDialog
+import com.srctool.camouflage.core.dialog.DialogActionsLayout
+import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.divider.CamoDivider
 import com.srctool.camouflage.core.divider.DividerInset
 import com.srctool.camouflage.core.icon.CamoIcon
@@ -52,6 +55,7 @@ import com.srctool.camouflage.core.skeleton.CamoSkeleton
 import com.srctool.camouflage.core.skeleton.CamoSkeletonCircle
 import com.srctool.camouflage.core.skeleton.CamoSkeletonListItem
 import com.srctool.camouflage.core.skeleton.CamoSkeletonText
+import com.srctool.camouflage.core.skin.TitleAlign
 import com.srctool.camouflage.core.slider.CamoSlider
 import com.srctool.camouflage.core.stepper.CamoStepper
 import com.srctool.camouflage.core.surface.CamoSurface
@@ -325,5 +329,42 @@ public fun StructureGallery() {
             { value, _ -> CamoListItem(value) },
             Modifier.height(200.dp),
         )
+    }
+}
+
+/**
+ * The M6 dialog content, inline (no frame): a confirmation with a title, a message-only notice, actions stacked
+ * and in a full-width row, and a centered title with custom content.
+ */
+@Composable
+public fun DialogGallery() {
+    Column(Modifier.padding(16.dp).width(380.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        CamoDialog(
+            "This can't be undone.",
+            confirm = { CamoButton("Delete", {}, tone = Tone.Error) },
+            title = "Delete item?",
+            dismiss = { CamoButton("Cancel", {}, appearance = Appearance.Ghost) },
+        )
+        CamoDialog("Your changes were saved.", confirm = { CamoButton("OK", {}) })
+        val components = Camouflage.theme.components
+        ProvideComponentThemes(components.copy(dialog = DialogTheme(actionsLayout = DialogActionsLayout.Stacked))) {
+            CamoDialog(
+                "Turn on notifications to hear about your orders.",
+                confirm = { CamoButton("Allow", {}) },
+                title = "Stay updated",
+                dismiss = { CamoButton("Not now", {}, appearance = Appearance.Ghost) },
+            )
+        }
+        val centered = DialogTheme(titleAlign = TitleAlign.Center, actionsLayout = DialogActionsLayout.FullWidthRow)
+        ProvideComponentThemes(components.copy(dialog = centered)) {
+            CamoDialog(
+                "Choose how items are ordered.",
+                confirm = { CamoButton("Apply", {}) },
+                title = "Sort by",
+                dismiss = { CamoButton("Cancel", {}, appearance = Appearance.Outline) },
+            ) {
+                CamoRadioGroup("newest", {}, listOf(RadioOption("newest", "Newest"), RadioOption("price", "Price")))
+            }
+        }
     }
 }

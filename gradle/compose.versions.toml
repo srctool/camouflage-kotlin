@@ -1,6 +1,9 @@
 [versions]
 compose-multiplatform = "1.12.1"
 hot-reload = "1.2.0"
+# JetBrains' multiplatform Navigation 3 (camouflage-navigation3) and the ViewModel entry decorator (sample, tests).
+navigation3 = "1.2.0"
+lifecycle = "2.11.0"
 
 # Explicit coordinates, not the compose.* shortcuts, so every version is visible here.
 # No Material artifacts in v1: core stays visually neutral (material-ripple joins with a Later Material skin).
@@ -11,6 +14,8 @@ foundation = { module = "org.jetbrains.compose.foundation:foundation", version.r
 resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "compose-multiplatform" }
 ui-test = { module = "org.jetbrains.compose.ui:ui-test", version.ref = "compose-multiplatform" }
 gradle-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
+navigation3-ui = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "navigation3" }
+lifecycle-viewmodel-navigation3 = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycle" }
 
 [plugins]
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }

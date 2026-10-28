@@ -19,6 +19,7 @@ final enum class com.srctool.camouflage.skin.fluent/FluentDensity : kotlin/Enum<
 }
 
 final enum class com.srctool.camouflage.skin.fluent/FluentSurface : kotlin/Enum<com.srctool.camouflage.skin.fluent/FluentSurface> { // com.srctool.camouflage.skin.fluent/FluentSurface|null[0]
+    enum entry Acrylic // com.srctool.camouflage.skin.fluent/FluentSurface.Acrylic|null[0]
     enum entry Solid // com.srctool.camouflage.skin.fluent/FluentSurface.Solid|null[0]
 
     final val entries // com.srctool.camouflage.skin.fluent/FluentSurface.entries|#static{}entries[0]
@@ -122,6 +123,10 @@ final class com.srctool.camouflage.skin.fluent/SubtleIndication : androidx.compo
     final fun toString(): kotlin/String // com.srctool.camouflage.skin.fluent/SubtleIndication.toString|toString(){}[0]
 }
 
+final object com.srctool.camouflage.skin.fluent/FluentAcrylic : com.srctool.camouflage.core.skin/SurfaceTreatment { // com.srctool.camouflage.skin.fluent/FluentAcrylic|null[0]
+    final fun modifier(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.unit/Dp, com.srctool.camouflage.core.theme/CamoTheme): androidx.compose.ui/Modifier // com.srctool.camouflage.skin.fluent/FluentAcrylic.modifier|modifier(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.unit.Dp;com.srctool.camouflage.core.theme.CamoTheme){}[0]
+}
+
 final object com.srctool.camouflage.skin.fluent/FluentSolid : com.srctool.camouflage.core.skin/SurfaceTreatment { // com.srctool.camouflage.skin.fluent/FluentSolid|null[0]
     final fun modifier(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.unit/Dp, com.srctool.camouflage.core.theme/CamoTheme): androidx.compose.ui/Modifier // com.srctool.camouflage.skin.fluent/FluentSolid.modifier|modifier(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.unit.Dp;com.srctool.camouflage.core.theme.CamoTheme){}[0]
 }
@@ -134,12 +139,15 @@ final val com.srctool.camouflage.skin.fluent/FluentBrandBlue // com.srctool.camo
     final fun <get-FluentBrandBlue>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.fluent/FluentBrandBlue.<get-FluentBrandBlue>|<get-FluentBrandBlue>(){}[0]
 final val com.srctool.camouflage.skin.fluent/FluentSkin // com.srctool.camouflage.skin.fluent/FluentSkin|{}FluentSkin[0]
     final fun <get-FluentSkin>(): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.skin.fluent/FluentSkin.<get-FluentSkin>|<get-FluentSkin>(){}[0]
+final val com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentAcrylic$stableprop // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentAcrylic$stableprop|#static{}com_srctool_camouflage_skin_fluent_FluentAcrylic$stableprop[0]
 final val com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentSolid$stableprop // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentSolid$stableprop|#static{}com_srctool_camouflage_skin_fluent_FluentSolid$stableprop[0]
 final val com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentTokens$stableprop // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentTokens$stableprop|#static{}com_srctool_camouflage_skin_fluent_FluentTokens$stableprop[0]
 final val com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_Subtle$stableprop // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_Subtle$stableprop|#static{}com_srctool_camouflage_skin_fluent_Subtle$stableprop[0]
 final val com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_SubtleIndication$stableprop // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_SubtleIndication$stableprop|#static{}com_srctool_camouflage_skin_fluent_SubtleIndication$stableprop[0]
 
-final fun com.srctool.camouflage.skin.fluent/FluentPreview(kotlin/Boolean, com.srctool.camouflage.skin.fluent/FluentDensity?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.skin.fluent/FluentPreview|FluentPreview(kotlin.Boolean;com.srctool.camouflage.skin.fluent.FluentDensity?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.skin.fluent/FluentBackdrop(androidx.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.skin.fluent/FluentBackdrop|FluentBackdrop(androidx.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.skin.fluent/FluentPreview(kotlin/Boolean, com.srctool.camouflage.skin.fluent/FluentDensity?, com.srctool.camouflage.skin.fluent/FluentSurface?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.skin.fluent/FluentPreview|FluentPreview(kotlin.Boolean;com.srctool.camouflage.skin.fluent.FluentDensity?;com.srctool.camouflage.skin.fluent.FluentSurface?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentAcrylic$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentAcrylic$stableprop_getter|com_srctool_camouflage_skin_fluent_FluentAcrylic$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentSolid$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentSolid$stableprop_getter|com_srctool_camouflage_skin_fluent_FluentSolid$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentTokens$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_FluentTokens$stableprop_getter|com_srctool_camouflage_skin_fluent_FluentTokens$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_Subtle$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.fluent/com_srctool_camouflage_skin_fluent_Subtle$stableprop_getter|com_srctool_camouflage_skin_fluent_Subtle$stableprop_getter(){}[0]

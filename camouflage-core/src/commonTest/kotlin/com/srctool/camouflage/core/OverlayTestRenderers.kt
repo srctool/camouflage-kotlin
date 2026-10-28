@@ -22,7 +22,6 @@ import com.srctool.camouflage.core.bottomsheet.BottomSheetRenderer
 import com.srctool.camouflage.core.bottomsheet.BottomSheetSlots
 import com.srctool.camouflage.core.bottomsheet.BottomSheetState
 import com.srctool.camouflage.core.bottomsheet.BottomSheetStyle
-import com.srctool.camouflage.core.bottomsheet.StackedScrim
 import com.srctool.camouflage.core.bottomsheet.WidePresentation
 import com.srctool.camouflage.core.datepicker.AllowTyping
 import com.srctool.camouflage.core.datepicker.CalendarCell
@@ -38,6 +37,7 @@ import com.srctool.camouflage.core.menu.CheckPosition
 import com.srctool.camouflage.core.menu.MenuColors
 import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.menu.MenuStyle
+import com.srctool.camouflage.core.overlay.StackedScrim
 import com.srctool.camouflage.core.skin.TitleAlign
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.theme.ElevationLevel

@@ -59,9 +59,14 @@ import androidx.compose.ui.unit.IntRect
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.window.Popup
-import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
 import com.srctool.camouflage.core.icon.IconSource
+import com.srctool.camouflage.core.overlay.CamoOverlayExit
+import com.srctool.camouflage.core.overlay.DismissVetoes
+import com.srctool.camouflage.core.overlay.FullWindow
+import com.srctool.camouflage.core.overlay.LocalDismissVetoes
+import com.srctool.camouflage.core.overlay.LocalOverlayDepth
+import com.srctool.camouflage.core.overlay.StackedScrim
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
 import com.srctool.camouflage.core.skin.TitleAlign
@@ -71,9 +76,6 @@ import kotlinx.coroutines.launch
 
 /** How a sheet shows on a wide window: still a bottom sheet (capped at `maxWidth`), or a centered card. */
 public enum class WidePresentation { Sheet, Centered }
-
-/** A sheet opened over another overlay: with its own scrim (darker), or sharing the one below. */
-public enum class StackedScrim { Each, TopOnly }
 
 /** Overrides for bottom sheets. `null` keeps the skin's default. */
 @Immutable
@@ -185,9 +187,6 @@ private val LocalSheetFrame = compositionLocalOf<SheetFrameInfo?> { null }
 // Outside a frame (a gallery, a preview): resting, not dismissible.
 private val NoFrame = SheetFrameInfo(0f, dismissible = false, onDismissRequest = {}, centered = false)
 
-// How many sheet frames are open around this point, for `StackedScrim.TopOnly`.
-private val LocalOverlayDepth = compositionLocalOf { 0 }
-
 private const val DISMISS_FRACTION = 0.4f
 private const val DISMISS_VELOCITY = 1200f
 private const val OFFSCREEN = 100_000f
@@ -196,8 +195,9 @@ private const val OFFSCREEN = 100_000f
  * The modal frame of a bottom sheet (base Overlays §3.1): the scrim, the sheet anchored to the bottom (centered
  * and capped at `maxWidth`), drag to dismiss, the keyboard and system-bar insets, and focus trapped in it. A
  * scrim tap, back, Esc, a drag down and the screen-reader dismiss action are all [onDismissRequest]; with
- * [dismissible] `false` they do nothing. It's visible while it's in the composition, so close it by removing
- * it:
+ * [dismissible] `false` they do nothing, and `OnDismissRequest` inside can veto them. A navigator passes [exit]
+ * to play the slide-out before it removes the frame. It's visible while it's in the composition, so close it by
+ * removing it:
  *
  * ```
  * if (picking) CamoSheetFrame(onDismissRequest = { picking = false }) { CamoBottomSheet(title = "Country") { … } }
@@ -210,6 +210,7 @@ public fun CamoSheetFrame(
     modifier: Modifier = Modifier,
     dismissible: Boolean = true,
     dragToDismiss: Boolean = true,
+    exit: CamoOverlayExit? = null,
     content: @Composable () -> Unit,
 ) {
     val skin = requireSkin("CamoSheetFrame")
@@ -222,12 +223,23 @@ public fun CamoSheetFrame(
     var height by remember { mutableIntStateOf(0) }
     val focus = remember { FocusRequester() }
     val slide = tween<Float>(theme.motion.durationMedium, easing = theme.motion.easingEmphasized)
+    val vetoes = remember { DismissVetoes() }
+    suspend fun slideOut() {
+        if (height > 0 && offset < height) {
+            animate(offset, height.toFloat(), animationSpec = tween(theme.motion.durationShort)) { v, _ -> offset = v }
+        }
+    }
+    if (exit != null) exit.animation = ::slideOut
     fun requestDismiss() {
         if (!dismissible) return
         scope.launch {
-            animate(offset, height.toFloat(), animationSpec = tween(theme.motion.durationShort)) { v, _ -> offset = v }
+            if (!vetoes.allow()) {
+                animate(offset, 0f, animationSpec = slide) { v, _ -> offset = v }
+                return@launch
+            }
+            slideOut()
             dismiss()
-            // Still here: the app vetoed, so the sheet comes back.
+            // Still here: the app kept it, so the sheet comes back.
             animate(offset, 0f, animationSpec = slide) { v, _ -> offset = v }
         }
     }
@@ -288,6 +300,7 @@ public fun CamoSheetFrame(
                 CompositionLocalProvider(
                     LocalSheetFrame provides SheetFrameInfo(progress, dismissible, ::requestDismiss, centered),
                     LocalOverlayDepth provides depth + 1,
+                    LocalDismissVetoes provides vetoes,
                     content = content,
                 )
             }
@@ -301,15 +314,6 @@ private const val MAX_HEIGHT_FRACTION = 0.9f
 
 // Taps here go to [onTap] and stop; a tap a child takes (a button) never reaches it.
 private fun Modifier.pointerInputTap(onTap: () -> Unit): Modifier = pointerInput(Unit) { detectTapGestures { onTap() } }
-
-private object FullWindow : PopupPositionProvider {
-    override fun calculatePosition(
-        anchorBounds: IntRect,
-        windowSize: IntSize,
-        layoutDirection: LayoutDirection,
-        popupContentSize: IntSize,
-    ): IntOffset = IntOffset.Zero
-}
 
 /**
  * A bottom sheet's content: the skin's container, handle, optional [title] and close button around [content].

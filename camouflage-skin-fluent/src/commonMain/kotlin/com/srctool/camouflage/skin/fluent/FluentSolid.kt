@@ -20,15 +20,18 @@ import com.srctool.camouflage.core.theme.levelOf
  * `Level5` shadow64 (dialogs). Shadow colors come from [FluentTokens], or default black alphas without them.
  */
 public object FluentSolid : SurfaceTreatment {
-    override fun modifier(color: Color, shape: Shape, elevation: Dp, theme: CamoTheme): Modifier {
-        val ramp = ShadowRamp[theme.elevation.levelOf(elevation)] ?: return Modifier.background(color, shape)
+    override fun modifier(color: Color, shape: Shape, elevation: Dp, theme: CamoTheme): Modifier =
+        shadows(shape, elevation, theme).background(color, shape)
+
+    /** Fluent's shadow for [elevation], without the fill (shared with [FluentAcrylic]). */
+    internal fun shadows(shape: Shape, elevation: Dp, theme: CamoTheme): Modifier {
+        val ramp = ShadowRamp[theme.elevation.levelOf(elevation)] ?: return Modifier
         val tokens = theme.tokens<FluentTokens>()
         val ambient = tokens?.shadowAmbient ?: DefaultAmbient
         val key = tokens?.shadowKey ?: DefaultKey
         return Modifier
             .dropShadow(shape, Shadow(radius = ramp.ambientBlur, color = ambient))
             .dropShadow(shape, Shadow(radius = ramp.keyBlur, color = key, offset = DpOffset(0.dp, ramp.keyOffset)))
-            .background(color, shape)
     }
 
     // utils/shadows: shadowN = "0 0 <ambient>px ambient, 0 <N/2>px <N>px key".

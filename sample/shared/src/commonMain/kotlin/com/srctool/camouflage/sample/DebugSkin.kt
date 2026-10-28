@@ -51,6 +51,7 @@ val DebugSkin = CamoSkin(
     skeleton = DebugSkeletonRenderer,
     topBar = DebugTopBarRenderer,
     pagedList = DebugPagedListRenderer,
+    dialog = DebugDialogRenderer,
 )
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */

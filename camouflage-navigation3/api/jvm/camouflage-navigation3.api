@@ -1,6 +1,37 @@
-public final class com/srctool/camouflage/navigation3/CamoNavigation3 {
+public final class com/srctool/camouflage/navigation3/CamoBottomSheetSceneStrategy : androidx/navigation3/scene/SceneStrategy {
 	public static final field $stable I
-	public static final field ARTIFACT Ljava/lang/String;
-	public static final field INSTANCE Lcom/srctool/camouflage/navigation3/CamoNavigation3;
+	public static final field Companion Lcom/srctool/camouflage/navigation3/CamoBottomSheetSceneStrategy$Companion;
+	public fun <init> ()V
+	public fun calculateScene (Landroidx/navigation3/scene/SceneStrategyScope;Ljava/util/List;)Landroidx/navigation3/scene/Scene;
+	public fun then (Landroidx/navigation3/scene/SceneStrategy;)Landroidx/navigation3/scene/SceneStrategy;
+}
+
+public final class com/srctool/camouflage/navigation3/CamoBottomSheetSceneStrategy$Companion {
+	public final fun bottomSheet (ZZ)Ljava/util/Map;
+	public static synthetic fun bottomSheet$default (Lcom/srctool/camouflage/navigation3/CamoBottomSheetSceneStrategy$Companion;ZZILjava/lang/Object;)Ljava/util/Map;
+}
+
+public final class com/srctool/camouflage/navigation3/CamoDialogSceneStrategy : androidx/navigation3/scene/SceneStrategy {
+	public static final field $stable I
+	public static final field Companion Lcom/srctool/camouflage/navigation3/CamoDialogSceneStrategy$Companion;
+	public fun <init> ()V
+	public fun calculateScene (Landroidx/navigation3/scene/SceneStrategyScope;Ljava/util/List;)Landroidx/navigation3/scene/Scene;
+	public fun then (Landroidx/navigation3/scene/SceneStrategy;)Landroidx/navigation3/scene/SceneStrategy;
+}
+
+public final class com/srctool/camouflage/navigation3/CamoDialogSceneStrategy$Companion {
+	public final fun dialog (Z)Ljava/util/Map;
+	public static synthetic fun dialog$default (Lcom/srctool/camouflage/navigation3/CamoDialogSceneStrategy$Companion;ZILjava/lang/Object;)Ljava/util/Map;
+}
+
+public final class com/srctool/camouflage/navigation3/CamoNavResults {
+	public static final field $stable I
+	public final fun consume (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
+	public final fun set (Ljava/lang/Object;Ljava/lang/Object;)V
+}
+
+public final class com/srctool/camouflage/navigation3/CamoNavResultsKt {
+	public static final fun rememberCamoNavResults (Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/navigation3/CamoNavResults;
+	public static final fun showForResult (Ljava/util/List;Ljava/lang/Object;Lcom/srctool/camouflage/navigation3/CamoNavResults;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
