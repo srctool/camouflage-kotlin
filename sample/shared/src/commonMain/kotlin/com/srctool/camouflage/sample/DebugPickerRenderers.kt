@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -18,7 +19,9 @@ import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.DpSize
@@ -38,15 +41,20 @@ import com.srctool.camouflage.core.datepicker.DatePickerForm
 import com.srctool.camouflage.core.datepicker.DatePickerRenderer
 import com.srctool.camouflage.core.datepicker.DatePickerStrings
 import com.srctool.camouflage.core.datepicker.DatePickerStyle
+import com.srctool.camouflage.core.icon.CamoIcon
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.menu.CheckPosition
 import com.srctool.camouflage.core.menu.MenuColors
+import com.srctool.camouflage.core.menu.MenuItemSlots
+import com.srctool.camouflage.core.menu.MenuItemState
 import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.menu.MenuStyle
 import com.srctool.camouflage.core.overlay.StackedScrim
 import com.srctool.camouflage.core.skin.TitleAlign
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.theme.ElevationLevel
+import com.srctool.camouflage.core.theme.Tone
+import com.srctool.camouflage.core.theme.family
 import com.srctool.camouflage.core.timepicker.DialState
 import com.srctool.camouflage.core.timepicker.TimePart
 import com.srctool.camouflage.core.timepicker.TimePickerColors
@@ -58,6 +66,7 @@ import com.srctool.camouflage.core.timepicker.TimePickerStrings
 import com.srctool.camouflage.core.timepicker.TimePickerStyle
 import com.srctool.camouflage.sample.resources.Res
 import com.srctool.camouflage.sample.resources.ic_calendar
+import com.srctool.camouflage.sample.resources.ic_check
 import com.srctool.camouflage.sample.resources.ic_chevron
 import com.srctool.camouflage.sample.resources.ic_chevron_start
 import com.srctool.camouflage.sample.resources.ic_clock
@@ -70,13 +79,42 @@ import kotlin.math.sin
 
 private const val WEEK = 7
 private const val SCRIM = 0.32f
+private const val DISABLED_ALPHA = 0.38f
 
 object DebugMenuRenderer : MenuRenderer {
     override fun defaults(theme: CamoTheme) = MenuStyle(
         RectangleShape, 112.dp, 280.dp, 40.dp, PaddingValues(4.dp), theme.typography.bodyMedium, 20.dp,
-        ElevationLevel.Level0, CheckPosition.Trailing,
+        ElevationLevel.Level0, CheckPosition.Trailing, IconSource.Resource(Res.drawable.ic_check),
         theme.colors.let { MenuColors(it.surface, it.onSurface, it.onSurfaceVariant, it.onSurfaceVariant) },
     )
+
+    // A bordered row with the debug focus color for the highlight, the check as text-sized icon at the end.
+    @Composable
+    override fun Item(
+        state: MenuItemState,
+        slots: MenuItemSlots,
+        theme: CamoTheme,
+        style: MenuStyle,
+        modifier: Modifier,
+    ) {
+        val color = if (state.tone == Tone.Default) style.colors.text else theme.colors.family(state.tone).strong
+        val highlight = state.interaction.hovered || state.interaction.focused || state.interaction.pressed
+        Row(
+            modifier
+                .border(if (highlight) 2.dp else 0.dp, if (highlight) DebugFocus else Color.Transparent)
+                .fillMaxWidth()
+                .heightIn(min = style.itemHeight)
+                .padding(horizontal = theme.spacing.s)
+                .alpha(if (state.enabled) 1f else DISABLED_ALPHA),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(theme.spacing.s),
+        ) {
+            if (state.reserveIcon) Box(Modifier.size(style.iconSize)) { slots.leadingIcon?.invoke() }
+            BasicText(state.text, Modifier.weight(1f), style = style.textStyle.copy(color = color))
+            state.trailingText?.let { BasicText(it, style = style.textStyle.copy(color = style.colors.trailingText)) }
+            if (state.checked == true) CamoIcon(style.checkIcon, null, size = style.iconSize, tint = color)
+        }
+    }
 
     @Composable
     override fun Panel(theme: CamoTheme, style: MenuStyle, modifier: Modifier, content: @Composable () -> Unit) =

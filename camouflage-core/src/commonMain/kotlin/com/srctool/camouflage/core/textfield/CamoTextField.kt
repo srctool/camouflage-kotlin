@@ -40,6 +40,7 @@ import androidx.compose.ui.semantics.password
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
+import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
 import com.srctool.camouflage.core.skin.InteractionState
@@ -77,6 +78,8 @@ public data class TextFieldTheme(
     val iconSize: Dp? = null,
     val borderWidth: Dp? = null,
     val focusedBorderWidth: Dp? = null,
+    /** The chevron at the end of a field that opens a list (`CamoSelect`). */
+    val dropdownIcon: IconSource? = null,
     val colors: TextFieldColors? = null,
 )
 
@@ -94,6 +97,7 @@ public data class TextFieldStyle(
     val iconSize: Dp,
     val borderWidth: Dp,
     val focusedBorderWidth: Dp,
+    val dropdownIcon: IconSource,
     val colors: TextFieldColors,
 ) {
     /** This style with [overrides]' non-null fields applied. */
@@ -113,6 +117,7 @@ public data class TextFieldStyle(
             iconSize = overrides.iconSize ?: iconSize,
             borderWidth = overrides.borderWidth ?: borderWidth,
             focusedBorderWidth = overrides.focusedBorderWidth ?: focusedBorderWidth,
+            dropdownIcon = overrides.dropdownIcon ?: dropdownIcon,
             colors = overrides.colors ?: colors,
         )
     }

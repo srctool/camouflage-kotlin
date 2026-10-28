@@ -1,8 +1,11 @@
 package com.srctool.camouflage.navigation3
 
 import androidx.compose.foundation.text.BasicText
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.Key
@@ -32,12 +35,12 @@ import com.srctool.camouflage.core.theme.CamoColors
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.theme.CamoTypography
 import com.srctool.camouflage.skin.minimal.MinimalSkin
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 private data object Home
 
@@ -148,6 +151,44 @@ class SceneStrategyTest {
         waitForIdle()
         assertEquals(listOf<Any>(Home), backStack.toList())
         onNode(pane("Delete?")).assertDoesNotExist()
+    }
+
+    // The usual caller: the page under the sheet launches the wait from its own scope.
+    @Test
+    fun aCallerInsideTheEntryBelowGetsTheResult() = runComposeUiTest {
+        val backStack = mutableStateListOf<Any>(Home)
+        var picked by mutableStateOf<String?>(null)
+        setContent {
+            CamouflageProvider(MinimalSkin, theme) {
+                val results = rememberCamoNavResults()
+                NavDisplay(
+                    backStack = backStack,
+                    entryDecorators = listOf(rememberSaveableStateHolderNavEntryDecorator<Any>()),
+                    sceneStrategies = listOf(CamoBottomSheetSceneStrategy()),
+                    entryProvider = entryProvider {
+                        entry<Home> {
+                            val scope = rememberCoroutineScope()
+                            CamoButton("Choose", {
+                                scope.launch { picked = backStack.showForResult(CountryPicker, results) }
+                            })
+                        }
+                        entry<CountryPicker>(metadata = CamoBottomSheetSceneStrategy.bottomSheet()) {
+                            CamoBottomSheet(title = "Choose country") {
+                                CamoButton("Indonesia", {
+                                    results.set(CountryPicker, "ID")
+                                    backStack.removeLastOrNull()
+                                })
+                            }
+                        }
+                    },
+                )
+            }
+        }
+        onNodeWithText("Choose").performClick()
+        waitForIdle()
+        onNodeWithText("Indonesia").performClick()
+        waitForIdle()
+        assertEquals("ID", picked)
     }
 
     @Test

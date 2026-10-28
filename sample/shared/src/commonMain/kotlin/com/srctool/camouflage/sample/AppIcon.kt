@@ -10,7 +10,11 @@ import com.srctool.camouflage.sample.resources.Res
 import com.srctool.camouflage.sample.resources.ic_back
 import com.srctool.camouflage.sample.resources.ic_chevron
 import com.srctool.camouflage.sample.resources.ic_delete
+import com.srctool.camouflage.sample.resources.ic_edit
+import com.srctool.camouflage.sample.resources.ic_more
 import com.srctool.camouflage.sample.resources.ic_search
+import com.srctool.camouflage.sample.resources.ic_share
+import com.srctool.camouflage.sample.resources.ic_sort
 import com.srctool.camouflage.sample.resources.ic_star
 import com.srctool.camouflage.sample.resources.ic_star_outline
 import org.jetbrains.compose.resources.DrawableResource
@@ -33,6 +37,14 @@ object AppIcon {
 
     @Composable fun ChevronRight(modifier: Modifier = Modifier) =
         Icon(Res.drawable.ic_chevron, modifier, autoMirror = true)
+
+    @Composable fun More(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_more, modifier)
+
+    @Composable fun Sort(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_sort, modifier)
+
+    @Composable fun Share(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_share, modifier)
+
+    @Composable fun Edit(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_edit, modifier)
 
     @Composable
     private fun Icon(

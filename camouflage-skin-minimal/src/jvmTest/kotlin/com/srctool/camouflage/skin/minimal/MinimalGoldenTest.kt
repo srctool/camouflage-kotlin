@@ -3,7 +3,8 @@ package com.srctool.camouflage.skin.minimal
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.ExperimentalTestApi
-import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.isRoot
+import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.runDesktopComposeUiTest
 import com.github.takahirom.roborazzi.RoborazziOptions
 import com.srctool.camouflage.core.provider.CamouflagePreview
@@ -11,6 +12,7 @@ import com.srctool.camouflage.skin.testing.ButtonGallery
 import com.srctool.camouflage.skin.testing.DialogGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
 import com.srctool.camouflage.skin.testing.InputGallery
+import com.srctool.camouflage.skin.testing.MenuGallery
 import com.srctool.camouflage.skin.testing.PickerGallery
 import com.srctool.camouflage.skin.testing.PrimitiveGallery
 import com.srctool.camouflage.skin.testing.StructureGallery
@@ -52,13 +54,16 @@ class MinimalGoldenTest {
 
     @Test fun dialogs() = golden("dialogs", width = 420, height = 1000) { DialogGallery() }
 
+    @Test fun menus() = golden("menus", width = 360, height = 480) { MenuGallery() }
+
     // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {
         val failures = themes.mapNotNull { (key, theme) ->
             runCatching {
                 runDesktopComposeUiTest(width, height) {
                     setContent { CamouflagePreview(MinimalSkin, theme.withGoldenFont(), content) }
-                    onRoot().captureRoboImage(
+                    // The first root is the window, popups included (the menu gallery opens one).
+                    onAllNodes(isRoot()).onFirst().captureRoboImage(
                         roborazziOptions = CrossPlatform,
                         filePath = "src/jvmTest/snapshots/${name}_minimal_$key.png",
                     )

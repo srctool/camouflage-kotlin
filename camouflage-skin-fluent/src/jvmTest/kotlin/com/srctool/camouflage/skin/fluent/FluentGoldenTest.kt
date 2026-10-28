@@ -13,7 +13,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.isRoot
 import androidx.compose.ui.test.onFirst
-import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.runDesktopComposeUiTest
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
@@ -25,6 +24,7 @@ import com.srctool.camouflage.skin.testing.ButtonGallery
 import com.srctool.camouflage.skin.testing.DialogGallery
 import com.srctool.camouflage.skin.testing.IconButtonGallery
 import com.srctool.camouflage.skin.testing.InputGallery
+import com.srctool.camouflage.skin.testing.MenuGallery
 import com.srctool.camouflage.skin.testing.PickerGallery
 import com.srctool.camouflage.skin.testing.PrimitiveGallery
 import com.srctool.camouflage.skin.testing.StructureGallery
@@ -67,6 +67,8 @@ class FluentGoldenTest {
 
     @Test fun dialogs() = golden("dialogs", width = 420, height = 1000) { DialogGallery() }
 
+    @Test fun menus() = golden("menus", width = 360, height = 480) { MenuGallery() }
+
     // Acrylic: a panel at flyout depth in a popup over a striped backdrop, the way flyouts and dialogs open.
     @Test
     fun acrylic() = runDesktopComposeUiTest(360, 200) {
@@ -96,7 +98,8 @@ class FluentGoldenTest {
             runCatching {
                 runDesktopComposeUiTest(width, height) {
                     setContent { CamouflagePreview(FluentSkin, theme.withGoldenFont(), content) }
-                    onRoot().captureRoboImage(
+                    // The first root is the window, popups included (the menu gallery opens one).
+                    onAllNodes(isRoot()).onFirst().captureRoboImage(
                         roborazziOptions = CrossPlatform,
                         filePath = "src/jvmTest/snapshots/${name}_fluent_$key.png",
                     )

@@ -29,6 +29,7 @@ import com.srctool.camouflage.core.textfield.TextFieldState
 import com.srctool.camouflage.core.textfield.TextFieldStyle
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.sample.resources.Res
+import com.srctool.camouflage.sample.resources.ic_chevron
 import com.srctool.camouflage.sample.resources.ic_delete
 import com.srctool.camouflage.sample.resources.ic_search
 
@@ -41,6 +42,7 @@ object DebugTextFieldRenderer : TextFieldRenderer {
         return TextFieldStyle(
             LabelPlacement.Above, 48.dp, theme.shapes.none, PaddingValues(horizontal = theme.spacing.m), t.bodyLarge,
             t.bodyLarge, t.labelMedium, t.bodySmall, 20.dp, 1.dp, 2.dp,
+            IconSource.Resource(Res.drawable.ic_chevron),
             TextFieldColors(Color.Transparent, c.outline, DebugFocus, c.error, c.onSurface, c.onSurface,
                 c.onSurfaceVariant, c.onSurfaceVariant),
         )
