@@ -16,6 +16,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalChipRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDatePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDialogRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDividerRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalFabRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalListItemRenderer
@@ -32,6 +33,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalSnackbarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalStepperRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSurfaceRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSwitchRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalTabsRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTextFieldRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTextRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTimePickerRenderer
@@ -80,6 +82,8 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     avatar = MinimalAvatarRenderer,
     snackbar = MinimalSnackbarRenderer,
     banner = MinimalBannerRenderer,
+    tabs = MinimalTabsRenderer,
+    fab = MinimalFabRenderer,
 )
 
 /** The Minimal skin. */

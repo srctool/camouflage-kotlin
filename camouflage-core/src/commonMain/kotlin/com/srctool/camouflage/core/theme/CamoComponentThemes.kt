@@ -13,6 +13,7 @@ import com.srctool.camouflage.core.chip.ChipTheme
 import com.srctool.camouflage.core.datepicker.DatePickerTheme
 import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.divider.DividerTheme
+import com.srctool.camouflage.core.fab.FabTheme
 import com.srctool.camouflage.core.icon.IconTheme
 import com.srctool.camouflage.core.iconbutton.IconButtonTheme
 import com.srctool.camouflage.core.list.ListItemTheme
@@ -29,6 +30,7 @@ import com.srctool.camouflage.core.snackbar.SnackbarTheme
 import com.srctool.camouflage.core.stepper.StepperTheme
 import com.srctool.camouflage.core.surface.SurfaceTheme
 import com.srctool.camouflage.core.switch.SwitchTheme
+import com.srctool.camouflage.core.tabs.TabsTheme
 import com.srctool.camouflage.core.textfield.TextFieldTheme
 import com.srctool.camouflage.core.timepicker.TimePickerTheme
 import com.srctool.camouflage.core.tooltip.TooltipTheme
@@ -72,4 +74,6 @@ public data class CamoComponentThemes(
     val avatar: AvatarTheme? = null,
     val snackbar: SnackbarTheme? = null,
     val banner: BannerTheme? = null,
+    val tabs: TabsTheme? = null,
+    val fab: FabTheme? = null,
 )

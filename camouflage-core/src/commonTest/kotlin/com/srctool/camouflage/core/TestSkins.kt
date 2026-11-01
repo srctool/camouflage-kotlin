@@ -242,6 +242,7 @@ internal val skinA = CamoSkin(
     PlainSlider, PlainStepper, PlainTextField, PlainSearchField, PlainMenu, PlainBottomSheet, PlainDatePicker,
     PlainTimePicker, PlainCard, PlainListItem, PlainAccordion, PlainSkeleton, PlainTopBar, PlainPagedList,
     PlainDialog, PlainChip, PlainBadge, PlainAvatar, PlainSnackbar, PlainBanner,
+    PlainTabs, PlainFab,
 )
 internal val skinB = skinA.copy(name = "b")
 internal val themeT = CamoTheme(
