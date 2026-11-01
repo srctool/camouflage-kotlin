@@ -13,6 +13,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.srctool.camouflage.core.button.ButtonTheme
+import com.srctool.camouflage.core.environment.InputMode
+import com.srctool.camouflage.core.environment.adapt
 import com.srctool.camouflage.core.iconbutton.IconButtonTheme
 import com.srctool.camouflage.core.theme.CamoColors
 import com.srctool.camouflage.core.theme.CamoComponentThemes
@@ -25,23 +27,50 @@ import com.srctool.camouflage.core.theme.CamoTypography
  * Fluent 2's starter theme: the brand ramp for the `primary` family, Fluent's neutral ramp for surfaces and
  * text, the danger, success and warning palettes for status (info is the brand), Fluent's type ramp, radii and
  * motion, plus [FluentTokens] for the hover and press steps. [density] sets the controls' sizes through the
- * component themes. [fontFamily] `null` is the platform font (Segoe UI on Windows); fonts are never bundled.
+ * component themes; `null` follows the input (ADR-41): `Medium` with a pointer, `Touch` with fingers. [fontFamily]
+ * `null` is the platform font (Segoe UI on Windows); fonts are never bundled.
  */
 public fun fluentTheme(
     brand: Color = FluentBrandBlue,
     dark: Boolean = false,
-    density: FluentDensity = FluentDensity.Medium,
+    density: FluentDensity? = null,
     fontFamily: FontFamily? = null,
 ): CamoTheme {
     val ramp = BrandRamp.of(brand)
     val typography = fluentTypography(fontFamily ?: FontFamily.Default)
-    return CamoTheme(
+    val theme = CamoTheme(
         colors = if (dark) darkColors(ramp) else lightColors(ramp),
         typography = typography,
-        components = densityThemes(density, typography),
+        components = densityThemes(density ?: FluentDensity.Medium, typography),
         shapes = FluentShapes,
         motion = FluentMotion,
         tokenSets = listOf(if (dark) darkTokens(ramp) else lightTokens(ramp)),
+    )
+    if (density != null) return theme
+    return theme.adapt { env ->
+        if (env.input == InputMode.Touch) {
+            copy(components = components.withDensity(FluentDensity.Touch, typography))
+        } else {
+            this
+        }
+    }
+}
+
+// The density's button and icon button sizes over [this], keeping every other override.
+private fun CamoComponentThemes.withDensity(density: FluentDensity, type: CamoTypography): CamoComponentThemes {
+    val sizes = densityThemes(density, type)
+    val b = checkNotNull(sizes.button)
+    val i = checkNotNull(sizes.iconButton)
+    return copy(
+        button = (button ?: ButtonTheme()).copy(
+            height = b.height,
+            minWidth = b.minWidth,
+            padding = b.padding,
+            paddingWithIcon = b.paddingWithIcon,
+            textStyle = b.textStyle,
+            iconSize = b.iconSize,
+        ),
+        iconButton = (iconButton ?: IconButtonTheme()).copy(containerSize = i.containerSize, iconSize = i.iconSize),
     )
 }
 

@@ -63,6 +63,9 @@ private fun blend(a: CamoTheme, b: CamoTheme, t: Float): CamoTheme {
             easingEmphasized = pick(a.motion.easingEmphasized, b.motion.easingEmphasized),
         ),
         tokenSets = lerpTokenSets(a.tokenSets, b.tokenSets, t),
+        breakpoints = pick(a.breakpoints, b.breakpoints),
+        adaptation = pick(a.adaptation, b.adaptation),
+        environment = pick(a.environment, b.environment),
     )
 }
 

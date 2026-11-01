@@ -53,16 +53,21 @@ import kotlin.random.Random
  * Fluent's Acrylic surface: frosted glass for flyouts, menus and dialogs (elevation `Level4` and up). It draws
  * the app behind it blurred (30 dp), a luminosity tint of the surface color and a light noise, inside Fluent's
  * shadow. The app behind is recorded by [FluentBackdrop]; without one, or where the platform can't blur
- * (Android below 12), it falls back to the tint and noise over a solid fill, which is Fluent's own fallback.
+ * (`CamoCapabilities.backdropBlur`, Android below 12), it falls back to the tint and noise over a solid fill,
+ * which is Fluent's own fallback; with Reduce Transparency it's [FluentSolid] (ADR-42).
  * Lower containers (cards) stay [FluentSolid].
  */
 public object FluentAcrylic : SurfaceTreatment {
-    override fun modifier(color: Color, shape: Shape, elevation: Dp, theme: CamoTheme): Modifier =
-        if (theme.elevation.levelOf(elevation) < ElevationLevel.Level4) {
-            FluentSolid.modifier(color, shape, elevation, theme)
-        } else {
-            FluentSolid.shadows(shape, elevation, theme).then(AcrylicElement(color, shape))
+    override fun modifier(color: Color, shape: Shape, elevation: Dp, theme: CamoTheme): Modifier {
+        val capabilities = theme.environment?.capabilities
+        return when {
+            // Below flyout depth, and at the end of the chain (ADR-42: Reduce Transparency), the opaque surface.
+            theme.elevation.levelOf(elevation) < ElevationLevel.Level4 ||
+                capabilities?.reduceTransparency == true -> FluentSolid.modifier(color, shape, elevation, theme)
+            else -> FluentSolid.shadows(shape, elevation, theme)
+                .then(AcrylicElement(color, shape, blur = capabilities?.backdropBlur ?: true))
         }
+    }
 }
 
 // What FluentBackdrop shares with the Acrylic surfaces: the recorded app, where it sits, and whether it's being
@@ -126,17 +131,19 @@ private val Noise: ImageBitmap by lazy {
 
 private val NoiseBrush by lazy { ShaderBrush(ImageShader(Noise, TileMode.Repeated, TileMode.Repeated)) }
 
-private data class AcrylicElement(val color: Color, val shape: Shape) : ModifierNodeElement<AcrylicNode>() {
-    override fun create() = AcrylicNode(color, shape)
+private data class AcrylicElement(val color: Color, val shape: Shape, val blur: Boolean) :
+    ModifierNodeElement<AcrylicNode>() {
+    override fun create() = AcrylicNode(color, shape, blur)
 
     override fun update(node: AcrylicNode) {
         node.color = color
         node.shape = shape
+        node.blur = blur
         node.invalidateDraw()
     }
 }
 
-private class AcrylicNode(var color: Color, var shape: Shape) :
+private class AcrylicNode(var color: Color, var shape: Shape, var blur: Boolean) :
     Modifier.Node(),
     DrawModifierNode,
     CompositionLocalConsumerModifierNode,
@@ -152,13 +159,14 @@ private class AcrylicNode(var color: Color, var shape: Shape) :
     override fun ContentDrawScope.draw() {
         val outline = shape.createOutline(size, layoutDirection, this)
         val backdrop = currentValueOf(LocalFluentBackdrop)
-        val source = backdrop?.takeUnless { it.recording }?.layer
+        // No source when blur is off: own blur, then tint and noise over a solid fill (ADR-42).
+        val source = backdrop?.takeUnless { it.recording || !blur }?.layer
         val radius = BlurRadius.toPx()
-        val blur = BlurEffect(radius, radius, TileMode.Clamp)
-        if (backdrop != null && source != null && blur.isSupported()) {
+        val effect = BlurEffect(radius, radius, TileMode.Clamp)
+        if (backdrop != null && source != null && effect.isSupported()) {
             backdrop.version // read, so a new recording redraws this surface
             val layer = blurred ?: requireGraphicsContext().createGraphicsLayer().also { blurred = it }
-            layer.renderEffect = blur
+            layer.renderEffect = effect
             layer.record(size.toIntSize()) {
                 translate(backdrop.origin.x - position.x, backdrop.origin.y - position.y) { drawLayer(source) }
             }

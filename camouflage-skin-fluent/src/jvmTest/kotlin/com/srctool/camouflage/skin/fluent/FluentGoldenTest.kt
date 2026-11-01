@@ -17,8 +17,14 @@ import androidx.compose.ui.test.runDesktopComposeUiTest
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import com.github.takahirom.roborazzi.RoborazziOptions
+import com.srctool.camouflage.core.environment.CamoCapabilities
+import com.srctool.camouflage.core.environment.CamoEnvironment
+import com.srctool.camouflage.core.environment.CamoPlatform
+import com.srctool.camouflage.core.environment.InputMode
+import com.srctool.camouflage.core.environment.WindowSizeClass
 import com.srctool.camouflage.core.menu.CamoMenuPanel
 import com.srctool.camouflage.core.provider.CamouflagePreview
+import com.srctool.camouflage.core.provider.CamouflageProvider
 import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.skin.testing.ButtonGallery
 import com.srctool.camouflage.skin.testing.DataDisplayGallery
@@ -40,6 +46,9 @@ import kotlin.test.Test
 // `*_actual.png` from the PR's `roborazzi-outputs` artifact. `recordRoborazziJvm` works for a first local look.
 // Skia antialiases edges slightly differently on macOS and Linux CI: up to 0.5% of the pixels may differ, while
 // a real change (a color, a size) moves far more.
+private val Capabilities =
+    CamoCapabilities(backdropBlur = true, runtimeShaders = true, windowMaterial = false, reduceTransparency = false)
+
 private val CrossPlatform = RoborazziOptions(
     compareOptions = RoborazziOptions.CompareOptions(changeThreshold = 0.005f),
 )
@@ -76,26 +85,36 @@ class FluentGoldenTest {
     @Test fun feedback() = golden("feedback", width = 420, height = 720) { FeedbackGallery() }
 
     // Acrylic: a panel at flyout depth in a popup over a striped backdrop, the way flyouts and dialogs open.
-    @Test
-    fun acrylic() = runDesktopComposeUiTest(360, 200) {
+    @Test fun acrylic() = acrylic("acrylic_fluent", Capabilities)
+
+    // Its fallback chain (ADR-42): tint and noise without a blur, the solid surface with Reduce Transparency.
+    @Test fun acrylicWithoutBlur() = acrylic("acrylic_noblur_fluent", Capabilities.copy(backdropBlur = false))
+
+    @Test fun acrylicReducedTransparency() =
+        acrylic("acrylic_reduced_fluent", Capabilities.copy(reduceTransparency = true))
+
+    private fun acrylic(name: String, capabilities: CamoCapabilities) = runDesktopComposeUiTest(360, 200) {
+        val environment = CamoEnvironment(WindowSizeClass.Medium, InputMode.Pointer, CamoPlatform.Windows, capabilities)
         setContent {
             CamouflagePreview(fluentSkin(FluentSurface.Acrylic), fluentTheme().withGoldenFont()) {
-                FluentBackdrop(Modifier.fillMaxSize()) {
-                    Column(Modifier.fillMaxSize()) {
-                        repeat(STRIPES) {
-                            val color = if (it % 2 == 0) Color(0xFF0F6CBD) else Color(0xFFF7630C)
-                            Box(Modifier.fillMaxWidth().weight(1f).background(color))
+                CamouflageProvider(environment = environment) {
+                    FluentBackdrop(Modifier.fillMaxSize()) {
+                        Column(Modifier.fillMaxSize()) {
+                            repeat(STRIPES) {
+                                val color = if (it % 2 == 0) Color(0xFF0F6CBD) else Color(0xFFF7630C)
+                                Box(Modifier.fillMaxWidth().weight(1f).background(color))
+                            }
                         }
-                    }
-                    Popup(alignment = Alignment.Center) {
-                        CamoMenuPanel { CamoText("Acrylic", Modifier.padding(24.dp)) }
+                        Popup(alignment = Alignment.Center) {
+                            CamoMenuPanel { CamoText("Acrylic", Modifier.padding(24.dp)) }
+                        }
                     }
                 }
             }
         }
         // The popup is a second root; the first one is the window, popup included.
         onAllNodes(isRoot()).onFirst()
-            .captureRoboImage(roborazziOptions = CrossPlatform, filePath = "src/jvmTest/snapshots/acrylic_fluent.png")
+            .captureRoboImage(roborazziOptions = CrossPlatform, filePath = "src/jvmTest/snapshots/$name.png")
     }
 
     // Every theme is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).

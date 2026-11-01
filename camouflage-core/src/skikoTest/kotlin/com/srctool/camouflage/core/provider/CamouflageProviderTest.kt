@@ -52,7 +52,8 @@ class CamouflageProviderTest {
         val seen = Seen()
         val read: @Composable () -> Unit = {
             seen.skin = Camouflage.skinOrNull
-            seen.theme = Camouflage.themeOrNull
+            // The provider attaches its environment (ADR-41); compare the theme as written.
+            seen.theme = Camouflage.themeOrNull?.copy(environment = null)
         }
         setContent {
             if (outer == null) {
@@ -77,28 +78,28 @@ class CamouflageProviderTest {
     fun innerProvidingNothingInheritsBoth() = runComposeUiTest {
         val seen = inside(skinA to themeT, null to null)
         assertSame(skinA, seen.skin)
-        assertSame(themeT, seen.theme)
+        assertEquals(themeT, seen.theme)
     }
 
     @Test
     fun innerThemeOverridesOnlyTheTheme() = runComposeUiTest {
         val seen = inside(skinA to themeT, null to themeU)
         assertSame(skinA, seen.skin)
-        assertSame(themeU, seen.theme)
+        assertEquals(themeU, seen.theme)
     }
 
     @Test
     fun innerSkinOverridesOnlyTheSkin() = runComposeUiTest {
         val seen = inside(skinA to themeT, skinB to null)
         assertSame(skinB, seen.skin)
-        assertSame(themeT, seen.theme)
+        assertEquals(themeT, seen.theme)
     }
 
     @Test
     fun innerSkinAndThemeOverrideBoth() = runComposeUiTest {
         val seen = inside(skinA to themeT, skinB to themeU)
         assertSame(skinB, seen.skin)
-        assertSame(themeU, seen.theme)
+        assertEquals(themeU, seen.theme)
     }
 
     @Test
@@ -112,14 +113,14 @@ class CamouflageProviderTest {
     fun aLoneThemeHasNoSkin() = runComposeUiTest {
         val seen = inside(null, null to themeU)
         assertNull(seen.skin)
-        assertSame(themeU, seen.theme)
+        assertEquals(themeU, seen.theme)
     }
 
     @Test
     fun aLoneProviderWithBothWorks() = runComposeUiTest {
         val seen = inside(null, skinB to themeU)
         assertSame(skinB, seen.skin)
-        assertSame(themeU, seen.theme)
+        assertEquals(themeU, seen.theme)
     }
 
     @Test
@@ -158,7 +159,9 @@ class CamouflageProviderTest {
     @Test
     fun reducedMotionZeroesTheDurations() = runComposeUiTest {
         var motion = themeT.motion
-        setContent { ProvideCamouflage(skinA, themeT, reduceMotion = true) { motion = Camouflage.motion } }
+        setContent {
+            ProvideCamouflage(skinA, themeT, environment = null, reduceMotion = true) { motion = Camouflage.motion }
+        }
         waitForIdle()
         assertEquals(listOf(0, 0, 0), listOf(motion.durationShort, motion.durationMedium, motion.durationLong))
     }
