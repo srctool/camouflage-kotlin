@@ -13,6 +13,7 @@ import com.srctool.camouflage.core.checkbox.CheckboxRenderer
 import com.srctool.camouflage.core.datepicker.DatePickerRenderer
 import com.srctool.camouflage.core.dialog.DialogRenderer
 import com.srctool.camouflage.core.divider.DividerRenderer
+import com.srctool.camouflage.core.fab.FabRenderer
 import com.srctool.camouflage.core.icon.IconRenderer
 import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
 import com.srctool.camouflage.core.list.ListItemRenderer
@@ -29,6 +30,7 @@ import com.srctool.camouflage.core.snackbar.SnackbarRenderer
 import com.srctool.camouflage.core.stepper.StepperRenderer
 import com.srctool.camouflage.core.surface.SurfaceRenderer
 import com.srctool.camouflage.core.switch.SwitchRenderer
+import com.srctool.camouflage.core.tabs.TabsRenderer
 import com.srctool.camouflage.core.text.TextRenderer
 import com.srctool.camouflage.core.textfield.TextFieldRenderer
 import com.srctool.camouflage.core.timepicker.TimePickerRenderer
@@ -82,4 +84,6 @@ public data class CamoSkin(
     val avatar: AvatarRenderer,
     val snackbar: SnackbarRenderer,
     val banner: BannerRenderer,
+    val tabs: TabsRenderer,
+    val fab: FabRenderer,
 )

@@ -127,6 +127,7 @@ fun SampleApp() {
                     Section("Documents: menus, selects, dialogs and sheets") { DocumentsScreen() }
                     Section("Chips, badges and avatars") { DataDisplayDemo() }
                     Section("Inbox: progress, snackbars and banners") { InboxScreen() }
+                    Section("Tabs and the floating action button") { NavigationDemo() }
                     val promo = sampleTheme(choice, brand, dark)
                         .copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                     CamouflageProvider(theme = promo) {

@@ -32,6 +32,9 @@ import com.srctool.camouflage.core.avatar.CamoAvatarGroup
 import com.srctool.camouflage.core.avatar.Presence
 import com.srctool.camouflage.core.badge.CamoBadge
 import com.srctool.camouflage.core.badge.CamoBadgedBox
+import com.srctool.camouflage.core.fab.CamoFab
+import com.srctool.camouflage.core.tabs.CamoTab
+import com.srctool.camouflage.core.tabs.CamoTabs
 import com.srctool.camouflage.core.banner.CamoBanner
 import com.srctool.camouflage.core.bottomsheet.CamoBottomSheet
 import com.srctool.camouflage.core.button.CamoButton
@@ -516,6 +519,49 @@ public fun FeedbackGallery() {
                 style,
                 Modifier.width(360.dp),
             )
+        }
+    }
+}
+
+private val GalleryTabs = listOf(CamoTab("a", "Overview"), CamoTab("b", "Reviews"), CamoTab("c", "Specs"))
+
+/**
+ * The M8 tabs and FAB: a prominent and a quiet tab bar, one with icons and a badge, a scrollable one, and FABs in
+ * each size, appearance and tone, plain and extended.
+ */
+@Composable
+public fun NavigationGallery() {
+    Column(Modifier.padding(16.dp).width(IntrinsicSize.Max), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        CamoTabs("b", {}, GalleryTabs, Modifier.width(440.dp))
+        CamoTabs("a", {}, GalleryTabs, Modifier.width(440.dp), appearance = Appearance.Ghost)
+        CamoTabs(
+            "b",
+            {},
+            listOf(
+                CamoTab("a", "Home", icon = { Icon() }),
+                CamoTab("b", "Inbox", icon = { Icon() }, badge = { CamoBadge(count = 3) }),
+                CamoTab("c", "Off", icon = { Icon() }, enabled = false),
+            ),
+            Modifier.width(440.dp),
+        )
+        CamoTabs(
+            "Cameras",
+            {},
+            listOf("Phones", "Laptops", "Audio", "Cameras", "Wearables", "Gaming").map { CamoTab(it, it) },
+            Modifier.width(440.dp),
+            scrollable = true,
+        )
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            listOf(Appearance.Soft, Appearance.Solid, Appearance.Raised).forEach {
+                CamoFab({ Icon() }, it.name, {}, appearance = it)
+            }
+            CamoFab({ Icon() }, "Error", {}, appearance = Appearance.Soft, tone = Tone.Error)
+            CamoFab({ Icon() }, "Success", {}, appearance = Appearance.Solid, tone = Tone.Success)
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoFab({ Icon() }, "Compose", {}, text = "Compose")
+            CamoFab({ Icon() }, "Compose", {}, text = "Compose", appearance = Appearance.Solid)
+            CamoFab({ Icon() }, "Compose", {}, text = "Compose", expanded = false)
         }
     }
 }

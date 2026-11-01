@@ -7,6 +7,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentAccordionRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentAvatarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBadgeRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBannerRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentFabRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBottomSheetRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCardRenderer
@@ -31,6 +32,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentSnackbarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentStepperRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSurfaceRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSwitchRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentTabsRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTextFieldRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTextRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTimePickerRenderer
@@ -82,6 +84,8 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     avatar = FluentAvatarRenderer,
     snackbar = FluentSnackbarRenderer,
     banner = FluentBannerRenderer,
+    tabs = FluentTabsRenderer,
+    fab = FluentFabRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */
