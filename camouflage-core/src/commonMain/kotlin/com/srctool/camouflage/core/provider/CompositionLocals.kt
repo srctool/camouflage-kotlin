@@ -11,6 +11,9 @@ import com.srctool.camouflage.core.theme.CamoTheme
 internal val LocalCamoSkin = staticCompositionLocalOf<CamoSkin?> { null }
 internal val LocalCamoTheme = staticCompositionLocalOf<CamoTheme?> { null }
 
+// The provider's theme before its adaptive rules ran, so a nested provider adapts it again for its environment.
+internal val LocalCamoSourceTheme = staticCompositionLocalOf<CamoTheme?> { null }
+
 // Content style is set by every container: dynamic locals, so only readers recompose.
 internal val LocalCamoContentColor = compositionLocalOf { Color.Unspecified }
 internal val LocalCamoIconStyle = compositionLocalOf<IconStyle?> { null }

@@ -46,6 +46,7 @@ import com.srctool.camouflage.core.banner.BannerSlots
 import com.srctool.camouflage.core.banner.BannerState
 import com.srctool.camouflage.core.banner.BannerStyle
 import com.srctool.camouflage.core.banner.ToneIcons
+import com.srctool.camouflage.core.environment.WindowSizeClass
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.icon.IconStyle
 import com.srctool.camouflage.core.progress.ProgressBarRenderer
@@ -159,7 +160,12 @@ internal object FluentSnackbarRenderer : SnackbarRenderer {
             actionStyle = type.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
             elevation = ElevationLevel.Level4,
             position = SnackbarPosition.Bottom,
-            alignment = SnackbarAlignment.End,
+            // Bottom-end on wider windows, centered on a phone (ADR-41).
+            alignment = if (theme.environment?.windowSize == WindowSizeClass.Compact) {
+                SnackbarAlignment.Center
+            } else {
+                SnackbarAlignment.End
+            },
             showDismiss = false,
             showToneIcon = true,
             durationShortMillis = 4000,

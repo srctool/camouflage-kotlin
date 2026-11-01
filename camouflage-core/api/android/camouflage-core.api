@@ -1991,6 +1991,103 @@ public final class com/srctool/camouflage/core/divider/DividerTheme {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/srctool/camouflage/core/environment/CamoBreakpoints {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (FFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun classify-0680j_4 (F)Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun copy-2z7ARbQ (FFF)Lcom/srctool/camouflage/core/environment/CamoBreakpoints;
+	public static synthetic fun copy-2z7ARbQ$default (Lcom/srctool/camouflage/core/environment/CamoBreakpoints;FFFILjava/lang/Object;)Lcom/srctool/camouflage/core/environment/CamoBreakpoints;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExpanded-D9Ej5fM ()F
+	public final fun getLarge-D9Ej5fM ()F
+	public final fun getMedium-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/environment/CamoCapabilities {
+	public static final field $stable I
+	public fun <init> (ZZZZ)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun copy (ZZZZ)Lcom/srctool/camouflage/core/environment/CamoCapabilities;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/environment/CamoCapabilities;ZZZZILjava/lang/Object;)Lcom/srctool/camouflage/core/environment/CamoCapabilities;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackdropBlur ()Z
+	public final fun getReduceTransparency ()Z
+	public final fun getRuntimeShaders ()Z
+	public final fun getWindowMaterial ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/environment/CamoEnvironment {
+	public static final field $stable I
+	public fun <init> (Lcom/srctool/camouflage/core/environment/WindowSizeClass;Lcom/srctool/camouflage/core/environment/InputMode;Lcom/srctool/camouflage/core/environment/CamoPlatform;Lcom/srctool/camouflage/core/environment/CamoCapabilities;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+	public final fun component2 ()Lcom/srctool/camouflage/core/environment/InputMode;
+	public final fun component3 ()Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public final fun component4 ()Lcom/srctool/camouflage/core/environment/CamoCapabilities;
+	public final fun copy (Lcom/srctool/camouflage/core/environment/WindowSizeClass;Lcom/srctool/camouflage/core/environment/InputMode;Lcom/srctool/camouflage/core/environment/CamoPlatform;Lcom/srctool/camouflage/core/environment/CamoCapabilities;)Lcom/srctool/camouflage/core/environment/CamoEnvironment;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/environment/CamoEnvironment;Lcom/srctool/camouflage/core/environment/WindowSizeClass;Lcom/srctool/camouflage/core/environment/InputMode;Lcom/srctool/camouflage/core/environment/CamoPlatform;Lcom/srctool/camouflage/core/environment/CamoCapabilities;ILjava/lang/Object;)Lcom/srctool/camouflage/core/environment/CamoEnvironment;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCapabilities ()Lcom/srctool/camouflage/core/environment/CamoCapabilities;
+	public final fun getInput ()Lcom/srctool/camouflage/core/environment/InputMode;
+	public final fun getPlatform ()Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public final fun getWindowSize ()Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/environment/CamoEnvironmentKt {
+	public static final fun adapt (Lcom/srctool/camouflage/core/theme/CamoTheme;Lkotlin/jvm/functions/Function2;)Lcom/srctool/camouflage/core/theme/CamoTheme;
+	public static final fun defaultInput (Lcom/srctool/camouflage/core/environment/CamoPlatform;)Lcom/srctool/camouflage/core/environment/InputMode;
+	public static final fun forEnvironment (Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/environment/CamoEnvironment;)Lcom/srctool/camouflage/core/theme/CamoTheme;
+	public static final fun getEnvironment (Lcom/srctool/camouflage/core/provider/Camouflage;Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/environment/CamoEnvironment;
+	public static final fun rememberSystemEnvironment (Lcom/srctool/camouflage/core/environment/CamoBreakpoints;Landroidx/compose/runtime/Composer;I)Lcom/srctool/camouflage/core/environment/CamoEnvironment;
+}
+
+public final class com/srctool/camouflage/core/environment/CamoPlatform : java/lang/Enum {
+	public static final field Android Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public static final field Ios Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public static final field Linux Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public static final field MacOs Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public static final field Web Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public static final field Windows Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/environment/CamoPlatform;
+	public static fun values ()[Lcom/srctool/camouflage/core/environment/CamoPlatform;
+}
+
+public final class com/srctool/camouflage/core/environment/InputMode : java/lang/Enum {
+	public static final field Pointer Lcom/srctool/camouflage/core/environment/InputMode;
+	public static final field Touch Lcom/srctool/camouflage/core/environment/InputMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/environment/InputMode;
+	public static fun values ()[Lcom/srctool/camouflage/core/environment/InputMode;
+}
+
+public abstract interface class com/srctool/camouflage/core/environment/ThemeAdaptation {
+	public abstract fun adapt (Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/environment/CamoEnvironment;)Lcom/srctool/camouflage/core/theme/CamoTheme;
+}
+
+public final class com/srctool/camouflage/core/environment/WindowSizeClass : java/lang/Enum {
+	public static final field Compact Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+	public static final field Expanded Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+	public static final field Large Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+	public static final field Medium Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+	public static fun values ()[Lcom/srctool/camouflage/core/environment/WindowSizeClass;
+}
+
 public final class com/srctool/camouflage/core/form/CamoFormFieldState {
 	public static final field $stable I
 	public final fun didChange (Ljava/lang/Object;)V
@@ -3026,6 +3123,7 @@ public final class com/srctool/camouflage/core/provider/CamouflageMissingProvide
 
 public final class com/srctool/camouflage/core/provider/CamouflageProviderKt {
 	public static final fun CamouflagePreview (Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public static final fun CamouflageProvider (Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/environment/CamoEnvironment;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun CamouflageProvider (Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
@@ -5025,9 +5123,11 @@ public final class com/srctool/camouflage/core/theme/CamoSpacing {
 
 public final class com/srctool/camouflage/core/theme/CamoTheme {
 	public static final field $stable I
-	public fun <init> (Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/CamoTypography;Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/theme/CamoShapes;Lcom/srctool/camouflage/core/theme/CamoSpacing;Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/CamoMotion;Ljava/util/List;)V
-	public synthetic fun <init> (Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/CamoTypography;Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/theme/CamoShapes;Lcom/srctool/camouflage/core/theme/CamoSpacing;Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/CamoMotion;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/CamoTypography;Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/theme/CamoShapes;Lcom/srctool/camouflage/core/theme/CamoSpacing;Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/CamoMotion;Ljava/util/List;Lcom/srctool/camouflage/core/environment/CamoBreakpoints;Lcom/srctool/camouflage/core/environment/ThemeAdaptation;Lcom/srctool/camouflage/core/environment/CamoEnvironment;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/CamoTypography;Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/theme/CamoShapes;Lcom/srctool/camouflage/core/theme/CamoSpacing;Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/CamoMotion;Ljava/util/List;Lcom/srctool/camouflage/core/environment/CamoBreakpoints;Lcom/srctool/camouflage/core/environment/ThemeAdaptation;Lcom/srctool/camouflage/core/environment/CamoEnvironment;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lcom/srctool/camouflage/core/theme/CamoColors;
+	public final fun component10 ()Lcom/srctool/camouflage/core/environment/ThemeAdaptation;
+	public final fun component11 ()Lcom/srctool/camouflage/core/environment/CamoEnvironment;
 	public final fun component2 ()Lcom/srctool/camouflage/core/theme/CamoTypography;
 	public final fun component3 ()Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
 	public final fun component4 ()Lcom/srctool/camouflage/core/theme/CamoShapes;
@@ -5035,12 +5135,16 @@ public final class com/srctool/camouflage/core/theme/CamoTheme {
 	public final fun component6 ()Lcom/srctool/camouflage/core/theme/CamoElevation;
 	public final fun component7 ()Lcom/srctool/camouflage/core/theme/CamoMotion;
 	public final fun component8 ()Ljava/util/List;
-	public final fun copy (Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/CamoTypography;Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/theme/CamoShapes;Lcom/srctool/camouflage/core/theme/CamoSpacing;Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/CamoMotion;Ljava/util/List;)Lcom/srctool/camouflage/core/theme/CamoTheme;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/CamoTypography;Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/theme/CamoShapes;Lcom/srctool/camouflage/core/theme/CamoSpacing;Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/CamoMotion;Ljava/util/List;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoTheme;
+	public final fun component9 ()Lcom/srctool/camouflage/core/environment/CamoBreakpoints;
+	public final fun copy (Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/CamoTypography;Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/theme/CamoShapes;Lcom/srctool/camouflage/core/theme/CamoSpacing;Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/CamoMotion;Ljava/util/List;Lcom/srctool/camouflage/core/environment/CamoBreakpoints;Lcom/srctool/camouflage/core/environment/ThemeAdaptation;Lcom/srctool/camouflage/core/environment/CamoEnvironment;)Lcom/srctool/camouflage/core/theme/CamoTheme;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/theme/CamoColors;Lcom/srctool/camouflage/core/theme/CamoTypography;Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/theme/CamoShapes;Lcom/srctool/camouflage/core/theme/CamoSpacing;Lcom/srctool/camouflage/core/theme/CamoElevation;Lcom/srctool/camouflage/core/theme/CamoMotion;Ljava/util/List;Lcom/srctool/camouflage/core/environment/CamoBreakpoints;Lcom/srctool/camouflage/core/environment/ThemeAdaptation;Lcom/srctool/camouflage/core/environment/CamoEnvironment;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoTheme;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAdaptation ()Lcom/srctool/camouflage/core/environment/ThemeAdaptation;
+	public final fun getBreakpoints ()Lcom/srctool/camouflage/core/environment/CamoBreakpoints;
 	public final fun getColors ()Lcom/srctool/camouflage/core/theme/CamoColors;
 	public final fun getComponents ()Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
 	public final fun getElevation ()Lcom/srctool/camouflage/core/theme/CamoElevation;
+	public final fun getEnvironment ()Lcom/srctool/camouflage/core/environment/CamoEnvironment;
 	public final fun getMotion ()Lcom/srctool/camouflage/core/theme/CamoMotion;
 	public final fun getShapes ()Lcom/srctool/camouflage/core/theme/CamoShapes;
 	public final fun getSpacing ()Lcom/srctool/camouflage/core/theme/CamoSpacing;

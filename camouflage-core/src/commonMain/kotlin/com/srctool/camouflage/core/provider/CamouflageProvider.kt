@@ -6,6 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import com.srctool.camouflage.core.environment.CamoBreakpoints
+import com.srctool.camouflage.core.environment.CamoEnvironment
+import com.srctool.camouflage.core.environment.LocalCamoEnvironment
+import com.srctool.camouflage.core.environment.forEnvironment
+import com.srctool.camouflage.core.environment.rememberSystemEnvironment
 import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.core.snackbar.ProvideMessenger
 import com.srctool.camouflage.core.theme.CamoTheme
@@ -14,9 +19,11 @@ import com.srctool.camouflage.core.theme.CamoTheme
  * Puts a skin and a theme into the tree for every `Camo*` component below. A `null` argument inherits the
  * value from the provider above, so nested providers can override just the skin or just the theme.
  *
- * It applies reduced motion to the theme once, and resets the content color and icon style for its subtree.
- * A provider with nothing to provide doesn't throw: the first component that needs the value does, by name.
- * The root provider also installs the app's `CamoMessenger` (snackbars).
+ * The root provider computes the environment (window size, input, platform, capabilities; ADR-41) and installs
+ * the app's `CamoMessenger` (snackbars); any provider can set its own (the overload with `environment`). Each
+ * provider applies its theme's adaptive rules for the environment and reduced motion once, and resets the content
+ * color and icon style for its subtree. A provider with nothing to provide doesn't throw: the first component
+ * that needs the value does, by name.
  */
 @Composable
 public fun CamouflageProvider(
@@ -24,20 +31,39 @@ public fun CamouflageProvider(
     theme: CamoTheme? = null,
     content: @Composable () -> Unit,
 ) {
-    ProvideCamouflage(skin, theme, reduceMotion = rememberReducedMotion(), content = content)
+    ProvideCamouflage(skin, theme, environment = null, reduceMotion = rememberReducedMotion(), content = content)
+}
+
+/** A provider that also sets the [environment] for its subtree, instead of inheriting or computing it. */
+@Composable
+public fun CamouflageProvider(
+    skin: CamoSkin? = null,
+    theme: CamoTheme? = null,
+    environment: CamoEnvironment,
+    content: @Composable () -> Unit,
+) {
+    ProvideCamouflage(skin, theme, environment, reduceMotion = rememberReducedMotion(), content = content)
 }
 
 @Composable
 internal fun ProvideCamouflage(
     skin: CamoSkin?,
     theme: CamoTheme?,
+    environment: CamoEnvironment?,
     reduceMotion: Boolean,
     content: @Composable () -> Unit,
 ) {
     val effectiveSkin = skin ?: LocalCamoSkin.current
-    val baseTheme = theme ?: LocalCamoTheme.current
-    val effectiveTheme = remember(baseTheme, reduceMotion) {
-        if (baseTheme != null && reduceMotion) baseTheme.copy(motion = baseTheme.motion.reduced()) else baseTheme
+    // The theme as written, before its rules ran: nested providers adapt it again for their environment.
+    val sourceTheme = theme ?: LocalCamoSourceTheme.current
+    val parentEnvironment = LocalCamoEnvironment.current
+    val effectiveEnvironment = environment
+        ?: parentEnvironment
+        ?: rememberSystemEnvironment(sourceTheme?.breakpoints ?: CamoBreakpoints())
+    val effectiveTheme = remember(sourceTheme, effectiveEnvironment, reduceMotion) {
+        sourceTheme?.forEnvironment(effectiveEnvironment)?.let {
+            if (reduceMotion) it.copy(motion = it.motion.reduced()) else it
+        }
     }
     // The root icon style is the icon component theme: the skin's defaults, then the theme's overrides.
     val rootIcon = remember(effectiveSkin, effectiveTheme) {
@@ -49,7 +75,9 @@ internal fun ProvideCamouflage(
     }
     CompositionLocalProvider(
         LocalCamoSkin provides effectiveSkin,
+        LocalCamoSourceTheme provides sourceTheme,
         LocalCamoTheme provides effectiveTheme,
+        LocalCamoEnvironment provides effectiveEnvironment,
         LocalCamoContentColor provides (effectiveTheme?.colors?.onSurface ?: LocalCamoContentColor.current),
         LocalCamoIconStyle provides (rootIcon ?: LocalCamoIconStyle.current),
     ) {
