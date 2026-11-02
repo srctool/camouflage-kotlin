@@ -131,6 +131,7 @@ fun SampleApp() {
                     Section("Navigation: bar, rail and drawer by window size") { NavigationShellDemo() }
                     Section("Popover and side sheet") { PanelsDemo() }
                     Section("Editor: toolbars, button groups and a split button") { EditorDemo() }
+                    Section("Rating, pages, path and steps") { SmallDataDemo() }
                     val promo = sampleTheme(choice, brand, dark)
                         .copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                     CamouflageProvider(theme = promo) {

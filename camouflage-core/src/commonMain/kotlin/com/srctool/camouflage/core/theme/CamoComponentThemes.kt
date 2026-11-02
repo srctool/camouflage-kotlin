@@ -6,6 +6,7 @@ import com.srctool.camouflage.core.avatar.AvatarTheme
 import com.srctool.camouflage.core.badge.BadgeTheme
 import com.srctool.camouflage.core.banner.BannerTheme
 import com.srctool.camouflage.core.bottomsheet.BottomSheetTheme
+import com.srctool.camouflage.core.breadcrumb.BreadcrumbTheme
 import com.srctool.camouflage.core.button.ButtonTheme
 import com.srctool.camouflage.core.buttongroup.ButtonGroupTheme
 import com.srctool.camouflage.core.card.CardTheme
@@ -17,15 +18,19 @@ import com.srctool.camouflage.core.divider.DividerTheme
 import com.srctool.camouflage.core.fab.FabTheme
 import com.srctool.camouflage.core.icon.IconTheme
 import com.srctool.camouflage.core.iconbutton.IconButtonTheme
+import com.srctool.camouflage.core.image.ImageTheme
 import com.srctool.camouflage.core.list.ListItemTheme
 import com.srctool.camouflage.core.menu.MenuTheme
 import com.srctool.camouflage.core.navigation.NavigationBarTheme
 import com.srctool.camouflage.core.navigation.NavigationDrawerTheme
 import com.srctool.camouflage.core.navigation.NavigationRailTheme
 import com.srctool.camouflage.core.pagedlist.PagedListTheme
+import com.srctool.camouflage.core.pagination.PaginationTheme
 import com.srctool.camouflage.core.popover.PopoverTheme
 import com.srctool.camouflage.core.progress.ProgressTheme
+import com.srctool.camouflage.core.progresssteps.StepsTheme
 import com.srctool.camouflage.core.radio.RadioTheme
+import com.srctool.camouflage.core.rating.RatingTheme
 import com.srctool.camouflage.core.search.SearchFieldTheme
 import com.srctool.camouflage.core.segmented.SegmentedControlTheme
 import com.srctool.camouflage.core.select.SelectTheme
@@ -92,4 +97,9 @@ public data class CamoComponentThemes(
     val buttonGroup: ButtonGroupTheme? = null,
     val splitButton: SplitButtonTheme? = null,
     val toolbar: ToolbarTheme? = null,
+    val image: ImageTheme? = null,
+    val rating: RatingTheme? = null,
+    val pagination: PaginationTheme? = null,
+    val breadcrumb: BreadcrumbTheme? = null,
+    val progressSteps: StepsTheme? = null,
 )

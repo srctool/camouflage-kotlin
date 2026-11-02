@@ -6,6 +6,7 @@ import com.srctool.camouflage.core.avatar.AvatarRenderer
 import com.srctool.camouflage.core.badge.BadgeRenderer
 import com.srctool.camouflage.core.banner.BannerRenderer
 import com.srctool.camouflage.core.bottomsheet.BottomSheetRenderer
+import com.srctool.camouflage.core.breadcrumb.BreadcrumbRenderer
 import com.srctool.camouflage.core.button.ButtonRenderer
 import com.srctool.camouflage.core.buttongroup.ButtonGroupRenderer
 import com.srctool.camouflage.core.card.CardRenderer
@@ -17,16 +18,20 @@ import com.srctool.camouflage.core.divider.DividerRenderer
 import com.srctool.camouflage.core.fab.FabRenderer
 import com.srctool.camouflage.core.icon.IconRenderer
 import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
+import com.srctool.camouflage.core.image.ImageRenderer
 import com.srctool.camouflage.core.list.ListItemRenderer
 import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.navigation.NavigationBarRenderer
 import com.srctool.camouflage.core.navigation.NavigationDrawerRenderer
 import com.srctool.camouflage.core.navigation.NavigationRailRenderer
 import com.srctool.camouflage.core.pagedlist.PagedListRenderer
+import com.srctool.camouflage.core.pagination.PaginationRenderer
 import com.srctool.camouflage.core.popover.PopoverRenderer
 import com.srctool.camouflage.core.progress.ProgressBarRenderer
 import com.srctool.camouflage.core.progress.ProgressCircleRenderer
+import com.srctool.camouflage.core.progresssteps.ProgressStepsRenderer
 import com.srctool.camouflage.core.radio.RadioRenderer
+import com.srctool.camouflage.core.rating.RatingRenderer
 import com.srctool.camouflage.core.search.SearchFieldRenderer
 import com.srctool.camouflage.core.segmented.SegmentedControlRenderer
 import com.srctool.camouflage.core.sidesheet.SideSheetRenderer
@@ -102,4 +107,9 @@ public data class CamoSkin(
     val buttonGroup: ButtonGroupRenderer,
     val splitButton: SplitButtonRenderer,
     val toolbar: ToolbarRenderer,
+    val image: ImageRenderer,
+    val rating: RatingRenderer,
+    val pagination: PaginationRenderer,
+    val breadcrumb: BreadcrumbRenderer,
+    val progressSteps: ProgressStepsRenderer,
 )
