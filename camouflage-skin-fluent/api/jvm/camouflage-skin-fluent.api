@@ -17,6 +17,12 @@ public final class com/srctool/camouflage/skin/fluent/FluentDensity : java/lang/
 	public static fun values ()[Lcom/srctool/camouflage/skin/fluent/FluentDensity;
 }
 
+public final class com/srctool/camouflage/skin/fluent/FluentMica : com/srctool/camouflage/core/skin/SurfaceTreatment {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/srctool/camouflage/skin/fluent/FluentMica;
+	public fun modifier-hhQwkJs (JLandroidx/compose/ui/graphics/Shape;FLcom/srctool/camouflage/core/theme/CamoTheme;)Landroidx/compose/ui/Modifier;
+}
+
 public final class com/srctool/camouflage/skin/fluent/FluentPaletteKt {
 	public static final fun getFluentBrandBlue ()J
 }
@@ -36,6 +42,7 @@ public final class com/srctool/camouflage/skin/fluent/FluentSolid : com/srctool/
 
 public final class com/srctool/camouflage/skin/fluent/FluentSurface : java/lang/Enum {
 	public static final field Acrylic Lcom/srctool/camouflage/skin/fluent/FluentSurface;
+	public static final field Mica Lcom/srctool/camouflage/skin/fluent/FluentSurface;
 	public static final field Solid Lcom/srctool/camouflage/skin/fluent/FluentSurface;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/skin/fluent/FluentSurface;

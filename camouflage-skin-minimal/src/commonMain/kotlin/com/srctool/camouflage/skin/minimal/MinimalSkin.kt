@@ -21,6 +21,9 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalIconButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalListItemRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalMenuRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationBarRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationDrawerRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationRailRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalPagedListRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressBarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressCircleRenderer
@@ -84,6 +87,9 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     banner = MinimalBannerRenderer,
     tabs = MinimalTabsRenderer,
     fab = MinimalFabRenderer,
+    navigationBar = MinimalNavigationBarRenderer,
+    navigationRail = MinimalNavigationRailRenderer,
+    navigationDrawer = MinimalNavigationDrawerRenderer,
 )
 
 /** The Minimal skin. */

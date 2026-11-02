@@ -18,6 +18,9 @@ import com.srctool.camouflage.core.icon.IconTheme
 import com.srctool.camouflage.core.iconbutton.IconButtonTheme
 import com.srctool.camouflage.core.list.ListItemTheme
 import com.srctool.camouflage.core.menu.MenuTheme
+import com.srctool.camouflage.core.navigation.NavigationBarTheme
+import com.srctool.camouflage.core.navigation.NavigationDrawerTheme
+import com.srctool.camouflage.core.navigation.NavigationRailTheme
 import com.srctool.camouflage.core.pagedlist.PagedListTheme
 import com.srctool.camouflage.core.progress.ProgressTheme
 import com.srctool.camouflage.core.radio.RadioTheme
@@ -76,4 +79,7 @@ public data class CamoComponentThemes(
     val banner: BannerTheme? = null,
     val tabs: TabsTheme? = null,
     val fab: FabTheme? = null,
+    val navigationBar: NavigationBarTheme? = null,
+    val navigationRail: NavigationRailTheme? = null,
+    val navigationDrawer: NavigationDrawerTheme? = null,
 )

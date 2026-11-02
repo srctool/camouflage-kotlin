@@ -20,6 +20,9 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentIconButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentListItemRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentMenuRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationBarRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationDrawerRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationRailRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentPagedListRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressBarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressCircleRenderer
@@ -49,6 +52,7 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     surfaceTreatment = when (surface) {
         FluentSurface.Solid -> FluentSolid
         FluentSurface.Acrylic -> FluentAcrylic
+        FluentSurface.Mica -> FluentMica
     },
     feedback = Subtle,
     text = FluentTextRenderer,
@@ -86,6 +90,9 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     banner = FluentBannerRenderer,
     tabs = FluentTabsRenderer,
     fab = FluentFabRenderer,
+    navigationBar = FluentNavigationBarRenderer,
+    navigationRail = FluentNavigationRailRenderer,
+    navigationDrawer = FluentNavigationDrawerRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */
