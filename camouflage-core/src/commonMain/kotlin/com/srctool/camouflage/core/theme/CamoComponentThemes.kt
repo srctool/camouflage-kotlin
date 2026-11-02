@@ -22,11 +22,13 @@ import com.srctool.camouflage.core.navigation.NavigationBarTheme
 import com.srctool.camouflage.core.navigation.NavigationDrawerTheme
 import com.srctool.camouflage.core.navigation.NavigationRailTheme
 import com.srctool.camouflage.core.pagedlist.PagedListTheme
+import com.srctool.camouflage.core.popover.PopoverTheme
 import com.srctool.camouflage.core.progress.ProgressTheme
 import com.srctool.camouflage.core.radio.RadioTheme
 import com.srctool.camouflage.core.search.SearchFieldTheme
 import com.srctool.camouflage.core.segmented.SegmentedControlTheme
 import com.srctool.camouflage.core.select.SelectTheme
+import com.srctool.camouflage.core.sidesheet.SideSheetTheme
 import com.srctool.camouflage.core.skeleton.SkeletonTheme
 import com.srctool.camouflage.core.slider.SliderTheme
 import com.srctool.camouflage.core.snackbar.SnackbarTheme
@@ -82,4 +84,6 @@ public data class CamoComponentThemes(
     val navigationBar: NavigationBarTheme? = null,
     val navigationRail: NavigationRailTheme? = null,
     val navigationDrawer: NavigationDrawerTheme? = null,
+    val popover: PopoverTheme? = null,
+    val sideSheet: SideSheetTheme? = null,
 )

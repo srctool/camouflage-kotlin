@@ -22,11 +22,13 @@ import com.srctool.camouflage.core.navigation.NavigationBarRenderer
 import com.srctool.camouflage.core.navigation.NavigationDrawerRenderer
 import com.srctool.camouflage.core.navigation.NavigationRailRenderer
 import com.srctool.camouflage.core.pagedlist.PagedListRenderer
+import com.srctool.camouflage.core.popover.PopoverRenderer
 import com.srctool.camouflage.core.progress.ProgressBarRenderer
 import com.srctool.camouflage.core.progress.ProgressCircleRenderer
 import com.srctool.camouflage.core.radio.RadioRenderer
 import com.srctool.camouflage.core.search.SearchFieldRenderer
 import com.srctool.camouflage.core.segmented.SegmentedControlRenderer
+import com.srctool.camouflage.core.sidesheet.SideSheetRenderer
 import com.srctool.camouflage.core.skeleton.SkeletonRenderer
 import com.srctool.camouflage.core.slider.SliderRenderer
 import com.srctool.camouflage.core.snackbar.SnackbarRenderer
@@ -92,4 +94,6 @@ public data class CamoSkin(
     val navigationBar: NavigationBarRenderer,
     val navigationRail: NavigationRailRenderer,
     val navigationDrawer: NavigationDrawerRenderer,
+    val popover: PopoverRenderer,
+    val sideSheet: SideSheetRenderer,
 )

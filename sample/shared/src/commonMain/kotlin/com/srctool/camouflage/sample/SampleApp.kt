@@ -129,6 +129,7 @@ fun SampleApp() {
                     Section("Inbox: progress, snackbars and banners") { InboxScreen() }
                     Section("Tabs and the floating action button") { NavigationDemo() }
                     Section("Navigation: bar, rail and drawer by window size") { NavigationShellDemo() }
+                    Section("Popover and side sheet") { PanelsDemo() }
                     val promo = sampleTheme(choice, brand, dark)
                         .copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                     CamouflageProvider(theme = promo) {
