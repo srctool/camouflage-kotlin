@@ -7,9 +7,10 @@ import com.srctool.camouflage.core.badge.BadgeRenderer
 import com.srctool.camouflage.core.banner.BannerRenderer
 import com.srctool.camouflage.core.bottomsheet.BottomSheetRenderer
 import com.srctool.camouflage.core.button.ButtonRenderer
+import com.srctool.camouflage.core.buttongroup.ButtonGroupRenderer
 import com.srctool.camouflage.core.card.CardRenderer
-import com.srctool.camouflage.core.chip.ChipRenderer
 import com.srctool.camouflage.core.checkbox.CheckboxRenderer
+import com.srctool.camouflage.core.chip.ChipRenderer
 import com.srctool.camouflage.core.datepicker.DatePickerRenderer
 import com.srctool.camouflage.core.dialog.DialogRenderer
 import com.srctool.camouflage.core.divider.DividerRenderer
@@ -32,6 +33,7 @@ import com.srctool.camouflage.core.sidesheet.SideSheetRenderer
 import com.srctool.camouflage.core.skeleton.SkeletonRenderer
 import com.srctool.camouflage.core.slider.SliderRenderer
 import com.srctool.camouflage.core.snackbar.SnackbarRenderer
+import com.srctool.camouflage.core.splitbutton.SplitButtonRenderer
 import com.srctool.camouflage.core.stepper.StepperRenderer
 import com.srctool.camouflage.core.surface.SurfaceRenderer
 import com.srctool.camouflage.core.switch.SwitchRenderer
@@ -39,6 +41,7 @@ import com.srctool.camouflage.core.tabs.TabsRenderer
 import com.srctool.camouflage.core.text.TextRenderer
 import com.srctool.camouflage.core.textfield.TextFieldRenderer
 import com.srctool.camouflage.core.timepicker.TimePickerRenderer
+import com.srctool.camouflage.core.toolbar.ToolbarRenderer
 import com.srctool.camouflage.core.tooltip.TooltipRenderer
 import com.srctool.camouflage.core.topbar.TopBarRenderer
 
@@ -96,4 +99,7 @@ public data class CamoSkin(
     val navigationDrawer: NavigationDrawerRenderer,
     val popover: PopoverRenderer,
     val sideSheet: SideSheetRenderer,
+    val buttonGroup: ButtonGroupRenderer,
+    val splitButton: SplitButtonRenderer,
+    val toolbar: ToolbarRenderer,
 )

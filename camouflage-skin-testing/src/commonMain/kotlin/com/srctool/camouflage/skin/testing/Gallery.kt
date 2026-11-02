@@ -4,8 +4,8 @@ package com.srctool.camouflage.skin.testing
 
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -33,21 +33,11 @@ import com.srctool.camouflage.core.avatar.CamoAvatarGroup
 import com.srctool.camouflage.core.avatar.Presence
 import com.srctool.camouflage.core.badge.CamoBadge
 import com.srctool.camouflage.core.badge.CamoBadgedBox
-import com.srctool.camouflage.core.fab.CamoFab
-import com.srctool.camouflage.core.navigation.CamoNavItem
-import com.srctool.camouflage.core.popover.PopoverPlacement
-import com.srctool.camouflage.core.popover.PopoverSlots
-import com.srctool.camouflage.core.popover.PopoverState
-import com.srctool.camouflage.core.sidesheet.CamoSideSheet
-import com.srctool.camouflage.core.navigation.CamoNavSection
-import com.srctool.camouflage.core.navigation.CamoNavigationBar
-import com.srctool.camouflage.core.navigation.CamoNavigationDrawer
-import com.srctool.camouflage.core.navigation.CamoNavigationRail
-import com.srctool.camouflage.core.tabs.CamoTab
-import com.srctool.camouflage.core.tabs.CamoTabs
 import com.srctool.camouflage.core.banner.CamoBanner
 import com.srctool.camouflage.core.bottomsheet.CamoBottomSheet
 import com.srctool.camouflage.core.button.CamoButton
+import com.srctool.camouflage.core.buttongroup.CamoButtonGroup
+import com.srctool.camouflage.core.buttongroup.CamoGroupButton
 import com.srctool.camouflage.core.card.CamoCard
 import com.srctool.camouflage.core.checkbox.CamoCheckbox
 import com.srctool.camouflage.core.chip.CamoChip
@@ -62,6 +52,7 @@ import com.srctool.camouflage.core.dialog.DialogActionsLayout
 import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.divider.CamoDivider
 import com.srctool.camouflage.core.divider.DividerInset
+import com.srctool.camouflage.core.fab.CamoFab
 import com.srctool.camouflage.core.icon.CamoIcon
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.iconbutton.CamoIconButton
@@ -72,10 +63,18 @@ import com.srctool.camouflage.core.menu.CamoMenuController
 import com.srctool.camouflage.core.menu.CamoMenuDivider
 import com.srctool.camouflage.core.menu.CamoMenuItem
 import com.srctool.camouflage.core.menu.CamoMenuPanel
+import com.srctool.camouflage.core.navigation.CamoNavItem
+import com.srctool.camouflage.core.navigation.CamoNavSection
+import com.srctool.camouflage.core.navigation.CamoNavigationBar
+import com.srctool.camouflage.core.navigation.CamoNavigationDrawer
+import com.srctool.camouflage.core.navigation.CamoNavigationRail
 import com.srctool.camouflage.core.pagedlist.CamoPagedList
 import com.srctool.camouflage.core.pagedlist.CamoPagedListState
 import com.srctool.camouflage.core.pagedlist.PagedError
 import com.srctool.camouflage.core.pagedlist.PagedErrorScope
+import com.srctool.camouflage.core.popover.PopoverPlacement
+import com.srctool.camouflage.core.popover.PopoverSlots
+import com.srctool.camouflage.core.popover.PopoverState
 import com.srctool.camouflage.core.progress.CamoProgressBar
 import com.srctool.camouflage.core.progress.CamoProgressCircle
 import com.srctool.camouflage.core.progress.ProgressSize
@@ -87,6 +86,7 @@ import com.srctool.camouflage.core.segmented.CamoSegmentedControl
 import com.srctool.camouflage.core.segmented.Segment
 import com.srctool.camouflage.core.select.CamoSelect
 import com.srctool.camouflage.core.select.SelectOption
+import com.srctool.camouflage.core.sidesheet.CamoSideSheet
 import com.srctool.camouflage.core.skeleton.CamoSkeleton
 import com.srctool.camouflage.core.skeleton.CamoSkeletonCircle
 import com.srctool.camouflage.core.skeleton.CamoSkeletonListItem
@@ -96,9 +96,12 @@ import com.srctool.camouflage.core.skin.TitleAlign
 import com.srctool.camouflage.core.slider.CamoSlider
 import com.srctool.camouflage.core.snackbar.SnackbarSlots
 import com.srctool.camouflage.core.snackbar.SnackbarState
+import com.srctool.camouflage.core.splitbutton.CamoSplitButton
 import com.srctool.camouflage.core.stepper.CamoStepper
 import com.srctool.camouflage.core.surface.CamoSurface
 import com.srctool.camouflage.core.switch.CamoSwitch
+import com.srctool.camouflage.core.tabs.CamoTab
+import com.srctool.camouflage.core.tabs.CamoTabs
 import com.srctool.camouflage.core.text.CamoSpan
 import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.core.textfield.CamoFieldAction
@@ -115,6 +118,9 @@ import com.srctool.camouflage.core.timepicker.CamoTimeField
 import com.srctool.camouflage.core.timepicker.CamoTimeInput
 import com.srctool.camouflage.core.timepicker.TimePickerForm
 import com.srctool.camouflage.core.timepicker.TimePickerTheme
+import com.srctool.camouflage.core.toolbar.CamoToolbar
+import com.srctool.camouflage.core.toolbar.CamoToolbarAction
+import com.srctool.camouflage.core.toolbar.ToolbarPlacement
 import com.srctool.camouflage.core.tooltip.TooltipState
 import com.srctool.camouflage.core.topbar.CamoTopBar
 import kotlinx.datetime.LocalDate
@@ -659,5 +665,50 @@ public fun PanelsGallery() {
                 }
             }
         }
+    }
+}
+
+private const val FEW_ACTIONS = 3
+private val ActionBarWidth = 560.dp
+private val NarrowBarWidth = 260.dp
+
+/**
+ * The M9 button groups, split buttons and toolbars: connected and spaced groups with commands and toggles,
+ * a split button and a menu button, and a docked and a floating toolbar that overflow.
+ */
+@Composable
+public fun ActionsGallery() {
+    fun glyph(label: String) = @Composable { CamoText(label.take(1)) }
+    fun groupButton(label: String, selected: Boolean? = null) =
+        CamoGroupButton(label, {}, text = label, selected = selected)
+    fun toolbarAction(label: String, selected: Boolean? = null) =
+        CamoToolbarAction(label, label, glyph(label), {}, selected = selected)
+    val actions = listOf(
+        toolbarAction("Bold", selected = true), toolbarAction("Italic", selected = false),
+        toolbarAction("Underline"), toolbarAction("Link"), toolbarAction("Quote"), toolbarAction("Code"),
+    )
+    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(24.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoButtonGroup(listOf(groupButton("Cut"), groupButton("Copy"), groupButton("Paste")))
+            CamoButtonGroup(
+                listOf(groupButton("Bold", true), groupButton("Italic", false), groupButton("Underline", false)),
+                connected = false,
+            )
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(24.dp), verticalAlignment = Alignment.CenterVertically) {
+            val menu = listOf(CamoMenuItem("Save as", {}), CamoMenuItem("Save a copy", {}))
+            CamoSplitButton("Save", {}, menu)
+            CamoSplitButton("Save", {}, menu, appearance = Appearance.Outline)
+            CamoSplitButton("Sort", null, menu, appearance = Appearance.Soft)
+            CamoSplitButton("Save", {}, menu, enabled = false)
+        }
+        CamoToolbar(actions, Modifier.width(ActionBarWidth), contentDescription = "Formatting")
+        CamoToolbar(actions, Modifier.width(NarrowBarWidth), placement = ToolbarPlacement.Floating)
+        CamoToolbar(
+            actions.take(FEW_ACTIONS),
+            Modifier.width(ActionBarWidth),
+            placement = ToolbarPlacement.Floating,
+            trailing = { CamoButton("Send", {}) },
+        )
     }
 }

@@ -7,6 +7,7 @@ import com.srctool.camouflage.core.badge.BadgeTheme
 import com.srctool.camouflage.core.banner.BannerTheme
 import com.srctool.camouflage.core.bottomsheet.BottomSheetTheme
 import com.srctool.camouflage.core.button.ButtonTheme
+import com.srctool.camouflage.core.buttongroup.ButtonGroupTheme
 import com.srctool.camouflage.core.card.CardTheme
 import com.srctool.camouflage.core.checkbox.CheckboxTheme
 import com.srctool.camouflage.core.chip.ChipTheme
@@ -32,12 +33,14 @@ import com.srctool.camouflage.core.sidesheet.SideSheetTheme
 import com.srctool.camouflage.core.skeleton.SkeletonTheme
 import com.srctool.camouflage.core.slider.SliderTheme
 import com.srctool.camouflage.core.snackbar.SnackbarTheme
+import com.srctool.camouflage.core.splitbutton.SplitButtonTheme
 import com.srctool.camouflage.core.stepper.StepperTheme
 import com.srctool.camouflage.core.surface.SurfaceTheme
 import com.srctool.camouflage.core.switch.SwitchTheme
 import com.srctool.camouflage.core.tabs.TabsTheme
 import com.srctool.camouflage.core.textfield.TextFieldTheme
 import com.srctool.camouflage.core.timepicker.TimePickerTheme
+import com.srctool.camouflage.core.toolbar.ToolbarTheme
 import com.srctool.camouflage.core.tooltip.TooltipTheme
 import com.srctool.camouflage.core.topbar.TopBarTheme
 
@@ -86,4 +89,7 @@ public data class CamoComponentThemes(
     val navigationDrawer: NavigationDrawerTheme? = null,
     val popover: PopoverTheme? = null,
     val sideSheet: SideSheetTheme? = null,
+    val buttonGroup: ButtonGroupTheme? = null,
+    val splitButton: SplitButtonTheme? = null,
+    val toolbar: ToolbarTheme? = null,
 )

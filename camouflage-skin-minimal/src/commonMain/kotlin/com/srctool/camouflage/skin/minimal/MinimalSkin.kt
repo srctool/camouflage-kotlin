@@ -9,6 +9,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalAvatarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalBadgeRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalBannerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalBottomSheetRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonGroupRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCardRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCheckboxRenderer
@@ -35,6 +36,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalSideSheetRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSkeletonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSliderRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSnackbarRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalSplitButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalStepperRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSurfaceRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSwitchRenderer
@@ -42,6 +44,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalTabsRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTextFieldRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTextRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTimePickerRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalToolbarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTooltipRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTopBarRenderer
 
@@ -94,6 +97,9 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     navigationDrawer = MinimalNavigationDrawerRenderer,
     popover = MinimalPopoverRenderer,
     sideSheet = MinimalSideSheetRenderer,
+    buttonGroup = MinimalButtonGroupRenderer,
+    splitButton = MinimalSplitButtonRenderer,
+    toolbar = MinimalToolbarRenderer,
 )
 
 /** The Minimal skin. */
