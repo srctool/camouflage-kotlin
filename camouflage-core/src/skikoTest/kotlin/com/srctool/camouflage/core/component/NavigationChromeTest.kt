@@ -16,6 +16,7 @@ import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.requestFocus
 import androidx.compose.ui.test.performKeyInput
 import androidx.compose.ui.test.pressKey
 import androidx.compose.ui.test.runComposeUiTest
@@ -84,8 +85,9 @@ class NavigationChromeTest {
     fun theArrowKeysMoveAndSelect() = runComposeUiTest {
         var selected by mutableStateOf("Home")
         camo { CamoNavigationBar(items, selected, { selected = it }) }
-        onNodeWithText("Home").performClick()
+        onNodeWithText("Home").requestFocus()
         onNodeWithText("Home").performKeyInput { pressKey(Key.DirectionRight) }
+        waitForIdle()
         assertEquals("Inbox", selected)
     }
 
