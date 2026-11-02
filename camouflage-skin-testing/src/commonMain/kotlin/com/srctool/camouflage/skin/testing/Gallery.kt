@@ -5,6 +5,7 @@ package com.srctool.camouflage.skin.testing
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -33,6 +34,11 @@ import com.srctool.camouflage.core.avatar.Presence
 import com.srctool.camouflage.core.badge.CamoBadge
 import com.srctool.camouflage.core.badge.CamoBadgedBox
 import com.srctool.camouflage.core.fab.CamoFab
+import com.srctool.camouflage.core.navigation.CamoNavItem
+import com.srctool.camouflage.core.navigation.CamoNavSection
+import com.srctool.camouflage.core.navigation.CamoNavigationBar
+import com.srctool.camouflage.core.navigation.CamoNavigationDrawer
+import com.srctool.camouflage.core.navigation.CamoNavigationRail
 import com.srctool.camouflage.core.tabs.CamoTab
 import com.srctool.camouflage.core.tabs.CamoTabs
 import com.srctool.camouflage.core.banner.CamoBanner
@@ -562,6 +568,41 @@ public fun NavigationGallery() {
             CamoFab({ Icon() }, "Compose", {}, text = "Compose")
             CamoFab({ Icon() }, "Compose", {}, text = "Compose", appearance = Appearance.Solid)
             CamoFab({ Icon() }, "Compose", {}, text = "Compose", expanded = false)
+        }
+    }
+}
+
+/**
+ * The M8 navigation chrome: a bottom bar with a badge, a rail with a header, and a drawer with sections, each with
+ * the second destination selected.
+ */
+@Composable
+public fun NavigationChromeGallery() {
+    fun items(badge: Boolean) = listOf("Home", "Inbox", "Search", "Profile").mapIndexed { index, label ->
+        CamoNavItem(
+            label,
+            label,
+            icon = { Icon() },
+            badge = if (badge && index == 1) ({ CamoBadge(count = 3) }) else null,
+            enabled = label != "Profile",
+        )
+    }
+    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Box(Modifier.width(440.dp)) { CamoNavigationBar(items(badge = true), "Inbox", {}) }
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            Box(Modifier.height(300.dp)) {
+                CamoNavigationRail(items(badge = true), "Inbox", {}, header = { CamoFab({ Icon() }, "Compose", {}) })
+            }
+            Box(Modifier.height(300.dp)) {
+                CamoNavigationDrawer(
+                    listOf(
+                        CamoNavSection(null, items(badge = true).take(2)),
+                        CamoNavSection("Library", items(badge = false).drop(2)),
+                    ),
+                    "Inbox",
+                    {},
+                )
+            }
         }
     }
 }

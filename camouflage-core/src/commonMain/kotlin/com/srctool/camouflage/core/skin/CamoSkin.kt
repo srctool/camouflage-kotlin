@@ -18,6 +18,9 @@ import com.srctool.camouflage.core.icon.IconRenderer
 import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
 import com.srctool.camouflage.core.list.ListItemRenderer
 import com.srctool.camouflage.core.menu.MenuRenderer
+import com.srctool.camouflage.core.navigation.NavigationBarRenderer
+import com.srctool.camouflage.core.navigation.NavigationDrawerRenderer
+import com.srctool.camouflage.core.navigation.NavigationRailRenderer
 import com.srctool.camouflage.core.pagedlist.PagedListRenderer
 import com.srctool.camouflage.core.progress.ProgressBarRenderer
 import com.srctool.camouflage.core.progress.ProgressCircleRenderer
@@ -86,4 +89,7 @@ public data class CamoSkin(
     val banner: BannerRenderer,
     val tabs: TabsRenderer,
     val fab: FabRenderer,
+    val navigationBar: NavigationBarRenderer,
+    val navigationRail: NavigationRailRenderer,
+    val navigationDrawer: NavigationDrawerRenderer,
 )
