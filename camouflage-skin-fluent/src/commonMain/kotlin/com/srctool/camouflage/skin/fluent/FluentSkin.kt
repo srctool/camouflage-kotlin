@@ -24,11 +24,13 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationBarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationDrawerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationRailRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentPagedListRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentPopoverRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressBarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressCircleRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentRadioRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSearchFieldRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSegmentedControlRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentSideSheetRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSkeletonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSliderRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSnackbarRenderer
@@ -93,6 +95,8 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     navigationBar = FluentNavigationBarRenderer,
     navigationRail = FluentNavigationRailRenderer,
     navigationDrawer = FluentNavigationDrawerRenderer,
+    popover = FluentPopoverRenderer,
+    sideSheet = FluentSideSheetRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

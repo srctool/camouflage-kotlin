@@ -3572,6 +3572,126 @@ public final class com/srctool/camouflage/core/pagedlist/PagedLoad : java/lang/E
 	public static fun values ()[Lcom/srctool/camouflage/core/pagedlist/PagedLoad;
 }
 
+public final class com/srctool/camouflage/core/popover/CamoPopoverKt {
+	public static final fun CamoPopover (ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lcom/srctool/camouflage/core/popover/PopoverPlacement;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/popover/PopoverColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJLandroidx/compose/ui/graphics/Color;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJJLandroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-0d7_KjU ()J
+	public final fun component4-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun copy-HWbqTF0 (JJJLandroidx/compose/ui/graphics/Color;)Lcom/srctool/camouflage/core/popover/PopoverColors;
+	public static synthetic fun copy-HWbqTF0$default (Lcom/srctool/camouflage/core/popover/PopoverColors;JJJLandroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/srctool/camouflage/core/popover/PopoverColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getContent-0d7_KjU ()J
+	public final fun getTitle-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/popover/PopoverPlacement : java/lang/Enum {
+	public static final field Auto Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+	public static final field Bottom Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+	public static final field End Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+	public static final field Start Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+	public static final field Top Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+	public static fun values ()[Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+}
+
+public abstract interface class com/srctool/camouflage/core/popover/PopoverRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/popover/PopoverState;Lcom/srctool/camouflage/core/popover/PopoverSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/popover/PopoverStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/popover/PopoverStyle;
+}
+
+public final class com/srctool/camouflage/core/popover/PopoverSlots {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;)V
+	public final fun getActions ()Lkotlin/jvm/functions/Function3;
+	public final fun getContent ()Lkotlin/jvm/functions/Function3;
+	public final fun getTitle ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/popover/PopoverState {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/popover/PopoverPlacement;FLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+	public final fun component2-D9Ej5fM ()F
+	public final fun copy-3ABfNKs (Lcom/srctool/camouflage/core/popover/PopoverPlacement;F)Lcom/srctool/camouflage/core/popover/PopoverState;
+	public static synthetic fun copy-3ABfNKs$default (Lcom/srctool/camouflage/core/popover/PopoverState;Lcom/srctool/camouflage/core/popover/PopoverPlacement;FILjava/lang/Object;)Lcom/srctool/camouflage/core/popover/PopoverState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getArrowOffset-D9Ej5fM ()F
+	public final fun getPlacement ()Lcom/srctool/camouflage/core/popover/PopoverPlacement;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/popover/PopoverStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;FFZJLcom/srctool/camouflage/core/theme/ElevationLevel;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/popover/PopoverColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4 ()Z
+	public final fun component5-MYxV2XQ ()J
+	public final fun component6 ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8-D9Ej5fM ()F
+	public final fun component9 ()Lcom/srctool/camouflage/core/popover/PopoverColors;
+	public final fun copy-kpmH0AI (Landroidx/compose/ui/graphics/Shape;FFZJLcom/srctool/camouflage/core/theme/ElevationLevel;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/popover/PopoverColors;)Lcom/srctool/camouflage/core/popover/PopoverStyle;
+	public static synthetic fun copy-kpmH0AI$default (Lcom/srctool/camouflage/core/popover/PopoverStyle;Landroidx/compose/ui/graphics/Shape;FFZJLcom/srctool/camouflage/core/theme/ElevationLevel;Landroidx/compose/ui/text/TextStyle;FLcom/srctool/camouflage/core/popover/PopoverColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/popover/PopoverStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getArrowSize-MYxV2XQ ()J
+	public final fun getColors ()Lcom/srctool/camouflage/core/popover/PopoverColors;
+	public final fun getElevation ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getMaxWidth-D9Ej5fM ()F
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getShowArrow ()Z
+	public final fun getTitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/popover/PopoverTheme;)Lcom/srctool/camouflage/core/popover/PopoverStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/popover/PopoverTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Ljava/lang/Boolean;Landroidx/compose/ui/unit/DpSize;Lcom/srctool/camouflage/core/theme/ElevationLevel;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/popover/PopoverColors;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Ljava/lang/Boolean;Landroidx/compose/ui/unit/DpSize;Lcom/srctool/camouflage/core/theme/ElevationLevel;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/popover/PopoverColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component2-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component3-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun component5-rqqXlrw ()Landroidx/compose/ui/unit/DpSize;
+	public final fun component6 ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun component7 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component8-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component9 ()Lcom/srctool/camouflage/core/popover/PopoverColors;
+	public final fun copy-lBV-VIM (Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Ljava/lang/Boolean;Landroidx/compose/ui/unit/DpSize;Lcom/srctool/camouflage/core/theme/ElevationLevel;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/popover/PopoverColors;)Lcom/srctool/camouflage/core/popover/PopoverTheme;
+	public static synthetic fun copy-lBV-VIM$default (Lcom/srctool/camouflage/core/popover/PopoverTheme;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/unit/Dp;Ljava/lang/Boolean;Landroidx/compose/ui/unit/DpSize;Lcom/srctool/camouflage/core/theme/ElevationLevel;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/popover/PopoverColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/popover/PopoverTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getArrowSize-rqqXlrw ()Landroidx/compose/ui/unit/DpSize;
+	public final fun getColors ()Lcom/srctool/camouflage/core/popover/PopoverColors;
+	public final fun getElevation ()Lcom/srctool/camouflage/core/theme/ElevationLevel;
+	public final fun getGap-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getMaxWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getPadding-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getShowArrow ()Ljava/lang/Boolean;
+	public final fun getTitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/srctool/camouflage/core/progress/CamoProgressKt {
 	public static final fun CamoProgressBar (Landroidx/compose/ui/Modifier;Ljava/lang/Float;Lcom/srctool/camouflage/core/theme/Tone;Ljava/lang/String;Landroidx/compose/runtime/Composer;II)V
 	public static final fun CamoProgressCircle (Landroidx/compose/ui/Modifier;Ljava/lang/Float;Lcom/srctool/camouflage/core/theme/Tone;Lcom/srctool/camouflage/core/progress/ProgressSize;Ljava/lang/String;Landroidx/compose/runtime/Composer;II)V
@@ -4201,6 +4321,116 @@ public final class com/srctool/camouflage/core/select/SelectTheme {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/srctool/camouflage/core/sidesheet/CamoSideSheetKt {
+	public static final fun CamoModalSideSheet (ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun CamoSideSheet (Landroidx/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/sidesheet/SideSheetColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-0d7_KjU ()J
+	public final fun component4-0d7_KjU ()J
+	public final fun copy-jRlVdoo (JJJJ)Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;
+	public static synthetic fun copy-jRlVdoo$default (Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;JJJJILjava/lang/Object;)Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getDivider-0d7_KjU ()J
+	public final fun getModalContainer-0d7_KjU ()J
+	public final fun getTitle-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/srctool/camouflage/core/sidesheet/SideSheetRenderer {
+	public abstract fun Render (Lcom/srctool/camouflage/core/sidesheet/SideSheetState;Lcom/srctool/camouflage/core/sidesheet/SideSheetSlots;Lcom/srctool/camouflage/core/theme/CamoTheme;Lcom/srctool/camouflage/core/sidesheet/SideSheetStyle;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun defaults (Lcom/srctool/camouflage/core/theme/CamoTheme;)Lcom/srctool/camouflage/core/sidesheet/SideSheetStyle;
+}
+
+public final class com/srctool/camouflage/core/sidesheet/SideSheetSlots {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;)V
+	public final fun getActions ()Lkotlin/jvm/functions/Function3;
+	public final fun getContent ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class com/srctool/camouflage/core/sidesheet/SideSheetState {
+	public static final field $stable I
+	public fun <init> (ZLjava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/jvm/functions/Function0;
+	public final fun copy (ZLjava/lang/String;Lkotlin/jvm/functions/Function0;)Lcom/srctool/camouflage/core/sidesheet/SideSheetState;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/sidesheet/SideSheetState;ZLjava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/srctool/camouflage/core/sidesheet/SideSheetState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getModal ()Z
+	public final fun getOnClose ()Lkotlin/jvm/functions/Function0;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/sidesheet/SideSheetStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FLandroidx/compose/ui/graphics/Shape;FLandroidx/compose/ui/text/TextStyle;ZZLcom/srctool/camouflage/core/icon/IconSource;FLcom/srctool/camouflage/core/sidesheet/SideSheetColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5 ()Z
+	public final fun component6 ()Z
+	public final fun component7 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component8 ()F
+	public final fun component9 ()Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;
+	public final fun copy-f52ULT4 (FLandroidx/compose/ui/graphics/Shape;FLandroidx/compose/ui/text/TextStyle;ZZLcom/srctool/camouflage/core/icon/IconSource;FLcom/srctool/camouflage/core/sidesheet/SideSheetColors;)Lcom/srctool/camouflage/core/sidesheet/SideSheetStyle;
+	public static synthetic fun copy-f52ULT4$default (Lcom/srctool/camouflage/core/sidesheet/SideSheetStyle;FLandroidx/compose/ui/graphics/Shape;FLandroidx/compose/ui/text/TextStyle;ZZLcom/srctool/camouflage/core/icon/IconSource;FLcom/srctool/camouflage/core/sidesheet/SideSheetColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/sidesheet/SideSheetStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCloseIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getColors ()Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;
+	public final fun getModalShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getScrimAlpha ()F
+	public final fun getShowCloseButton ()Z
+	public final fun getShowDivider ()Z
+	public final fun getTitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public final fun merge (Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;)Lcom/srctool/camouflage/core/sidesheet/SideSheetStyle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/sidesheet/SideSheetTheme {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/text/TextStyle;Ljava/lang/Boolean;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/icon/IconSource;Ljava/lang/Float;Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/text/TextStyle;Ljava/lang/Boolean;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/icon/IconSource;Ljava/lang/Float;Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component2 ()Landroidx/compose/ui/graphics/Shape;
+	public final fun component3-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component7 ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun component8 ()Ljava/lang/Float;
+	public final fun component9 ()Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;
+	public final fun copy-xI2o7uI (Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/text/TextStyle;Ljava/lang/Boolean;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/icon/IconSource;Ljava/lang/Float;Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;)Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;
+	public static synthetic fun copy-xI2o7uI$default (Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/ui/unit/Dp;Landroidx/compose/ui/text/TextStyle;Ljava/lang/Boolean;Ljava/lang/Boolean;Lcom/srctool/camouflage/core/icon/IconSource;Ljava/lang/Float;Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;ILjava/lang/Object;)Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCloseIcon ()Lcom/srctool/camouflage/core/icon/IconSource;
+	public final fun getColors ()Lcom/srctool/camouflage/core/sidesheet/SideSheetColors;
+	public final fun getModalShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getPadding-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getScrimAlpha ()Ljava/lang/Float;
+	public final fun getShowCloseButton ()Ljava/lang/Boolean;
+	public final fun getShowDivider ()Ljava/lang/Boolean;
+	public final fun getTitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getWidth-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/srctool/camouflage/core/skeleton/CamoSkeletonKt {
 	public static final fun CamoSkeleton-t4AYKoY (FLandroidx/compose/ui/Modifier;Landroidx/compose/ui/unit/Dp;Lcom/srctool/camouflage/core/theme/ShapeRole;Landroidx/compose/runtime/Composer;II)V
 	public static final fun CamoSkeletonCircle--orJrPs (FLandroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
@@ -4286,7 +4516,7 @@ public final class com/srctool/camouflage/core/skeleton/SkeletonTheme {
 
 public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public static final field $stable I
-	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/progress/ProgressBarRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;Lcom/srctool/camouflage/core/card/CardRenderer;Lcom/srctool/camouflage/core/list/ListItemRenderer;Lcom/srctool/camouflage/core/accordion/AccordionRenderer;Lcom/srctool/camouflage/core/skeleton/SkeletonRenderer;Lcom/srctool/camouflage/core/topbar/TopBarRenderer;Lcom/srctool/camouflage/core/pagedlist/PagedListRenderer;Lcom/srctool/camouflage/core/dialog/DialogRenderer;Lcom/srctool/camouflage/core/chip/ChipRenderer;Lcom/srctool/camouflage/core/badge/BadgeRenderer;Lcom/srctool/camouflage/core/avatar/AvatarRenderer;Lcom/srctool/camouflage/core/snackbar/SnackbarRenderer;Lcom/srctool/camouflage/core/banner/BannerRenderer;Lcom/srctool/camouflage/core/tabs/TabsRenderer;Lcom/srctool/camouflage/core/fab/FabRenderer;Lcom/srctool/camouflage/core/navigation/NavigationBarRenderer;Lcom/srctool/camouflage/core/navigation/NavigationRailRenderer;Lcom/srctool/camouflage/core/navigation/NavigationDrawerRenderer;)V
+	public fun <init> (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/progress/ProgressBarRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;Lcom/srctool/camouflage/core/card/CardRenderer;Lcom/srctool/camouflage/core/list/ListItemRenderer;Lcom/srctool/camouflage/core/accordion/AccordionRenderer;Lcom/srctool/camouflage/core/skeleton/SkeletonRenderer;Lcom/srctool/camouflage/core/topbar/TopBarRenderer;Lcom/srctool/camouflage/core/pagedlist/PagedListRenderer;Lcom/srctool/camouflage/core/dialog/DialogRenderer;Lcom/srctool/camouflage/core/chip/ChipRenderer;Lcom/srctool/camouflage/core/badge/BadgeRenderer;Lcom/srctool/camouflage/core/avatar/AvatarRenderer;Lcom/srctool/camouflage/core/snackbar/SnackbarRenderer;Lcom/srctool/camouflage/core/banner/BannerRenderer;Lcom/srctool/camouflage/core/tabs/TabsRenderer;Lcom/srctool/camouflage/core/fab/FabRenderer;Lcom/srctool/camouflage/core/navigation/NavigationBarRenderer;Lcom/srctool/camouflage/core/navigation/NavigationRailRenderer;Lcom/srctool/camouflage/core/navigation/NavigationDrawerRenderer;Lcom/srctool/camouflage/core/popover/PopoverRenderer;Lcom/srctool/camouflage/core/sidesheet/SideSheetRenderer;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;
 	public final fun component11 ()Lcom/srctool/camouflage/core/progress/ProgressBarRenderer;
@@ -4323,13 +4553,15 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun component4 ()Lcom/srctool/camouflage/core/text/TextRenderer;
 	public final fun component40 ()Lcom/srctool/camouflage/core/navigation/NavigationRailRenderer;
 	public final fun component41 ()Lcom/srctool/camouflage/core/navigation/NavigationDrawerRenderer;
+	public final fun component42 ()Lcom/srctool/camouflage/core/popover/PopoverRenderer;
+	public final fun component43 ()Lcom/srctool/camouflage/core/sidesheet/SideSheetRenderer;
 	public final fun component5 ()Lcom/srctool/camouflage/core/icon/IconRenderer;
 	public final fun component6 ()Lcom/srctool/camouflage/core/surface/SurfaceRenderer;
 	public final fun component7 ()Lcom/srctool/camouflage/core/divider/DividerRenderer;
 	public final fun component8 ()Lcom/srctool/camouflage/core/button/ButtonRenderer;
 	public final fun component9 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;
-	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/progress/ProgressBarRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;Lcom/srctool/camouflage/core/card/CardRenderer;Lcom/srctool/camouflage/core/list/ListItemRenderer;Lcom/srctool/camouflage/core/accordion/AccordionRenderer;Lcom/srctool/camouflage/core/skeleton/SkeletonRenderer;Lcom/srctool/camouflage/core/topbar/TopBarRenderer;Lcom/srctool/camouflage/core/pagedlist/PagedListRenderer;Lcom/srctool/camouflage/core/dialog/DialogRenderer;Lcom/srctool/camouflage/core/chip/ChipRenderer;Lcom/srctool/camouflage/core/badge/BadgeRenderer;Lcom/srctool/camouflage/core/avatar/AvatarRenderer;Lcom/srctool/camouflage/core/snackbar/SnackbarRenderer;Lcom/srctool/camouflage/core/banner/BannerRenderer;Lcom/srctool/camouflage/core/tabs/TabsRenderer;Lcom/srctool/camouflage/core/fab/FabRenderer;Lcom/srctool/camouflage/core/navigation/NavigationBarRenderer;Lcom/srctool/camouflage/core/navigation/NavigationRailRenderer;Lcom/srctool/camouflage/core/navigation/NavigationDrawerRenderer;)Lcom/srctool/camouflage/core/skin/CamoSkin;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/progress/ProgressBarRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;Lcom/srctool/camouflage/core/card/CardRenderer;Lcom/srctool/camouflage/core/list/ListItemRenderer;Lcom/srctool/camouflage/core/accordion/AccordionRenderer;Lcom/srctool/camouflage/core/skeleton/SkeletonRenderer;Lcom/srctool/camouflage/core/topbar/TopBarRenderer;Lcom/srctool/camouflage/core/pagedlist/PagedListRenderer;Lcom/srctool/camouflage/core/dialog/DialogRenderer;Lcom/srctool/camouflage/core/chip/ChipRenderer;Lcom/srctool/camouflage/core/badge/BadgeRenderer;Lcom/srctool/camouflage/core/avatar/AvatarRenderer;Lcom/srctool/camouflage/core/snackbar/SnackbarRenderer;Lcom/srctool/camouflage/core/banner/BannerRenderer;Lcom/srctool/camouflage/core/tabs/TabsRenderer;Lcom/srctool/camouflage/core/fab/FabRenderer;Lcom/srctool/camouflage/core/navigation/NavigationBarRenderer;Lcom/srctool/camouflage/core/navigation/NavigationRailRenderer;Lcom/srctool/camouflage/core/navigation/NavigationDrawerRenderer;IILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public final fun copy (Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/progress/ProgressBarRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;Lcom/srctool/camouflage/core/card/CardRenderer;Lcom/srctool/camouflage/core/list/ListItemRenderer;Lcom/srctool/camouflage/core/accordion/AccordionRenderer;Lcom/srctool/camouflage/core/skeleton/SkeletonRenderer;Lcom/srctool/camouflage/core/topbar/TopBarRenderer;Lcom/srctool/camouflage/core/pagedlist/PagedListRenderer;Lcom/srctool/camouflage/core/dialog/DialogRenderer;Lcom/srctool/camouflage/core/chip/ChipRenderer;Lcom/srctool/camouflage/core/badge/BadgeRenderer;Lcom/srctool/camouflage/core/avatar/AvatarRenderer;Lcom/srctool/camouflage/core/snackbar/SnackbarRenderer;Lcom/srctool/camouflage/core/banner/BannerRenderer;Lcom/srctool/camouflage/core/tabs/TabsRenderer;Lcom/srctool/camouflage/core/fab/FabRenderer;Lcom/srctool/camouflage/core/navigation/NavigationBarRenderer;Lcom/srctool/camouflage/core/navigation/NavigationRailRenderer;Lcom/srctool/camouflage/core/navigation/NavigationDrawerRenderer;Lcom/srctool/camouflage/core/popover/PopoverRenderer;Lcom/srctool/camouflage/core/sidesheet/SideSheetRenderer;)Lcom/srctool/camouflage/core/skin/CamoSkin;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/skin/CamoSkin;Ljava/lang/String;Lcom/srctool/camouflage/core/skin/SurfaceTreatment;Lcom/srctool/camouflage/core/skin/InteractionFeedback;Lcom/srctool/camouflage/core/text/TextRenderer;Lcom/srctool/camouflage/core/icon/IconRenderer;Lcom/srctool/camouflage/core/surface/SurfaceRenderer;Lcom/srctool/camouflage/core/divider/DividerRenderer;Lcom/srctool/camouflage/core/button/ButtonRenderer;Lcom/srctool/camouflage/core/iconbutton/IconButtonRenderer;Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;Lcom/srctool/camouflage/core/progress/ProgressBarRenderer;Lcom/srctool/camouflage/core/tooltip/TooltipRenderer;Lcom/srctool/camouflage/core/checkbox/CheckboxRenderer;Lcom/srctool/camouflage/core/switch/SwitchRenderer;Lcom/srctool/camouflage/core/radio/RadioRenderer;Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;Lcom/srctool/camouflage/core/slider/SliderRenderer;Lcom/srctool/camouflage/core/stepper/StepperRenderer;Lcom/srctool/camouflage/core/textfield/TextFieldRenderer;Lcom/srctool/camouflage/core/search/SearchFieldRenderer;Lcom/srctool/camouflage/core/menu/MenuRenderer;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetRenderer;Lcom/srctool/camouflage/core/datepicker/DatePickerRenderer;Lcom/srctool/camouflage/core/timepicker/TimePickerRenderer;Lcom/srctool/camouflage/core/card/CardRenderer;Lcom/srctool/camouflage/core/list/ListItemRenderer;Lcom/srctool/camouflage/core/accordion/AccordionRenderer;Lcom/srctool/camouflage/core/skeleton/SkeletonRenderer;Lcom/srctool/camouflage/core/topbar/TopBarRenderer;Lcom/srctool/camouflage/core/pagedlist/PagedListRenderer;Lcom/srctool/camouflage/core/dialog/DialogRenderer;Lcom/srctool/camouflage/core/chip/ChipRenderer;Lcom/srctool/camouflage/core/badge/BadgeRenderer;Lcom/srctool/camouflage/core/avatar/AvatarRenderer;Lcom/srctool/camouflage/core/snackbar/SnackbarRenderer;Lcom/srctool/camouflage/core/banner/BannerRenderer;Lcom/srctool/camouflage/core/tabs/TabsRenderer;Lcom/srctool/camouflage/core/fab/FabRenderer;Lcom/srctool/camouflage/core/navigation/NavigationBarRenderer;Lcom/srctool/camouflage/core/navigation/NavigationRailRenderer;Lcom/srctool/camouflage/core/navigation/NavigationDrawerRenderer;Lcom/srctool/camouflage/core/popover/PopoverRenderer;Lcom/srctool/camouflage/core/sidesheet/SideSheetRenderer;IILjava/lang/Object;)Lcom/srctool/camouflage/core/skin/CamoSkin;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccordion ()Lcom/srctool/camouflage/core/accordion/AccordionRenderer;
 	public final fun getAvatar ()Lcom/srctool/camouflage/core/avatar/AvatarRenderer;
@@ -4354,11 +4586,13 @@ public final class com/srctool/camouflage/core/skin/CamoSkin {
 	public final fun getNavigationDrawer ()Lcom/srctool/camouflage/core/navigation/NavigationDrawerRenderer;
 	public final fun getNavigationRail ()Lcom/srctool/camouflage/core/navigation/NavigationRailRenderer;
 	public final fun getPagedList ()Lcom/srctool/camouflage/core/pagedlist/PagedListRenderer;
+	public final fun getPopover ()Lcom/srctool/camouflage/core/popover/PopoverRenderer;
 	public final fun getProgressBar ()Lcom/srctool/camouflage/core/progress/ProgressBarRenderer;
 	public final fun getProgressCircle ()Lcom/srctool/camouflage/core/progress/ProgressCircleRenderer;
 	public final fun getRadio ()Lcom/srctool/camouflage/core/radio/RadioRenderer;
 	public final fun getSearchField ()Lcom/srctool/camouflage/core/search/SearchFieldRenderer;
 	public final fun getSegmentedControl ()Lcom/srctool/camouflage/core/segmented/SegmentedControlRenderer;
+	public final fun getSideSheet ()Lcom/srctool/camouflage/core/sidesheet/SideSheetRenderer;
 	public final fun getSkeleton ()Lcom/srctool/camouflage/core/skeleton/SkeletonRenderer;
 	public final fun getSlider ()Lcom/srctool/camouflage/core/slider/SliderRenderer;
 	public final fun getSnackbar ()Lcom/srctool/camouflage/core/snackbar/SnackbarRenderer;
@@ -5758,8 +5992,8 @@ public final class com/srctool/camouflage/core/theme/CamoColorsKt {
 public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public static final field $stable I
 	public fun <init> ()V
-	public fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/card/CardTheme;Lcom/srctool/camouflage/core/list/ListItemTheme;Lcom/srctool/camouflage/core/accordion/AccordionTheme;Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;Lcom/srctool/camouflage/core/topbar/TopBarTheme;Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;Lcom/srctool/camouflage/core/dialog/DialogTheme;Lcom/srctool/camouflage/core/select/SelectTheme;Lcom/srctool/camouflage/core/chip/ChipTheme;Lcom/srctool/camouflage/core/badge/BadgeTheme;Lcom/srctool/camouflage/core/avatar/AvatarTheme;Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;Lcom/srctool/camouflage/core/banner/BannerTheme;Lcom/srctool/camouflage/core/tabs/TabsTheme;Lcom/srctool/camouflage/core/fab/FabTheme;Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;)V
-	public synthetic fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/card/CardTheme;Lcom/srctool/camouflage/core/list/ListItemTheme;Lcom/srctool/camouflage/core/accordion/AccordionTheme;Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;Lcom/srctool/camouflage/core/topbar/TopBarTheme;Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;Lcom/srctool/camouflage/core/dialog/DialogTheme;Lcom/srctool/camouflage/core/select/SelectTheme;Lcom/srctool/camouflage/core/chip/ChipTheme;Lcom/srctool/camouflage/core/badge/BadgeTheme;Lcom/srctool/camouflage/core/avatar/AvatarTheme;Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;Lcom/srctool/camouflage/core/banner/BannerTheme;Lcom/srctool/camouflage/core/tabs/TabsTheme;Lcom/srctool/camouflage/core/fab/FabTheme;Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/card/CardTheme;Lcom/srctool/camouflage/core/list/ListItemTheme;Lcom/srctool/camouflage/core/accordion/AccordionTheme;Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;Lcom/srctool/camouflage/core/topbar/TopBarTheme;Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;Lcom/srctool/camouflage/core/dialog/DialogTheme;Lcom/srctool/camouflage/core/select/SelectTheme;Lcom/srctool/camouflage/core/chip/ChipTheme;Lcom/srctool/camouflage/core/badge/BadgeTheme;Lcom/srctool/camouflage/core/avatar/AvatarTheme;Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;Lcom/srctool/camouflage/core/banner/BannerTheme;Lcom/srctool/camouflage/core/tabs/TabsTheme;Lcom/srctool/camouflage/core/fab/FabTheme;Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;Lcom/srctool/camouflage/core/popover/PopoverTheme;Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;)V
+	public synthetic fun <init> (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/card/CardTheme;Lcom/srctool/camouflage/core/list/ListItemTheme;Lcom/srctool/camouflage/core/accordion/AccordionTheme;Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;Lcom/srctool/camouflage/core/topbar/TopBarTheme;Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;Lcom/srctool/camouflage/core/dialog/DialogTheme;Lcom/srctool/camouflage/core/select/SelectTheme;Lcom/srctool/camouflage/core/chip/ChipTheme;Lcom/srctool/camouflage/core/badge/BadgeTheme;Lcom/srctool/camouflage/core/avatar/AvatarTheme;Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;Lcom/srctool/camouflage/core/banner/BannerTheme;Lcom/srctool/camouflage/core/tabs/TabsTheme;Lcom/srctool/camouflage/core/fab/FabTheme;Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;Lcom/srctool/camouflage/core/popover/PopoverTheme;Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lcom/srctool/camouflage/core/icon/IconTheme;
 	public final fun component10 ()Lcom/srctool/camouflage/core/radio/RadioTheme;
 	public final fun component11 ()Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;
@@ -5791,14 +6025,16 @@ public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public final fun component35 ()Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;
 	public final fun component36 ()Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;
 	public final fun component37 ()Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;
+	public final fun component38 ()Lcom/srctool/camouflage/core/popover/PopoverTheme;
+	public final fun component39 ()Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;
 	public final fun component4 ()Lcom/srctool/camouflage/core/button/ButtonTheme;
 	public final fun component5 ()Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;
 	public final fun component6 ()Lcom/srctool/camouflage/core/progress/ProgressTheme;
 	public final fun component7 ()Lcom/srctool/camouflage/core/tooltip/TooltipTheme;
 	public final fun component8 ()Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;
 	public final fun component9 ()Lcom/srctool/camouflage/core/switch/SwitchTheme;
-	public final fun copy (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/card/CardTheme;Lcom/srctool/camouflage/core/list/ListItemTheme;Lcom/srctool/camouflage/core/accordion/AccordionTheme;Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;Lcom/srctool/camouflage/core/topbar/TopBarTheme;Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;Lcom/srctool/camouflage/core/dialog/DialogTheme;Lcom/srctool/camouflage/core/select/SelectTheme;Lcom/srctool/camouflage/core/chip/ChipTheme;Lcom/srctool/camouflage/core/badge/BadgeTheme;Lcom/srctool/camouflage/core/avatar/AvatarTheme;Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;Lcom/srctool/camouflage/core/banner/BannerTheme;Lcom/srctool/camouflage/core/tabs/TabsTheme;Lcom/srctool/camouflage/core/fab/FabTheme;Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/card/CardTheme;Lcom/srctool/camouflage/core/list/ListItemTheme;Lcom/srctool/camouflage/core/accordion/AccordionTheme;Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;Lcom/srctool/camouflage/core/topbar/TopBarTheme;Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;Lcom/srctool/camouflage/core/dialog/DialogTheme;Lcom/srctool/camouflage/core/select/SelectTheme;Lcom/srctool/camouflage/core/chip/ChipTheme;Lcom/srctool/camouflage/core/badge/BadgeTheme;Lcom/srctool/camouflage/core/avatar/AvatarTheme;Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;Lcom/srctool/camouflage/core/banner/BannerTheme;Lcom/srctool/camouflage/core/tabs/TabsTheme;Lcom/srctool/camouflage/core/fab/FabTheme;Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;IILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
+	public final fun copy (Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/card/CardTheme;Lcom/srctool/camouflage/core/list/ListItemTheme;Lcom/srctool/camouflage/core/accordion/AccordionTheme;Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;Lcom/srctool/camouflage/core/topbar/TopBarTheme;Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;Lcom/srctool/camouflage/core/dialog/DialogTheme;Lcom/srctool/camouflage/core/select/SelectTheme;Lcom/srctool/camouflage/core/chip/ChipTheme;Lcom/srctool/camouflage/core/badge/BadgeTheme;Lcom/srctool/camouflage/core/avatar/AvatarTheme;Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;Lcom/srctool/camouflage/core/banner/BannerTheme;Lcom/srctool/camouflage/core/tabs/TabsTheme;Lcom/srctool/camouflage/core/fab/FabTheme;Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;Lcom/srctool/camouflage/core/popover/PopoverTheme;Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lcom/srctool/camouflage/core/icon/IconTheme;Lcom/srctool/camouflage/core/surface/SurfaceTheme;Lcom/srctool/camouflage/core/divider/DividerTheme;Lcom/srctool/camouflage/core/button/ButtonTheme;Lcom/srctool/camouflage/core/iconbutton/IconButtonTheme;Lcom/srctool/camouflage/core/progress/ProgressTheme;Lcom/srctool/camouflage/core/tooltip/TooltipTheme;Lcom/srctool/camouflage/core/checkbox/CheckboxTheme;Lcom/srctool/camouflage/core/switch/SwitchTheme;Lcom/srctool/camouflage/core/radio/RadioTheme;Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;Lcom/srctool/camouflage/core/slider/SliderTheme;Lcom/srctool/camouflage/core/stepper/StepperTheme;Lcom/srctool/camouflage/core/textfield/TextFieldTheme;Lcom/srctool/camouflage/core/search/SearchFieldTheme;Lcom/srctool/camouflage/core/menu/MenuTheme;Lcom/srctool/camouflage/core/bottomsheet/BottomSheetTheme;Lcom/srctool/camouflage/core/datepicker/DatePickerTheme;Lcom/srctool/camouflage/core/timepicker/TimePickerTheme;Lcom/srctool/camouflage/core/card/CardTheme;Lcom/srctool/camouflage/core/list/ListItemTheme;Lcom/srctool/camouflage/core/accordion/AccordionTheme;Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;Lcom/srctool/camouflage/core/topbar/TopBarTheme;Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;Lcom/srctool/camouflage/core/dialog/DialogTheme;Lcom/srctool/camouflage/core/select/SelectTheme;Lcom/srctool/camouflage/core/chip/ChipTheme;Lcom/srctool/camouflage/core/badge/BadgeTheme;Lcom/srctool/camouflage/core/avatar/AvatarTheme;Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;Lcom/srctool/camouflage/core/banner/BannerTheme;Lcom/srctool/camouflage/core/tabs/TabsTheme;Lcom/srctool/camouflage/core/fab/FabTheme;Lcom/srctool/camouflage/core/navigation/NavigationBarTheme;Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;Lcom/srctool/camouflage/core/popover/PopoverTheme;Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;IILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoComponentThemes;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccordion ()Lcom/srctool/camouflage/core/accordion/AccordionTheme;
 	public final fun getAvatar ()Lcom/srctool/camouflage/core/avatar/AvatarTheme;
@@ -5821,11 +6057,13 @@ public final class com/srctool/camouflage/core/theme/CamoComponentThemes {
 	public final fun getNavigationDrawer ()Lcom/srctool/camouflage/core/navigation/NavigationDrawerTheme;
 	public final fun getNavigationRail ()Lcom/srctool/camouflage/core/navigation/NavigationRailTheme;
 	public final fun getPagedList ()Lcom/srctool/camouflage/core/pagedlist/PagedListTheme;
+	public final fun getPopover ()Lcom/srctool/camouflage/core/popover/PopoverTheme;
 	public final fun getProgress ()Lcom/srctool/camouflage/core/progress/ProgressTheme;
 	public final fun getRadio ()Lcom/srctool/camouflage/core/radio/RadioTheme;
 	public final fun getSearchField ()Lcom/srctool/camouflage/core/search/SearchFieldTheme;
 	public final fun getSegmentedControl ()Lcom/srctool/camouflage/core/segmented/SegmentedControlTheme;
 	public final fun getSelect ()Lcom/srctool/camouflage/core/select/SelectTheme;
+	public final fun getSideSheet ()Lcom/srctool/camouflage/core/sidesheet/SideSheetTheme;
 	public final fun getSkeleton ()Lcom/srctool/camouflage/core/skeleton/SkeletonTheme;
 	public final fun getSlider ()Lcom/srctool/camouflage/core/slider/SliderTheme;
 	public final fun getSnackbar ()Lcom/srctool/camouflage/core/snackbar/SnackbarTheme;

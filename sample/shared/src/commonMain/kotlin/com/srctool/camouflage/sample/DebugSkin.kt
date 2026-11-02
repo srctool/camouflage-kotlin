@@ -63,6 +63,8 @@ val DebugSkin = CamoSkin(
     navigationBar = DebugNavigationBar,
     navigationRail = DebugNavigationRail,
     navigationDrawer = DebugNavigationDrawer,
+    popover = DebugPopover,
+    sideSheet = DebugSideSheet,
 )
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */

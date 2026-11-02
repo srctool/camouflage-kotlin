@@ -49,7 +49,8 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
-import com.srctool.camouflage.core.overlay.FullWindow
+import com.srctool.camouflage.core.overlay.SideEdge
+import com.srctool.camouflage.core.overlay.SideFrame
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
 import com.srctool.camouflage.core.skin.ItemPosition
@@ -197,17 +198,12 @@ public fun <T> CamoNavigationDrawer(
     }
 }
 
-private const val DISMISS_FRACTION = 0.4f
-private const val DISMISS_VELOCITY = 1200f
-private const val MAX_WIDTH_FRACTION = 0.8f
-
 /**
  * The modal mode (a phone with many destinations): slides in from the start edge over the content, with a
  * scrim. Its visibility is state ([open]), not a route: a menu button opens it and a selection closes it. A
  * scrim tap, back, Esc and a drag toward the start edge all call [onDismissRequest]; focus is trapped inside.
  * [content] is a [CamoNavigationDrawer].
  */
-@Suppress("LongMethod") // the scrim, slide, drag and focus share one offset
 @Composable
 public fun CamoModalDrawer(
     open: Boolean,
@@ -218,72 +214,8 @@ public fun CamoModalDrawer(
     val skin = requireSkin("CamoModalDrawer")
     val theme = requireTheme("CamoModalDrawer")
     val style = remember(skin, theme) { skin.navigationDrawer.defaults(theme).merge(theme.components.navigationDrawer) }
-    val dismiss by rememberUpdatedState(onDismissRequest)
-    val scope = rememberCoroutineScope()
-    // 0 = fully in, 1 = fully out; the popup stays until it has slid out.
-    val progress = remember { Animatable(1f) }
-    var present by remember { mutableStateOf(open) }
-    val focus = remember { FocusRequester() }
-    val slide = tween<Float>(theme.motion.durationMedium, easing = theme.motion.easingEmphasized)
-    LaunchedEffect(open) {
-        if (open) {
-            present = true
-            progress.animateTo(0f, slide)
-        } else {
-            progress.animateTo(1f, slide)
-            present = false
-        }
-    }
-    if (!present) return
-    val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
-    Popup(
-        popupPositionProvider = FullWindow,
-        onDismissRequest = { dismiss() },
-        properties = PopupProperties(focusable = true, dismissOnBackPress = true, dismissOnClickOutside = false),
-    ) {
-        BoxWithConstraints(
-            Modifier
-                .fillMaxSize()
-                .background(theme.colors.scrim.copy(alpha = style.scrimAlpha * (1f - progress.value)))
-                .pointerInput(Unit) { detectTapGestures { dismiss() } }
-                .onPreviewKeyEvent {
-                    val esc = it.type == KeyEventType.KeyDown && it.key == Key.Escape
-                    if (esc) dismiss()
-                    esc
-                },
-        ) {
-            val width = minOf(style.width, maxWidth * MAX_WIDTH_FRACTION)
-            val widthPx = with(LocalDensity.current) { width.toPx() }
-            val toward = if (rtl) 1f else -1f
-            val drag = rememberDraggableState { delta ->
-                scope.launch { progress.snapTo((progress.value - delta * toward / widthPx).coerceIn(0f, 1f)) }
-            }
-            Box(
-                Modifier
-                    .align(Alignment.CenterStart)
-                    .width(width)
-                    .fillMaxHeight()
-                    .offset { IntOffset((progress.value * widthPx * toward).roundToInt(), 0) }
-                    .draggable(
-                        drag,
-                        Orientation.Horizontal,
-                        onDragStopped = { velocity ->
-                            if (progress.value > DISMISS_FRACTION || velocity * toward < -DISMISS_VELOCITY) {
-                                dismiss()
-                            } else {
-                                progress.animateTo(0f, slide)
-                            }
-                        },
-                    )
-                    .pointerInput(Unit) { detectTapGestures {} }
-                    .focusRequester(focus)
-                    .focusable()
-                    .then(modifier),
-            ) {
-                val modal = DrawerScope(modal = true, onNavigate = { dismiss() })
-                CompositionLocalProvider(LocalDrawerScope provides modal) { content() }
-            }
-            LaunchedEffect(Unit) { focus.requestFocus() }
-        }
+    SideFrame(SideEdge.Start, open, onDismissRequest, style.width, style.scrimAlpha, modifier) {
+        val modal = DrawerScope(modal = true, onNavigate = onDismissRequest)
+        CompositionLocalProvider(LocalDrawerScope provides modal) { content() }
     }
 }

@@ -25,11 +25,13 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationBarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationDrawerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationRailRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalPagedListRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalPopoverRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressBarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressCircleRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalRadioRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSearchFieldRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSegmentedControlRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalSideSheetRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSkeletonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSliderRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSnackbarRenderer
@@ -90,6 +92,8 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     navigationBar = MinimalNavigationBarRenderer,
     navigationRail = MinimalNavigationRailRenderer,
     navigationDrawer = MinimalNavigationDrawerRenderer,
+    popover = MinimalPopoverRenderer,
+    sideSheet = MinimalSideSheetRenderer,
 )
 
 /** The Minimal skin. */

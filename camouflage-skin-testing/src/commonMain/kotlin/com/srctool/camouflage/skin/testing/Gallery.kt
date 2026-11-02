@@ -35,6 +35,10 @@ import com.srctool.camouflage.core.badge.CamoBadge
 import com.srctool.camouflage.core.badge.CamoBadgedBox
 import com.srctool.camouflage.core.fab.CamoFab
 import com.srctool.camouflage.core.navigation.CamoNavItem
+import com.srctool.camouflage.core.popover.PopoverPlacement
+import com.srctool.camouflage.core.popover.PopoverSlots
+import com.srctool.camouflage.core.popover.PopoverState
+import com.srctool.camouflage.core.sidesheet.CamoSideSheet
 import com.srctool.camouflage.core.navigation.CamoNavSection
 import com.srctool.camouflage.core.navigation.CamoNavigationBar
 import com.srctool.camouflage.core.navigation.CamoNavigationDrawer
@@ -602,6 +606,57 @@ public fun NavigationChromeGallery() {
                     "Inbox",
                     {},
                 )
+            }
+        }
+    }
+}
+
+/**
+ * The M9 popover and side sheet: popovers drawn by the renderer as they open (below, above, to the end side, with
+ * and without actions) and a standard side sheet with a title, close button, content and actions.
+ */
+@Composable
+public fun PanelsGallery() {
+    val skin = Camouflage.skin
+    val theme = Camouflage.theme
+    val style = skin.popover.defaults(theme).merge(theme.components.popover)
+    fun popover(placement: PopoverPlacement, withActions: Boolean) = @Composable {
+        skin.popover.Render(
+            PopoverState(placement, 48.dp),
+            PopoverSlots(
+                "Share this file",
+                { CamoText("Anyone with the link can view it.") },
+                if (withActions) {
+                    {
+                        CamoButton("Cancel", {}, appearance = Appearance.Ghost)
+                        CamoButton("Copy link", {})
+                    }
+                } else {
+                    null
+                },
+            ),
+            theme,
+            style,
+            Modifier.width(260.dp),
+        )
+    }
+    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(24.dp)) {
+            popover(PopoverPlacement.Bottom, withActions = true)()
+            popover(PopoverPlacement.Top, withActions = false)()
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(24.dp)) {
+            popover(PopoverPlacement.End, withActions = false)()
+            Box(Modifier.height(260.dp)) {
+                CamoSideSheet(
+                    title = "Properties",
+                    onClose = {},
+                    actions = { CamoButton("Apply", {}) },
+                ) {
+                    CamoText("Size")
+                    CamoText("Position")
+                    CamoText("Appearance")
+                }
             }
         }
     }
