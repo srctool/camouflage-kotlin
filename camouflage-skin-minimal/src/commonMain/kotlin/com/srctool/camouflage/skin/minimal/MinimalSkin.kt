@@ -9,6 +9,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalAvatarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalBadgeRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalBannerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalBottomSheetRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalBreadcrumbRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonGroupRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCardRenderer
@@ -20,16 +21,20 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalDividerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalFabRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalImageRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalListItemRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalMenuRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationBarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationDrawerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalNavigationRailRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalPagedListRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalPaginationRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalPopoverRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressBarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressCircleRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalProgressStepsRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalRadioRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalRatingRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSearchFieldRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSegmentedControlRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalSideSheetRenderer
@@ -100,6 +105,11 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     buttonGroup = MinimalButtonGroupRenderer,
     splitButton = MinimalSplitButtonRenderer,
     toolbar = MinimalToolbarRenderer,
+    image = MinimalImageRenderer,
+    rating = MinimalRatingRenderer,
+    pagination = MinimalPaginationRenderer,
+    breadcrumb = MinimalBreadcrumbRenderer,
+    progressSteps = MinimalProgressStepsRenderer,
 )
 
 /** The Minimal skin. */

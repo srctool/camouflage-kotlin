@@ -8,6 +8,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentAvatarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBadgeRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBannerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentBottomSheetRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentBreadcrumbRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonGroupRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCardRenderer
@@ -19,16 +20,20 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentDividerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentFabRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentImageRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentListItemRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentMenuRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationBarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationDrawerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentNavigationRailRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentPagedListRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentPaginationRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentPopoverRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressBarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentProgressCircleRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentProgressStepsRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentRadioRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentRatingRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSearchFieldRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSegmentedControlRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSideSheetRenderer
@@ -103,6 +108,11 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     buttonGroup = FluentButtonGroupRenderer,
     splitButton = FluentSplitButtonRenderer,
     toolbar = FluentToolbarRenderer,
+    image = FluentImageRenderer,
+    rating = FluentRatingRenderer,
+    pagination = FluentPaginationRenderer,
+    breadcrumb = FluentBreadcrumbRenderer,
+    progressSteps = FluentProgressStepsRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

@@ -108,6 +108,7 @@ public final class com/srctool/camouflage/skin/testing/GalleryKt {
 	public static final fun PanelsGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun PickerGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun PrimitiveGallery (Landroidx/compose/runtime/Composer;I)V
+	public static final fun SmallDataGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun StructureGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun TextInputGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun getGalleryIcon ()Landroidx/compose/ui/graphics/vector/ImageVector;

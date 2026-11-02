@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
@@ -35,6 +36,8 @@ import com.srctool.camouflage.core.badge.CamoBadge
 import com.srctool.camouflage.core.badge.CamoBadgedBox
 import com.srctool.camouflage.core.banner.CamoBanner
 import com.srctool.camouflage.core.bottomsheet.CamoBottomSheet
+import com.srctool.camouflage.core.breadcrumb.CamoBreadcrumb
+import com.srctool.camouflage.core.breadcrumb.CamoBreadcrumbItem
 import com.srctool.camouflage.core.button.CamoButton
 import com.srctool.camouflage.core.buttongroup.CamoButtonGroup
 import com.srctool.camouflage.core.buttongroup.CamoGroupButton
@@ -56,6 +59,8 @@ import com.srctool.camouflage.core.fab.CamoFab
 import com.srctool.camouflage.core.icon.CamoIcon
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.iconbutton.CamoIconButton
+import com.srctool.camouflage.core.image.CamoImage
+import com.srctool.camouflage.core.image.ImageSource
 import com.srctool.camouflage.core.list.CamoListItem
 import com.srctool.camouflage.core.list.CamoListSection
 import com.srctool.camouflage.core.menu.CamoMenuAnchor
@@ -72,15 +77,24 @@ import com.srctool.camouflage.core.pagedlist.CamoPagedList
 import com.srctool.camouflage.core.pagedlist.CamoPagedListState
 import com.srctool.camouflage.core.pagedlist.PagedError
 import com.srctool.camouflage.core.pagedlist.PagedErrorScope
+import com.srctool.camouflage.core.pagination.CamoPagination
+import com.srctool.camouflage.core.pagination.PaginationVariant
 import com.srctool.camouflage.core.popover.PopoverPlacement
 import com.srctool.camouflage.core.popover.PopoverSlots
 import com.srctool.camouflage.core.popover.PopoverState
 import com.srctool.camouflage.core.progress.CamoProgressBar
 import com.srctool.camouflage.core.progress.CamoProgressCircle
 import com.srctool.camouflage.core.progress.ProgressSize
+import com.srctool.camouflage.core.progresssteps.CamoProgressSteps
+import com.srctool.camouflage.core.progresssteps.CamoStep
+import com.srctool.camouflage.core.progresssteps.StepStatus
+import com.srctool.camouflage.core.progresssteps.StepsOrientation
 import com.srctool.camouflage.core.provider.Camouflage
 import com.srctool.camouflage.core.radio.CamoRadioGroup
 import com.srctool.camouflage.core.radio.RadioOption
+import com.srctool.camouflage.core.rating.CamoRating
+import com.srctool.camouflage.core.rating.RatingSize
+import com.srctool.camouflage.core.rating.RatingStep
 import com.srctool.camouflage.core.search.CamoSearchField
 import com.srctool.camouflage.core.segmented.CamoSegmentedControl
 import com.srctool.camouflage.core.segmented.Segment
@@ -709,6 +723,61 @@ public fun ActionsGallery() {
             Modifier.width(ActionBarWidth),
             placement = ToolbarPlacement.Floating,
             trailing = { CamoButton("Send", {}) },
+        )
+    }
+}
+
+private const val RATING_VALUE = 3.5f
+private const val INTERACTIVE_RATING = 2f
+private const val HALF_RATING = 2.5f
+private const val DISABLED_RATING = 4f
+private const val DOT_PAGES = 5
+private val ImageTint = Color(0xFF6D8FB5)
+private const val PAGE_COUNT = 12
+private const val CURRENT_PAGE = 5
+private const val CURRENT_STEP = 2
+private val ImageSize = 72.dp
+private val NarrowTrail = 220.dp
+private val WizardWidth = 520.dp
+
+/**
+ * The M10 small data components: images (loading, failed, loaded), ratings, the three forms of pagination,
+ * breadcrumbs (full and collapsed) and progress steps (horizontal with an error, and vertical).
+ */
+@Composable
+public fun SmallDataGallery() {
+    val trail = listOf("Home", "Projects", "Camouflage", "Design", "Notes").map { CamoBreadcrumbItem(it, it,
+        onClick = {}) }
+    fun step(label: String, status: StepStatus? = null) = CamoStep(label, label, onClick = {}, status = status)
+    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            CamoImage(ImageSource.Loading, "Loading", Modifier.size(ImageSize))
+            CamoImage(ImageSource.Failed(), "Failed", Modifier.size(ImageSize))
+            CamoImage(ImageSource.Loaded(ColorPainter(ImageTint)), "Loaded", Modifier.size(ImageSize))
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(24.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoRating(RATING_VALUE, "Read only")
+            CamoRating(INTERACTIVE_RATING, "Interactive", onValueChange = {}, size = RatingSize.Large)
+            CamoRating(HALF_RATING, "Half", onValueChange = {}, step = RatingStep.Half, size = RatingSize.Small)
+            CamoRating(DISABLED_RATING, "Disabled", onValueChange = {}, enabled = false)
+        }
+        CamoPagination(PAGE_COUNT, CURRENT_PAGE, {})
+        Row(horizontalArrangement = Arrangement.spacedBy(24.dp), verticalAlignment = Alignment.CenterVertically) {
+            CamoPagination(PAGE_COUNT, CURRENT_PAGE, {}, variant = PaginationVariant.Compact)
+            CamoPagination(DOT_PAGES, 1, {}, variant = PaginationVariant.Dots)
+        }
+        CamoBreadcrumb(trail)
+        CamoBreadcrumb(trail, Modifier.width(NarrowTrail))
+        CamoProgressSteps(
+            listOf(step("Account"), step("Shipping"), step("Payment", StepStatus.Error), step("Review")),
+            current = CURRENT_STEP,
+            modifier = Modifier.width(WizardWidth),
+        )
+        CamoProgressSteps(
+            listOf(step("Account"), step("Shipping"),
+                step("Review")).map { it.copy(description = "${it.label} details") },
+            current = 1,
+            orientation = StepsOrientation.Vertical,
         )
     }
 }

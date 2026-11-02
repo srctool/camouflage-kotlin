@@ -68,6 +68,11 @@ val DebugSkin = CamoSkin(
     buttonGroup = DebugButtonGroup,
     splitButton = DebugSplitButton,
     toolbar = DebugToolbar,
+    image = DebugImage,
+    rating = DebugRating,
+    pagination = DebugPagination,
+    breadcrumb = DebugBreadcrumb,
+    progressSteps = DebugProgressSteps,
 )
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */
