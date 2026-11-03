@@ -36,6 +36,7 @@ import com.srctool.camouflage.skin.testing.MenuGallery
 import com.srctool.camouflage.skin.testing.NavigationChromeGallery
 import com.srctool.camouflage.skin.testing.NavigationGallery
 import com.srctool.camouflage.skin.testing.ActionsGallery
+import com.srctool.camouflage.skin.testing.CollectionsGallery
 import com.srctool.camouflage.skin.testing.ListsGallery
 import com.srctool.camouflage.skin.testing.PanelsGallery
 import com.srctool.camouflage.skin.testing.SmallDataGallery
@@ -101,6 +102,8 @@ class FluentGoldenTest {
     @Test fun smalldata() = golden("smalldata", width = 640, height = 720) { SmallDataGallery() }
 
     @Test fun lists() = golden("lists", width = 640, height = 560) { ListsGallery() }
+
+    @Test fun collections() = golden("collections", width = 640, height = 560) { CollectionsGallery() }
 
     // Acrylic: a panel at flyout depth in a popup over a striped backdrop, the way flyouts and dialogs open.
     @Test fun acrylic() = acrylic("acrylic_fluent", Capabilities)

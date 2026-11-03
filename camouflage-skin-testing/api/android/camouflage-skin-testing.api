@@ -80,6 +80,7 @@ public final class com/srctool/camouflage/skin/testing/ComposableSingletons$Gall
 	public final fun getLambda$1892267768$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$2040509836$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$2095748138$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2124235475$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda$2142290504$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$291275602$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$335505979$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
@@ -100,6 +101,7 @@ public final class com/srctool/camouflage/skin/testing/ComposableSingletons$Gall
 public final class com/srctool/camouflage/skin/testing/GalleryKt {
 	public static final fun ActionsGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun ButtonGallery (Landroidx/compose/runtime/Composer;I)V
+	public static final fun CollectionsGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun DataDisplayGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun DialogGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun FeedbackGallery (Landroidx/compose/runtime/Composer;I)V

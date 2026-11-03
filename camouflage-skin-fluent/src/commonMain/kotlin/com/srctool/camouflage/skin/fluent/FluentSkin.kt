@@ -12,6 +12,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentBreadcrumbRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonGroupRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCardRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentCarouselRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCheckboxRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentChipRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDataTableRenderer
@@ -19,6 +20,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentDatePickerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDialogRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDividerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentFabRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentFileUploaderRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentImageRenderer
@@ -59,6 +61,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentTreeRenderer
  * double-stroke focus, and Fluent's proportions. Pair it with [fluentTheme]. Each component's renderer joins in
  * its milestone.
  */
+@Suppress("LongMethod") // one renderer per component
 public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = CamoSkin(
     name = "fluent",
     surfaceTreatment = when (surface) {
@@ -117,6 +120,8 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     progressSteps = FluentProgressStepsRenderer,
     dataTable = FluentDataTableRenderer,
     tree = FluentTreeRenderer,
+    carousel = FluentCarouselRenderer,
+    fileUploader = FluentFileUploaderRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

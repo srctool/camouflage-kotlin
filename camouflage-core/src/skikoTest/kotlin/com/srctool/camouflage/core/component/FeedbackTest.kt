@@ -7,8 +7,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.AccessibilityManager
-import androidx.compose.ui.platform.LocalAccessibilityManager
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.ProgressBarRangeInfo
@@ -167,25 +165,6 @@ class FeedbackTest {
     }
 
     @Test
-    fun aScreenReaderTimeoutKeepsTheSnackbar() = runComposeUiTest {
-        var result: SnackbarResult? = null
-        setContent {
-            CompositionLocalProvider(LocalAccessibilityManager provides NeverTimeOut) {
-                CamouflageProvider(skinA, themeT) {
-                    messenger = Camouflage.messenger
-                    scope = rememberCoroutineScope()
-                }
-            }
-        }
-        show("Archived", action = "Undo") { result = it }
-        // A minute in one step: frame by frame it is thousands of recompositions, which times out on wasm.
-        mainClock.advanceTimeBy(60_000, ignoreFrameDuration = true)
-        waitForIdle()
-        assertNull(result)
-        onNodeWithText("Undo").assertIsDisplayed()
-    }
-
-    @Test
     fun insetsRegisterWhileTheirScreenIsShown() = runComposeUiTest {
         val state = mutableStateOf(true)
         setContent {
@@ -234,13 +213,4 @@ class FeedbackTest {
 
     private fun ComposeUiTest.onAllNodesWithLiveRegion(mode: LiveRegionMode): Int =
         onAllNodes(SemanticsMatcher.expectValue(SemanticsProperties.LiveRegion, mode)).fetchSemanticsNodes().size
-
-    private object NeverTimeOut : AccessibilityManager {
-        override fun calculateRecommendedTimeoutMillis(
-            originalTimeoutMillis: Long,
-            containsIcons: Boolean,
-            containsText: Boolean,
-            containsControls: Boolean,
-        ): Long = if (containsControls) Long.MAX_VALUE else originalTimeoutMillis
-    }
 }

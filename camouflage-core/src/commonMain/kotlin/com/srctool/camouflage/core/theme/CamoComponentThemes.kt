@@ -10,6 +10,7 @@ import com.srctool.camouflage.core.breadcrumb.BreadcrumbTheme
 import com.srctool.camouflage.core.button.ButtonTheme
 import com.srctool.camouflage.core.buttongroup.ButtonGroupTheme
 import com.srctool.camouflage.core.card.CardTheme
+import com.srctool.camouflage.core.carousel.CarouselTheme
 import com.srctool.camouflage.core.checkbox.CheckboxTheme
 import com.srctool.camouflage.core.chip.ChipTheme
 import com.srctool.camouflage.core.datatable.TableTheme
@@ -17,6 +18,7 @@ import com.srctool.camouflage.core.datepicker.DatePickerTheme
 import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.divider.DividerTheme
 import com.srctool.camouflage.core.fab.FabTheme
+import com.srctool.camouflage.core.fileuploader.UploaderTheme
 import com.srctool.camouflage.core.icon.IconTheme
 import com.srctool.camouflage.core.iconbutton.IconButtonTheme
 import com.srctool.camouflage.core.image.ImageTheme
@@ -106,4 +108,6 @@ public data class CamoComponentThemes(
     val progressSteps: StepsTheme? = null,
     val dataTable: TableTheme? = null,
     val tree: TreeTheme? = null,
+    val carousel: CarouselTheme? = null,
+    val fileUploader: UploaderTheme? = null,
 )
