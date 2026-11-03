@@ -73,6 +73,8 @@ val DebugSkin = CamoSkin(
     pagination = DebugPagination,
     breadcrumb = DebugBreadcrumb,
     progressSteps = DebugProgressSteps,
+    dataTable = DebugDataTable,
+    tree = DebugTree,
 )
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */

@@ -12,6 +12,7 @@ import com.srctool.camouflage.core.buttongroup.ButtonGroupRenderer
 import com.srctool.camouflage.core.card.CardRenderer
 import com.srctool.camouflage.core.checkbox.CheckboxRenderer
 import com.srctool.camouflage.core.chip.ChipRenderer
+import com.srctool.camouflage.core.datatable.DataTableRenderer
 import com.srctool.camouflage.core.datepicker.DatePickerRenderer
 import com.srctool.camouflage.core.dialog.DialogRenderer
 import com.srctool.camouflage.core.divider.DividerRenderer
@@ -49,6 +50,7 @@ import com.srctool.camouflage.core.timepicker.TimePickerRenderer
 import com.srctool.camouflage.core.toolbar.ToolbarRenderer
 import com.srctool.camouflage.core.tooltip.TooltipRenderer
 import com.srctool.camouflage.core.topbar.TopBarRenderer
+import com.srctool.camouflage.core.tree.TreeRenderer
 
 /**
  * A design language: how each component is built, how it reacts to touch and what its surfaces are made of.
@@ -112,4 +114,6 @@ public data class CamoSkin(
     val pagination: PaginationRenderer,
     val breadcrumb: BreadcrumbRenderer,
     val progressSteps: ProgressStepsRenderer,
+    val dataTable: DataTableRenderer,
+    val tree: TreeRenderer,
 )

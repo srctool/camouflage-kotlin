@@ -15,6 +15,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCardRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCheckboxRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalChipRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalDataTableRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDatePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDialogRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDividerRenderer
@@ -52,6 +53,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalTimePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalToolbarRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTooltipRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalTopBarRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalTreeRenderer
 
 /**
  * Camouflage's own neutral dialect: flat surfaces with hairlines, a quiet fade for feedback, ink as the
@@ -110,6 +112,8 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     pagination = MinimalPaginationRenderer,
     breadcrumb = MinimalBreadcrumbRenderer,
     progressSteps = MinimalProgressStepsRenderer,
+    dataTable = MinimalDataTableRenderer,
+    tree = MinimalTreeRenderer,
 )
 
 /** The Minimal skin. */

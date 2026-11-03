@@ -25,6 +25,7 @@ public final class com/srctool/camouflage/skin/testing/ComposableSingletons$Gall
 	public final fun getLambda$-1340714031$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1357774108$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1492576149$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-150040999$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda$-1550199686$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda$-163804853$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1642102018$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
@@ -32,6 +33,7 @@ public final class com/srctool/camouflage/skin/testing/ComposableSingletons$Gall
 	public final fun getLambda$-1782877043$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function5;
 	public final fun getLambda$-1788501347$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-178978298$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1872043685$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda$-1919507634$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1919867444$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1954586077$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
@@ -52,6 +54,7 @@ public final class com/srctool/camouflage/skin/testing/ComposableSingletons$Gall
 	public final fun getLambda$-957600606$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$112827231$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$1131460392$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1136441306$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda$1161661831$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$1277661347$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$1278628525$com_srctool_camouflage_camouflage_skin_testing ()Lkotlin/jvm/functions/Function2;
@@ -102,6 +105,7 @@ public final class com/srctool/camouflage/skin/testing/GalleryKt {
 	public static final fun FeedbackGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun IconButtonGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun InputGallery (Landroidx/compose/runtime/Composer;I)V
+	public static final fun ListsGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun MenuGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun NavigationChromeGallery (Landroidx/compose/runtime/Composer;I)V
 	public static final fun NavigationGallery (Landroidx/compose/runtime/Composer;I)V

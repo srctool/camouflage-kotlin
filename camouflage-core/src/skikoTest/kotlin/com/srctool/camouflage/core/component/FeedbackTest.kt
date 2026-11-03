@@ -178,7 +178,8 @@ class FeedbackTest {
             }
         }
         show("Archived", action = "Undo") { result = it }
-        mainClock.advanceTimeBy(60_000)
+        // A minute in one step: frame by frame it is thousands of recompositions, which times out on wasm.
+        mainClock.advanceTimeBy(60_000, ignoreFrameDuration = true)
         waitForIdle()
         assertNull(result)
         onNodeWithText("Undo").assertIsDisplayed()
