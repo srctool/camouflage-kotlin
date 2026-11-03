@@ -133,6 +133,7 @@ fun SampleApp() {
                     Section("Editor: toolbars, button groups and a split button") { EditorDemo() }
                     Section("Rating, pages, path and steps") { SmallDataDemo() }
                     Section("Table and tree") { ListsDemo() }
+                    Section("Admin: folder, upload and review") { AdminDemo() }
                     val promo = sampleTheme(choice, brand, dark)
                         .copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                     CamouflageProvider(theme = promo) {

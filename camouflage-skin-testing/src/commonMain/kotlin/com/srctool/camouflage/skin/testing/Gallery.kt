@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -42,6 +44,7 @@ import com.srctool.camouflage.core.button.CamoButton
 import com.srctool.camouflage.core.buttongroup.CamoButtonGroup
 import com.srctool.camouflage.core.buttongroup.CamoGroupButton
 import com.srctool.camouflage.core.card.CamoCard
+import com.srctool.camouflage.core.carousel.CamoCarousel
 import com.srctool.camouflage.core.checkbox.CamoCheckbox
 import com.srctool.camouflage.core.chip.CamoChip
 import com.srctool.camouflage.core.chip.CamoChipGroup
@@ -61,6 +64,9 @@ import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.divider.CamoDivider
 import com.srctool.camouflage.core.divider.DividerInset
 import com.srctool.camouflage.core.fab.CamoFab
+import com.srctool.camouflage.core.fileuploader.CamoFileUploader
+import com.srctool.camouflage.core.fileuploader.UploadFile
+import com.srctool.camouflage.core.fileuploader.UploadStatus
 import com.srctool.camouflage.core.icon.CamoIcon
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.iconbutton.CamoIconButton
@@ -833,5 +839,30 @@ public fun ListsGallery() {
             selected = setOf("cv"), onSelectedChange = {}, label = { it }, caption = "Files",
             modifier = Modifier.height(TreeHeight),
         )
+    }
+}
+
+private val SlideHeight = 120.dp
+private const val SLIDE_COUNT = 3
+private const val MEGABYTE = 1_048_576L
+private const val KILOBYTE = 1_024L
+private const val UPLOAD_PROGRESS = 0.45f
+
+/** The M10 carousel (with buttons and dots) and file uploader (a zone, an uploading, a failed and a finished file). */
+@Composable
+public fun CollectionsGallery() {
+    val colors = listOf(Color(0xFF6D8FB5), Color(0xFFB58F6D), Color(0xFF8FB56D))
+    val files = listOf(
+        UploadFile("a", "portrait.png", MEGABYTE, progress = UPLOAD_PROGRESS),
+        UploadFile("b", "resume.pdf", 2 * KILOBYTE, status = UploadStatus.Failed("Too large")),
+        UploadFile("c", "notes.txt", 12, status = UploadStatus.Done),
+    )
+    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        CamoCarousel(
+            colors.take(SLIDE_COUNT), { it.value }, "Gallery", Modifier.fillMaxWidth(), showButtons = true,
+        ) { color ->
+            Box(Modifier.fillMaxWidth().height(SlideHeight).background(color)) { CamoText("Slide") }
+        }
+        CamoFileUploader(files, {}, {}, "Upload files", onRetry = {}, hint = "PNG or PDF, up to 5 MB")
     }
 }

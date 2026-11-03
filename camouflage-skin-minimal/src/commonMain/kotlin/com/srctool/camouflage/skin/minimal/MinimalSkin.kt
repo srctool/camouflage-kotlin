@@ -13,6 +13,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalBreadcrumbRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonGroupRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCardRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalCarouselRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalCheckboxRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalChipRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDataTableRenderer
@@ -20,6 +21,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalDatePickerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDialogRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDividerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalFabRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalFileUploaderRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalImageRenderer
@@ -114,6 +116,8 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     progressSteps = MinimalProgressStepsRenderer,
     dataTable = MinimalDataTableRenderer,
     tree = MinimalTreeRenderer,
+    carousel = MinimalCarouselRenderer,
+    fileUploader = MinimalFileUploaderRenderer,
 )
 
 /** The Minimal skin. */

@@ -10,6 +10,7 @@ import com.srctool.camouflage.core.breadcrumb.BreadcrumbRenderer
 import com.srctool.camouflage.core.button.ButtonRenderer
 import com.srctool.camouflage.core.buttongroup.ButtonGroupRenderer
 import com.srctool.camouflage.core.card.CardRenderer
+import com.srctool.camouflage.core.carousel.CarouselRenderer
 import com.srctool.camouflage.core.checkbox.CheckboxRenderer
 import com.srctool.camouflage.core.chip.ChipRenderer
 import com.srctool.camouflage.core.datatable.DataTableRenderer
@@ -17,6 +18,7 @@ import com.srctool.camouflage.core.datepicker.DatePickerRenderer
 import com.srctool.camouflage.core.dialog.DialogRenderer
 import com.srctool.camouflage.core.divider.DividerRenderer
 import com.srctool.camouflage.core.fab.FabRenderer
+import com.srctool.camouflage.core.fileuploader.FileUploaderRenderer
 import com.srctool.camouflage.core.icon.IconRenderer
 import com.srctool.camouflage.core.iconbutton.IconButtonRenderer
 import com.srctool.camouflage.core.image.ImageRenderer
@@ -116,4 +118,6 @@ public data class CamoSkin(
     val progressSteps: ProgressStepsRenderer,
     val dataTable: DataTableRenderer,
     val tree: TreeRenderer,
+    val carousel: CarouselRenderer,
+    val fileUploader: FileUploaderRenderer,
 )
