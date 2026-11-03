@@ -24,6 +24,7 @@ Kotlin implementation of Camouflage (part of the SRC Tool). This repository is a
 | `camouflage-core` | the components, `CamoTheme` and the Skin contract; visually neutral, no Material |
 | `camouflage-skin-minimal` | the Minimal skin and `minimalTheme` |
 | `camouflage-navigation3` | Navigation 3 integration: dialog and bottom-sheet scene strategies (M6) |
+| `camouflage-charts` | Charts without a chart library: line, bar, pie and sparkline, styled by theme tokens and a preset per skin (M11) |
 | `camouflage-skin-testing` | test-only checks for any skin (M3) |
 | `camouflage-bom` | pins the modules above to versions tested together |
 | `sample` | the sample app: `:sample:shared` (Android, iOS, desktop, web) and `:sample:androidApp` |

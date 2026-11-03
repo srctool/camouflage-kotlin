@@ -24,6 +24,7 @@ srctool {
         ":camouflage-skin-minimal" to 1,
         ":camouflage-skin-fluent" to 1,
         ":camouflage-navigation3" to 1,
+        ":camouflage-charts" to 1,
         ":camouflage-skin-testing" to 1,
         ":camouflage-bom" to 3,
         ":sample:shared" to 3,
