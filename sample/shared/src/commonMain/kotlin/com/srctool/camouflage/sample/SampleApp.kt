@@ -132,6 +132,7 @@ fun SampleApp() {
                     Section("Popover and side sheet") { PanelsDemo() }
                     Section("Editor: toolbars, button groups and a split button") { EditorDemo() }
                     Section("Rating, pages, path and steps") { SmallDataDemo() }
+                    Section("Table and tree") { ListsDemo() }
                     val promo = sampleTheme(choice, brand, dark)
                         .copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                     CamouflageProvider(theme = promo) {

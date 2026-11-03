@@ -12,6 +12,7 @@ import com.srctool.camouflage.core.buttongroup.ButtonGroupTheme
 import com.srctool.camouflage.core.card.CardTheme
 import com.srctool.camouflage.core.checkbox.CheckboxTheme
 import com.srctool.camouflage.core.chip.ChipTheme
+import com.srctool.camouflage.core.datatable.TableTheme
 import com.srctool.camouflage.core.datepicker.DatePickerTheme
 import com.srctool.camouflage.core.dialog.DialogTheme
 import com.srctool.camouflage.core.divider.DividerTheme
@@ -48,6 +49,7 @@ import com.srctool.camouflage.core.timepicker.TimePickerTheme
 import com.srctool.camouflage.core.toolbar.ToolbarTheme
 import com.srctool.camouflage.core.tooltip.TooltipTheme
 import com.srctool.camouflage.core.topbar.TopBarTheme
+import com.srctool.camouflage.core.tree.TreeTheme
 
 /**
  * Per-component overrides: one nullable `XTheme` per component, `null` meaning the skin's default.
@@ -102,4 +104,6 @@ public data class CamoComponentThemes(
     val pagination: PaginationTheme? = null,
     val breadcrumb: BreadcrumbTheme? = null,
     val progressSteps: StepsTheme? = null,
+    val dataTable: TableTheme? = null,
+    val tree: TreeTheme? = null,
 )

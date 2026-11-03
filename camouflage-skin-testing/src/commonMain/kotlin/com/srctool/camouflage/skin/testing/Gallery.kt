@@ -46,6 +46,11 @@ import com.srctool.camouflage.core.checkbox.CamoCheckbox
 import com.srctool.camouflage.core.chip.CamoChip
 import com.srctool.camouflage.core.chip.CamoChipGroup
 import com.srctool.camouflage.core.chip.ChipOption
+import com.srctool.camouflage.core.datatable.CamoColumn
+import com.srctool.camouflage.core.datatable.CamoDataTable
+import com.srctool.camouflage.core.datatable.ColumnAlign
+import com.srctool.camouflage.core.datatable.ColumnWidth
+import com.srctool.camouflage.core.datatable.TableSort
 import com.srctool.camouflage.core.datepicker.CalendarSelection
 import com.srctool.camouflage.core.datepicker.CamoCalendar
 import com.srctool.camouflage.core.datepicker.CamoDateField
@@ -137,6 +142,8 @@ import com.srctool.camouflage.core.toolbar.CamoToolbarAction
 import com.srctool.camouflage.core.toolbar.ToolbarPlacement
 import com.srctool.camouflage.core.tooltip.TooltipState
 import com.srctool.camouflage.core.topbar.CamoTopBar
+import com.srctool.camouflage.core.tree.CamoTree
+import com.srctool.camouflage.core.tree.CamoTreeNode
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlinx.datetime.YearMonth
@@ -778,6 +785,53 @@ public fun SmallDataGallery() {
                 step("Review")).map { it.copy(description = "${it.label} details") },
             current = 1,
             orientation = StepsOrientation.Vertical,
+        )
+    }
+}
+
+private val TableHeight = 230.dp
+private val TreeHeight = 220.dp
+private val AgeWidth = 72.dp
+
+private data class Member(val id: Int, val name: String, val role: String, val age: Int)
+
+/**
+ * The M10 data table and tree: a sorted, partly selected table with a right-aligned column, and a tree with
+ * two levels open, a selected node and a node still loading its children.
+ */
+@Composable
+public fun ListsGallery() {
+    val members = listOf(
+        Member(1, "Ada Lovelace", "Mathematician", 36),
+        Member(2, "Grace Hopper", "Admiral", 85),
+        Member(3, "Linus Torvalds", "Maintainer", 55),
+        Member(4, "Margaret Hamilton", "Engineer", 88),
+    )
+    val columns = listOf(
+        CamoColumn<Member>("name", "Name", sortable = true, cell = { CamoText(it.name) }),
+        CamoColumn<Member>("role", "Role", width = ColumnWidth.Weight(0.8f), cell = { CamoText(it.role) }),
+        CamoColumn<Member>("age", "Age", ColumnWidth.Fixed(AgeWidth), ColumnAlign.End, true, { CamoText("${it.age}") }),
+    )
+    val tree = listOf(
+        CamoTreeNode(
+            "docs", "Documents",
+            listOf(CamoTreeNode("cv", "CV.pdf"), CamoTreeNode("notes", "Notes", listOf(CamoTreeNode("n1",
+                "Ideas.md")))),
+        ),
+        CamoTreeNode("remote", "Shared drive", children = null, hasChildren = true),
+        CamoTreeNode("readme", "README.md"),
+    )
+    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        CamoDataTable(
+            columns, members, { it.id }, "Members",
+            Modifier.height(TableHeight),
+            sort = TableSort("name", ascending = true), onSortChange = {},
+            selection = setOf(2), onSelectionChange = {},
+        )
+        CamoTree(
+            tree, expanded = setOf("docs", "notes", "remote"), onExpandedChange = {},
+            selected = setOf("cv"), onSelectedChange = {}, label = { it }, caption = "Files",
+            modifier = Modifier.height(TreeHeight),
         )
     }
 }

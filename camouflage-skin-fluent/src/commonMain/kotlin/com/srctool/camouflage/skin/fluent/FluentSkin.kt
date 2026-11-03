@@ -14,6 +14,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCardRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentCheckboxRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentChipRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentDataTableRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDatePickerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDialogRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDividerRenderer
@@ -51,6 +52,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentTimePickerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentToolbarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTooltipRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentTopBarRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentTreeRenderer
 
 /**
  * Microsoft's Fluent 2, drawn on Compose foundation: [FluentSolid] surfaces, [Subtle] feedback with the
@@ -113,6 +115,8 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     pagination = FluentPaginationRenderer,
     breadcrumb = FluentBreadcrumbRenderer,
     progressSteps = FluentProgressStepsRenderer,
+    dataTable = FluentDataTableRenderer,
+    tree = FluentTreeRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */
