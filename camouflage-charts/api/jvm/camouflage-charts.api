@@ -1,3 +1,52 @@
+public final class com/srctool/camouflage/charts/BarChartSpec {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/geometry/Rect;Ljava/util/List;FZLjava/lang/Integer;F)V
+	public final fun getActive ()Ljava/lang/Integer;
+	public final fun getBars ()Ljava/util/List;
+	public final fun getBaseline ()F
+	public final fun getPlot ()Landroidx/compose/ui/geometry/Rect;
+	public final fun getProgress ()F
+	public final fun getVertical ()Z
+}
+
+public final class com/srctool/camouflage/charts/BarEdge : java/lang/Enum {
+	public static final field Bottom Lcom/srctool/camouflage/charts/BarEdge;
+	public static final field Left Lcom/srctool/camouflage/charts/BarEdge;
+	public static final field Right Lcom/srctool/camouflage/charts/BarEdge;
+	public static final field Top Lcom/srctool/camouflage/charts/BarEdge;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/charts/BarEdge;
+	public static fun values ()[Lcom/srctool/camouflage/charts/BarEdge;
+}
+
+public final class com/srctool/camouflage/charts/BarMark {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/geometry/Rect;JLcom/srctool/camouflage/charts/BarEdge;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getColor-0d7_KjU ()J
+	public final fun getEdge ()Lcom/srctool/camouflage/charts/BarEdge;
+	public final fun getRect ()Landroidx/compose/ui/geometry/Rect;
+}
+
+public final class com/srctool/camouflage/charts/BarMode : java/lang/Enum {
+	public static final field Grouped Lcom/srctool/camouflage/charts/BarMode;
+	public static final field Stacked Lcom/srctool/camouflage/charts/BarMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/charts/BarMode;
+	public static fun values ()[Lcom/srctool/camouflage/charts/BarMode;
+}
+
+public final class com/srctool/camouflage/charts/BarOrientation : java/lang/Enum {
+	public static final field Horizontal Lcom/srctool/camouflage/charts/BarOrientation;
+	public static final field Vertical Lcom/srctool/camouflage/charts/BarOrientation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/charts/BarOrientation;
+	public static fun values ()[Lcom/srctool/camouflage/charts/BarOrientation;
+}
+
+public final class com/srctool/camouflage/charts/CamoBarChartKt {
+	public static final fun CamoBarChart-4u75S8o (Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/charts/BarOrientation;Lcom/srctool/camouflage/charts/BarMode;ZLcom/srctool/camouflage/charts/ChartAxis;Lcom/srctool/camouflage/charts/ChartAxis;ZLkotlin/jvm/functions/Function2;ZFLcom/srctool/camouflage/charts/ChartStyle;Landroidx/compose/runtime/Composer;III)V
+}
+
 public final class com/srctool/camouflage/charts/CamoChartFrameKt {
 	public static final fun CamoChartDataTable (Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
 	public static final fun CamoChartFrame-TCVpFMg (Ljava/lang/String;Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/util/List;Lkotlin/jvm/functions/Function1;ZZLkotlin/jvm/functions/Function2;FLkotlin/jvm/functions/Function2;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;III)V
@@ -7,6 +56,10 @@ public final class com/srctool/camouflage/charts/CamoCharts {
 	public static final field $stable I
 	public static final field INSTANCE Lcom/srctool/camouflage/charts/CamoCharts;
 	public final fun registerPreset (Ljava/lang/String;Lcom/srctool/camouflage/charts/ChartStyle;)V
+}
+
+public final class com/srctool/camouflage/charts/CamoLineChartKt {
+	public static final fun CamoLineChart-Udi8eBY (Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/charts/LineKind;Lcom/srctool/camouflage/charts/LineCurve;Lcom/srctool/camouflage/charts/MarkerVisibility;Lcom/srctool/camouflage/charts/ChartAxis;Lcom/srctool/camouflage/charts/ChartAxis;Ljava/util/List;IZLkotlin/jvm/functions/Function2;ZFLcom/srctool/camouflage/charts/ChartStyle;Landroidx/compose/runtime/Composer;III)V
 }
 
 public final class com/srctool/camouflage/charts/CamoSparklineKt {
@@ -43,7 +96,14 @@ public final class com/srctool/camouflage/charts/ChartDataKt {
 }
 
 public abstract interface class com/srctool/camouflage/charts/ChartRenderer {
+	public fun drawBarChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/BarChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
+	public fun drawLineChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/LineChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 	public abstract fun drawSparkline (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/SparklineSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
+}
+
+public final class com/srctool/camouflage/charts/ChartRenderer$DefaultImpls {
+	public static fun drawBarChart (Lcom/srctool/camouflage/charts/ChartRenderer;Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/BarChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
+	public static fun drawLineChart (Lcom/srctool/camouflage/charts/ChartRenderer;Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/LineChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 }
 
 public final class com/srctool/camouflage/charts/ChartRendererKt {
@@ -133,6 +193,8 @@ public final class com/srctool/camouflage/charts/ChartTokens : com/srctool/camou
 public final class com/srctool/camouflage/charts/DefaultChartRenderer : com/srctool/camouflage/charts/ChartRenderer {
 	public static final field $stable I
 	public static final field INSTANCE Lcom/srctool/camouflage/charts/DefaultChartRenderer;
+	public fun drawBarChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/BarChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
+	public fun drawLineChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/LineChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 	public fun drawSparkline (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/SparklineSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 }
 
@@ -153,11 +215,59 @@ public final class com/srctool/camouflage/charts/LegendItem {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/srctool/camouflage/charts/LineChartSpec {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/geometry/Rect;Ljava/util/List;Lcom/srctool/camouflage/charts/LineCurve;ZLjava/lang/Integer;Ljava/lang/Integer;F)V
+	public final fun getActiveCategory ()Ljava/lang/Integer;
+	public final fun getCurve ()Lcom/srctool/camouflage/charts/LineCurve;
+	public final fun getFocusedSeries ()Ljava/lang/Integer;
+	public final fun getMarkers ()Z
+	public final fun getPlot ()Landroidx/compose/ui/geometry/Rect;
+	public final fun getProgress ()F
+	public final fun getSeries ()Ljava/util/List;
+}
+
+public final class com/srctool/camouflage/charts/LineCurve : java/lang/Enum {
+	public static final field CatmullRom Lcom/srctool/camouflage/charts/LineCurve;
+	public static final field Linear Lcom/srctool/camouflage/charts/LineCurve;
+	public static final field Smooth Lcom/srctool/camouflage/charts/LineCurve;
+	public static final field Step Lcom/srctool/camouflage/charts/LineCurve;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/charts/LineCurve;
+	public static fun values ()[Lcom/srctool/camouflage/charts/LineCurve;
+}
+
+public final class com/srctool/camouflage/charts/LineKind : java/lang/Enum {
+	public static final field Area Lcom/srctool/camouflage/charts/LineKind;
+	public static final field Line Lcom/srctool/camouflage/charts/LineKind;
+	public static final field StackedArea Lcom/srctool/camouflage/charts/LineKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/charts/LineKind;
+	public static fun values ()[Lcom/srctool/camouflage/charts/LineKind;
+}
+
+public final class com/srctool/camouflage/charts/LineSeriesSpec {
+	public static final field $stable I
+	public synthetic fun <init> (JLjava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getColor-0d7_KjU ()J
+	public final fun getLower ()Ljava/util/List;
+	public final fun getUpper ()Ljava/util/List;
+}
+
 public final class com/srctool/camouflage/charts/LinearScale {
 	public static final field $stable I
 	public fun <init> (DDFF)V
 	public final fun invert (F)D
 	public final fun map (D)F
+}
+
+public final class com/srctool/camouflage/charts/MarkerVisibility : java/lang/Enum {
+	public static final field Always Lcom/srctool/camouflage/charts/MarkerVisibility;
+	public static final field Never Lcom/srctool/camouflage/charts/MarkerVisibility;
+	public static final field OnHover Lcom/srctool/camouflage/charts/MarkerVisibility;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/charts/MarkerVisibility;
+	public static fun values ()[Lcom/srctool/camouflage/charts/MarkerVisibility;
 }
 
 public final class com/srctool/camouflage/charts/ResolvedChartStyle {
