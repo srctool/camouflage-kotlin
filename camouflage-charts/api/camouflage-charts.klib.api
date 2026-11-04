@@ -6,6 +6,78 @@
 // - Show declarations: true
 
 // Library unique name: <com.srctool.camouflage:camouflage-charts>
+final enum class com.srctool.camouflage.charts/BarEdge : kotlin/Enum<com.srctool.camouflage.charts/BarEdge> { // com.srctool.camouflage.charts/BarEdge|null[0]
+    enum entry Bottom // com.srctool.camouflage.charts/BarEdge.Bottom|null[0]
+    enum entry Left // com.srctool.camouflage.charts/BarEdge.Left|null[0]
+    enum entry Right // com.srctool.camouflage.charts/BarEdge.Right|null[0]
+    enum entry Top // com.srctool.camouflage.charts/BarEdge.Top|null[0]
+
+    final val entries // com.srctool.camouflage.charts/BarEdge.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.srctool.camouflage.charts/BarEdge> // com.srctool.camouflage.charts/BarEdge.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.srctool.camouflage.charts/BarEdge // com.srctool.camouflage.charts/BarEdge.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.srctool.camouflage.charts/BarEdge> // com.srctool.camouflage.charts/BarEdge.values|values#static(){}[0]
+}
+
+final enum class com.srctool.camouflage.charts/BarMode : kotlin/Enum<com.srctool.camouflage.charts/BarMode> { // com.srctool.camouflage.charts/BarMode|null[0]
+    enum entry Grouped // com.srctool.camouflage.charts/BarMode.Grouped|null[0]
+    enum entry Stacked // com.srctool.camouflage.charts/BarMode.Stacked|null[0]
+
+    final val entries // com.srctool.camouflage.charts/BarMode.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.srctool.camouflage.charts/BarMode> // com.srctool.camouflage.charts/BarMode.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.srctool.camouflage.charts/BarMode // com.srctool.camouflage.charts/BarMode.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.srctool.camouflage.charts/BarMode> // com.srctool.camouflage.charts/BarMode.values|values#static(){}[0]
+}
+
+final enum class com.srctool.camouflage.charts/BarOrientation : kotlin/Enum<com.srctool.camouflage.charts/BarOrientation> { // com.srctool.camouflage.charts/BarOrientation|null[0]
+    enum entry Horizontal // com.srctool.camouflage.charts/BarOrientation.Horizontal|null[0]
+    enum entry Vertical // com.srctool.camouflage.charts/BarOrientation.Vertical|null[0]
+
+    final val entries // com.srctool.camouflage.charts/BarOrientation.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.srctool.camouflage.charts/BarOrientation> // com.srctool.camouflage.charts/BarOrientation.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.srctool.camouflage.charts/BarOrientation // com.srctool.camouflage.charts/BarOrientation.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.srctool.camouflage.charts/BarOrientation> // com.srctool.camouflage.charts/BarOrientation.values|values#static(){}[0]
+}
+
+final enum class com.srctool.camouflage.charts/LineCurve : kotlin/Enum<com.srctool.camouflage.charts/LineCurve> { // com.srctool.camouflage.charts/LineCurve|null[0]
+    enum entry CatmullRom // com.srctool.camouflage.charts/LineCurve.CatmullRom|null[0]
+    enum entry Linear // com.srctool.camouflage.charts/LineCurve.Linear|null[0]
+    enum entry Smooth // com.srctool.camouflage.charts/LineCurve.Smooth|null[0]
+    enum entry Step // com.srctool.camouflage.charts/LineCurve.Step|null[0]
+
+    final val entries // com.srctool.camouflage.charts/LineCurve.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.srctool.camouflage.charts/LineCurve> // com.srctool.camouflage.charts/LineCurve.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.srctool.camouflage.charts/LineCurve // com.srctool.camouflage.charts/LineCurve.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.srctool.camouflage.charts/LineCurve> // com.srctool.camouflage.charts/LineCurve.values|values#static(){}[0]
+}
+
+final enum class com.srctool.camouflage.charts/LineKind : kotlin/Enum<com.srctool.camouflage.charts/LineKind> { // com.srctool.camouflage.charts/LineKind|null[0]
+    enum entry Area // com.srctool.camouflage.charts/LineKind.Area|null[0]
+    enum entry Line // com.srctool.camouflage.charts/LineKind.Line|null[0]
+    enum entry StackedArea // com.srctool.camouflage.charts/LineKind.StackedArea|null[0]
+
+    final val entries // com.srctool.camouflage.charts/LineKind.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.srctool.camouflage.charts/LineKind> // com.srctool.camouflage.charts/LineKind.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.srctool.camouflage.charts/LineKind // com.srctool.camouflage.charts/LineKind.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.srctool.camouflage.charts/LineKind> // com.srctool.camouflage.charts/LineKind.values|values#static(){}[0]
+}
+
+final enum class com.srctool.camouflage.charts/MarkerVisibility : kotlin/Enum<com.srctool.camouflage.charts/MarkerVisibility> { // com.srctool.camouflage.charts/MarkerVisibility|null[0]
+    enum entry Always // com.srctool.camouflage.charts/MarkerVisibility.Always|null[0]
+    enum entry Never // com.srctool.camouflage.charts/MarkerVisibility.Never|null[0]
+    enum entry OnHover // com.srctool.camouflage.charts/MarkerVisibility.OnHover|null[0]
+
+    final val entries // com.srctool.camouflage.charts/MarkerVisibility.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.srctool.camouflage.charts/MarkerVisibility> // com.srctool.camouflage.charts/MarkerVisibility.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.srctool.camouflage.charts/MarkerVisibility // com.srctool.camouflage.charts/MarkerVisibility.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.srctool.camouflage.charts/MarkerVisibility> // com.srctool.camouflage.charts/MarkerVisibility.values|values#static(){}[0]
+}
+
 final enum class com.srctool.camouflage.charts/SparklineHighlight : kotlin/Enum<com.srctool.camouflage.charts/SparklineHighlight> { // com.srctool.camouflage.charts/SparklineHighlight|null[0]
     enum entry Extremes // com.srctool.camouflage.charts/SparklineHighlight.Extremes|null[0]
     enum entry Last // com.srctool.camouflage.charts/SparklineHighlight.Last|null[0]
@@ -32,6 +104,36 @@ final enum class com.srctool.camouflage.charts/SparklineKind : kotlin/Enum<com.s
 
 abstract interface com.srctool.camouflage.charts/ChartRenderer { // com.srctool.camouflage.charts/ChartRenderer|null[0]
     abstract fun drawSparkline(androidx.compose.ui.graphics.drawscope/DrawScope, com.srctool.camouflage.charts/SparklineSpec, com.srctool.camouflage.charts/ResolvedChartStyle) // com.srctool.camouflage.charts/ChartRenderer.drawSparkline|drawSparkline(androidx.compose.ui.graphics.drawscope.DrawScope;com.srctool.camouflage.charts.SparklineSpec;com.srctool.camouflage.charts.ResolvedChartStyle){}[0]
+    open fun drawBarChart(androidx.compose.ui.graphics.drawscope/DrawScope, com.srctool.camouflage.charts/BarChartSpec, com.srctool.camouflage.charts/ResolvedChartStyle) // com.srctool.camouflage.charts/ChartRenderer.drawBarChart|drawBarChart(androidx.compose.ui.graphics.drawscope.DrawScope;com.srctool.camouflage.charts.BarChartSpec;com.srctool.camouflage.charts.ResolvedChartStyle){}[0]
+    open fun drawLineChart(androidx.compose.ui.graphics.drawscope/DrawScope, com.srctool.camouflage.charts/LineChartSpec, com.srctool.camouflage.charts/ResolvedChartStyle) // com.srctool.camouflage.charts/ChartRenderer.drawLineChart|drawLineChart(androidx.compose.ui.graphics.drawscope.DrawScope;com.srctool.camouflage.charts.LineChartSpec;com.srctool.camouflage.charts.ResolvedChartStyle){}[0]
+}
+
+final class com.srctool.camouflage.charts/BarChartSpec { // com.srctool.camouflage.charts/BarChartSpec|null[0]
+    constructor <init>(androidx.compose.ui.geometry/Rect, kotlin.collections/List<com.srctool.camouflage.charts/BarMark>, kotlin/Float, kotlin/Boolean, kotlin/Int?, kotlin/Float) // com.srctool.camouflage.charts/BarChartSpec.<init>|<init>(androidx.compose.ui.geometry.Rect;kotlin.collections.List<com.srctool.camouflage.charts.BarMark>;kotlin.Float;kotlin.Boolean;kotlin.Int?;kotlin.Float){}[0]
+
+    final val active // com.srctool.camouflage.charts/BarChartSpec.active|{}active[0]
+        final fun <get-active>(): kotlin/Int? // com.srctool.camouflage.charts/BarChartSpec.active.<get-active>|<get-active>(){}[0]
+    final val bars // com.srctool.camouflage.charts/BarChartSpec.bars|{}bars[0]
+        final fun <get-bars>(): kotlin.collections/List<com.srctool.camouflage.charts/BarMark> // com.srctool.camouflage.charts/BarChartSpec.bars.<get-bars>|<get-bars>(){}[0]
+    final val baseline // com.srctool.camouflage.charts/BarChartSpec.baseline|{}baseline[0]
+        final fun <get-baseline>(): kotlin/Float // com.srctool.camouflage.charts/BarChartSpec.baseline.<get-baseline>|<get-baseline>(){}[0]
+    final val plot // com.srctool.camouflage.charts/BarChartSpec.plot|{}plot[0]
+        final fun <get-plot>(): androidx.compose.ui.geometry/Rect // com.srctool.camouflage.charts/BarChartSpec.plot.<get-plot>|<get-plot>(){}[0]
+    final val progress // com.srctool.camouflage.charts/BarChartSpec.progress|{}progress[0]
+        final fun <get-progress>(): kotlin/Float // com.srctool.camouflage.charts/BarChartSpec.progress.<get-progress>|<get-progress>(){}[0]
+    final val vertical // com.srctool.camouflage.charts/BarChartSpec.vertical|{}vertical[0]
+        final fun <get-vertical>(): kotlin/Boolean // com.srctool.camouflage.charts/BarChartSpec.vertical.<get-vertical>|<get-vertical>(){}[0]
+}
+
+final class com.srctool.camouflage.charts/BarMark { // com.srctool.camouflage.charts/BarMark|null[0]
+    constructor <init>(androidx.compose.ui.geometry/Rect, androidx.compose.ui.graphics/Color, com.srctool.camouflage.charts/BarEdge?) // com.srctool.camouflage.charts/BarMark.<init>|<init>(androidx.compose.ui.geometry.Rect;androidx.compose.ui.graphics.Color;com.srctool.camouflage.charts.BarEdge?){}[0]
+
+    final val color // com.srctool.camouflage.charts/BarMark.color|{}color[0]
+        final fun <get-color>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.charts/BarMark.color.<get-color>|<get-color>(){}[0]
+    final val edge // com.srctool.camouflage.charts/BarMark.edge|{}edge[0]
+        final fun <get-edge>(): com.srctool.camouflage.charts/BarEdge? // com.srctool.camouflage.charts/BarMark.edge.<get-edge>|<get-edge>(){}[0]
+    final val rect // com.srctool.camouflage.charts/BarMark.rect|{}rect[0]
+        final fun <get-rect>(): androidx.compose.ui.geometry/Rect // com.srctool.camouflage.charts/BarMark.rect.<get-rect>|<get-rect>(){}[0]
 }
 
 final class com.srctool.camouflage.charts/ChartAxis { // com.srctool.camouflage.charts/ChartAxis|null[0]
@@ -163,6 +265,36 @@ final class com.srctool.camouflage.charts/LegendItem { // com.srctool.camouflage
     final fun toString(): kotlin/String // com.srctool.camouflage.charts/LegendItem.toString|toString(){}[0]
 }
 
+final class com.srctool.camouflage.charts/LineChartSpec { // com.srctool.camouflage.charts/LineChartSpec|null[0]
+    constructor <init>(androidx.compose.ui.geometry/Rect, kotlin.collections/List<com.srctool.camouflage.charts/LineSeriesSpec>, com.srctool.camouflage.charts/LineCurve, kotlin/Boolean, kotlin/Int?, kotlin/Int?, kotlin/Float) // com.srctool.camouflage.charts/LineChartSpec.<init>|<init>(androidx.compose.ui.geometry.Rect;kotlin.collections.List<com.srctool.camouflage.charts.LineSeriesSpec>;com.srctool.camouflage.charts.LineCurve;kotlin.Boolean;kotlin.Int?;kotlin.Int?;kotlin.Float){}[0]
+
+    final val activeCategory // com.srctool.camouflage.charts/LineChartSpec.activeCategory|{}activeCategory[0]
+        final fun <get-activeCategory>(): kotlin/Int? // com.srctool.camouflage.charts/LineChartSpec.activeCategory.<get-activeCategory>|<get-activeCategory>(){}[0]
+    final val curve // com.srctool.camouflage.charts/LineChartSpec.curve|{}curve[0]
+        final fun <get-curve>(): com.srctool.camouflage.charts/LineCurve // com.srctool.camouflage.charts/LineChartSpec.curve.<get-curve>|<get-curve>(){}[0]
+    final val focusedSeries // com.srctool.camouflage.charts/LineChartSpec.focusedSeries|{}focusedSeries[0]
+        final fun <get-focusedSeries>(): kotlin/Int? // com.srctool.camouflage.charts/LineChartSpec.focusedSeries.<get-focusedSeries>|<get-focusedSeries>(){}[0]
+    final val markers // com.srctool.camouflage.charts/LineChartSpec.markers|{}markers[0]
+        final fun <get-markers>(): kotlin/Boolean // com.srctool.camouflage.charts/LineChartSpec.markers.<get-markers>|<get-markers>(){}[0]
+    final val plot // com.srctool.camouflage.charts/LineChartSpec.plot|{}plot[0]
+        final fun <get-plot>(): androidx.compose.ui.geometry/Rect // com.srctool.camouflage.charts/LineChartSpec.plot.<get-plot>|<get-plot>(){}[0]
+    final val progress // com.srctool.camouflage.charts/LineChartSpec.progress|{}progress[0]
+        final fun <get-progress>(): kotlin/Float // com.srctool.camouflage.charts/LineChartSpec.progress.<get-progress>|<get-progress>(){}[0]
+    final val series // com.srctool.camouflage.charts/LineChartSpec.series|{}series[0]
+        final fun <get-series>(): kotlin.collections/List<com.srctool.camouflage.charts/LineSeriesSpec> // com.srctool.camouflage.charts/LineChartSpec.series.<get-series>|<get-series>(){}[0]
+}
+
+final class com.srctool.camouflage.charts/LineSeriesSpec { // com.srctool.camouflage.charts/LineSeriesSpec|null[0]
+    constructor <init>(androidx.compose.ui.graphics/Color, kotlin.collections/List<androidx.compose.ui.geometry/Offset?>, kotlin.collections/List<androidx.compose.ui.geometry/Offset?>?) // com.srctool.camouflage.charts/LineSeriesSpec.<init>|<init>(androidx.compose.ui.graphics.Color;kotlin.collections.List<androidx.compose.ui.geometry.Offset?>;kotlin.collections.List<androidx.compose.ui.geometry.Offset?>?){}[0]
+
+    final val color // com.srctool.camouflage.charts/LineSeriesSpec.color|{}color[0]
+        final fun <get-color>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.charts/LineSeriesSpec.color.<get-color>|<get-color>(){}[0]
+    final val lower // com.srctool.camouflage.charts/LineSeriesSpec.lower|{}lower[0]
+        final fun <get-lower>(): kotlin.collections/List<androidx.compose.ui.geometry/Offset?>? // com.srctool.camouflage.charts/LineSeriesSpec.lower.<get-lower>|<get-lower>(){}[0]
+    final val upper // com.srctool.camouflage.charts/LineSeriesSpec.upper|{}upper[0]
+        final fun <get-upper>(): kotlin.collections/List<androidx.compose.ui.geometry/Offset?> // com.srctool.camouflage.charts/LineSeriesSpec.upper.<get-upper>|<get-upper>(){}[0]
+}
+
 final class com.srctool.camouflage.charts/LinearScale { // com.srctool.camouflage.charts/LinearScale|null[0]
     constructor <init>(kotlin/Double, kotlin/Double, kotlin/Float, kotlin/Float) // com.srctool.camouflage.charts/LinearScale.<init>|<init>(kotlin.Double;kotlin.Double;kotlin.Float;kotlin.Float){}[0]
 
@@ -245,12 +377,16 @@ final object com.srctool.camouflage.charts/CamoCharts { // com.srctool.camouflag
 }
 
 final object com.srctool.camouflage.charts/DefaultChartRenderer : com.srctool.camouflage.charts/ChartRenderer { // com.srctool.camouflage.charts/DefaultChartRenderer|null[0]
+    final fun drawBarChart(androidx.compose.ui.graphics.drawscope/DrawScope, com.srctool.camouflage.charts/BarChartSpec, com.srctool.camouflage.charts/ResolvedChartStyle) // com.srctool.camouflage.charts/DefaultChartRenderer.drawBarChart|drawBarChart(androidx.compose.ui.graphics.drawscope.DrawScope;com.srctool.camouflage.charts.BarChartSpec;com.srctool.camouflage.charts.ResolvedChartStyle){}[0]
+    final fun drawLineChart(androidx.compose.ui.graphics.drawscope/DrawScope, com.srctool.camouflage.charts/LineChartSpec, com.srctool.camouflage.charts/ResolvedChartStyle) // com.srctool.camouflage.charts/DefaultChartRenderer.drawLineChart|drawLineChart(androidx.compose.ui.graphics.drawscope.DrawScope;com.srctool.camouflage.charts.LineChartSpec;com.srctool.camouflage.charts.ResolvedChartStyle){}[0]
     final fun drawSparkline(androidx.compose.ui.graphics.drawscope/DrawScope, com.srctool.camouflage.charts/SparklineSpec, com.srctool.camouflage.charts/ResolvedChartStyle) // com.srctool.camouflage.charts/DefaultChartRenderer.drawSparkline|drawSparkline(androidx.compose.ui.graphics.drawscope.DrawScope;com.srctool.camouflage.charts.SparklineSpec;com.srctool.camouflage.charts.ResolvedChartStyle){}[0]
 }
 
 final const val com.srctool.camouflage.charts/DEFAULT_TICK_COUNT // com.srctool.camouflage.charts/DEFAULT_TICK_COUNT|{}DEFAULT_TICK_COUNT[0]
     final fun <get-DEFAULT_TICK_COUNT>(): kotlin/Int // com.srctool.camouflage.charts/DEFAULT_TICK_COUNT.<get-DEFAULT_TICK_COUNT>|<get-DEFAULT_TICK_COUNT>(){}[0]
 
+final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_BarChartSpec$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_BarChartSpec$stableprop|#static{}com_srctool_camouflage_charts_BarChartSpec$stableprop[0]
+final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_BarMark$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_BarMark$stableprop|#static{}com_srctool_camouflage_charts_BarMark$stableprop[0]
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_CamoCharts$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_CamoCharts$stableprop|#static{}com_srctool_camouflage_charts_CamoCharts$stableprop[0]
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartAxis$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartAxis$stableprop|#static{}com_srctool_camouflage_charts_ChartAxis$stableprop[0]
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartSeries$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartSeries$stableprop|#static{}com_srctool_camouflage_charts_ChartSeries$stableprop[0]
@@ -258,14 +394,20 @@ final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartStyle
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartTokens$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartTokens$stableprop|#static{}com_srctool_camouflage_charts_ChartTokens$stableprop[0]
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_DefaultChartRenderer$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_DefaultChartRenderer$stableprop|#static{}com_srctool_camouflage_charts_DefaultChartRenderer$stableprop[0]
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_LegendItem$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_LegendItem$stableprop|#static{}com_srctool_camouflage_charts_LegendItem$stableprop[0]
+final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_LineChartSpec$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_LineChartSpec$stableprop|#static{}com_srctool_camouflage_charts_LineChartSpec$stableprop[0]
+final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_LineSeriesSpec$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_LineSeriesSpec$stableprop|#static{}com_srctool_camouflage_charts_LineSeriesSpec$stableprop[0]
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_LinearScale$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_LinearScale$stableprop|#static{}com_srctool_camouflage_charts_LinearScale$stableprop[0]
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_ResolvedChartStyle$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_ResolvedChartStyle$stableprop|#static{}com_srctool_camouflage_charts_ResolvedChartStyle$stableprop[0]
 final val com.srctool.camouflage.charts/com_srctool_camouflage_charts_SparklineSpec$stableprop // com.srctool.camouflage.charts/com_srctool_camouflage_charts_SparklineSpec$stableprop|#static{}com_srctool_camouflage_charts_SparklineSpec$stableprop[0]
 
+final fun com.srctool.camouflage.charts/CamoBarChart(kotlin.collections/List<kotlin/String>, kotlin.collections/List<com.srctool.camouflage.charts/ChartSeries>, kotlin/String, androidx.compose.ui/Modifier?, com.srctool.camouflage.charts/BarOrientation?, com.srctool.camouflage.charts/BarMode?, kotlin/Boolean, com.srctool.camouflage.charts/ChartAxis?, com.srctool.camouflage.charts/ChartAxis?, kotlin/Boolean, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Boolean, androidx.compose.ui.unit/Dp, com.srctool.camouflage.charts/ChartStyle?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // com.srctool.camouflage.charts/CamoBarChart|CamoBarChart(kotlin.collections.List<kotlin.String>;kotlin.collections.List<com.srctool.camouflage.charts.ChartSeries>;kotlin.String;androidx.compose.ui.Modifier?;com.srctool.camouflage.charts.BarOrientation?;com.srctool.camouflage.charts.BarMode?;kotlin.Boolean;com.srctool.camouflage.charts.ChartAxis?;com.srctool.camouflage.charts.ChartAxis?;kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Boolean;androidx.compose.ui.unit.Dp;com.srctool.camouflage.charts.ChartStyle?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
 final fun com.srctool.camouflage.charts/CamoChartDataTable(kotlin.collections/List<kotlin/String>, kotlin.collections/List<com.srctool.camouflage.charts/ChartSeries>, kotlin/String, androidx.compose.ui/Modifier?, kotlin/Function1<kotlin/Double, kotlin/String>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.charts/CamoChartDataTable|CamoChartDataTable(kotlin.collections.List<kotlin.String>;kotlin.collections.List<com.srctool.camouflage.charts.ChartSeries>;kotlin.String;androidx.compose.ui.Modifier?;kotlin.Function1<kotlin.Double,kotlin.String>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
 final fun com.srctool.camouflage.charts/CamoChartFrame(kotlin/String, kotlin/String, androidx.compose.ui/Modifier?, kotlin.collections/List<com.srctool.camouflage.charts/LegendItem>?, kotlin/Function1<kotlin/Int, kotlin/Unit>?, kotlin/Boolean, kotlin/Boolean, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, androidx.compose.ui.unit/Dp, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Boolean, kotlin/Function1<kotlin/Boolean, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // com.srctool.camouflage.charts/CamoChartFrame|CamoChartFrame(kotlin.String;kotlin.String;androidx.compose.ui.Modifier?;kotlin.collections.List<com.srctool.camouflage.charts.LegendItem>?;kotlin.Function1<kotlin.Int,kotlin.Unit>?;kotlin.Boolean;kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;androidx.compose.ui.unit.Dp;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Boolean;kotlin.Function1<kotlin.Boolean,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
 final fun com.srctool.camouflage.charts/CamoChartsProvider(com.srctool.camouflage.charts/ChartRenderer, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int) // com.srctool.camouflage.charts/CamoChartsProvider|CamoChartsProvider(com.srctool.camouflage.charts.ChartRenderer;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.srctool.camouflage.charts/CamoLineChart(kotlin.collections/List<kotlin/String>, kotlin.collections/List<com.srctool.camouflage.charts/ChartSeries>, kotlin/String, androidx.compose.ui/Modifier?, com.srctool.camouflage.charts/LineKind?, com.srctool.camouflage.charts/LineCurve?, com.srctool.camouflage.charts/MarkerVisibility?, com.srctool.camouflage.charts/ChartAxis?, com.srctool.camouflage.charts/ChartAxis?, kotlin.collections/List<kotlin/Long>?, kotlin/Int, kotlin/Boolean, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Boolean, androidx.compose.ui.unit/Dp, com.srctool.camouflage.charts/ChartStyle?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // com.srctool.camouflage.charts/CamoLineChart|CamoLineChart(kotlin.collections.List<kotlin.String>;kotlin.collections.List<com.srctool.camouflage.charts.ChartSeries>;kotlin.String;androidx.compose.ui.Modifier?;com.srctool.camouflage.charts.LineKind?;com.srctool.camouflage.charts.LineCurve?;com.srctool.camouflage.charts.MarkerVisibility?;com.srctool.camouflage.charts.ChartAxis?;com.srctool.camouflage.charts.ChartAxis?;kotlin.collections.List<kotlin.Long>?;kotlin.Int;kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Boolean;androidx.compose.ui.unit.Dp;com.srctool.camouflage.charts.ChartStyle?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
 final fun com.srctool.camouflage.charts/CamoSparkline(kotlin.collections/List<kotlin/Double?>, androidx.compose.ui/Modifier?, com.srctool.camouflage.charts/SparklineKind?, kotlin.ranges/ClosedFloatingPointRange<kotlin/Double>?, com.srctool.camouflage.charts/SparklineHighlight?, com.srctool.camouflage.core.theme/Tone?, kotlin/String?, com.srctool.camouflage.charts/ChartStyle?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.charts/CamoSparkline|CamoSparkline(kotlin.collections.List<kotlin.Double?>;androidx.compose.ui.Modifier?;com.srctool.camouflage.charts.SparklineKind?;kotlin.ranges.ClosedFloatingPointRange<kotlin.Double>?;com.srctool.camouflage.charts.SparklineHighlight?;com.srctool.camouflage.core.theme.Tone?;kotlin.String?;com.srctool.camouflage.charts.ChartStyle?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_BarChartSpec$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_BarChartSpec$stableprop_getter|com_srctool_camouflage_charts_BarChartSpec$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_BarMark$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_BarMark$stableprop_getter|com_srctool_camouflage_charts_BarMark$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_CamoCharts$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_CamoCharts$stableprop_getter|com_srctool_camouflage_charts_CamoCharts$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartAxis$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartAxis$stableprop_getter|com_srctool_camouflage_charts_ChartAxis$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartSeries$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartSeries$stableprop_getter|com_srctool_camouflage_charts_ChartSeries$stableprop_getter(){}[0]
@@ -273,6 +415,8 @@ final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartStyle
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartTokens$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_ChartTokens$stableprop_getter|com_srctool_camouflage_charts_ChartTokens$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_DefaultChartRenderer$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_DefaultChartRenderer$stableprop_getter|com_srctool_camouflage_charts_DefaultChartRenderer$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_LegendItem$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_LegendItem$stableprop_getter|com_srctool_camouflage_charts_LegendItem$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_LineChartSpec$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_LineChartSpec$stableprop_getter|com_srctool_camouflage_charts_LineChartSpec$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_LineSeriesSpec$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_LineSeriesSpec$stableprop_getter|com_srctool_camouflage_charts_LineSeriesSpec$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_LinearScale$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_LinearScale$stableprop_getter|com_srctool_camouflage_charts_LinearScale$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_ResolvedChartStyle$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_ResolvedChartStyle$stableprop_getter|com_srctool_camouflage_charts_ResolvedChartStyle$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.charts/com_srctool_camouflage_charts_SparklineSpec$stableprop_getter(): kotlin/Int // com.srctool.camouflage.charts/com_srctool_camouflage_charts_SparklineSpec$stableprop_getter|com_srctool_camouflage_charts_SparklineSpec$stableprop_getter(){}[0]
