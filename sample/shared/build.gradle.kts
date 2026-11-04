@@ -20,6 +20,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(projects.camouflageCore)
+            implementation(projects.camouflageCharts)
             implementation(projects.camouflageSkinMinimal)
             implementation(projects.camouflageSkinFluent)
             implementation(projects.camouflageNavigation3)

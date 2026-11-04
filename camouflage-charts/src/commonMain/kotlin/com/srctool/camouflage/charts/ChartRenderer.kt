@@ -65,6 +65,23 @@ public class BarChartSpec(
     public val progress: Float,
 )
 
+/** One slice of a pie: its [start] angle and [sweep] in degrees (clockwise from 3 o'clock) and its [color]. */
+public class PieSliceMark(public val start: Float, public val sweep: Float, public val color: Color)
+
+/**
+ * What a pie chart draws around [center]: the [slices] between [innerRadius] (`0` for a pie) and [outerRadius], the
+ * [selected] slice moved out, the [active] one (pointer or focus) highlighted, with the draw-in [progress].
+ */
+public class PieChartSpec(
+    public val center: Offset,
+    public val outerRadius: Float,
+    public val innerRadius: Float,
+    public val slices: List<PieSliceMark>,
+    public val selected: Int?,
+    public val active: Int?,
+    public val progress: Float,
+)
+
 /**
  * Draws chart marks. The default draws lines, areas and bars from the [ResolvedChartStyle]; supply your own through
  * [CamoChartsProvider] to take over the drawing completely (the frame, axes, legend and tables stay).
@@ -81,6 +98,10 @@ public interface ChartRenderer {
     /** Draws the bars of a bar chart into [scope], the whole chart box. */
     public fun drawBarChart(scope: DrawScope, spec: BarChartSpec, style: ResolvedChartStyle): Unit =
         DefaultChartRenderer.drawBarChart(scope, spec, style)
+
+    /** Draws the slices of a pie or donut chart into [scope], the whole chart box. */
+    public fun drawPieChart(scope: DrawScope, spec: PieChartSpec, style: ResolvedChartStyle): Unit =
+        DefaultChartRenderer.drawPieChart(scope, spec, style)
 }
 
 internal val LocalChartRenderer = compositionLocalOf<ChartRenderer> { DefaultChartRenderer }
@@ -243,6 +264,29 @@ public object DefaultChartRenderer : ChartRenderer {
             BarEdge.Bottom -> RoundRect(rect, none, none, corner, corner)
             BarEdge.Left -> RoundRect(rect, corner, none, none, corner)
             BarEdge.Right -> RoundRect(rect, none, corner, corner, none)
+        }
+    }
+
+    override fun drawPieChart(scope: DrawScope, spec: PieChartSpec, style: ResolvedChartStyle): Unit = with(scope) {
+        val middle = (spec.outerRadius + spec.innerRadius) / 2
+        val drawn = spec.slices.count { it.sweep > 0f }
+        val gap = if (drawn > 1 && middle > 0f) degrees(style.sliceGap.toPx() / middle.toDouble()) else 0f
+        spec.slices.forEachIndexed { index, slice ->
+            val sweep = slice.sweep * spec.progress - gap
+            if (slice.sweep <= 0f || sweep <= 0f) return@forEachIndexed
+            val out = if (index == spec.selected) style.selectedOffset.toPx() else 0f
+            val center = polar(spec.center, out, slice.start + slice.sweep / 2)
+            val dim = spec.active != null && spec.active != index
+            val color = if (dim) slice.color.copy(alpha = DIMMED) else slice.color
+            val start = slice.start + gap / 2
+            if (spec.innerRadius <= 0f) {
+                val radius = spec.outerRadius
+                drawArc(color, start, sweep, true, center - Offset(radius, radius), Size(radius * 2, radius * 2))
+            } else {
+                val ring = Stroke(spec.outerRadius - spec.innerRadius)
+                drawArc(color, start, sweep, false, center - Offset(middle, middle), Size(middle * 2, middle * 2),
+                    style = ring)
+            }
         }
     }
 }
