@@ -5,6 +5,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.focusable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.composed
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -77,7 +79,7 @@ internal fun plotLayout(size: Size, insets: PlotInsets, rtl: Boolean): PlotLayou
 internal data class AxisText(val measurer: TextMeasurer, val style: TextStyle, val rtl: Boolean)
 
 /** Which side of its anchor an axis label sits. */
-internal enum class LabelSide { Before, After, Below, Above }
+internal enum class LabelSide { Before, After, Below, Above, Center }
 
 /** An axis label: [text] next to the pixel position [anchor]. */
 internal class AxisLabel(val text: String, val anchor: Offset, val side: LabelSide)
@@ -143,9 +145,17 @@ internal class PlotInput {
 
 /**
  * The pointer, focus and keys of a chart over [categories] and [series]: Left and Right, Up and Down, Home and End walk
- * the points, and [announce] says the current one to a screen reader.
+ * the points ([linear] makes all four arrows walk the categories, for a pie), Enter and Space call [onActivate], and
+ * [announce] says the current point to a screen reader.
  */
-internal fun Modifier.plotInput(input: PlotInput, categories: Int, series: Int, announce: String?): Modifier = this
+internal fun Modifier.plotInput(
+    input: PlotInput,
+    categories: Int,
+    series: Int,
+    announce: String?,
+    linear: Boolean = false,
+    onActivate: (() -> Unit)? = null,
+): Modifier = this
     .semantics {
         if (announce != null) {
             stateDescription = announce
@@ -155,24 +165,32 @@ internal fun Modifier.plotInput(input: PlotInput, categories: Int, series: Int, 
     .onFocusChanged { input.walk = if (it.isFocused) input.walk ?: (0 to 0) else null }
     .focusable()
     .onKeyEvent { event ->
+        val activate = event.key == Key.Enter || event.key == Key.Spacebar
         val next = if (event.type == KeyEventType.KeyDown) {
-            walkTarget(event.key, input.walk ?: (0 to 0), categories, series)
+            walkTarget(event.key, input.walk ?: (0 to 0), categories, series, linear)
         } else {
             null
         }
+        if (event.type == KeyEventType.KeyDown && activate && onActivate != null) onActivate()
         next?.let {
             input.walk = it
             input.pointer = null
         }
-        next != null
+        next != null || (activate && onActivate != null)
     }
     .chartPointer { input.pointer = it }
 
 // The (category, series) a key moves to: Left and Right walk categories, Up and Down series, Home and End jump.
-internal fun walkTarget(key: Key, at: Pair<Int, Int>, categories: Int, series: Int): Pair<Int, Int>? {
+internal fun walkTarget(
+    key: Key,
+    at: Pair<Int, Int>,
+    categories: Int,
+    series: Int,
+    linear: Boolean = false,
+): Pair<Int, Int>? {
     if (categories == 0 || series == 0) return null
     val (category, current) = at
-    return when (key) {
+    return when (if (linear) linearKey(key) else key) {
         Key.DirectionRight -> (category + 1).coerceAtMost(categories - 1) to current
         Key.DirectionLeft -> (category - 1).coerceAtLeast(0) to current
         Key.DirectionDown -> category to (current + 1).coerceAtMost(series - 1)
@@ -196,6 +214,7 @@ internal fun DrawScope.drawAxisLabels(measurer: TextMeasurer, labels: List<AxisL
             LabelSide.After -> Offset(label.anchor.x, label.anchor.y - h / 2)
             LabelSide.Below -> Offset(label.anchor.x - w / 2, label.anchor.y)
             LabelSide.Above -> Offset(label.anchor.x - w / 2, label.anchor.y - h)
+            LabelSide.Center -> Offset(label.anchor.x - w / 2, label.anchor.y - h / 2)
         }
         drawText(text, topLeft = topLeft)
     }
@@ -222,15 +241,18 @@ internal fun DrawScope.drawGrid(
 }
 
 /** Reports the pointer's position in the modifier's box while a mouse hovers or a finger touches; `null` on leaving. */
-internal fun Modifier.chartPointer(onPointer: (Offset?) -> Unit): Modifier = pointerInput(onPointer) {
-    awaitPointerEventScope {
-        while (true) {
-            val event = awaitPointerEvent()
-            val change = event.changes.firstOrNull() ?: continue
-            when (event.type) {
-                PointerEventType.Exit -> onPointer(null)
-                PointerEventType.Release -> if (change.type == PointerType.Touch) onPointer(null)
-                else -> onPointer(change.position)
+internal fun Modifier.chartPointer(onPointer: (Offset?) -> Unit): Modifier = composed {
+    val latest by rememberUpdatedState(onPointer)
+    pointerInput(Unit) {
+        awaitPointerEventScope {
+            while (true) {
+                val event = awaitPointerEvent()
+                val change = event.changes.firstOrNull() ?: continue
+                when (event.type) {
+                    PointerEventType.Exit -> latest(null)
+                    PointerEventType.Release -> if (change.type == PointerType.Touch) latest(null)
+                    else -> latest(change.position)
+                }
             }
         }
     }
@@ -284,4 +306,11 @@ internal fun ChartTooltip(title: String, rows: List<TooltipRow>, x: Float, modif
             }
         }
     }
+}
+
+// A pie walks one way: Down is Right and Up is Left.
+private fun linearKey(key: Key): Key = when (key) {
+    Key.DirectionDown -> Key.DirectionRight
+    Key.DirectionUp -> Key.DirectionLeft
+    else -> key
 }

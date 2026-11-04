@@ -62,6 +62,11 @@ public final class com/srctool/camouflage/charts/CamoLineChartKt {
 	public static final fun CamoLineChart-Udi8eBY (Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/charts/LineKind;Lcom/srctool/camouflage/charts/LineCurve;Lcom/srctool/camouflage/charts/MarkerVisibility;Lcom/srctool/camouflage/charts/ChartAxis;Lcom/srctool/camouflage/charts/ChartAxis;Ljava/util/List;IZLkotlin/jvm/functions/Function2;ZFLcom/srctool/camouflage/charts/ChartStyle;Landroidx/compose/runtime/Composer;III)V
 }
 
+public final class com/srctool/camouflage/charts/CamoPieChartKt {
+	public static final field TOP F
+	public static final fun CamoPieChart-4u75S8o (Ljava/util/List;Ljava/lang/String;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;FLkotlin/jvm/functions/Function1;ZLkotlin/jvm/functions/Function2;ZFLcom/srctool/camouflage/charts/ChartStyle;Landroidx/compose/runtime/Composer;III)V
+}
+
 public final class com/srctool/camouflage/charts/CamoSparklineKt {
 	public static final fun CamoSparkline (Ljava/util/List;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/charts/SparklineKind;Lkotlin/ranges/ClosedFloatingPointRange;Lcom/srctool/camouflage/charts/SparklineHighlight;Lcom/srctool/camouflage/core/theme/Tone;Ljava/lang/String;Lcom/srctool/camouflage/charts/ChartStyle;Landroidx/compose/runtime/Composer;II)V
 	public static final fun sparklineSummary (Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
@@ -98,12 +103,14 @@ public final class com/srctool/camouflage/charts/ChartDataKt {
 public abstract interface class com/srctool/camouflage/charts/ChartRenderer {
 	public fun drawBarChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/BarChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 	public fun drawLineChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/LineChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
+	public fun drawPieChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/PieChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 	public abstract fun drawSparkline (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/SparklineSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 }
 
 public final class com/srctool/camouflage/charts/ChartRenderer$DefaultImpls {
 	public static fun drawBarChart (Lcom/srctool/camouflage/charts/ChartRenderer;Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/BarChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 	public static fun drawLineChart (Lcom/srctool/camouflage/charts/ChartRenderer;Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/LineChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
+	public static fun drawPieChart (Lcom/srctool/camouflage/charts/ChartRenderer;Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/PieChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 }
 
 public final class com/srctool/camouflage/charts/ChartRendererKt {
@@ -195,6 +202,7 @@ public final class com/srctool/camouflage/charts/DefaultChartRenderer : com/srct
 	public static final field INSTANCE Lcom/srctool/camouflage/charts/DefaultChartRenderer;
 	public fun drawBarChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/BarChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 	public fun drawLineChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/LineChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
+	public fun drawPieChart (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/PieChartSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 	public fun drawSparkline (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/srctool/camouflage/charts/SparklineSpec;Lcom/srctool/camouflage/charts/ResolvedChartStyle;)V
 }
 
@@ -268,6 +276,43 @@ public final class com/srctool/camouflage/charts/MarkerVisibility : java/lang/En
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/charts/MarkerVisibility;
 	public static fun values ()[Lcom/srctool/camouflage/charts/MarkerVisibility;
+}
+
+public final class com/srctool/camouflage/charts/PieChartSpec {
+	public static final field $stable I
+	public synthetic fun <init> (JFFLjava/util/List;Ljava/lang/Integer;Ljava/lang/Integer;FLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getActive ()Ljava/lang/Integer;
+	public final fun getCenter-F1C5BW0 ()J
+	public final fun getInnerRadius ()F
+	public final fun getOuterRadius ()F
+	public final fun getProgress ()F
+	public final fun getSelected ()Ljava/lang/Integer;
+	public final fun getSlices ()Ljava/util/List;
+}
+
+public final class com/srctool/camouflage/charts/PieSlice {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;DJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;DJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()D
+	public final fun component3-0d7_KjU ()J
+	public final fun copy-mxwnekA (Ljava/lang/String;DJ)Lcom/srctool/camouflage/charts/PieSlice;
+	public static synthetic fun copy-mxwnekA$default (Lcom/srctool/camouflage/charts/PieSlice;Ljava/lang/String;DJILjava/lang/Object;)Lcom/srctool/camouflage/charts/PieSlice;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-0d7_KjU ()J
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getValue ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/charts/PieSliceMark {
+	public static final field $stable I
+	public synthetic fun <init> (FFJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getColor-0d7_KjU ()J
+	public final fun getStart ()F
+	public final fun getSweep ()F
 }
 
 public final class com/srctool/camouflage/charts/ResolvedChartStyle {

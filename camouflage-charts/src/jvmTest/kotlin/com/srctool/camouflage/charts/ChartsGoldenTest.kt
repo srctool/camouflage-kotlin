@@ -35,7 +35,7 @@ class ChartsGoldenTest {
 
     @Test fun charts() = golden("charts", width = 480, height = 560) { ChartsGallery() }
 
-    @Test fun cartesian() = golden("cartesian", width = 480, height = 1100) { CartesianGallery() }
+    @Test fun cartesian() = golden("cartesian", width = 480, height = 1560) { CartesianGallery() }
 
     // Every scene is captured before failing, so a CI run uploads all of them (Linux renders, for re-recording).
     private fun golden(name: String, width: Int, height: Int, content: @Composable () -> Unit) {

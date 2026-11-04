@@ -134,6 +134,7 @@ fun SampleApp() {
                     Section("Rating, pages, path and steps") { SmallDataDemo() }
                     Section("Table and tree") { ListsDemo() }
                     Section("Admin: folder, upload and review") { AdminDemo() }
+                    Section("Dashboard: line, bar and donut charts") { ChartsDemo() }
                     val promo = sampleTheme(choice, brand, dark)
                         .copy(colors = CamoColors.fromSeed(PromoSeed, dark = dark))
                     CamouflageProvider(theme = promo) {
