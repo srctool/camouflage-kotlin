@@ -19,6 +19,8 @@ import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.skin.fluent.FluentSkin
+import com.srctool.camouflage.skin.material.MaterialSkin
+import com.srctool.camouflage.skin.material.materialBaselineLight
 import com.srctool.camouflage.skin.fluent.fluentTheme
 import com.srctool.camouflage.skin.minimal.MinimalSkin
 import com.srctool.camouflage.skin.minimal.minimalLight
@@ -60,14 +62,19 @@ class ChartsTest {
     fun theSkinsPresetShapesTheStyle() = runComposeUiTest {
         var minimal: ResolvedChartStyle? = null
         var fluent: ResolvedChartStyle? = null
+        var material: ResolvedChartStyle? = null
         setContent {
             resolved(MinimalSkin, minimalLight) { minimal = it }()
             resolved(FluentSkin, fluentTheme()) { fluent = it }()
+            resolved(MaterialSkin, materialBaselineLight) { material = it }()
         }
         assertEquals(1.5.dp, minimal!!.lineWidth)
         assertEquals(2.dp, fluent!!.lineWidth)
         assertTrue(fluent!!.gridDashed)
         assertTrue(!minimal!!.gridDashed)
+        assertEquals(3.dp, material!!.lineWidth)
+        assertEquals(8.dp, material!!.barRadius)
+        assertEquals(0.3f, material!!.donutThickness)
     }
 
     @Test

@@ -6,12 +6,13 @@ navigation3 = "1.2.0"
 lifecycle = "2.11.0"
 
 # Explicit coordinates, not the compose.* shortcuts, so every version is visible here.
-# No Material artifacts in v1: core stays visually neutral (material-ripple joins with a Later Material skin).
+# Core stays visually neutral: the only Material artifact is material-ripple, used by camouflage-skin-material.
 [libraries]
 runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
 ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-multiplatform" }
 foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-multiplatform" }
 resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "compose-multiplatform" }
+ripple = { module = "org.jetbrains.compose.material:material-ripple", version.ref = "compose-multiplatform" }
 ui-test = { module = "org.jetbrains.compose.ui:ui-test", version.ref = "compose-multiplatform" }
 gradle-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
 navigation3-ui = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "navigation3" }

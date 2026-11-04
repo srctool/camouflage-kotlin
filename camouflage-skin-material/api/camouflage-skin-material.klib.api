@@ -1,0 +1,58 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.srctool.camouflage:camouflage-skin-material>
+final class com.srctool.camouflage.skin.material/RippleIndication : androidx.compose.foundation/IndicationNodeFactory { // com.srctool.camouflage.skin.material/RippleIndication|null[0]
+    constructor <init>(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.graphics/Color, kotlin/Int) // com.srctool.camouflage.skin.material/RippleIndication.<init>|<init>(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.graphics.Color;kotlin.Int){}[0]
+
+    final val contentColor // com.srctool.camouflage.skin.material/RippleIndication.contentColor|{}contentColor[0]
+        final fun <get-contentColor>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.material/RippleIndication.contentColor.<get-contentColor>|<get-contentColor>(){}[0]
+    final val durationMillis // com.srctool.camouflage.skin.material/RippleIndication.durationMillis|{}durationMillis[0]
+        final fun <get-durationMillis>(): kotlin/Int // com.srctool.camouflage.skin.material/RippleIndication.durationMillis.<get-durationMillis>|<get-durationMillis>(){}[0]
+    final val ringColor // com.srctool.camouflage.skin.material/RippleIndication.ringColor|{}ringColor[0]
+        final fun <get-ringColor>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.material/RippleIndication.ringColor.<get-ringColor>|<get-ringColor>(){}[0]
+    final val shape // com.srctool.camouflage.skin.material/RippleIndication.shape|{}shape[0]
+        final fun <get-shape>(): androidx.compose.ui.graphics/Shape // com.srctool.camouflage.skin.material/RippleIndication.shape.<get-shape>|<get-shape>(){}[0]
+
+    final fun component1(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.material/RippleIndication.component1|component1(){}[0]
+    final fun component2(): androidx.compose.ui.graphics/Shape // com.srctool.camouflage.skin.material/RippleIndication.component2|component2(){}[0]
+    final fun component3(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.material/RippleIndication.component3|component3(){}[0]
+    final fun component4(): kotlin/Int // com.srctool.camouflage.skin.material/RippleIndication.component4|component4(){}[0]
+    final fun copy(androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Shape = ..., androidx.compose.ui.graphics/Color = ..., kotlin/Int = ...): com.srctool.camouflage.skin.material/RippleIndication // com.srctool.camouflage.skin.material/RippleIndication.copy|copy(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.graphics.Color;kotlin.Int){}[0]
+    final fun create(androidx.compose.foundation.interaction/InteractionSource): androidx.compose.ui.node/DelegatableNode // com.srctool.camouflage.skin.material/RippleIndication.create|create(androidx.compose.foundation.interaction.InteractionSource){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.skin.material/RippleIndication.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.skin.material/RippleIndication.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.skin.material/RippleIndication.toString|toString(){}[0]
+}
+
+final object com.srctool.camouflage.skin.material/Paper : com.srctool.camouflage.core.skin/SurfaceTreatment { // com.srctool.camouflage.skin.material/Paper|null[0]
+    final fun modifier(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.unit/Dp, com.srctool.camouflage.core.theme/CamoTheme): androidx.compose.ui/Modifier // com.srctool.camouflage.skin.material/Paper.modifier|modifier(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.unit.Dp;com.srctool.camouflage.core.theme.CamoTheme){}[0]
+}
+
+final object com.srctool.camouflage.skin.material/Ripple : com.srctool.camouflage.core.skin/InteractionFeedback { // com.srctool.camouflage.skin.material/Ripple|null[0]
+    final fun indication(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, com.srctool.camouflage.core.theme/CamoTheme): com.srctool.camouflage.skin.material/RippleIndication // com.srctool.camouflage.skin.material/Ripple.indication|indication(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;com.srctool.camouflage.core.theme.CamoTheme){}[0]
+}
+
+final val com.srctool.camouflage.skin.material/MaterialBaselineSeed // com.srctool.camouflage.skin.material/MaterialBaselineSeed|{}MaterialBaselineSeed[0]
+    final fun <get-MaterialBaselineSeed>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.material/MaterialBaselineSeed.<get-MaterialBaselineSeed>|<get-MaterialBaselineSeed>(){}[0]
+final val com.srctool.camouflage.skin.material/MaterialSkin // com.srctool.camouflage.skin.material/MaterialSkin|{}MaterialSkin[0]
+    final fun <get-MaterialSkin>(): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.skin.material/MaterialSkin.<get-MaterialSkin>|<get-MaterialSkin>(){}[0]
+final val com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_Paper$stableprop // com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_Paper$stableprop|#static{}com_srctool_camouflage_skin_material_Paper$stableprop[0]
+final val com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_Ripple$stableprop // com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_Ripple$stableprop|#static{}com_srctool_camouflage_skin_material_Ripple$stableprop[0]
+final val com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_RippleIndication$stableprop // com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_RippleIndication$stableprop|#static{}com_srctool_camouflage_skin_material_RippleIndication$stableprop[0]
+final val com.srctool.camouflage.skin.material/materialBaselineDark // com.srctool.camouflage.skin.material/materialBaselineDark|{}materialBaselineDark[0]
+    final fun <get-materialBaselineDark>(): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.material/materialBaselineDark.<get-materialBaselineDark>|<get-materialBaselineDark>(){}[0]
+final val com.srctool.camouflage.skin.material/materialBaselineLight // com.srctool.camouflage.skin.material/materialBaselineLight|{}materialBaselineLight[0]
+    final fun <get-materialBaselineLight>(): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.material/materialBaselineLight.<get-materialBaselineLight>|<get-materialBaselineLight>(){}[0]
+
+final fun com.srctool.camouflage.skin.material/MaterialPreview(kotlin/Boolean, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.skin.material/MaterialPreview|MaterialPreview(kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_Paper$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_Paper$stableprop_getter|com_srctool_camouflage_skin_material_Paper$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_Ripple$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_Ripple$stableprop_getter|com_srctool_camouflage_skin_material_Ripple$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_RippleIndication$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.material/com_srctool_camouflage_skin_material_RippleIndication$stableprop_getter|com_srctool_camouflage_skin_material_RippleIndication$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.skin.material/materialColors(androidx.compose.ui.graphics/Color, kotlin/Boolean = ...): com.srctool.camouflage.core.theme/CamoColors // com.srctool.camouflage.skin.material/materialColors|materialColors(androidx.compose.ui.graphics.Color;kotlin.Boolean){}[0]
+final fun com.srctool.camouflage.skin.material/materialSkin(kotlin/Boolean = ...): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.skin.material/materialSkin|materialSkin(kotlin.Boolean){}[0]
+final fun com.srctool.camouflage.skin.material/materialTheme(androidx.compose.ui.graphics/Color? = ..., kotlin/Boolean = ..., androidx.compose.ui.text.font/FontFamily? = ...): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.material/materialTheme|materialTheme(androidx.compose.ui.graphics.Color?;kotlin.Boolean;androidx.compose.ui.text.font.FontFamily?){}[0]
