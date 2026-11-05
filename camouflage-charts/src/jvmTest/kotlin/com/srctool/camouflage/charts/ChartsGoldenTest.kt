@@ -11,6 +11,9 @@ import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.skin.fluent.FluentSkin
 import com.srctool.camouflage.skin.fluent.fluentTheme
+import com.srctool.camouflage.skin.material.MaterialSkin
+import com.srctool.camouflage.skin.material.materialBaselineDark
+import com.srctool.camouflage.skin.material.materialBaselineLight
 import com.srctool.camouflage.skin.minimal.MinimalSkin
 import com.srctool.camouflage.skin.minimal.minimalDark
 import com.srctool.camouflage.skin.minimal.minimalLight
@@ -31,6 +34,8 @@ class ChartsGoldenTest {
         Triple("minimal_dark", MinimalSkin, minimalDark),
         Triple("fluent_light", FluentSkin, fluentTheme()),
         Triple("fluent_dark", FluentSkin, fluentTheme(dark = true)),
+        Triple("material_light", MaterialSkin, materialBaselineLight),
+        Triple("material_dark", MaterialSkin, materialBaselineDark),
     )
 
     @Test fun charts() = golden("charts", width = 480, height = 560) { ChartsGallery() }

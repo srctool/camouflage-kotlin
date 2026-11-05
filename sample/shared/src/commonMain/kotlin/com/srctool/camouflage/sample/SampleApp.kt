@@ -52,6 +52,8 @@ import com.srctool.camouflage.skin.fluent.FluentSurface
 import com.srctool.camouflage.skin.fluent.fluentSkin
 import com.srctool.camouflage.skin.fluent.fluentTheme
 import com.srctool.camouflage.skin.minimal.MinimalSkin
+import com.srctool.camouflage.skin.material.MaterialSkin
+import com.srctool.camouflage.skin.material.materialTheme
 import com.srctool.camouflage.skin.minimal.minimalTheme
 import kotlinx.coroutines.delay
 
@@ -59,11 +61,12 @@ private val DebugSeed = Color(0xFF0B57D0)
 private val PromoSeed = Color(0xFFE8710A)
 private const val FAKE_REQUEST_MILLIS = 2000L
 
-// The three skins the sample switches between, each with its own starter theme.
+// The skins the sample switches between, each with its own starter theme.
 internal enum class SampleSkin(val skin: CamoSkin, val theme: (dark: Boolean) -> CamoTheme) {
     Minimal(MinimalSkin, { minimalTheme(dark = it) }),
     Fluent(FluentSkin, { fluentTheme(dark = it) }),
     FluentAcrylic(fluentSkin(FluentSurface.Acrylic), { fluentTheme(dark = it) }),
+    Material(MaterialSkin, { materialTheme(dark = it) }),
     Debug(DebugSkin, {
         CamoTheme(colors = CamoColors.fromSeed(primary = DebugSeed, dark = it), typography = CamoTypography.system())
     }),
@@ -79,6 +82,8 @@ internal fun sampleTheme(skin: SampleSkin, brand: Brand, dark: Boolean): CamoThe
     val fluent = skin == SampleSkin.Fluent || skin == SampleSkin.FluentAcrylic
     val base = if (fluent && seed != null) {
         fluentTheme(brand = seed, dark = dark)
+    } else if (skin == SampleSkin.Material && seed != null) {
+        materialTheme(seed = seed, dark = dark)
     } else {
         skin.theme(dark)
     }

@@ -16,6 +16,7 @@ kotlin {
             implementation(composeLibs.ui.test)
             implementation(projects.camouflageSkinMinimal)   // a real skin for the scenes (test-only, same layer)
             implementation(projects.camouflageSkinFluent)
+            implementation(projects.camouflageSkinMaterial)
         }
         jvmTest.dependencies {
             implementation(projects.camouflageSkinTesting)    // the golden font (test-only, same layer)

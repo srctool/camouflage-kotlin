@@ -23,6 +23,7 @@ srctool {
         ":camouflage-core" to 0,
         ":camouflage-skin-minimal" to 1,
         ":camouflage-skin-fluent" to 1,
+        ":camouflage-skin-material" to 1,
         ":camouflage-navigation3" to 1,
         ":camouflage-charts" to 1,
         ":camouflage-skin-testing" to 1,
