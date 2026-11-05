@@ -27,6 +27,7 @@ import androidx.compose.ui.semantics.CollectionItemInfo
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.collectionInfo
 import androidx.compose.ui.semantics.collectionItemInfo
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
@@ -233,7 +234,7 @@ public fun <T> CamoNavItemButton(
             }
             val label = showsLabel(style.showLabels, selected)
             val state = NavItemState(selected, enabled, position, label, style.indicator, interaction, source)
-            skin.navigationBar.Item(state, slots, theme, style, behavior)
+            skin.navigationBar.Item(state, slots, theme, style, behavior.named(item.label, label))
         }
         NavHost.Rail -> {
             val style = remember(skin, theme) {
@@ -241,7 +242,7 @@ public fun <T> CamoNavItemButton(
             }
             val label = showsLabel(style.showLabels, selected)
             val state = NavItemState(selected, enabled, position, label, style.indicator, interaction, source)
-            skin.navigationRail.Item(state, slots, theme, style, behavior)
+            skin.navigationRail.Item(state, slots, theme, style, behavior.named(item.label, label))
         }
         NavHost.Drawer -> {
             val style = remember(skin, theme) {
@@ -252,6 +253,10 @@ public fun <T> CamoNavItemButton(
         }
     }
 }
+
+// An item whose label isn't drawn is still named for screen readers (a drawn label names it by itself).
+private fun Modifier.named(label: String, drawn: Boolean): Modifier =
+    if (drawn) this else semantics(mergeDescendants = true) { contentDescription = label }
 
 private fun showsLabel(visibility: LabelVisibility, selected: Boolean) = when (visibility) {
     LabelVisibility.Always -> true
