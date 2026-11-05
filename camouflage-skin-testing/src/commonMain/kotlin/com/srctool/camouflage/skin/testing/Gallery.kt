@@ -27,6 +27,8 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import com.srctool.camouflage.core.accordion.CamoAccordionGroup
 import com.srctool.camouflage.core.accordion.CamoAccordionItem
 import com.srctool.camouflage.core.avatar.AvatarShape
@@ -246,9 +248,10 @@ public fun PrimitiveGallery() {
 public fun InputGallery() {
     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
-            CamoCheckbox(false, {})
-            CamoCheckbox(true, {})
-            CamoCheckbox(true, {}, enabled = false)
+            // Bare boxes: named for screen readers without changing how they look.
+            CamoCheckbox(false, {}, Modifier.semantics { contentDescription = "Unchecked" })
+            CamoCheckbox(true, {}, Modifier.semantics { contentDescription = "Checked" })
+            CamoCheckbox(true, {}, Modifier.semantics { contentDescription = "Checked, disabled" }, enabled = false)
             CamoCheckbox(true, {}, label = "Remember me")
         }
         CamoCheckbox(false, {}, label = "I agree", description = "Required to continue", error = "Please accept")

@@ -1,3 +1,8 @@
+public final class com/srctool/camouflage/skin/testing/AccessibilityChecksKt {
+	public static final fun accessibilityProblems (Landroidx/compose/ui/test/ComposeUiTest;Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;FZLkotlin/jvm/functions/Function2;)Ljava/util/List;
+	public static synthetic fun accessibilityProblems$default (Landroidx/compose/ui/test/ComposeUiTest;Lcom/srctool/camouflage/core/skin/CamoSkin;Lcom/srctool/camouflage/core/theme/CamoTheme;FZLkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/util/List;
+}
+
 public final class com/srctool/camouflage/skin/testing/CamoSkinTestingKt {
 	public static final field CAMO_CONTENT_TAG Ljava/lang/String;
 	public static final fun ProvideComponentThemes (Lcom/srctool/camouflage/core/theme/CamoComponentThemes;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V

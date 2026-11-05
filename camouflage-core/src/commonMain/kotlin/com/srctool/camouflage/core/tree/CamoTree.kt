@@ -220,7 +220,9 @@ private fun <T> NodeRow(
     val interaction = source.collectInteractionState()
     val expandable = node.hasChildren
     val toggle = if (expandable) {
-        Modifier.clickable(role = Role.Button) { setExpanded(node.key, !open) }
+        Modifier.clickable(role = Role.Button, onClickLabel = if (open) "Collapse" else "Expand") {
+            setExpanded(node.key, !open)
+        }
     } else {
         Modifier
     }
