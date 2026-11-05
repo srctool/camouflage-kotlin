@@ -17,6 +17,7 @@ import com.srctool.camouflage.sample.resources.ic_notifications
 import com.srctool.camouflage.sample.resources.ic_search
 import com.srctool.camouflage.sample.resources.ic_share
 import com.srctool.camouflage.sample.resources.ic_sort
+import com.srctool.camouflage.sample.resources.ic_palette
 import com.srctool.camouflage.sample.resources.ic_star
 import com.srctool.camouflage.sample.resources.ic_star_outline
 import com.srctool.camouflage.sample.resources.ic_upload
@@ -32,6 +33,8 @@ object AppIcon {
 
     @Composable fun Search(modifier: Modifier = Modifier, size: Dp = Dp.Unspecified, tint: Color = Color.Unspecified) =
         Icon(Res.drawable.ic_search, modifier, size = size, tint = tint)
+
+    @Composable fun Palette(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_palette, modifier)
 
     @Composable fun Star(modifier: Modifier = Modifier) = Icon(Res.drawable.ic_star, modifier)
 

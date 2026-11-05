@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
+import org.gradle.api.plugins.ExtensionAware
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
@@ -10,6 +12,14 @@ plugins {
 kotlin {
     // The sample is an app, not a library: no explicit API mode.
     explicitApi = null
+
+    // The AppIcon drawables are compose resources: package them into the Android app (the library target skips
+    // Android resources unless asked).
+    val kmpExtensions = (this as ExtensionAware).extensions
+    val androidTarget = listOf("android", "androidLibrary").first { kmpExtensions.findByName(it) != null }
+    kmpExtensions.configure<KotlinMultiplatformAndroidLibraryTarget>(androidTarget) {
+        androidResources { enable = true }
+    }
 
     targets.withType<KotlinNativeTarget>().configureEach {
         binaries.framework { baseName = "SampleShared" }
@@ -24,6 +34,7 @@ kotlin {
             implementation(projects.camouflageSkinMinimal)
             implementation(projects.camouflageSkinFluent)
             implementation(projects.camouflageSkinMaterial)
+            implementation(projects.camouflageSkinCupertino)
             implementation(projects.camouflageNavigation3)
             implementation(composeLibs.lifecycle.viewmodel.navigation3) // each overlay entry's own ViewModel
             implementation(composeLibs.resources)       // the AppIcon drawables (Res)

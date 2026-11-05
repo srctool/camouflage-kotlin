@@ -1,0 +1,22 @@
+plugins {
+    id("com.srctool.kmp.library")
+    id("com.srctool.compose")
+    id("com.srctool.publish")
+    alias(toolLibs.plugins.roborazzi)
+}
+
+description = "The Cupertino skin, built on Compose foundation: Apple HIG anatomy, blur materials and Liquid Glass, Opacity feedback. No Material."
+
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            api(projects.camouflageCore)
+        }
+        commonTest.dependencies {
+            implementation(projects.camouflageSkinTesting)   // test-only, same layer (ADR-27)
+        }
+        jvmTest.dependencies {
+            implementation(toolLibs.roborazzi.compose.desktop) // screenshot goldens (src/jvmTest/snapshots)
+        }
+    }
+}
