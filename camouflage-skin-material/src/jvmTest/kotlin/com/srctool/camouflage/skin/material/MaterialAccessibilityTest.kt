@@ -19,8 +19,9 @@ import com.srctool.camouflage.skin.testing.accessibilityProblems
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-// Every interactive element in the galleries has a name, a role or state, and a 44 dp touch target (Testing §3.4),
-// in both themes, at 200% text and right to left.
+// JVM only: twelve galleries four times over are too much for the wasm browser runner, where they slowed the
+// other tests into timeouts. Every interactive element in the galleries has a name, a role or state, and a
+// 44 dp touch target (Testing §3.4), in both themes, at 200% text and right to left.
 @OptIn(ExperimentalTestApi::class)
 class MaterialAccessibilityTest {
     private val galleries: List<Pair<String, @Composable () -> Unit>> = listOf(

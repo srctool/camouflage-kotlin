@@ -1,4 +1,4 @@
-package com.srctool.camouflage.skin.carbon
+package com.srctool.camouflage.skin.minimal
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.ExperimentalTestApi
@@ -19,10 +19,11 @@ import com.srctool.camouflage.skin.testing.accessibilityProblems
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-// Every interactive element in the galleries has a name, a role or state, and a 44 dp touch target (Testing §3.4),
-// in both themes, at 200% text and right to left.
+// JVM only: twelve galleries four times over are too much for the wasm browser runner, where they slowed the
+// other tests into timeouts. Every interactive element in the galleries has a name, a role or state, and a
+// 44 dp touch target (Testing §3.4), in both themes, at 200% text and right to left.
 @OptIn(ExperimentalTestApi::class)
-class CarbonAccessibilityTest {
+class MinimalAccessibilityTest {
     private val galleries: List<Pair<String, @Composable () -> Unit>> = listOf(
         "buttons" to { ButtonGallery() },
         "icon buttons" to { IconButtonGallery() },
@@ -42,8 +43,8 @@ class CarbonAccessibilityTest {
         val problems = galleries.flatMap { (name, content) ->
             val found = mutableListOf<String>()
             runComposeUiTest {
-                val theme = if (dark) carbonDark else carbonLight
-                found += accessibilityProblems(CarbonSkin, theme, fontScale, rtl, content)
+                val theme = if (dark) minimalDark else minimalLight
+                found += accessibilityProblems(MinimalSkin, theme, fontScale, rtl, content)
             }
             found.map { "$name: $it" }
         }
