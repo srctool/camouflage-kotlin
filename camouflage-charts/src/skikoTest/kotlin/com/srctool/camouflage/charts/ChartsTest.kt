@@ -18,6 +18,8 @@ import com.srctool.camouflage.core.provider.CamouflageProvider
 import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.text.CamoText
+import com.srctool.camouflage.skin.cupertino.CupertinoSkin
+import com.srctool.camouflage.skin.cupertino.cupertinoLight
 import com.srctool.camouflage.skin.fluent.FluentSkin
 import com.srctool.camouflage.skin.material.MaterialSkin
 import com.srctool.camouflage.skin.material.materialBaselineLight
@@ -63,10 +65,12 @@ class ChartsTest {
         var minimal: ResolvedChartStyle? = null
         var fluent: ResolvedChartStyle? = null
         var material: ResolvedChartStyle? = null
+        var cupertino: ResolvedChartStyle? = null
         setContent {
             resolved(MinimalSkin, minimalLight) { minimal = it }()
             resolved(FluentSkin, fluentTheme()) { fluent = it }()
             resolved(MaterialSkin, materialBaselineLight) { material = it }()
+            resolved(CupertinoSkin, cupertinoLight) { cupertino = it }()
         }
         assertEquals(1.5.dp, minimal!!.lineWidth)
         assertEquals(2.dp, fluent!!.lineWidth)
@@ -75,6 +79,9 @@ class ChartsTest {
         assertEquals(3.dp, material!!.lineWidth)
         assertEquals(8.dp, material!!.barRadius)
         assertEquals(0.3f, material!!.donutThickness)
+        assertEquals(2.dp, cupertino!!.lineWidth)
+        assertEquals(4.dp, cupertino!!.barRadius)
+        assertEquals(0.4f, cupertino!!.donutThickness)
     }
 
     @Test

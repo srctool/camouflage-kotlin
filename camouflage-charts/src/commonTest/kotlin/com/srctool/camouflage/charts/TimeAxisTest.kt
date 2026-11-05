@@ -46,6 +46,14 @@ class TimeAxisTest {
         assertEquals(utc(2026, 4, 1), mid.ticks.first())
     }
 
+    // A wide range picks its step without building the ticks of the small ones (millions of minutes over a century).
+    @Test
+    fun aCenturyChoosesDecadesWithoutBuildingMinutes() {
+        val ticks = timeTicks(utc(1950, 1, 1), utc(2050, 1, 1), 12)
+        assertEquals(TimeStep.TenYears, ticks.step)
+        assertEquals(11, ticks.ticks.size)
+    }
+
     @Test
     fun yearsStepOnRoundYears() {
         val ticks = timeTicks(utc(2019, 6, 1), utc(2031, 6, 1), 4)

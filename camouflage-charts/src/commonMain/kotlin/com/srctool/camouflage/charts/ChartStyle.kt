@@ -128,6 +128,10 @@ public object CamoCharts {
         "fluent" to ChartStyle(
             lineWidth = 2.dp, areaOpacity = 0.2f, barRadius = 4.dp, gridDashed = true, sliceGap = 3.dp,
         ),
+        "cupertino" to ChartStyle(
+            lineWidth = 2.dp, markerSize = 7.dp, areaOpacity = 0.2f, barRadius = 4.dp, barGap = 2.dp,
+            donutThickness = 0.4f, sliceGap = 2.dp,
+        ),
         "material" to ChartStyle(
             lineWidth = 3.dp, markerSize = 8.dp, areaOpacity = 0.16f, barRadius = 8.dp, barGap = 2.dp,
             donutThickness = 0.3f, sliceGap = 4.dp,

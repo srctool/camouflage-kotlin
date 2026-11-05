@@ -57,20 +57,21 @@ internal fun timeTicks(start: Long, end: Long, maxTicks: Int, offsetMinutes: Int
     val offset = offsetMinutes * MINUTE
     val low = minOf(start, end) + offset
     val high = maxOf(start, end) + offset
-    var chosen = TimeStep.TenYears
-    var ticks = emptyList<Long>()
-    for (step in TimeStep.entries) {
-        val candidate = ticksAt(low, high, step)
-        if (candidate.size <= maxTicks) {
-            chosen = step
-            ticks = candidate
-            break
-        }
-        chosen = step
-        ticks = candidate
-    }
+    // The first step whose ticks fit; none fits: the coarsest. A step that can't fit makes no list: over years,
+    // minutes alone would be millions of ticks.
+    val chosen = TimeStep.entries.firstOrNull { fits(low, high, it, maxTicks) } ?: TimeStep.entries.last()
+    val ticks = ticksAt(low, high, chosen)
     return TimeTicks(ticks.map { it - offset }, chosen)
 }
+
+// Whether [step] makes at most [maxTicks] ticks. A lower bound of how many it makes (the range over the longest the
+// step can be, a month being at most 31 days) rules it out before its list is built.
+private fun fits(low: Long, high: Long, step: TimeStep, maxTicks: Int): Boolean {
+    val longest = if (step.months == 0) step.millis else step.months * LONGEST_MONTH
+    return (high - low) / longest <= maxTicks && ticksAt(low, high, step).size <= maxTicks
+}
+
+private const val LONGEST_MONTH = 31 * DAY
 
 private fun ticksAt(low: Long, high: Long, step: TimeStep): List<Long> {
     if (step.months == 0) {
