@@ -1,0 +1,71 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.srctool.camouflage:camouflage-skin-carbon>
+final enum class com.srctool.camouflage.skin.carbon/CarbonThemeFamily : kotlin/Enum<com.srctool.camouflage.skin.carbon/CarbonThemeFamily> { // com.srctool.camouflage.skin.carbon/CarbonThemeFamily|null[0]
+    enum entry G10 // com.srctool.camouflage.skin.carbon/CarbonThemeFamily.G10|null[0]
+    enum entry G100 // com.srctool.camouflage.skin.carbon/CarbonThemeFamily.G100|null[0]
+    enum entry G90 // com.srctool.camouflage.skin.carbon/CarbonThemeFamily.G90|null[0]
+    enum entry White // com.srctool.camouflage.skin.carbon/CarbonThemeFamily.White|null[0]
+
+    final val entries // com.srctool.camouflage.skin.carbon/CarbonThemeFamily.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.srctool.camouflage.skin.carbon/CarbonThemeFamily> // com.srctool.camouflage.skin.carbon/CarbonThemeFamily.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.srctool.camouflage.skin.carbon/CarbonThemeFamily // com.srctool.camouflage.skin.carbon/CarbonThemeFamily.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.srctool.camouflage.skin.carbon/CarbonThemeFamily> // com.srctool.camouflage.skin.carbon/CarbonThemeFamily.values|values#static(){}[0]
+}
+
+final class com.srctool.camouflage.skin.carbon/CarbonStatesIndication : androidx.compose.foundation/IndicationNodeFactory { // com.srctool.camouflage.skin.carbon/CarbonStatesIndication|null[0]
+    constructor <init>(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, kotlin/Int) // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.<init>|<init>(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;kotlin.Int){}[0]
+
+    final val contentColor // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.contentColor|{}contentColor[0]
+        final fun <get-contentColor>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.contentColor.<get-contentColor>|<get-contentColor>(){}[0]
+    final val durationMillis // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.durationMillis|{}durationMillis[0]
+        final fun <get-durationMillis>(): kotlin/Int // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.durationMillis.<get-durationMillis>|<get-durationMillis>(){}[0]
+    final val innerColor // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.innerColor|{}innerColor[0]
+        final fun <get-innerColor>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.innerColor.<get-innerColor>|<get-innerColor>(){}[0]
+    final val ringColor // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.ringColor|{}ringColor[0]
+        final fun <get-ringColor>(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.ringColor.<get-ringColor>|<get-ringColor>(){}[0]
+    final val shape // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.shape|{}shape[0]
+        final fun <get-shape>(): androidx.compose.ui.graphics/Shape // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.shape.<get-shape>|<get-shape>(){}[0]
+
+    final fun component1(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.component1|component1(){}[0]
+    final fun component2(): androidx.compose.ui.graphics/Shape // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.component2|component2(){}[0]
+    final fun component3(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.component3|component3(){}[0]
+    final fun component4(): androidx.compose.ui.graphics/Color // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.component4|component4(){}[0]
+    final fun component5(): kotlin/Int // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.component5|component5(){}[0]
+    final fun copy(androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Shape = ..., androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Color = ..., kotlin/Int = ...): com.srctool.camouflage.skin.carbon/CarbonStatesIndication // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.copy|copy(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;kotlin.Int){}[0]
+    final fun create(androidx.compose.foundation.interaction/InteractionSource): androidx.compose.ui.node/DelegatableNode // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.create|create(androidx.compose.foundation.interaction.InteractionSource){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.skin.carbon/CarbonStatesIndication.toString|toString(){}[0]
+}
+
+final object com.srctool.camouflage.skin.carbon/CarbonStates : com.srctool.camouflage.core.skin/InteractionFeedback { // com.srctool.camouflage.skin.carbon/CarbonStates|null[0]
+    final fun indication(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, com.srctool.camouflage.core.theme/CamoTheme): com.srctool.camouflage.skin.carbon/CarbonStatesIndication // com.srctool.camouflage.skin.carbon/CarbonStates.indication|indication(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;com.srctool.camouflage.core.theme.CamoTheme){}[0]
+}
+
+final object com.srctool.camouflage.skin.carbon/Layered : com.srctool.camouflage.core.skin/SurfaceTreatment { // com.srctool.camouflage.skin.carbon/Layered|null[0]
+    final fun modifier(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Shape, androidx.compose.ui.unit/Dp, com.srctool.camouflage.core.theme/CamoTheme): androidx.compose.ui/Modifier // com.srctool.camouflage.skin.carbon/Layered.modifier|modifier(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Shape;androidx.compose.ui.unit.Dp;com.srctool.camouflage.core.theme.CamoTheme){}[0]
+}
+
+final val com.srctool.camouflage.skin.carbon/CarbonSkin // com.srctool.camouflage.skin.carbon/CarbonSkin|{}CarbonSkin[0]
+    final fun <get-CarbonSkin>(): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.skin.carbon/CarbonSkin.<get-CarbonSkin>|<get-CarbonSkin>(){}[0]
+final val com.srctool.camouflage.skin.carbon/carbonDark // com.srctool.camouflage.skin.carbon/carbonDark|{}carbonDark[0]
+    final fun <get-carbonDark>(): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.carbon/carbonDark.<get-carbonDark>|<get-carbonDark>(){}[0]
+final val com.srctool.camouflage.skin.carbon/carbonLight // com.srctool.camouflage.skin.carbon/carbonLight|{}carbonLight[0]
+    final fun <get-carbonLight>(): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.carbon/carbonLight.<get-carbonLight>|<get-carbonLight>(){}[0]
+final val com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_CarbonStates$stableprop // com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_CarbonStates$stableprop|#static{}com_srctool_camouflage_skin_carbon_CarbonStates$stableprop[0]
+final val com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_CarbonStatesIndication$stableprop // com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_CarbonStatesIndication$stableprop|#static{}com_srctool_camouflage_skin_carbon_CarbonStatesIndication$stableprop[0]
+final val com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_Layered$stableprop // com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_Layered$stableprop|#static{}com_srctool_camouflage_skin_carbon_Layered$stableprop[0]
+
+final fun com.srctool.camouflage.skin.carbon/CarbonPreview(kotlin/Boolean, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.skin.carbon/CarbonPreview|CarbonPreview(kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.skin.carbon/carbonSkin(com.srctool.camouflage.core.textfield/LabelPlacement = ...): com.srctool.camouflage.core.skin/CamoSkin // com.srctool.camouflage.skin.carbon/carbonSkin|carbonSkin(com.srctool.camouflage.core.textfield.LabelPlacement){}[0]
+final fun com.srctool.camouflage.skin.carbon/carbonTheme(com.srctool.camouflage.skin.carbon/CarbonThemeFamily = ..., androidx.compose.ui.graphics/Color? = ..., androidx.compose.ui.text.font/FontFamily? = ...): com.srctool.camouflage.core.theme/CamoTheme // com.srctool.camouflage.skin.carbon/carbonTheme|carbonTheme(com.srctool.camouflage.skin.carbon.CarbonThemeFamily;androidx.compose.ui.graphics.Color?;androidx.compose.ui.text.font.FontFamily?){}[0]
+final fun com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_CarbonStates$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_CarbonStates$stableprop_getter|com_srctool_camouflage_skin_carbon_CarbonStates$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_CarbonStatesIndication$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_CarbonStatesIndication$stableprop_getter|com_srctool_camouflage_skin_carbon_CarbonStatesIndication$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_Layered$stableprop_getter(): kotlin/Int // com.srctool.camouflage.skin.carbon/com_srctool_camouflage_skin_carbon_Layered$stableprop_getter|com_srctool_camouflage_skin_carbon_Layered$stableprop_getter(){}[0]

@@ -35,6 +35,7 @@ kotlin {
             implementation(projects.camouflageSkinFluent)
             implementation(projects.camouflageSkinMaterial)
             implementation(projects.camouflageSkinCupertino)
+            implementation(projects.camouflageSkinCarbon)
             implementation(projects.camouflageNavigation3)
             implementation(composeLibs.lifecycle.viewmodel.navigation3) // each overlay entry's own ViewModel
             implementation(composeLibs.resources)       // the AppIcon drawables (Res)
