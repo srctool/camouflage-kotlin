@@ -18,6 +18,7 @@ kotlin {
             implementation(projects.camouflageSkinFluent)
             implementation(projects.camouflageSkinMaterial)
             implementation(projects.camouflageSkinCupertino)
+            implementation(projects.camouflageSkinCarbon)
         }
         jvmTest.dependencies {
             implementation(projects.camouflageSkinTesting)    // the golden font (test-only, same layer)

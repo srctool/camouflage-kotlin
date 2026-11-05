@@ -61,6 +61,9 @@ import com.srctool.camouflage.skin.fluent.FluentSkin
 import com.srctool.camouflage.skin.fluent.FluentSurface
 import com.srctool.camouflage.skin.fluent.fluentSkin
 import com.srctool.camouflage.skin.fluent.fluentTheme
+import com.srctool.camouflage.skin.carbon.CarbonSkin
+import com.srctool.camouflage.skin.carbon.CarbonThemeFamily
+import com.srctool.camouflage.skin.carbon.carbonTheme
 import com.srctool.camouflage.skin.cupertino.CupertinoBackdrop
 import com.srctool.camouflage.skin.cupertino.CupertinoSkin
 import com.srctool.camouflage.skin.cupertino.CupertinoSurface
@@ -84,10 +87,14 @@ internal enum class SampleSkin(val skin: CamoSkin, val theme: (dark: Boolean) ->
     Material(MaterialSkin, { materialTheme(dark = it) }),
     Cupertino(CupertinoSkin, { cupertinoTheme(dark = it) }),
     CupertinoGlass(cupertinoSkin(CupertinoSurface.LiquidGlass), { cupertinoTheme(dark = it) }),
+    Carbon(CarbonSkin, { carbonTheme(carbonFamily(it)) }),
     Debug(DebugSkin, {
         CamoTheme(colors = CamoColors.fromSeed(primary = DebugSeed, dark = it), typography = CamoTypography.system())
     }),
 }
+
+// Carbon's light theme is White, its dark one G100.
+private fun carbonFamily(dark: Boolean) = if (dark) CarbonThemeFamily.G100 else CarbonThemeFamily.White
 
 /**
  * A brand on a skin's starter theme, light or dark: everything the sample can switch. A skin with its own token
@@ -103,6 +110,8 @@ internal fun sampleTheme(skin: SampleSkin, brand: Brand, dark: Boolean): CamoThe
         materialTheme(seed = seed, dark = dark)
     } else if ((skin == SampleSkin.Cupertino || skin == SampleSkin.CupertinoGlass) && seed != null) {
         cupertinoTheme(accent = seed, dark = dark)
+    } else if (skin == SampleSkin.Carbon && seed != null) {
+        carbonTheme(carbonFamily(dark), accent = seed)
     } else {
         skin.theme(dark)
     }

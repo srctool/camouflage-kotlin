@@ -9,6 +9,9 @@ import com.github.takahirom.roborazzi.RoborazziOptions
 import com.srctool.camouflage.core.provider.CamouflagePreview
 import com.srctool.camouflage.core.skin.CamoSkin
 import com.srctool.camouflage.core.theme.CamoTheme
+import com.srctool.camouflage.skin.carbon.CarbonSkin
+import com.srctool.camouflage.skin.carbon.carbonDark
+import com.srctool.camouflage.skin.carbon.carbonLight
 import com.srctool.camouflage.skin.cupertino.CupertinoSkin
 import com.srctool.camouflage.skin.cupertino.cupertinoDark
 import com.srctool.camouflage.skin.cupertino.cupertinoLight
@@ -41,6 +44,8 @@ class ChartsGoldenTest {
         Triple("material_dark", MaterialSkin, materialBaselineDark),
         Triple("cupertino_light", CupertinoSkin, cupertinoLight),
         Triple("cupertino_dark", CupertinoSkin, cupertinoDark),
+        Triple("carbon_light", CarbonSkin, carbonLight),
+        Triple("carbon_dark", CarbonSkin, carbonDark),
     )
 
     @Test fun charts() = golden("charts", width = 480, height = 560) { ChartsGallery() }
