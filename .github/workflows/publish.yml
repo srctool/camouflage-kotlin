@@ -50,6 +50,18 @@ jobs:
       - name: Check
         run: ./gradlew check -Pversion="$VERSION"
 
+      # The API reference (Dokka HTML, one folder per module) travels with the release, so it needs no Pages setup.
+      # Built before the publish on purpose: a failure here must not leave artifacts on Maven Central with no release.
+      - name: Build the API reference
+        run: |
+          ./gradlew dokkaGenerate -Pversion="$VERSION"
+          mkdir -p api-docs
+          for dir in camouflage-*/build/dokka/html; do
+            module="${dir%%/*}"
+            mkdir -p "api-docs/$module" && cp -R "$dir"/. "api-docs/$module/"
+          done
+          zip -qr "camouflage-kotlin-api-$VERSION.zip" api-docs
+
       - name: Publish and release on the Central Portal
         # The com.srctool.publish convention plugin uses project.version, so the tag decides the version.
         # A failed upload leaves an unreleased deployment: drop it in the portal and re-run; never bump
@@ -60,17 +72,6 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_IN_MEMORY_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_IN_MEMORY_KEY_PASSWORD }}
-
-      # The API reference (Dokka HTML, one folder per module) travels with the release, so it needs no Pages setup.
-      - name: Build the API reference
-        run: |
-          ./gradlew dokkaGenerate -Pversion="$VERSION"
-          mkdir -p api-docs
-          for dir in camouflage-*/build/dokka/html; do
-            module="${dir%%/*}"
-            mkdir -p "api-docs/$module" && cp -R "$dir"/. "api-docs/$module/"
-          done
-          zip -qr "camouflage-kotlin-api-$VERSION.zip" api-docs
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
