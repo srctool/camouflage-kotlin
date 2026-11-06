@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write # for the GitHub Release
+  checks: read # to see that CI passed on the tagged commit
 
 concurrency:
   group: publish
@@ -47,8 +48,21 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
 
-      - name: Check
-        run: ./gradlew check -Pversion="$VERSION"
+      # CI runs the whole suite on every commit of main (JVM, Android, iOS), so the release does not run it a second
+      # time on one macOS runner (30+ minutes, and macOS runner settings such as Reduce Motion differ from CI's).
+      # It requires those two CI jobs to have passed on exactly the tagged commit instead.
+      - name: Require CI to have passed on this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          runs=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/check-runs?per_page=100" \
+            --jq '.check_runs[] | [.name, (.conclusion // "")] | @tsv')
+          for name in "Check (JVM, Android, ABI, Detekt, layers)" "iOS (simulator tests, sample app)"; do
+            if ! printf '%s\n' "$runs" | awk -F'\t' -v n="$name" '$1 == n && $2 == "success" { ok = 1 } END { exit !ok }'; then
+              echo "::error::The CI job '$name' has not passed on $GITHUB_SHA. Wait for CI on main, then tag."
+              exit 1
+            fi
+          done
 
       # The API reference (Dokka HTML, one folder per module) travels with the release, so it needs no Pages setup.
       # Built before the publish on purpose: a failure here must not leave artifacts on Maven Central with no release.
