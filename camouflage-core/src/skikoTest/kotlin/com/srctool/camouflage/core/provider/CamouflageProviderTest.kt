@@ -32,6 +32,7 @@ import com.srctool.camouflage.core.themeU
 import com.srctool.camouflage.core.icon.IconStyle
 import com.srctool.camouflage.core.util.ProvideContentStyle
 import com.srctool.camouflage.core.util.rememberSkinIndication
+import com.srctool.camouflage.core.theme.CamoMotion
 import com.srctool.camouflage.core.theme.CamoTheme
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -42,6 +43,8 @@ import kotlin.test.assertSame
 // Assertions stay inside runComposeUiTest: on wasmJs the test body runs asynchronously.
 @OptIn(ExperimentalTestApi::class)
 class CamouflageProviderTest {
+    private fun CamoTheme.withoutMotion() = copy(motion = CamoMotion())
+
     private class Seen {
         var skin: CamoSkin? = null
         var theme: CamoTheme? = null
@@ -52,8 +55,9 @@ class CamouflageProviderTest {
         val seen = Seen()
         val read: @Composable () -> Unit = {
             seen.skin = Camouflage.skinOrNull
-            // The provider attaches its environment (ADR-41); compare the theme as written.
-            seen.theme = Camouflage.themeOrNull?.copy(environment = null)
+            // The provider attaches its environment (ADR-41) and shortens the motion when the platform asks for
+            // reduced motion (the macOS CI runners do): compare the theme as written, without either.
+            seen.theme = Camouflage.themeOrNull?.copy(environment = null)?.withoutMotion()
         }
         setContent {
             if (outer == null) {
@@ -78,28 +82,28 @@ class CamouflageProviderTest {
     fun innerProvidingNothingInheritsBoth() = runComposeUiTest {
         val seen = inside(skinA to themeT, null to null)
         assertSame(skinA, seen.skin)
-        assertEquals(themeT, seen.theme)
+        assertEquals(themeT.withoutMotion(), seen.theme)
     }
 
     @Test
     fun innerThemeOverridesOnlyTheTheme() = runComposeUiTest {
         val seen = inside(skinA to themeT, null to themeU)
         assertSame(skinA, seen.skin)
-        assertEquals(themeU, seen.theme)
+        assertEquals(themeU.withoutMotion(), seen.theme)
     }
 
     @Test
     fun innerSkinOverridesOnlyTheSkin() = runComposeUiTest {
         val seen = inside(skinA to themeT, skinB to null)
         assertSame(skinB, seen.skin)
-        assertEquals(themeT, seen.theme)
+        assertEquals(themeT.withoutMotion(), seen.theme)
     }
 
     @Test
     fun innerSkinAndThemeOverrideBoth() = runComposeUiTest {
         val seen = inside(skinA to themeT, skinB to themeU)
         assertSame(skinB, seen.skin)
-        assertEquals(themeU, seen.theme)
+        assertEquals(themeU.withoutMotion(), seen.theme)
     }
 
     @Test
@@ -113,14 +117,14 @@ class CamouflageProviderTest {
     fun aLoneThemeHasNoSkin() = runComposeUiTest {
         val seen = inside(null, null to themeU)
         assertNull(seen.skin)
-        assertEquals(themeU, seen.theme)
+        assertEquals(themeU.withoutMotion(), seen.theme)
     }
 
     @Test
     fun aLoneProviderWithBothWorks() = runComposeUiTest {
         val seen = inside(null, skinB to themeU)
         assertSame(skinB, seen.skin)
-        assertEquals(themeU, seen.theme)
+        assertEquals(themeU.withoutMotion(), seen.theme)
     }
 
     @Test
