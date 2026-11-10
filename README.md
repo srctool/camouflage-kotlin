@@ -1,5 +1,6 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](LICENSE)
-[![Docs](https://img.shields.io/badge/docs-Website-blue.svg)](https://camouflage-dev.srctool.com)
+[![Maven Central](https://img.shields.io/maven-central/v/com.srctool.camouflage/camouflage-core.svg)](https://central.sonatype.com/search?q=com.srctool.camouflage)
+[![Docs](https://img.shields.io/badge/docs-camouflage.srctool.com-blue.svg)](https://camouflage.srctool.com)
 
 # camouflage-kotlin
 
@@ -10,10 +11,33 @@ Kotlin implementation of Camouflage (part of the SRC Tool). This repository is a
 
 ---
 
+## Getting started
+
+Camouflage is on Maven Central (group `com.srctool.camouflage`) for Android, iOS, desktop (JVM) and web (wasmJs). Add the BOM, the core and one skin:
+
+```kotlin
+commonMain.dependencies {
+    implementation(project.dependencies.platform("com.srctool.camouflage:camouflage-bom:0.1.0"))
+    implementation("com.srctool.camouflage:camouflage-core")
+    implementation("com.srctool.camouflage:camouflage-skin-material") // or -minimal, -cupertino, -fluent, -carbon
+}
+```
+
+Wrap the app once, then use components:
+
+```kotlin
+CamouflageProvider(skin = MaterialSkin, theme = materialTheme(seed = brand)) {
+    CamoButton("Sign up", onClick = { signUp() })
+}
+```
+
+---
+
 ## Documentation
 
-- Usage docs: https://camouflage.srctool.com
-- Contributor docs (design, architecture, components, contributing): https://camouflage-dev.srctool.com
+- Usage docs (getting started, theming, skins, all 52 components): https://camouflage.srctool.com
+- Contributor docs (design, architecture, contributing): https://camouflage-dev.srctool.com
+- API reference: the Dokka archive attached to each GitHub release.
 
 ---
 
@@ -22,15 +46,15 @@ Kotlin implementation of Camouflage (part of the SRC Tool). This repository is a
 | Module | Holds |
 |---|---|
 | `camouflage-core` | the components, `CamoTheme` and the Skin contract; visually neutral, no Material |
-| `camouflage-skin-minimal` | the Minimal skin and `minimalTheme` |
-| `camouflage-navigation3` | Navigation 3 integration: dialog and bottom-sheet scene strategies (M6) |
-| `camouflage-charts` | Charts without a chart library: line, bar, pie and sparkline, styled by theme tokens and a preset per skin (M11) |
-| `camouflage-skin-testing` | test-only checks for any skin (M3) |
+| `camouflage-skin-minimal`, `-material`, `-cupertino`, `-fluent`, `-carbon` | the five skins, each with its theme function |
+| `camouflage-navigation3` | Navigation 3 integration: dialog and bottom-sheet scene strategies |
+| `camouflage-charts` | line, area, bar, pie, donut and sparkline charts without a chart library, styled by the theme and a preset per skin |
+| `camouflage-skin-testing` | test-only accessibility and layout checks for any skin |
 | `camouflage-bom` | pins the modules above to versions tested together |
-| `sample` | the sample app: `:sample:shared` (Android, iOS, desktop, web) and `:sample:androidApp` |
+| `sample` | the sample catalog: `:sample:shared` (Android, iOS, desktop, web) and `:sample:androidApp` |
 | `build-logic` | the `com.srctool.*` convention plugins |
 
-Targets: Android, iOS (arm64, simulator arm64), JVM desktop and wasmJs. Status: milestone **M0** (skeleton): every module holds a placeholder until its milestone.
+Targets: Android, iOS (arm64, simulator arm64), JVM desktop and wasmJs. Status: **v0.1.0 released**; the API can still change before 1.0.
 
 ---
 
