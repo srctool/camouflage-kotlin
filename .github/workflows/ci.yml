@@ -56,8 +56,41 @@ jobs:
       - uses: gradle/actions/setup-gradle@v6
       - run: ./gradlew wasmJsTest :sample:shared:wasmJsBrowserDistribution
 
-  ios:
-    name: iOS (simulator tests, sample app)
+  # The iOS tests were one job of 8 to 15 minutes, which set CI's wall time (the other jobs take 2 to 3).
+  # They now run as a matrix of module groups, and the sample app builds in its own job. Nothing runs with
+  # --parallel inside a job: the runner's memory is small (the wasm link ran out of heap once).
+  ios-tests:
+    name: iOS tests (${{ matrix.name }})
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: core
+            modules: camouflage-core
+          - name: charts, navigation3, testing
+            modules: camouflage-charts camouflage-navigation3 camouflage-skin-testing
+          - name: minimal, material
+            modules: camouflage-skin-minimal camouflage-skin-material
+          - name: cupertino
+            modules: camouflage-skin-cupertino
+          - name: fluent, carbon
+            modules: camouflage-skin-fluent camouflage-skin-carbon
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v6
+      - name: iOS simulator tests
+        run: |
+          tasks=""
+          for module in ${{ matrix.modules }}; do tasks="$tasks :$module:iosSimulatorArm64Test"; done
+          ./gradlew $tasks
+
+  ios-sample:
+    name: iOS sample app
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v7
@@ -66,9 +99,24 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v6
-      - run: ./gradlew iosSimulatorArm64Test
       - name: Build the iOS sample
         run: >-
           xcodebuild -project sample/iosApp/iosApp.xcodeproj -scheme iosApp
           -sdk iphonesimulator -destination 'generic/platform=iOS Simulator'
           CODE_SIGNING_ALLOWED=NO build
+
+  # One check with the old name. The branch ruleset and the release workflow require "iOS (simulator tests, sample
+  # app)" by name, so this job stands for the tests and the sample build above.
+  ios:
+    name: iOS (simulator tests, sample app)
+    runs-on: ubuntu-24.04
+    needs: [ios-tests, ios-sample]
+    if: always()
+    steps:
+      - name: Require every iOS job to have passed
+        env:
+          TESTS: ${{ needs.ios-tests.result }}
+          SAMPLE: ${{ needs.ios-sample.result }}
+        run: |
+          echo "iOS tests: $TESTS, iOS sample: $SAMPLE"
+          [ "$TESTS" = success ] && [ "$SAMPLE" = success ]
