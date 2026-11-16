@@ -218,7 +218,10 @@ public fun CamoTextField(
     val inputModifier = Modifier
         .focusRequester(focus)
         .onFocusChanged { focusChanged?.invoke(it.isFocused) }
-        .semantics { if (secure) password() }
+        .semantics {
+            if (secure) password()
+            (label ?: placeholder)?.let { contentDescription = it }
+        }
         .camoError(error)
     val named = namedBy(label ?: placeholder)
     val input: @Composable () -> Unit = {
