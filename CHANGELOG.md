@@ -8,6 +8,7 @@ This changelog follows Keep a Changelog and Semantic Versioning.
 
 ### Added
 
+- **Menu submenus:** `CamoMenuSubmenu(text, items)` is a new `CamoMenuEntry`: a row that opens a nested menu beside it (Reset ▸ Soft, Mixed, Hard). Hover opens it after 250 ms, a click, Enter and the arrow toward the child open it at once and focus its first item; the arrow back and Esc close only the submenu, and a leaf closes every level. It flips to the start side near the window's edge and mirrors in right-to-left. `MenuItemState` gains `hasSubmenu` and `submenuOpen`, which every skin draws as a trailing chevron and an open row. A menu with submenus lays out its levels in one window-sized popup layer; menus without them are unchanged.
 - **Carbon density:** `carbonTheme(density = CarbonDensity.Md)` sets every control's size (`Xs` 24, `Sm` 32, `Md` 40, `Lg` 48) in one place: buttons, icon buttons, text and search fields, steppers, segmented controls, menu items, list rows, tree rows, data table rows, tabs, button groups and toolbar actions. `null` follows the input: a pointer gets `Md`, fingers get `Lg`. A touch target stays 48.
 
 ### Changed

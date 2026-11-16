@@ -37,6 +37,7 @@ import com.srctool.camouflage.core.menu.CamoMenuDivider
 import com.srctool.camouflage.core.menu.CamoMenuEntry
 import com.srctool.camouflage.core.menu.CamoMenuGroup
 import com.srctool.camouflage.core.menu.CamoMenuItem
+import com.srctool.camouflage.core.menu.CamoMenuSubmenu
 import com.srctool.camouflage.core.pagedlist.CamoPagedListState
 import com.srctool.camouflage.core.pagedlist.PagedLoad
 import com.srctool.camouflage.core.provider.Camouflage
@@ -134,7 +135,11 @@ private fun DocumentList(docs: MutableList<Doc>, backStack: MutableList<Any>, re
 
     fun rowMenu(doc: Doc): List<CamoMenuEntry> = listOf(
         CamoMenuItem("Rename", { rename(doc) }, leadingIcon = { AppIcon.Edit() }),
-        CamoMenuItem("Share", {}, leadingIcon = { AppIcon.Share() }, trailingText = "Ctrl+S"),
+        CamoMenuSubmenu(
+            "Share",
+            listOf(CamoMenuItem("Copy link", {}), CamoMenuItem("Email", {}), CamoMenuItem("Message", {})),
+            leadingIcon = { AppIcon.Share() },
+        ),
         CamoMenuDivider,
         CamoMenuItem("Delete", { backStack.add(DeleteDocs(listOf(doc.name))) }, leadingIcon = { AppIcon.Delete() },
             tone = Tone.Error),

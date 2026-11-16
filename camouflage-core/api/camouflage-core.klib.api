@@ -5483,6 +5483,28 @@ final class com.srctool.camouflage.core.menu/CamoMenuItem : com.srctool.camoufla
     final fun toString(): kotlin/String // com.srctool.camouflage.core.menu/CamoMenuItem.toString|toString(){}[0]
 }
 
+final class com.srctool.camouflage.core.menu/CamoMenuSubmenu : com.srctool.camouflage.core.menu/CamoMenuEntry { // com.srctool.camouflage.core.menu/CamoMenuSubmenu|null[0]
+    constructor <init>(kotlin/String, kotlin.collections/List<com.srctool.camouflage.core.menu/CamoMenuEntry>, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? = ..., kotlin/Boolean = ...) // com.srctool.camouflage.core.menu/CamoMenuSubmenu.<init>|<init>(kotlin.String;kotlin.collections.List<com.srctool.camouflage.core.menu.CamoMenuEntry>;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Boolean){}[0]
+
+    final val enabled // com.srctool.camouflage.core.menu/CamoMenuSubmenu.enabled|{}enabled[0]
+        final fun <get-enabled>(): kotlin/Boolean // com.srctool.camouflage.core.menu/CamoMenuSubmenu.enabled.<get-enabled>|<get-enabled>(){}[0]
+    final val items // com.srctool.camouflage.core.menu/CamoMenuSubmenu.items|{}items[0]
+        final fun <get-items>(): kotlin.collections/List<com.srctool.camouflage.core.menu/CamoMenuEntry> // com.srctool.camouflage.core.menu/CamoMenuSubmenu.items.<get-items>|<get-items>(){}[0]
+    final val leadingIcon // com.srctool.camouflage.core.menu/CamoMenuSubmenu.leadingIcon|{}leadingIcon[0]
+        final fun <get-leadingIcon>(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.srctool.camouflage.core.menu/CamoMenuSubmenu.leadingIcon.<get-leadingIcon>|<get-leadingIcon>(){}[0]
+    final val text // com.srctool.camouflage.core.menu/CamoMenuSubmenu.text|{}text[0]
+        final fun <get-text>(): kotlin/String // com.srctool.camouflage.core.menu/CamoMenuSubmenu.text.<get-text>|<get-text>(){}[0]
+
+    final fun component1(): kotlin/String // com.srctool.camouflage.core.menu/CamoMenuSubmenu.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<com.srctool.camouflage.core.menu/CamoMenuEntry> // com.srctool.camouflage.core.menu/CamoMenuSubmenu.component2|component2(){}[0]
+    final fun component3(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.srctool.camouflage.core.menu/CamoMenuSubmenu.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // com.srctool.camouflage.core.menu/CamoMenuSubmenu.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin.collections/List<com.srctool.camouflage.core.menu/CamoMenuEntry> = ..., kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? = ..., kotlin/Boolean = ...): com.srctool.camouflage.core.menu/CamoMenuSubmenu // com.srctool.camouflage.core.menu/CamoMenuSubmenu.copy|copy(kotlin.String;kotlin.collections.List<com.srctool.camouflage.core.menu.CamoMenuEntry>;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.core.menu/CamoMenuSubmenu.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.core.menu/CamoMenuSubmenu.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.core.menu/CamoMenuSubmenu.toString|toString(){}[0]
+}
+
 final class com.srctool.camouflage.core.menu/MenuColors { // com.srctool.camouflage.core.menu/MenuColors|null[0]
     constructor <init>(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color) // com.srctool.camouflage.core.menu/MenuColors.<init>|<init>(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color){}[0]
 
@@ -5513,12 +5535,14 @@ final class com.srctool.camouflage.core.menu/MenuItemSlots { // com.srctool.camo
 }
 
 final class com.srctool.camouflage.core.menu/MenuItemState { // com.srctool.camouflage.core.menu/MenuItemState|null[0]
-    constructor <init>(kotlin/String, kotlin/String?, com.srctool.camouflage.core.theme/Tone, kotlin/Boolean, kotlin/Boolean?, kotlin/Boolean, kotlin/Boolean, com.srctool.camouflage.core.skin/InteractionState, androidx.compose.foundation.interaction/InteractionSource) // com.srctool.camouflage.core.menu/MenuItemState.<init>|<init>(kotlin.String;kotlin.String?;com.srctool.camouflage.core.theme.Tone;kotlin.Boolean;kotlin.Boolean?;kotlin.Boolean;kotlin.Boolean;com.srctool.camouflage.core.skin.InteractionState;androidx.compose.foundation.interaction.InteractionSource){}[0]
+    constructor <init>(kotlin/String, kotlin/String?, com.srctool.camouflage.core.theme/Tone, kotlin/Boolean, kotlin/Boolean?, kotlin/Boolean, kotlin/Boolean, com.srctool.camouflage.core.skin/InteractionState, androidx.compose.foundation.interaction/InteractionSource, kotlin/Boolean = ..., kotlin/Boolean = ...) // com.srctool.camouflage.core.menu/MenuItemState.<init>|<init>(kotlin.String;kotlin.String?;com.srctool.camouflage.core.theme.Tone;kotlin.Boolean;kotlin.Boolean?;kotlin.Boolean;kotlin.Boolean;com.srctool.camouflage.core.skin.InteractionState;androidx.compose.foundation.interaction.InteractionSource;kotlin.Boolean;kotlin.Boolean){}[0]
 
     final val checked // com.srctool.camouflage.core.menu/MenuItemState.checked|{}checked[0]
         final fun <get-checked>(): kotlin/Boolean? // com.srctool.camouflage.core.menu/MenuItemState.checked.<get-checked>|<get-checked>(){}[0]
     final val enabled // com.srctool.camouflage.core.menu/MenuItemState.enabled|{}enabled[0]
         final fun <get-enabled>(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.enabled.<get-enabled>|<get-enabled>(){}[0]
+    final val hasSubmenu // com.srctool.camouflage.core.menu/MenuItemState.hasSubmenu|{}hasSubmenu[0]
+        final fun <get-hasSubmenu>(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.hasSubmenu.<get-hasSubmenu>|<get-hasSubmenu>(){}[0]
     final val interaction // com.srctool.camouflage.core.menu/MenuItemState.interaction|{}interaction[0]
         final fun <get-interaction>(): com.srctool.camouflage.core.skin/InteractionState // com.srctool.camouflage.core.menu/MenuItemState.interaction.<get-interaction>|<get-interaction>(){}[0]
     final val interactionSource // com.srctool.camouflage.core.menu/MenuItemState.interactionSource|{}interactionSource[0]
@@ -5527,6 +5551,8 @@ final class com.srctool.camouflage.core.menu/MenuItemState { // com.srctool.camo
         final fun <get-reserveCheck>(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.reserveCheck.<get-reserveCheck>|<get-reserveCheck>(){}[0]
     final val reserveIcon // com.srctool.camouflage.core.menu/MenuItemState.reserveIcon|{}reserveIcon[0]
         final fun <get-reserveIcon>(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.reserveIcon.<get-reserveIcon>|<get-reserveIcon>(){}[0]
+    final val submenuOpen // com.srctool.camouflage.core.menu/MenuItemState.submenuOpen|{}submenuOpen[0]
+        final fun <get-submenuOpen>(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.submenuOpen.<get-submenuOpen>|<get-submenuOpen>(){}[0]
     final val text // com.srctool.camouflage.core.menu/MenuItemState.text|{}text[0]
         final fun <get-text>(): kotlin/String // com.srctool.camouflage.core.menu/MenuItemState.text.<get-text>|<get-text>(){}[0]
     final val tone // com.srctool.camouflage.core.menu/MenuItemState.tone|{}tone[0]
@@ -5535,6 +5561,8 @@ final class com.srctool.camouflage.core.menu/MenuItemState { // com.srctool.camo
         final fun <get-trailingText>(): kotlin/String? // com.srctool.camouflage.core.menu/MenuItemState.trailingText.<get-trailingText>|<get-trailingText>(){}[0]
 
     final fun component1(): kotlin/String // com.srctool.camouflage.core.menu/MenuItemState.component1|component1(){}[0]
+    final fun component10(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.component10|component10(){}[0]
+    final fun component11(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.component11|component11(){}[0]
     final fun component2(): kotlin/String? // com.srctool.camouflage.core.menu/MenuItemState.component2|component2(){}[0]
     final fun component3(): com.srctool.camouflage.core.theme/Tone // com.srctool.camouflage.core.menu/MenuItemState.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.component4|component4(){}[0]
@@ -5543,7 +5571,7 @@ final class com.srctool.camouflage.core.menu/MenuItemState { // com.srctool.camo
     final fun component7(): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.component7|component7(){}[0]
     final fun component8(): com.srctool.camouflage.core.skin/InteractionState // com.srctool.camouflage.core.menu/MenuItemState.component8|component8(){}[0]
     final fun component9(): androidx.compose.foundation.interaction/InteractionSource // com.srctool.camouflage.core.menu/MenuItemState.component9|component9(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String? = ..., com.srctool.camouflage.core.theme/Tone = ..., kotlin/Boolean = ..., kotlin/Boolean? = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., com.srctool.camouflage.core.skin/InteractionState = ..., androidx.compose.foundation.interaction/InteractionSource = ...): com.srctool.camouflage.core.menu/MenuItemState // com.srctool.camouflage.core.menu/MenuItemState.copy|copy(kotlin.String;kotlin.String?;com.srctool.camouflage.core.theme.Tone;kotlin.Boolean;kotlin.Boolean?;kotlin.Boolean;kotlin.Boolean;com.srctool.camouflage.core.skin.InteractionState;androidx.compose.foundation.interaction.InteractionSource){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String? = ..., com.srctool.camouflage.core.theme/Tone = ..., kotlin/Boolean = ..., kotlin/Boolean? = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., com.srctool.camouflage.core.skin/InteractionState = ..., androidx.compose.foundation.interaction/InteractionSource = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): com.srctool.camouflage.core.menu/MenuItemState // com.srctool.camouflage.core.menu/MenuItemState.copy|copy(kotlin.String;kotlin.String?;com.srctool.camouflage.core.theme.Tone;kotlin.Boolean;kotlin.Boolean?;kotlin.Boolean;kotlin.Boolean;com.srctool.camouflage.core.skin.InteractionState;androidx.compose.foundation.interaction.InteractionSource;kotlin.Boolean;kotlin.Boolean){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.core.menu/MenuItemState.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // com.srctool.camouflage.core.menu/MenuItemState.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // com.srctool.camouflage.core.menu/MenuItemState.toString|toString(){}[0]
@@ -10616,6 +10644,7 @@ final val com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_Camo
 final val com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuDivider$stableprop // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuDivider$stableprop|#static{}com_srctool_camouflage_core_menu_CamoMenuDivider$stableprop[0]
 final val com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuGroup$stableprop // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuGroup$stableprop|#static{}com_srctool_camouflage_core_menu_CamoMenuGroup$stableprop[0]
 final val com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuItem$stableprop // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuItem$stableprop|#static{}com_srctool_camouflage_core_menu_CamoMenuItem$stableprop[0]
+final val com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuSubmenu$stableprop // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuSubmenu$stableprop|#static{}com_srctool_camouflage_core_menu_CamoMenuSubmenu$stableprop[0]
 final val com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuColors$stableprop // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuColors$stableprop|#static{}com_srctool_camouflage_core_menu_MenuColors$stableprop[0]
 final val com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuItemSlots$stableprop // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuItemSlots$stableprop|#static{}com_srctool_camouflage_core_menu_MenuItemSlots$stableprop[0]
 final val com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuItemState$stableprop // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuItemState$stableprop|#static{}com_srctool_camouflage_core_menu_MenuItemState$stableprop[0]
@@ -11052,6 +11081,7 @@ final fun com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_Camo
 final fun com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuDivider$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuDivider$stableprop_getter|com_srctool_camouflage_core_menu_CamoMenuDivider$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuGroup$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuGroup$stableprop_getter|com_srctool_camouflage_core_menu_CamoMenuGroup$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuItem$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuItem$stableprop_getter|com_srctool_camouflage_core_menu_CamoMenuItem$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuSubmenu$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_CamoMenuSubmenu$stableprop_getter|com_srctool_camouflage_core_menu_CamoMenuSubmenu$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuColors$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuColors$stableprop_getter|com_srctool_camouflage_core_menu_MenuColors$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuItemSlots$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuItemSlots$stableprop_getter|com_srctool_camouflage_core_menu_MenuItemSlots$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuItemState$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.menu/com_srctool_camouflage_core_menu_MenuItemState$stableprop_getter|com_srctool_camouflage_core_menu_MenuItemState$stableprop_getter(){}[0]
