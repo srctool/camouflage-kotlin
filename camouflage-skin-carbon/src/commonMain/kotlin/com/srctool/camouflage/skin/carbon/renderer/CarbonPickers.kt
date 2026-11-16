@@ -94,6 +94,8 @@ import com.srctool.camouflage.core.util.rememberSkinIndication
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
+import com.srctool.camouflage.skin.carbon.density
+import com.srctool.camouflage.skin.carbon.forDensity
 
 // Carbon's overlays and pickers (base Carbon Skin §3.3): flat surfaces with a hairline, ink for the selection.
 
@@ -112,9 +114,9 @@ internal object CarbonMenuRenderer : MenuRenderer {
             shape = theme.shapes.medium,
             minWidth = 112.dp,
             maxWidth = 280.dp,
-            itemHeight = 40.dp,
+            itemHeight = theme.density.size,
             contentPadding = PaddingValues(vertical = theme.spacing.xs),
-            textStyle = theme.typography.bodyMedium,
+            textStyle = theme.typography.bodyMedium.forDensity(theme.density),
             iconSize = 18.dp,
             elevation = ElevationLevel.Level3, // overlays get the one shadow
             checkPosition = CheckPosition.Trailing,

@@ -6,6 +6,19 @@ This changelog follows Keep a Changelog and Semantic Versioning.
 
 ## [Unreleased]
 
+### Added
+
+- **Carbon density:** `carbonTheme(density = CarbonDensity.Md)` sets every control's size (`Xs` 24, `Sm` 32, `Md` 40, `Lg` 48) in one place: buttons, icon buttons, text and search fields, steppers, segmented controls, menu items, list rows, tree rows, data table rows, tabs, button groups and toolbar actions. `null` follows the input: a pointer gets `Md`, fingers get `Lg`. A touch target stays 48.
+
+### Changed
+
+- **Carbon's default sizes change:** a pointer now draws 40 (it drew 48 for most controls), and fields, menus, tabs and similar draw 48 with fingers (they drew 40). Pass `density = CarbonDensity.Lg` for the old buttons and rows.
+- `CamoCarousel`'s `itemKey` must be a type Android can save (a `String` or a number); a `Color.value` throws there. Documented.
+
+### Fixed
+
+- Text fields and search fields announce their name on TalkBack and VoiceOver (the label is now the editable node's content description).
+
 ## [0.1.0] - 2026-11-06
 
 The first release, on Maven Central (`com.srctool.camouflage`), with the API reference attached to the GitHub Release.

@@ -111,6 +111,7 @@ import com.srctool.camouflage.core.util.ProvideContentStyle
 import com.srctool.camouflage.core.util.disabled
 import com.srctool.camouflage.core.util.rememberSkinIndication
 import kotlin.math.min
+import com.srctool.camouflage.skin.carbon.density
 
 // Carbon's structure components (base Carbon Skin §3.4): hairlines instead of fills, ink for emphasis.
 
@@ -211,7 +212,7 @@ internal object CarbonListItemRenderer : ListItemRenderer {
         val t = theme.typography
         val padding = theme.spacing.l
         return ListItemStyle(
-            minHeightOneLine = 48.dp,
+            minHeightOneLine = theme.density.size,
             minHeightTwoLines = 64.dp,
             minHeightThreeLines = 80.dp,
             contentPadding = PaddingValues(horizontal = padding, vertical = theme.spacing.s),

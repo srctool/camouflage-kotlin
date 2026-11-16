@@ -62,6 +62,7 @@ import com.srctool.camouflage.core.toolbar.ToolbarStyle
 import com.srctool.camouflage.core.util.ProvideContentStyle
 import com.srctool.camouflage.core.util.disabled
 import com.srctool.camouflage.core.util.rememberSkinIndication
+import com.srctool.camouflage.skin.carbon.density
 
 // Carbon's button groups, split buttons and toolbars (base Carbon Skin):
 // hairline outlines, an ink pressed state and a quiet docked bar.
@@ -77,7 +78,7 @@ internal object CarbonButtonGroupRenderer : ButtonGroupRenderer {
         val c = theme.colors
         return ButtonGroupStyle(
             defaultAppearance = Appearance.Outline,
-            height = 40.dp,
+            height = theme.density.size,
             shape = theme.shapes.none,
             innerShape = theme.shapes.none,
             spacing = theme.spacing.none,
@@ -177,7 +178,7 @@ private fun groupShape(style: ButtonGroupStyle, position: ItemPosition, connecte
 internal object CarbonSplitButtonRenderer : SplitButtonRenderer {
     override fun defaults(theme: CamoTheme) = SplitButtonStyle(
         defaultAppearance = Appearance.Solid,
-        height = 40.dp,
+        height = theme.density.size,
         shape = theme.shapes.medium,
         innerShape = theme.shapes.none,
         arrowWidth = 36.dp,
@@ -310,8 +311,8 @@ private fun splitShape(style: SplitButtonStyle, main: Boolean): Shape {
 internal object CarbonToolbarRenderer : ToolbarRenderer {
     override fun defaults(theme: CamoTheme) = ToolbarStyle(
         placement = ToolbarPlacement.Docked,
-        height = 48.dp,
-        actionSize = 48.dp,
+        height = theme.density.size,
+        actionSize = theme.density.size,
         floatingMargin = theme.spacing.l,
         floatingShape = theme.shapes.medium,
         floatingElevation = ElevationLevel.Level2,

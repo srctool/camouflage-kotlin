@@ -64,6 +64,8 @@ import com.srctool.camouflage.core.theme.of
 import com.srctool.camouflage.core.util.ProvideContentStyle
 import com.srctool.camouflage.core.util.disabled
 import com.srctool.camouflage.core.util.rememberSkinIndication
+import com.srctool.camouflage.skin.carbon.density
+import com.srctool.camouflage.skin.carbon.forDensity
 
 // Carbon's buttons, icon buttons and progress circle (base Carbon Skin §3.3 and §3.4).
 
@@ -76,12 +78,12 @@ internal object CarbonButtonRenderer : ButtonRenderer {
         val c = theme.colors
         return ButtonStyle(
             defaultAppearance = Appearance.Solid,
-            height = 48.dp,
+            height = theme.density.size,
             minWidth = 96.dp,
             shape = theme.shapes.none,
             padding = PaddingValues(horizontal = theme.spacing.l),
             paddingWithIcon = PaddingValues(horizontal = theme.spacing.l),
-            textStyle = theme.typography.labelLarge,
+            textStyle = theme.typography.labelLarge.forDensity(theme.density),
             iconSize = 16.dp,
             iconGap = theme.spacing.xxl, // the label starts at the left, the icon sits at the end
             borderWidth = Hairline,
@@ -158,7 +160,7 @@ internal object CarbonIconButtonRenderer : IconButtonRenderer {
         val c = theme.colors
         return IconButtonStyle(
             defaultAppearance = Appearance.Ghost,
-            containerSize = 48.dp,
+            containerSize = theme.density.size,
             shape = theme.shapes.none,
             iconSize = 16.dp,
             borderWidth = Hairline,
