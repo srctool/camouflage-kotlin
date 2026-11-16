@@ -97,6 +97,7 @@ import kotlin.math.sin
 
 private const val WEEK = 7
 private const val DISABLED = 0.38f
+private const val OPEN_ROW = 0.08f
 private const val WHEEL_ROWS = 5
 private const val OUTER_LABELS = 0.8f
 private const val INNER_LABELS = 0.45f
@@ -141,6 +142,13 @@ internal object FluentMenuRenderer : MenuRenderer {
         Row(
             modifier
                 .indication(state.interactionSource, rememberSkinIndication(style.colors.text, theme.shapes.small))
+                .then(
+                    if (state.submenuOpen) {
+                        Modifier.background(style.colors.text.copy(alpha = OPEN_ROW), theme.shapes.small)
+                    } else {
+                        Modifier
+                    },
+                )
                 .fillMaxWidth()
                 .heightIn(min = style.itemHeight)
                 .padding(horizontal = gap),
@@ -171,6 +179,15 @@ internal object FluentMenuRenderer : MenuRenderer {
                 }
                 if (!leadingCheck && state.checked == true) {
                     CamoIcon(style.checkIcon, null, Modifier.padding(start = gap), tint = text, size = style.iconSize)
+                }
+                if (state.hasSubmenu) {
+                    CamoIcon(
+                        IconSource.Vector(FluentChevronEnd, autoMirror = true),
+                        null,
+                        Modifier.padding(start = gap),
+                        tint = text,
+                        size = style.iconSize,
+                    )
                 }
             }
         }

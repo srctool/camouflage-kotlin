@@ -1,9 +1,25 @@
 package com.srctool.camouflage.core.menu
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.layout.boundsInRoot
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.IntRect
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.window.Popup
+import androidx.compose.ui.window.PopupPositionProvider
+import androidx.compose.ui.window.PopupProperties
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.waitForUpOrCancellation
+import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +35,7 @@ import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
@@ -50,11 +67,15 @@ import androidx.compose.ui.input.pointer.PointerType
 import androidx.compose.ui.input.pointer.isSecondaryPressed
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalInputModeManager
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.collapse
+import androidx.compose.ui.semantics.expand
 import androidx.compose.ui.semantics.onLongClick
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
 import androidx.compose.ui.unit.round
@@ -66,11 +87,13 @@ import com.srctool.camouflage.core.provider.requireTheme
 import com.srctool.camouflage.core.theme.Tone
 import com.srctool.camouflage.core.util.collectInteractionState
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
+import kotlin.math.roundToInt
 import kotlin.time.TimeSource
 
-/** One entry in a menu: a [CamoMenuItem], a [CamoMenuDivider] or a [CamoMenuGroup]. */
+/** One entry in a menu: a [CamoMenuItem], a [CamoMenuDivider], a [CamoMenuGroup] or a [CamoMenuSubmenu]. */
 public sealed interface CamoMenuEntry
 
 /**
@@ -95,6 +118,20 @@ public data object CamoMenuDivider : CamoMenuEntry
 /** Items that belong together; [exclusive] announces the checked one as a radio item ("Sort by: Newest"). */
 @Immutable
 public data class CamoMenuGroup(val items: List<CamoMenuItem>, val exclusive: Boolean = false) : CamoMenuEntry
+
+/**
+ * A row that opens a nested menu of [items] beside it (Reset ▸ Soft, Mixed, Hard). Hovering opens it after a
+ * short delay; a click, Enter and the arrow toward the child (Right, or Left in right-to-left) open it at once.
+ * The arrow back and Esc close only the submenu; selecting a leaf closes every level. A submenu may hold
+ * submenus; more than two levels is a design smell.
+ */
+@Immutable
+public data class CamoMenuSubmenu(
+    val text: String,
+    val items: List<CamoMenuEntry>,
+    val leadingIcon: (@Composable () -> Unit)? = null,
+    val enabled: Boolean = true,
+) : CamoMenuEntry
 
 /** Opens and closes a [CamoMenuAnchor] from outside it. */
 @Stable
@@ -226,6 +263,11 @@ internal fun MenuPopup(
     onClose: () -> Unit,
     minWidth: Dp = 0.dp,
 ) {
+    // A menu with submenus lays out all its levels in one window-sized layer (below); the rest is a plain popup.
+    if (panel == null && items.any { it is CamoMenuSubmenu }) {
+        NestedMenuPopup(items, scope, onClose)
+        return
+    }
     CamoAnchoredPopup(onClose) {
         CamoMenuPanel {
             if (panel != null) panel() else MenuEntries(items, scope, onClose, minWidth)
@@ -233,9 +275,9 @@ internal fun MenuPopup(
     }
 }
 
-private enum class RowKind { Plain, Check, Radio }
+internal enum class RowKind { Plain, Check, Radio, Submenu }
 
-private class MenuRow(val item: CamoMenuItem, val kind: RowKind)
+internal class MenuRow(val item: CamoMenuItem, val kind: RowKind, val submenu: CamoMenuSubmenu? = null)
 
 private const val TYPE_AHEAD_MILLIS = 500
 
@@ -251,8 +293,20 @@ private class TypeAhead {
     }
 }
 
+// One menu level: its rows, keys and submenu state in one place.
+@Suppress("CyclomaticComplexMethod", "LongMethod")
 @Composable
-private fun MenuEntries(entries: List<CamoMenuEntry>, scope: CoroutineScope, onClose: () -> Unit, minWidth: Dp) {
+internal fun MenuEntries(
+    entries: List<CamoMenuEntry>,
+    scope: CoroutineScope,
+    onClose: () -> Unit,
+    minWidth: Dp,
+    onBack: (() -> Unit)? = null,
+    open: Int = -1,
+    childHovered: Boolean = false,
+    onOpen: (index: Int, submenu: CamoMenuSubmenu, bounds: IntRect) -> Unit = { _, _, _ -> },
+    onCloseChild: () -> Unit = {},
+) {
     val skin = requireSkin("CamoMenuAnchor")
     val theme = requireTheme("CamoMenuAnchor")
     val style = remember(skin, theme) { skin.menu.defaults(theme).merge(theme.components.menu) }
@@ -261,20 +315,39 @@ private fun MenuEntries(entries: List<CamoMenuEntry>, scope: CoroutineScope, onC
     val reserveCheck = rows.any { it.item.checked != null }
     val reserveIcon = rows.any { it.item.leadingIcon != null }
     var focused by remember { mutableIntStateOf(-1) }
+    var hovered by remember { mutableIntStateOf(-1) }
+    val bounds = remember(rows.size) { arrayOfNulls<IntRect>(rows.size) } // each submenu row, in the layer
+    fun openRow(at: Int) {
+        val submenu = rows[at].submenu
+        val rect = bounds[at]
+        if (submenu != null && rect != null) onOpen(at, submenu, rect)
+    }
     val typeAhead = remember { TypeAhead() }
     val keyboard = LocalInputModeManager.current
+    val toward = if (LocalLayoutDirection.current == LayoutDirection.Ltr) Key.DirectionRight else Key.DirectionLeft
+    val away = if (toward == Key.DirectionRight) Key.DirectionLeft else Key.DirectionRight
     val enabled = rows.indices.filter { rows[it].item.enabled }
     LaunchedEffect(Unit) {
         // After the popup has taken focus itself; a touch opening shows no focus ring.
         withFrameNanos { }
         if (keyboard.inputMode == InputMode.Keyboard) enabled.firstOrNull()?.let { requesters[it].requestFocus() }
     }
+    SubmenuTimers(rows, requesters, hovered, open, childHovered, ::openRow, onCloseChild)
 
     fun keys(event: KeyEvent): Boolean {
-        val down = event.type == KeyEventType.KeyDown
-        val target = if (down) keyTarget(event, rows, enabled, focused, typeAhead) else null
-        target?.let { requesters[it].requestFocus() }
-        return target != null
+        if (event.type != KeyEventType.KeyDown) return false
+        val canOpen = rows.getOrNull(focused)?.let { it.submenu != null && it.item.enabled } == true
+        return when (submenuKey(event.key, toward, away, canOpen, onBack != null)) {
+            SubmenuKey.Open -> {
+                openRow(focused)
+                true
+            }
+            SubmenuKey.Back -> {
+                onBack?.invoke()
+                true
+            }
+            null -> keyTarget(event, rows, enabled, focused, typeAhead)?.also { requesters[it].requestFocus() } != null
+        }
     }
 
     Column(
@@ -289,25 +362,41 @@ private fun MenuEntries(entries: List<CamoMenuEntry>, scope: CoroutineScope, onC
         @Composable
         fun Row(row: MenuRow) {
             val at = index++
-            MenuItemRow(
-                row.item,
-                row.kind,
-                reserveCheck,
-                reserveIcon,
-                onSelected = {
-                    onClose()
-                    scope.launch {
-                        withFrameNanos { }
-                        row.item.onClick()
-                    }
-                },
-                Modifier.focusRequester(requesters[at]).onFocusChanged { if (it.isFocused) focused = at },
-            )
+            val modifier = Modifier.focusRequester(requesters[at]).onFocusChanged { if (it.isFocused) focused = at }
+            val submenu = row.submenu
+            if (submenu == null) {
+                MenuItemRow(
+                    row.item,
+                    row.kind,
+                    reserveCheck,
+                    reserveIcon,
+                    onSelected = {
+                        onClose()
+                        scope.launch {
+                            withFrameNanos { }
+                            row.item.onClick()
+                        }
+                    },
+                    modifier,
+                )
+            } else {
+                MenuItemRow(
+                    row.item,
+                    row.kind,
+                    reserveCheck,
+                    reserveIcon,
+                    onSelected = { openRow(at) },
+                    modifier.onGloballyPositioned { bounds[at] = it.boundsInRoot().roundToIntRect() },
+                    submenuOpen = open == at,
+                    onCollapse = onCloseChild,
+                    onHoverChange = { if (it) hovered = at else if (hovered == at) hovered = -1 },
+                )
+            }
         }
 
         entries.forEach { entry ->
             when (entry) {
-                is CamoMenuItem -> Row(rows[index])
+                is CamoMenuItem, is CamoMenuSubmenu -> Row(rows[index])
                 CamoMenuDivider -> CamoDivider(Modifier.padding(vertical = Camouflage.spacing.xs))
                 is CamoMenuGroup -> Column(if (entry.exclusive) Modifier.selectableGroup() else Modifier) {
                     entry.items.forEach { _ -> Row(rows[index]) }
@@ -340,6 +429,13 @@ private fun keyTarget(
 private fun flatten(entries: List<CamoMenuEntry>): List<MenuRow> = entries.flatMap { entry ->
     when (entry) {
         is CamoMenuItem -> listOf(MenuRow(entry, if (entry.checked == null) RowKind.Plain else RowKind.Check))
+        is CamoMenuSubmenu -> listOf(
+            MenuRow(
+                CamoMenuItem(entry.text, onClick = {}, leadingIcon = entry.leadingIcon, enabled = entry.enabled),
+                RowKind.Submenu,
+                entry,
+            ),
+        )
         CamoMenuDivider -> emptyList()
         is CamoMenuGroup -> entry.items.map {
             MenuRow(
@@ -371,6 +467,9 @@ private fun MenuItemRow(
     reserveIcon: Boolean,
     onSelected: () -> Unit,
     modifier: Modifier,
+    submenuOpen: Boolean = false,
+    onCollapse: () -> Unit = {},
+    onHoverChange: ((Boolean) -> Unit)? = null,
 ) {
     val skin = requireSkin("CamoMenuItemRow")
     val theme = requireTheme("CamoMenuItemRow")
@@ -378,8 +477,28 @@ private fun MenuItemRow(
     val source = remember { MutableInteractionSource() }
     val interaction = source.collectInteractionState()
     val checked = item.checked == true
+    if (onHoverChange != null) {
+        val hovered = interaction.hovered
+        LaunchedEffect(hovered) { onHoverChange(hovered) }
+    }
     val behavior = when (kind) {
         RowKind.Plain -> Modifier.clickable(source, null, item.enabled, role = Role.Button, onClick = onSelected)
+        // A submenu row is a button with a popup: screen readers get its expanded or collapsed state and action.
+        RowKind.Submenu -> Modifier
+            .clickable(source, null, item.enabled, role = Role.Button, onClick = onSelected)
+            .semantics {
+                if (submenuOpen) {
+                    collapse {
+                        onCollapse()
+                        true
+                    }
+                } else {
+                    expand {
+                        onSelected()
+                        true
+                    }
+                }
+            }
         RowKind.Check -> Modifier.toggleable(checked, source, null, item.enabled, Role.Checkbox) { onSelected() }
         RowKind.Radio -> Modifier.selectable(checked, source, null, item.enabled, Role.RadioButton, onSelected)
     }
@@ -394,6 +513,8 @@ private fun MenuItemRow(
             reserveIcon = reserveIcon,
             interaction = interaction,
             interactionSource = source,
+            hasSubmenu = kind == RowKind.Submenu,
+            submenuOpen = submenuOpen,
         ),
         MenuItemSlots(item.leadingIcon),
         theme,

@@ -90,7 +90,8 @@ public data class MenuStyle(
  * destructive items) and dimmed when not [enabled]. [checked] is `null` for a plain item; otherwise draw the
  * check when `true`, at `style.checkPosition`. Keep the text aligned across the menu: leave the check column
  * when [reserveCheck] (some item is checkable) and the icon column when [reserveIcon] (some item has an icon).
- * Show the highlight from [interaction] (hovered, focused, pressed).
+ * Show the highlight from [interaction] (hovered, focused, pressed). A row with a [hasSubmenu] ends with a
+ * chevron (mirrored in right-to-left) and shows an "open" state while [submenuOpen].
  */
 @Immutable
 public data class MenuItemState(
@@ -103,6 +104,8 @@ public data class MenuItemState(
     val reserveIcon: Boolean,
     val interaction: InteractionState,
     val interactionSource: InteractionSource,
+    val hasSubmenu: Boolean = false,
+    val submenuOpen: Boolean = false,
 )
 
 /** The item's leading icon, if any. */

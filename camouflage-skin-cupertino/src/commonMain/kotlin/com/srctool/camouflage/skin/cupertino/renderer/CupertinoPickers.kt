@@ -99,6 +99,7 @@ import kotlin.math.sin
 
 private const val WEEK = 7
 private const val DISABLED = 0.38f
+private const val OPEN_ROW = 0.08f
 private const val SCRIM = 0.4f
 private const val WHEEL_ROWS = 5
 private const val OUTER_LABELS = 0.8f
@@ -571,6 +572,13 @@ internal fun PaintMenuItem(
     Row(
         modifier
             .indication(state.interactionSource, rememberSkinIndication(style.colors.text, shape))
+            .then(
+                if (state.submenuOpen) {
+                    Modifier.background(style.colors.text.copy(alpha = OPEN_ROW), shape)
+                } else {
+                    Modifier
+                },
+            )
             .fillMaxWidth()
             .heightIn(min = style.itemHeight)
             .padding(horizontal = gap),
@@ -596,6 +604,15 @@ internal fun PaintMenuItem(
             }
             if (!leadingCheck && state.checked == true) {
                 CamoIcon(style.checkIcon, null, Modifier.padding(start = gap), tint = text, size = style.iconSize)
+            }
+            if (state.hasSubmenu) {
+                CamoIcon(
+                    IconSource.Vector(ChevronEnd, autoMirror = true),
+                    null,
+                    Modifier.padding(start = gap),
+                    tint = text,
+                    size = style.iconSize,
+                )
             }
         }
     }
