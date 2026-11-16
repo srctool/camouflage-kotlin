@@ -862,7 +862,7 @@ public fun CollectionsGallery() {
     )
     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         CamoCarousel(
-            colors.take(SLIDE_COUNT), { it.value }, "Gallery", Modifier.fillMaxWidth(), showButtons = true,
+            colors.take(SLIDE_COUNT), { it.value.toString() }, "Gallery", Modifier.fillMaxWidth(), showButtons = true,
         ) { color ->
             Box(Modifier.fillMaxWidth().height(SlideHeight).background(color)) { CamoText("Slide") }
         }

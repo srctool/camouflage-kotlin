@@ -61,9 +61,14 @@ private fun SemanticsNode.scrollsVertically(): Boolean =
 
 private fun SemanticsNode.hasName(): Boolean {
     val config = config
+    // An editable field's name must be its content description: a merged label (`Text`) is not carried to the
+    // platform node, so VoiceOver said only "text field" and TalkBack read nothing (found by hand, #161), and the
+    // typed text (`EditableText`) is the value, not the name.
+    if (config.getOrNull(SemanticsProperties.EditableText) != null) {
+        return config.getOrNull(SemanticsProperties.ContentDescription)?.isNotEmpty() == true
+    }
     return config.getOrNull(SemanticsProperties.Text)?.isNotEmpty() == true ||
         config.getOrNull(SemanticsProperties.ContentDescription)?.isNotEmpty() == true ||
-        config.getOrNull(SemanticsProperties.EditableText) != null ||
         config.getOrNull(SemanticsActions.OnClick)?.label?.isNotBlank() == true
 }
 

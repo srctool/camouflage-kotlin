@@ -31,7 +31,7 @@ jobs:
       - name: Check
         run: >-
           ./gradlew checkModuleLayers checkKotlinAbi detekt koverVerify
-          jvmTest testAndroidHostTest verifyRoborazziJvm
+          jvmTest testAndroidHostTest verifyRoborazziJvm verifyRoborazziAndroidHostTest
           :sample:androidApp:assembleDebug
       # When a golden differs, keep what CI rendered (Linux) next to the expected image, for review or to re-record.
       - name: Upload golden diffs
