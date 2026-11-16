@@ -142,7 +142,7 @@ private fun ReviewStep(files: List<UploadFile>) {
             sort = sort, onSortChange = { sort = it; page = 0 },
         )
         CamoPagination(pages, page, { page = it })
-        CamoCarousel(Slides, { it.value }, "Previews", Modifier.fillMaxWidth()) { color ->
+        CamoCarousel(Slides, { it.value.toString() }, "Previews", Modifier.fillMaxWidth()) { color ->
             Box(Modifier.fillMaxWidth().height(SlideHeight).background(color)) { CamoText("Preview") }
         }
     }

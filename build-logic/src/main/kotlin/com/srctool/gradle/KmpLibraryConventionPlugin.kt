@@ -27,6 +27,17 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
         val android = extensions.getByType<VersionCatalogsExtension>().named("androidLibs")
         configureKotlin(srctool, android)
         configureDetekt()
+        verifyGoldensInCheck()
+    }
+
+    // `check` also verifies the screenshot goldens on the JVM and the Android host (Roborazzi), where a module has
+    // them. iOS goldens are experimental and run on their own.
+    private fun Project.verifyGoldensInCheck() {
+        pluginManager.withPlugin("io.github.takahirom.roborazzi") {
+            tasks.named("check") {
+                dependsOn(tasks.matching { it.name == "verifyRoborazziJvm" || it.name == "verifyRoborazziAndroidHostTest" })
+            }
+        }
     }
 
     private fun Project.configureKotlin(srctool: SrctoolExtension, android: VersionCatalog) {
@@ -41,7 +52,7 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
                 namespace = srctool.namespacePrefix.get() + "." + suffix
                 compileSdk = android.findVersion("compileSdk").get().requiredVersion.toInt()
                 minSdk = android.findVersion("minSdk").get().requiredVersion.toInt()
-                withHostTest {}                                  // commonTest also runs as Android host (JVM) tests
+                withHostTest { isIncludeAndroidResources = true } // commonTest also runs as Android host (JVM) tests; Robolectric needs the resources
             }
 
             iosArm64()
