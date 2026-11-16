@@ -10,10 +10,13 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.srctool.camouflage.core.environment.InputMode
+import com.srctool.camouflage.core.environment.adapt
 import com.srctool.camouflage.core.theme.CamoColors
 import com.srctool.camouflage.core.theme.CamoMotion
 import com.srctool.camouflage.core.theme.CamoShapes
 import com.srctool.camouflage.core.theme.CamoTheme
+import com.srctool.camouflage.core.theme.CamoTokenSet
 import com.srctool.camouflage.core.theme.CamoTypography
 
 // Square everything; `full` is for toggles and tags, the only rounded elements.
@@ -53,12 +56,31 @@ internal val Gray10: Color = Color(0xFFF4F4F4)
  * `border-strong` and `border-subtle` `outline` and `outlineVariant`, `interactive` the `primary` (blue 60,
  * blue 50 in the dark families, or the brand [accent]), and the support colors the status families. Square
  * shapes, productive motion and the IBM Plex type set in [fontFamily] (`null`: the platform font; skins never
- * bundle fonts, ADR-33).
+ * bundle fonts, ADR-33). [density] sets every control's size (24, 32, 40 or 48); `null` follows the input (ADR-41):
+ * `Md` with a pointer, `Lg` with fingers.
  */
 public fun carbonTheme(
     family: CarbonThemeFamily = CarbonThemeFamily.White,
     accent: Color? = null,
     fontFamily: FontFamily? = null,
+    density: CarbonDensity? = null,
+): CamoTheme {
+    val theme = carbonBaseTheme(family, accent, fontFamily, density ?: CarbonDensity.Lg)
+    if (density != null) return theme
+    // No density asked for: follow the input (ADR-41), `Md` with a pointer and `Lg` with fingers.
+    return theme.adapt { env ->
+        if (env.input == InputMode.Pointer) copy(tokenSets = tokenSets.withDensity(CarbonDensity.Md)) else this
+    }
+}
+
+private fun List<CamoTokenSet<*>>.withDensity(density: CarbonDensity): List<CamoTokenSet<*>> =
+    filterNot { it is CarbonDensityTokens } + CarbonDensityTokens(density)
+
+private fun carbonBaseTheme(
+    family: CarbonThemeFamily,
+    accent: Color?,
+    fontFamily: FontFamily?,
+    density: CarbonDensity,
 ): CamoTheme = CamoTheme(
     colors = when (family) {
         CarbonThemeFamily.White -> whiteColors()
@@ -69,6 +91,7 @@ public fun carbonTheme(
     typography = carbonTypography(fontFamily ?: FontFamily.Default),
     shapes = CarbonShapes,
     motion = CarbonMotion,
+    tokenSets = listOf(CarbonDensityTokens(density)),
 )
 
 /** [carbonTheme] in the White family. */

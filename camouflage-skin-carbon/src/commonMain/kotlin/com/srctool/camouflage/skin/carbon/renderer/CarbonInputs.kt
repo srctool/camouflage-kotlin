@@ -98,6 +98,8 @@ import com.srctool.camouflage.core.util.LabelledControl
 import com.srctool.camouflage.core.util.ProvideContentStyle
 import com.srctool.camouflage.core.util.minimumTouchTarget
 import com.srctool.camouflage.core.util.rememberSkinIndication
+import com.srctool.camouflage.skin.carbon.density
+import com.srctool.camouflage.skin.carbon.forDensity
 
 // Carbon's selection controls, slider and stepper (base Carbon Skin §3.4): ink when on, hairlines when off.
 
@@ -243,10 +245,10 @@ internal object CarbonSegmentedControlRenderer : SegmentedControlRenderer {
     override fun defaults(theme: CamoTheme): SegmentedControlStyle {
         val c = theme.colors
         return SegmentedControlStyle(
-            height = 40.dp,
+            height = theme.density.size,
             shape = theme.shapes.none,
             borderWidth = Hairline,
-            textStyle = theme.typography.labelLarge,
+            textStyle = theme.typography.labelLarge.forDensity(theme.density),
             iconSize = 16.dp,
             showCheckIcon = false,
             colors = SegmentedColors(
@@ -348,7 +350,7 @@ internal object CarbonStepperRenderer : StepperRenderer {
         return StepperStyle(
             layout = StepperLayout.Split, // Carbon's number input
             buttonAppearance = Appearance.Outline,
-            height = 40.dp,
+            height = theme.density.size,
             valueMinWidth = 40.dp,
             valueStyle = theme.typography.titleMedium,
             decreaseIcon = IconSource.Vector(Minus),

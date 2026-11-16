@@ -35,9 +35,10 @@ class CarbonAnatomyTest {
     }
 
     @Test
-    fun textFieldsAre40TallOnTheFieldFill() = families.forEach {
+    fun textFieldsFollowTheDensityOnTheFieldFill() = families.forEach {
         val style = CarbonSkin.textField.defaults(it)
-        assertEquals(40.dp, style.height)
+        assertEquals(48.dp, style.height) // no density asked for and no pointer: Lg, the touch default
+        assertEquals(40.dp, CarbonSkin.textField.defaults(carbonTheme(density = CarbonDensity.Md)).height)
         assertEquals(it.colors.surfaceContainerLow, style.colors.container)
     }
 

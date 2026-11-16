@@ -44,6 +44,8 @@ import com.srctool.camouflage.core.textfield.TextFieldStyle
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.util.FloatingLabelBox
 import com.srctool.camouflage.core.util.ProvideContentStyle
+import com.srctool.camouflage.skin.carbon.density
+import com.srctool.camouflage.skin.carbon.forDensity
 
 // Carbon's text field and search field (base Carbon Skin §3.2): a 40 field on the `field` fill with a bottom
 // border only, a 2 dp inset border when focused or in error, the label above.
@@ -57,10 +59,10 @@ internal data class CarbonTextFieldRenderer(private val labelPlacement: LabelPla
         val t = theme.typography
         return TextFieldStyle(
             labelPlacement = labelPlacement,
-            height = 40.dp,
+            height = theme.density.size,
             shape = theme.shapes.none,
             contentPadding = PaddingValues(horizontal = theme.spacing.m),
-            textStyle = t.bodyMedium,
+            textStyle = t.bodyMedium.forDensity(theme.density),
             labelStyle = t.labelMedium,
             floatingLabelStyle = t.labelMedium,
             supportingTextStyle = t.bodySmall,
@@ -122,10 +124,10 @@ internal object CarbonSearchFieldRenderer : SearchFieldRenderer {
     override fun defaults(theme: CamoTheme): SearchFieldStyle {
         val c = theme.colors
         return SearchFieldStyle(
-            height = 40.dp,
+            height = theme.density.size,
             shape = theme.shapes.none,
-            textStyle = theme.typography.bodyMedium,
-            placeholderStyle = theme.typography.bodyMedium,
+            textStyle = theme.typography.bodyMedium.forDensity(theme.density),
+            placeholderStyle = theme.typography.bodyMedium.forDensity(theme.density),
             iconSize = 18.dp,
             searchIcon = IconSource.Vector(SearchIcon),
             clearIcon = IconSource.Vector(ClearIcon),

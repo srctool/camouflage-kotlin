@@ -1,3 +1,28 @@
+public final class com/srctool/camouflage/skin/carbon/CarbonDensity : java/lang/Enum {
+	public static final field Lg Lcom/srctool/camouflage/skin/carbon/CarbonDensity;
+	public static final field Md Lcom/srctool/camouflage/skin/carbon/CarbonDensity;
+	public static final field Sm Lcom/srctool/camouflage/skin/carbon/CarbonDensity;
+	public static final field Xs Lcom/srctool/camouflage/skin/carbon/CarbonDensity;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getSize-D9Ej5fM ()F
+	public static fun valueOf (Ljava/lang/String;)Lcom/srctool/camouflage/skin/carbon/CarbonDensity;
+	public static fun values ()[Lcom/srctool/camouflage/skin/carbon/CarbonDensity;
+}
+
+public final class com/srctool/camouflage/skin/carbon/CarbonDensityTokens : com/srctool/camouflage/core/theme/CamoTokenSet {
+	public static final field $stable I
+	public fun <init> (Lcom/srctool/camouflage/skin/carbon/CarbonDensity;)V
+	public final fun component1 ()Lcom/srctool/camouflage/skin/carbon/CarbonDensity;
+	public final fun copy (Lcom/srctool/camouflage/skin/carbon/CarbonDensity;)Lcom/srctool/camouflage/skin/carbon/CarbonDensityTokens;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/skin/carbon/CarbonDensityTokens;Lcom/srctool/camouflage/skin/carbon/CarbonDensity;ILjava/lang/Object;)Lcom/srctool/camouflage/skin/carbon/CarbonDensityTokens;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDensity ()Lcom/srctool/camouflage/skin/carbon/CarbonDensity;
+	public fun hashCode ()I
+	public synthetic fun lerp (Lcom/srctool/camouflage/core/theme/CamoTokenSet;F)Lcom/srctool/camouflage/core/theme/CamoTokenSet;
+	public fun lerp (Lcom/srctool/camouflage/skin/carbon/CarbonDensityTokens;F)Lcom/srctool/camouflage/skin/carbon/CarbonDensityTokens;
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/srctool/camouflage/skin/carbon/CarbonSkinKt {
 	public static final fun CarbonPreview (ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun carbonSkin (Lcom/srctool/camouflage/core/textfield/LabelPlacement;)Lcom/srctool/camouflage/core/skin/CamoSkin;
@@ -45,8 +70,8 @@ public final class com/srctool/camouflage/skin/carbon/CarbonThemeFamily : java/l
 }
 
 public final class com/srctool/camouflage/skin/carbon/CarbonThemeKt {
-	public static final fun carbonTheme-bi-UJ9A (Lcom/srctool/camouflage/skin/carbon/CarbonThemeFamily;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/text/font/FontFamily;)Lcom/srctool/camouflage/core/theme/CamoTheme;
-	public static synthetic fun carbonTheme-bi-UJ9A$default (Lcom/srctool/camouflage/skin/carbon/CarbonThemeFamily;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/text/font/FontFamily;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoTheme;
+	public static final fun carbonTheme-bMF-p3s (Lcom/srctool/camouflage/skin/carbon/CarbonThemeFamily;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/text/font/FontFamily;Lcom/srctool/camouflage/skin/carbon/CarbonDensity;)Lcom/srctool/camouflage/core/theme/CamoTheme;
+	public static synthetic fun carbonTheme-bMF-p3s$default (Lcom/srctool/camouflage/skin/carbon/CarbonThemeFamily;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/text/font/FontFamily;Lcom/srctool/camouflage/skin/carbon/CarbonDensity;ILjava/lang/Object;)Lcom/srctool/camouflage/core/theme/CamoTheme;
 	public static final fun getCarbonDark ()Lcom/srctool/camouflage/core/theme/CamoTheme;
 	public static final fun getCarbonLight ()Lcom/srctool/camouflage/core/theme/CamoTheme;
 }

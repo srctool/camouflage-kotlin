@@ -50,6 +50,7 @@ import com.srctool.camouflage.core.tree.TreeRenderer
 import com.srctool.camouflage.core.tree.TreeStyle
 import com.srctool.camouflage.core.util.ProvideContentStyle
 import com.srctool.camouflage.core.util.rememberSkinIndication
+import com.srctool.camouflage.skin.carbon.density
 
 // Carbon's data table and tree: a hairline grid with soft selection.
 
@@ -64,8 +65,8 @@ internal object CarbonDataTableRenderer : DataTableRenderer {
     override fun defaults(theme: CamoTheme): TableStyle {
         val c = theme.colors
         return TableStyle(
-            headerHeight = 48.dp,
-            rowHeight = 48.dp,
+            headerHeight = theme.density.size,
+            rowHeight = theme.density.size,
             cellPadding = theme.spacing.l,
             striped = false,
             dividers = true,
@@ -171,7 +172,7 @@ internal object CarbonTreeRenderer : TreeRenderer {
     override fun defaults(theme: CamoTheme): TreeStyle {
         val c = theme.colors
         return TreeStyle(
-            rowHeight = 32.dp,
+            rowHeight = theme.density.size,
             indent = 20.dp,
             showLines = false,
             chevron = IconSource.Vector(ChevronRightGlyph, autoMirror = true),

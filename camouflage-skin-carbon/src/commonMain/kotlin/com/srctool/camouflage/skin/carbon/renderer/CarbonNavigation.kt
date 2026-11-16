@@ -50,6 +50,7 @@ import com.srctool.camouflage.core.theme.ElevationLevel
 import com.srctool.camouflage.core.theme.of
 import com.srctool.camouflage.core.util.ProvideContentStyle
 import com.srctool.camouflage.core.util.rememberSkinIndication
+import com.srctool.camouflage.skin.carbon.density
 
 // Carbon's tab bar and FAB (base Carbon Skin §3.4): a hairline under the bar with a thin ink indicator, and a
 // small flat FAB. Carbon has no raised depth, so the Raised FAB gets a hairline instead.
@@ -62,7 +63,7 @@ internal object CarbonTabsRenderer : TabsRenderer {
         val c = theme.colors
         return TabsStyle(
             defaultAppearance = Appearance.Ghost, // line tabs; Solid is the contained tabs
-            height = 40.dp,
+            height = theme.density.size,
             heightWithIcon = 56.dp,
             indicatorHeight = 2.dp,
             indicatorWidth = IndicatorWidth.Tab,
