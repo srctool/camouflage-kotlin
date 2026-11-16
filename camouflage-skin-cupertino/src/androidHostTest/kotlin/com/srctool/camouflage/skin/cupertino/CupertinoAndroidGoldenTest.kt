@@ -75,7 +75,7 @@ private val CrossPlatform = RoborazziOptions(
 @OptIn(ExperimentalTestApi::class)
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(sdk = [36])
+@Config(sdk = [35]) // 36 needs Java 21; CI runs 17
 class CupertinoAndroidGoldenTest {
     private val themes = mapOf(
         "light" to cupertinoLight,
