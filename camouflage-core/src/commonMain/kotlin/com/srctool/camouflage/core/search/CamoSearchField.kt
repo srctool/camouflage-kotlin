@@ -19,6 +19,8 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
@@ -205,6 +207,8 @@ private fun SearchInput(
         modifier = Modifier
             .focusRequester(focus)
             .onFocusChanged { onFocusChanged(it.isFocused) }
+            // The name sits on the editable node: screen readers read it apart from the typed text.
+            .semantics { contentDescription = placeholder }
             .onPreviewKeyEvent { event ->
                 val down = event.type == KeyEventType.KeyDown
                 when {

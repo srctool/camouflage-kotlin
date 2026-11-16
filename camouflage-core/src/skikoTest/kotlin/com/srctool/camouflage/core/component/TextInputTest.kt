@@ -138,6 +138,25 @@ class TextInputTest {
     }
 
     @Test
+    fun theEditableNodeCarriesTheLabelAsItsNameAndKeepsWhatIsTyped() = runComposeUiTest {
+        var email by mutableStateOf("")
+        camo {
+            CamoTextField(email, { email = it }, label = "Email")
+            CamoTextField("", {}, placeholder = "Search")
+        }
+        // The name is on the editable node itself (screen readers read it as the field's label, apart from the
+        // typed text), for a label and for a placeholder alone.
+        for (name in listOf("Email", "Search")) {
+            val node = onNodeWithContentDescription(name).fetchSemanticsNode()
+            assertEquals(listOf(name), node.config.getOrNull(SemanticsProperties.ContentDescription))
+            assertEquals(true, node.config.contains(SemanticsProperties.EditableText))
+        }
+        onNodeWithContentDescription("Email").performTextInput("a@b.c")
+        assertEquals("a@b.c", onNodeWithContentDescription("Email").fetchSemanticsNode().config
+            .getOrNull(SemanticsProperties.EditableText)?.text)
+    }
+
+    @Test
     fun switchingTheSkinWhileTypingKeepsFocusAndText() = runComposeUiTest {
         var skin by mutableStateOf(skinA)
         var value by mutableStateOf("")
