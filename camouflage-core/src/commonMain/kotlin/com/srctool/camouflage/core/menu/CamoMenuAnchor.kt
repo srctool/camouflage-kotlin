@@ -47,6 +47,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.Alignment
+import com.srctool.camouflage.core.scrollbar.rememberCamoScrollAdapter
+import com.srctool.camouflage.core.scrollbar.EdgeScrollbar
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
@@ -350,11 +353,13 @@ internal fun MenuEntries(
         }
     }
 
+    val scroll = rememberScrollState()
+    Box {
     Column(
         Modifier
             .widthIn(min = max(style.minWidth, minWidth), max = max(style.maxWidth, minWidth))
             .width(IntrinsicSize.Max)
-            .verticalScroll(rememberScrollState())
+            .verticalScroll(scroll)
             .onKeyEvent(::keys),
     ) {
         var index = 0
@@ -403,6 +408,8 @@ internal fun MenuEntries(
                 }
             }
         }
+    }
+        EdgeScrollbar(rememberCamoScrollAdapter(scroll))
     }
 }
 

@@ -21,6 +21,7 @@ import com.srctool.camouflage.skin.fluent.renderer.FluentDialogRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentDividerRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentFabRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentFileUploaderRenderer
+import com.srctool.camouflage.skin.fluent.renderer.FluentScrollbarRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentSplitPaneRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconButtonRenderer
 import com.srctool.camouflage.skin.fluent.renderer.FluentIconRenderer
@@ -124,6 +125,7 @@ public fun fluentSkin(surface: FluentSurface = FluentSurface.Solid): CamoSkin = 
     carousel = FluentCarouselRenderer,
     fileUploader = FluentFileUploaderRenderer,
     splitPane = FluentSplitPaneRenderer,
+    scrollbar = FluentScrollbarRenderer,
 )
 
 /** The Fluent skin with the `Solid` surface. */

@@ -1,6 +1,8 @@
 package com.srctool.camouflage.core.pagedlist
 
 import androidx.compose.animation.core.animate
+import com.srctool.camouflage.core.scrollbar.rememberCamoScrollAdapter
+import com.srctool.camouflage.core.scrollbar.EdgeScrollbar
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -202,6 +204,7 @@ public fun <T> CamoPagedList(
                 if (announce != null) contentDescription = announce
             },
         )
+            EdgeScrollbar(rememberCamoScrollAdapter(listState))
     }
 }
 

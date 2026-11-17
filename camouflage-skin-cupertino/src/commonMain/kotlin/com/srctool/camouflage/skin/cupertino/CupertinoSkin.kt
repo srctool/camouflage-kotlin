@@ -22,6 +22,7 @@ import com.srctool.camouflage.skin.cupertino.renderer.CupertinoDialogRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoDividerRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoFabRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoFileUploaderRenderer
+import com.srctool.camouflage.skin.cupertino.renderer.CupertinoScrollbarRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoSplitPaneRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoIconButtonRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoIconRenderer
@@ -126,6 +127,7 @@ public fun cupertinoSkin(
         carousel = CupertinoCarouselRenderer,
         fileUploader = CupertinoFileUploaderRenderer,
         splitPane = CupertinoSplitPaneRenderer,
+        scrollbar = CupertinoScrollbarRenderer,
     )
 }
 
