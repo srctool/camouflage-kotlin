@@ -1,6 +1,9 @@
 package com.srctool.camouflage.core.datatable
 
 import androidx.compose.foundation.clickable
+import com.srctool.camouflage.core.scrollbar.rememberCamoScrollAdapter
+import com.srctool.camouflage.core.scrollbar.EdgeScrollbar
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -269,11 +272,13 @@ public fun <T> CamoDataTable(
                 }
                 columns.forEach { column -> Header(skin.dataTable, theme, style, column, sort, onSortChange) }
             }
+            val listState = rememberLazyListState()
             Box(Modifier.weight(1f, fill = false)) {
                 when {
                     rows.isEmpty() -> EmptyBody(loading, empty)
                     else -> LazyColumn(
                         Modifier.semantics { collectionInfo = CollectionInfo(rows.size, columns.size) },
+                        listState,
                     ) {
                         itemsIndexed(rows, key = { _, row -> rowKey(row) }) { index, row ->
                             BodyRow(
@@ -282,6 +287,9 @@ public fun <T> CamoDataTable(
                             )
                         }
                     }
+                }
+                if (rows.isNotEmpty()) {
+                    EdgeScrollbar(rememberCamoScrollAdapter(listState))
                 }
             }
             footer?.invoke()

@@ -1,6 +1,9 @@
 package com.srctool.camouflage.core.tree
 
 import androidx.compose.foundation.clickable
+import com.srctool.camouflage.core.scrollbar.rememberCamoScrollAdapter
+import com.srctool.camouflage.core.scrollbar.CamoScrollArea
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.lazy.LazyColumn
@@ -180,19 +183,25 @@ public fun <T> CamoTree(
     val select = { key: Any ->
         onSelectedChange(if (multiSelect) (if (key in selected) selected - key else selected + key) else setOf(key))
     }
-    LazyColumn(modifier.semantics {
-        contentDescription = caption
-        collectionInfo = CollectionInfo(visible.size, 1)
-    }) {
-        itemsIndexed(visible, key = { _, v -> v.node.key }) { index, v ->
-            val node = v.node
-            val open = node.key in expanded
-            val unloaded = node.hasChildren && node.children == null
-            if (open && unloaded && onLoadChildren != null) LaunchedEffect(node.key) { onLoadChildren(node) }
-            NodeRow(
-                skin.tree, theme, style, v, index, open, unloaded && open, node.key in selected, focus, rtl,
-                visible, setExpanded, select, label, icon,
-            )
+    val listState = rememberLazyListState()
+    CamoScrollArea(modifier, vertical = rememberCamoScrollAdapter(listState)) {
+        LazyColumn(
+            Modifier.semantics {
+                contentDescription = caption
+                collectionInfo = CollectionInfo(visible.size, 1)
+            },
+            listState,
+        ) {
+            itemsIndexed(visible, key = { _, v -> v.node.key }) { index, v ->
+                val node = v.node
+                val open = node.key in expanded
+                val unloaded = node.hasChildren && node.children == null
+                if (open && unloaded && onLoadChildren != null) LaunchedEffect(node.key) { onLoadChildren(node) }
+                NodeRow(
+                    skin.tree, theme, style, v, index, open, unloaded && open, node.key in selected, focus, rtl,
+                    visible, setExpanded, select, label, icon,
+                )
+            }
         }
     }
 }

@@ -1,6 +1,9 @@
 package com.srctool.camouflage.core.select
 
 import androidx.compose.foundation.layout.Box
+import com.srctool.camouflage.core.scrollbar.rememberCamoScrollAdapter
+import com.srctool.camouflage.core.scrollbar.CamoScrollArea
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -352,9 +355,12 @@ private fun <T> OptionList(
         if (shown.isEmpty()) {
             CamoText(style.strings.noResults, Modifier.padding(Camouflage.spacing.l))
         } else {
-            LazyColumn {
-                items(shown, key = { it.value.toString() }) { option ->
-                    OptionRow(option, option.value == value, style) { onPick(option.value) }
+            val listState = rememberLazyListState()
+            CamoScrollArea(vertical = rememberCamoScrollAdapter(listState)) {
+                LazyColumn(state = listState) {
+                    items(shown, key = { it.value.toString() }) { option ->
+                        OptionRow(option, option.value == value, style) { onPick(option.value) }
+                    }
                 }
             }
         }
