@@ -137,7 +137,7 @@ internal fun showsScrollbars(): Boolean {
  * events go to the content. A bar with nothing to scroll draws nothing. Place it at the edge of the scrolling
  * content, or use [CamoScrollArea].
  */
-@Suppress("LongMethod") // the geometry, the fade and the lane in one composable
+@Suppress("LongMethod", "CyclomaticComplexMethod") // the geometry, the fade and the lane in one composable
 @Composable
 public fun CamoScrollbar(
     adapter: CamoScrollAdapter,
@@ -162,8 +162,11 @@ public fun CamoScrollbar(
     val start = thumbStart(offset, viewport, content, track, thumb)
     val mode = if (visibility == ScrollbarVisibility.Auto) style.visibility else visibility
     var recent by remember { mutableStateOf(false) }
+    var seen by remember { mutableFloatStateOf(offset) }
     LaunchedEffect(offset) {
-        if (mode == ScrollbarVisibility.OnScroll) {
+        // Only a scroll shows the bar, not the first composition.
+        if (mode == ScrollbarVisibility.OnScroll && offset != seen) {
+            seen = offset
             recent = true
             delay(style.hideDelayMillis)
             recent = false
