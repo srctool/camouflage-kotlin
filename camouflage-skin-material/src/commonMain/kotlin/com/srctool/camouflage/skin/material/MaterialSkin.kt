@@ -21,6 +21,7 @@ import com.srctool.camouflage.skin.material.renderer.MaterialDialogRenderer
 import com.srctool.camouflage.skin.material.renderer.MaterialDividerRenderer
 import com.srctool.camouflage.skin.material.renderer.MaterialFabRenderer
 import com.srctool.camouflage.skin.material.renderer.MaterialFileUploaderRenderer
+import com.srctool.camouflage.skin.material.renderer.MaterialSplitPaneRenderer
 import com.srctool.camouflage.skin.material.renderer.MaterialIconButtonRenderer
 import com.srctool.camouflage.skin.material.renderer.MaterialIconRenderer
 import com.srctool.camouflage.skin.material.renderer.MaterialImageRenderer
@@ -118,6 +119,7 @@ public fun materialSkin(expressiveProgress: Boolean = false): CamoSkin = CamoSki
     tree = MaterialTreeRenderer,
     carousel = MaterialCarouselRenderer,
     fileUploader = MaterialFileUploaderRenderer,
+    splitPane = MaterialSplitPaneRenderer,
 )
 
 /** The Material skin. */

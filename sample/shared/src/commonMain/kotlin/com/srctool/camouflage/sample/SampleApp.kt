@@ -148,6 +148,7 @@ private val Entries = listOf(
     CatalogEntry("Tabs and FAB", "Tabs and the floating action button.") { NavigationDemo() },
     CatalogEntry("Navigation", "A bar, a rail and a drawer, by window size.") { NavigationShellDemo() },
     CatalogEntry("Popover and side sheet", "Panels anchored to a control or to an edge.") { PanelsDemo() },
+    CatalogEntry("Split panes", "Resizable panes with an accessible, draggable divider.") { SplitPaneDemo() },
     CatalogEntry("Toolbars", "Toolbars, button groups and a split button in an editor.") { EditorDemo() },
     CatalogEntry("Rating and steps", "Stars, page controls, a path and progress steps.") { SmallDataDemo() },
     CatalogEntry("Table and tree", "A data table and an outline tree.") { ListsDemo() },

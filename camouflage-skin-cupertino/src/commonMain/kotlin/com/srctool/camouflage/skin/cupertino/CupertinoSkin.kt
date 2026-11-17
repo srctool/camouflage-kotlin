@@ -22,6 +22,7 @@ import com.srctool.camouflage.skin.cupertino.renderer.CupertinoDialogRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoDividerRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoFabRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoFileUploaderRenderer
+import com.srctool.camouflage.skin.cupertino.renderer.CupertinoSplitPaneRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoIconButtonRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoIconRenderer
 import com.srctool.camouflage.skin.cupertino.renderer.CupertinoImageRenderer
@@ -62,6 +63,7 @@ import com.srctool.camouflage.skin.cupertino.renderer.CupertinoTreeRenderer
  * and menus, [Opacity] for feedback, and Apple's anatomy (stacked alerts, wheel pickers, inset grouped lists,
  * segmented tabs, a collapsing large title).
  */
+@Suppress("LongMethod") // one renderer per component
 public fun cupertinoSkin(
     surface: CupertinoSurface = CupertinoSurface.Classic,
     labelPlacement: LabelPlacement = LabelPlacement.Above,
@@ -123,6 +125,7 @@ public fun cupertinoSkin(
         tree = CupertinoTreeRenderer,
         carousel = CupertinoCarouselRenderer,
         fileUploader = CupertinoFileUploaderRenderer,
+        splitPane = CupertinoSplitPaneRenderer,
     )
 }
 

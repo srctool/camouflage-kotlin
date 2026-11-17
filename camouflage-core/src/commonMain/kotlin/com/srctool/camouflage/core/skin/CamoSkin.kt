@@ -17,6 +17,7 @@ import com.srctool.camouflage.core.datatable.DataTableRenderer
 import com.srctool.camouflage.core.datepicker.DatePickerRenderer
 import com.srctool.camouflage.core.dialog.DialogRenderer
 import com.srctool.camouflage.core.divider.DividerRenderer
+import com.srctool.camouflage.core.splitpane.SplitPaneRenderer
 import com.srctool.camouflage.core.fab.FabRenderer
 import com.srctool.camouflage.core.fileuploader.FileUploaderRenderer
 import com.srctool.camouflage.core.icon.IconRenderer
@@ -120,4 +121,5 @@ public data class CamoSkin(
     val tree: TreeRenderer,
     val carousel: CarouselRenderer,
     val fileUploader: FileUploaderRenderer,
+    val splitPane: SplitPaneRenderer,
 )
