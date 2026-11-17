@@ -22,6 +22,7 @@ import com.srctool.camouflage.skin.carbon.renderer.CarbonDialogRenderer
 import com.srctool.camouflage.skin.carbon.renderer.CarbonDividerRenderer
 import com.srctool.camouflage.skin.carbon.renderer.CarbonFabRenderer
 import com.srctool.camouflage.skin.carbon.renderer.CarbonFileUploaderRenderer
+import com.srctool.camouflage.skin.carbon.renderer.CarbonSplitPaneRenderer
 import com.srctool.camouflage.skin.carbon.renderer.CarbonIconButtonRenderer
 import com.srctool.camouflage.skin.carbon.renderer.CarbonIconRenderer
 import com.srctool.camouflage.skin.carbon.renderer.CarbonImageRenderer
@@ -118,6 +119,7 @@ public fun carbonSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): Ca
     tree = CarbonTreeRenderer,
     carousel = CarbonCarouselRenderer,
     fileUploader = CarbonFileUploaderRenderer,
+    splitPane = CarbonSplitPaneRenderer,
 )
 
 /** The Carbon skin. */

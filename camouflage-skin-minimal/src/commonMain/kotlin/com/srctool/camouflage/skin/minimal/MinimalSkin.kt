@@ -22,6 +22,7 @@ import com.srctool.camouflage.skin.minimal.renderer.MinimalDialogRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalDividerRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalFabRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalFileUploaderRenderer
+import com.srctool.camouflage.skin.minimal.renderer.MinimalSplitPaneRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconButtonRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalIconRenderer
 import com.srctool.camouflage.skin.minimal.renderer.MinimalImageRenderer
@@ -118,6 +119,7 @@ public fun minimalSkin(labelPlacement: LabelPlacement = LabelPlacement.Above): C
     tree = MinimalTreeRenderer,
     carousel = MinimalCarouselRenderer,
     fileUploader = MinimalFileUploaderRenderer,
+    splitPane = MinimalSplitPaneRenderer,
 )
 
 /** The Minimal skin. */

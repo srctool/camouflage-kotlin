@@ -42,6 +42,7 @@ import com.srctool.camouflage.core.skeleton.SkeletonTheme
 import com.srctool.camouflage.core.slider.SliderTheme
 import com.srctool.camouflage.core.snackbar.SnackbarTheme
 import com.srctool.camouflage.core.splitbutton.SplitButtonTheme
+import com.srctool.camouflage.core.splitpane.SplitPaneTheme
 import com.srctool.camouflage.core.stepper.StepperTheme
 import com.srctool.camouflage.core.surface.SurfaceTheme
 import com.srctool.camouflage.core.switch.SwitchTheme
@@ -110,4 +111,5 @@ public data class CamoComponentThemes(
     val tree: TreeTheme? = null,
     val carousel: CarouselTheme? = null,
     val fileUploader: UploaderTheme? = null,
+    val splitPane: SplitPaneTheme? = null,
 )

@@ -77,6 +77,7 @@ val DebugSkin = CamoSkin(
     tree = DebugTree,
     carousel = DebugCarousel,
     fileUploader = DebugFileUploader,
+    splitPane = DebugSplitPaneRenderer,
 )
 
 /** A second debug skin, to show a skin switch: outlined surfaces and a tint while pressed. */
