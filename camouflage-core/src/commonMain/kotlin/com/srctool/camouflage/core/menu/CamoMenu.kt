@@ -106,6 +106,8 @@ public data class MenuItemState(
     val interactionSource: InteractionSource,
     val hasSubmenu: Boolean = false,
     val submenuOpen: Boolean = false,
+    /** The ranges of [text] a speed search matched; draw the text with `CamoHighlightedText(text, highlight)`. */
+    val highlight: List<IntRange> = emptyList(),
 )
 
 /** The item's leading icon, if any. */

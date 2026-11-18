@@ -42,6 +42,7 @@ import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.icon.IconStyle
 import com.srctool.camouflage.core.progress.CamoProgressCircle
 import com.srctool.camouflage.core.progress.ProgressSize
+import com.srctool.camouflage.core.speedsearch.CamoHighlightedText
 import com.srctool.camouflage.core.theme.CamoTheme
 import com.srctool.camouflage.core.tree.TreeColors
 import com.srctool.camouflage.core.tree.TreeNodeSlots
@@ -220,8 +221,10 @@ internal object CarbonTreeRenderer : TreeRenderer {
             }
             ProvideContentStyle(c.text, IconStyle(style.iconSize, c.text)) {
                 slots.icon?.invoke()
-                BasicText(slots.label, style = style.textStyle.copy(color = c.text), maxLines = 1,
-                    overflow = TextOverflow.Ellipsis)
+                CamoHighlightedText(
+                    slots.label, slots.highlight, style = style.textStyle.copy(color = c.text), maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
             }
         }
     }

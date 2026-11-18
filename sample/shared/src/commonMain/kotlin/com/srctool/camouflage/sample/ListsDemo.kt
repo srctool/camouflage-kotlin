@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.srctool.camouflage.core.datatable.CamoColumn
 import com.srctool.camouflage.core.datatable.CamoColumnState
+import com.srctool.camouflage.core.speedsearch.CamoSpeedSearchState
 import com.srctool.camouflage.core.datatable.CamoDataTable
 import com.srctool.camouflage.core.datatable.ColumnAlign
 import com.srctool.camouflage.core.datatable.ColumnWidth
@@ -57,6 +58,7 @@ internal fun ListsDemo() {
         CamoColumn<Member>("age", "Age", ColumnWidth.Fixed(AgeWidth), ColumnAlign.End, true, { CamoText("${it.age}") }),
     )
     val columnState = remember { CamoColumnState(columns.map { it.key }) }
+    val treeSearch = remember { CamoSpeedSearchState() }
     val tree = listOf(
         CamoTreeNode("docs", "Documents", listOf(CamoTreeNode("cv", "CV.pdf"), CamoTreeNode("notes", "Notes.md"))),
         CamoTreeNode("remote", "Shared drive", remote, hasChildren = true),
@@ -71,7 +73,7 @@ internal fun ListsDemo() {
         CamoText("${selection.size} selected")
         CamoTree(
             tree, expanded, { expanded = it }, selected, { selected = it }, { it }, "Files",
-                Modifier.height(TreeHeight),
+                Modifier.height(TreeHeight), speedSearch = treeSearch,
             onLoadChildren = { remote = listOf(CamoTreeNode("backup", "Backup.zip"), CamoTreeNode("photos",
                 "Photos")) },
         )

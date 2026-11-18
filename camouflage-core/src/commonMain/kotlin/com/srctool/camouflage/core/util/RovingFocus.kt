@@ -72,6 +72,17 @@ public class RovingFocus internal constructor() {
         }
     }
 
+    /** The item that last had focus, or `null` before any did. */
+    internal val lastFocusedIndex: Int? get() = lastFocused
+
+    // Puts focus on item [index] if it is composed and enabled; false when it is not (a lazy row out of view).
+    internal fun focusItem(index: Int): Boolean {
+        val item = items[index]?.takeIf { it.enabled } ?: return false
+        current = index
+        item.requester.requestFocus()
+        return true
+    }
+
     // Moves focus by `step` among the enabled items and selects the target. False when there's nowhere to go.
     internal fun move(from: Int, step: Int): Boolean {
         val enabled = items.filterValues { it.enabled }.keys.sorted()

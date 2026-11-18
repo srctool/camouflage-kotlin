@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -41,10 +42,15 @@ import androidx.compose.ui.unit.dp
 import com.srctool.camouflage.core.checkbox.CamoCheckbox
 import com.srctool.camouflage.core.icon.IconSource
 import com.srctool.camouflage.core.progress.CamoProgressCircle
+import com.srctool.camouflage.core.provider.Camouflage
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
 import com.srctool.camouflage.core.skin.InteractionState
 import com.srctool.camouflage.core.theme.CamoTheme
+import com.srctool.camouflage.core.speedsearch.CamoSpeedSearchOverlay
+import com.srctool.camouflage.core.speedsearch.CamoSpeedSearchState
+import com.srctool.camouflage.core.speedsearch.SpeedSearchFocus
+import com.srctool.camouflage.core.speedsearch.camoSpeedSearch
 import com.srctool.camouflage.core.util.RovingFocus
 import com.srctool.camouflage.core.util.collectInteractionState
 import com.srctool.camouflage.core.util.rememberRovingFocus
@@ -234,7 +240,9 @@ private val SelectColumn = 48.dp
  * on a header of a sortable column calls [onSortChange]; a click or Space on a row toggles its selection (a
  * click calls [onRowClick] instead when it is set); Up and Down move between rows. [caption] names the table.
  * Rows are lazy; the header stays above them. With a [columnState] the user can resize, hide and reorder the
- * columns (see [CamoColumn]); `null` keeps the columns as given.
+ * columns (see [CamoColumn]); `null` keeps the columns as given. With a [speedSearch] typing in the rows filters
+ * them (or jumps) by the columns that give their `text`; draw the matches in your cells with
+ * `CamoHighlightedText(text, speedSearch.match(text).orEmpty())`.
  */
 @Composable
 public fun <T> CamoDataTable(
@@ -252,6 +260,7 @@ public fun <T> CamoDataTable(
     loading: Boolean = false,
     footer: (@Composable () -> Unit)? = null,
     columnState: CamoColumnState? = null,
+    speedSearch: CamoSpeedSearchState? = null,
 ) {
     val all = columns
     val shown = columnState?.shown(all) ?: all
@@ -295,6 +304,7 @@ public fun <T> CamoDataTable(
             }
             TableBody(
                 skin.dataTable, theme, style, shown, rows, rowKey, focus, selection, toggle, onRowClick, empty, loading,
+                speedSearch,
             )
             footer?.invoke()
         }
@@ -315,23 +325,31 @@ private fun <T> TableBody(
     onRowClick: ((T) -> Unit)?,
     empty: (@Composable () -> Unit)?,
     loading: Boolean,
+    speedSearch: CamoSpeedSearchState?,
 ) {
     val listState = rememberLazyListState()
+    val search = rememberRowSearch(speedSearch, shown, rows)
+    val visible = search.rows
+    if (speedSearch != null) SpeedSearchFocus(speedSearch, search.count, search.hitRows, listState, focus)
     Box {
         when {
             rows.isEmpty() -> EmptyBody(loading, empty)
             else -> LazyColumn(
-                Modifier.semantics { collectionInfo = CollectionInfo(rows.size, shown.size) },
+                Modifier.semantics { collectionInfo = CollectionInfo(visible.size, shown.size) },
                 listState,
             ) {
-                itemsIndexed(rows, key = { _, row -> rowKey(row) }) { index, row ->
+                itemsIndexed(visible, key = { _, row -> rowKey(row) }) { index, row ->
                     BodyRow(
                         renderer, theme, style, shown, row, index, rowKey(row), focus, selection, toggle, onRowClick,
+                        speedSearch,
                     )
                 }
             }
         }
         if (rows.isNotEmpty()) EdgeScrollbar(rememberCamoScrollAdapter(listState))
+        if (speedSearch != null) {
+            CamoSpeedSearchOverlay(speedSearch, Modifier.align(Alignment.BottomStart).padding(Camouflage.spacing.s))
+        }
     }
 }
 
@@ -388,6 +406,7 @@ private fun <T> BodyRow(
     selection: Set<Any>?,
     toggle: (Any) -> Unit,
     onRowClick: ((T) -> Unit)?,
+    speedSearch: CamoSpeedSearchState?,
 ) {
     val source = remember { MutableInteractionSource() }
     val interaction = source.collectInteractionState()
@@ -395,6 +414,7 @@ private fun <T> BodyRow(
     val act = { if (onRowClick != null) onRowClick(row) else if (selection != null) toggle(key) }
     val behavior = Modifier
         .fillMaxWidth()
+        .camoSpeedSearch(speedSearch)
         .rovingFocusItem(focus, index, enabled = true, selected = selected, onSelect = {})
         .onKeyEvent {
             val space = it.type == KeyEventType.KeyDown && it.key == Key.Spacebar && selection != null
