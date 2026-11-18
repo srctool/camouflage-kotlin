@@ -1,6 +1,16 @@
 package com.srctool.camouflage.core.tree
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.ui.Alignment
+import com.srctool.camouflage.core.provider.Camouflage
+import com.srctool.camouflage.core.speedsearch.CamoSpeedSearchOverlay
+import com.srctool.camouflage.core.speedsearch.CamoSpeedSearchState
+import com.srctool.camouflage.core.speedsearch.SpeedSearchFocus
+import com.srctool.camouflage.core.speedsearch.SpeedSearchMode
+import com.srctool.camouflage.core.speedsearch.camoSpeedSearch
 import com.srctool.camouflage.core.scrollbar.rememberCamoScrollAdapter
 import com.srctool.camouflage.core.scrollbar.CamoScrollArea
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -124,6 +134,8 @@ public class TreeNodeSlots(
     public val icon: (@Composable () -> Unit)?,
     public val label: String,
     public val toggle: Modifier,
+    /** The ranges of [label] a speed search matched; draw the label with `CamoHighlightedText(label, highlight)`. */
+    public val highlight: List<IntRange> = emptyList(),
 )
 
 /** Draws one node row. Apply `modifier` (the behavior) to the outermost node, and `slots.toggle` to the chevron. */
@@ -172,39 +184,80 @@ public fun <T> CamoTree(
     multiSelect: Boolean = false,
     onLoadChildren: ((CamoTreeNode<T>) -> Unit)? = null,
     icon: ((T, Boolean) -> (@Composable () -> Unit))? = null,
+    speedSearch: CamoSpeedSearchState? = null,
 ) {
     val skin = requireSkin("CamoTree")
     val theme = requireTheme("CamoTree")
     val style = remember(skin, theme) { skin.tree.defaults(theme).merge(theme.components.tree) }
     val focus = rememberRovingFocus()
     val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
-    val visible = remember(roots, expanded) { flatten(roots, expanded) }
+    val view = rememberTreeView(roots, expanded, label, speedSearch)
+    val search = view.search
+    val visible = view.visible
+    val hitRows = view.hitRows
     val setExpanded = { key: Any, open: Boolean -> onExpandedChange(if (open) expanded + key else expanded - key) }
     val select = { key: Any ->
         onSelectedChange(if (multiSelect) (if (key in selected) selected - key else selected + key) else setOf(key))
     }
     val listState = rememberLazyListState()
-    CamoScrollArea(modifier, vertical = rememberCamoScrollAdapter(listState)) {
-        LazyColumn(
-            Modifier.semantics {
-                contentDescription = caption
-                collectionInfo = CollectionInfo(visible.size, 1)
-            },
-            listState,
-        ) {
-            itemsIndexed(visible, key = { _, v -> v.node.key }) { index, v ->
-                val node = v.node
-                val open = node.key in expanded
-                val unloaded = node.hasChildren && node.children == null
-                if (open && unloaded && onLoadChildren != null) LaunchedEffect(node.key) { onLoadChildren(node) }
-                NodeRow(
-                    skin.tree, theme, style, v, index, open, unloaded && open, node.key in selected, focus, rtl,
-                    visible, setExpanded, select, label, icon,
-                )
+    if (speedSearch != null) SpeedSearchFocus(speedSearch, search?.hits?.size ?: 0, hitRows, listState, focus)
+    val list: @Composable (Modifier) -> Unit = { area ->
+        CamoScrollArea(area, vertical = rememberCamoScrollAdapter(listState)) {
+            LazyColumn(
+                Modifier.semantics {
+                    contentDescription = caption
+                    collectionInfo = CollectionInfo(visible.size, 1)
+                },
+                listState,
+            ) {
+                itemsIndexed(visible, key = { _, v -> v.node.key }) { index, v ->
+                    val node = v.node
+                    val open = node.key in expanded
+                    val unloaded = node.hasChildren && node.children == null
+                    if (open && unloaded && onLoadChildren != null) LaunchedEffect(node.key) { onLoadChildren(node) }
+                    NodeRow(
+                        skin.tree, theme, style, v, index, open, unloaded && open, node.key in selected, focus, rtl,
+                        visible, setExpanded, select, label, icon,
+                        SearchRow(speedSearch, search?.hits?.get(node.key), hitRows),
+                    )
+                }
             }
         }
     }
+    if (speedSearch == null) {
+        list(modifier)
+    } else {
+        Box(modifier) {
+            list(Modifier)
+            CamoSpeedSearchOverlay(speedSearch, Modifier.align(Alignment.BottomStart).padding(Camouflage.spacing.s))
+        }
+    }
 }
+
+// The tree as shown: the nodes in reading order, narrowed by a speed search, and which of them match.
+private class TreeView<T>(val search: TreeSearch<T>?, val visible: List<Visible<T>>, val hitRows: List<Int>)
+
+@Composable
+private fun <T> rememberTreeView(
+    roots: List<CamoTreeNode<T>>,
+    expanded: Set<Any>,
+    label: (T) -> String,
+    speedSearch: CamoSpeedSearchState?,
+): TreeView<T> {
+    val query = speedSearch?.query.orEmpty()
+    return remember(roots, expanded, query, speedSearch?.mode, speedSearch?.kind) {
+        if (speedSearch == null || query.isEmpty()) {
+            TreeView(null, flatten(roots, expanded), emptyList())
+        } else {
+            val search = searchTree(roots, label, speedSearch.mode == SpeedSearchMode.Filter) { speedSearch.match(it) }
+            val visible = flatten(search.roots, expanded + search.open)
+            TreeView(search, visible, visible.indices.filter { visible[it].node.key in search.hits })
+        }
+    }
+}
+
+// What a node row needs of the speed search: the state, where this node matched, and which rows are matches.
+private class SearchRow(val state: CamoSpeedSearchState?, val ranges: List<IntRange>?, val hitRows: List<Int>)
 
 @Composable
 private fun <T> NodeRow(
@@ -223,6 +276,7 @@ private fun <T> NodeRow(
     select: (Any) -> Unit,
     label: (T) -> String,
     icon: ((T, Boolean) -> (@Composable () -> Unit))?,
+    search: SearchRow,
 ) {
     val node = v.node
     val source = remember { MutableInteractionSource() }
@@ -237,7 +291,11 @@ private fun <T> NodeRow(
     }
     // Before the roving focus, so Left and Right expand and collapse instead of moving between rows.
     val behavior = Modifier
-        .onPreviewKeyEvent { treeKey(it, index, v, open, rtl, visible.size, focus, setExpanded, select) }
+        .camoSpeedSearch(search.state)
+        .onPreviewKeyEvent {
+            searchKey(it, index, search, focus) ||
+                treeKey(it, index, v, open, rtl, visible.size, focus, setExpanded, select)
+        }
         .rovingFocusItem(focus, index, enabled = true, selected = isSelected, onSelect = {})
         .semantics {
             selected = isSelected
@@ -251,11 +309,27 @@ private fun <T> NodeRow(
         .clickable(source, null, role = Role.Button) { select(node.key) }
     renderer.Node(
         TreeNodeState(v.level, open, expandable, loading, isSelected, interaction, source),
-        TreeNodeSlots(icon?.invoke(node.value, open), label(node.value), toggle),
+        TreeNodeSlots(icon?.invoke(node.value, open), label(node.value), toggle, search.ranges.orEmpty()),
         theme,
         style,
         behavior,
     )
+}
+
+// While a search runs, Up and Down move between the matches (skipping the ancestors kept only to show them).
+private fun searchKey(event: KeyEvent, index: Int, search: SearchRow, focus: RovingFocus): Boolean {
+    val moving = event.type == KeyEventType.KeyDown && search.state?.active == true &&
+        (event.key == Key.DirectionDown || event.key == Key.DirectionUp)
+    if (!moving || search.hitRows.isEmpty()) return false
+    val down = event.key == Key.DirectionDown
+    val rows = search.hitRows
+    val target = if (down) {
+        rows.firstOrNull { it > index } ?: rows.first()
+    } else {
+        rows.lastOrNull { it < index } ?: rows.last()
+    }
+    focus.focusItem(target)
+    return true
 }
 
 // Right and Left follow the reading direction: Right expands, then enters the first child; Left collapses, then

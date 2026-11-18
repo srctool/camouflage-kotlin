@@ -13,7 +13,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
-import androidx.compose.ui.input.key.onPreviewKeyEvent
+import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.type
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
@@ -51,7 +51,8 @@ public fun CamoAnchoredPopup(
     ) {
         Box(
             modifier
-                .onPreviewKeyEvent {
+                // After the content, so something inside (a menu's speed search) can take Esc first.
+                .onKeyEvent {
                     val esc = it.type == KeyEventType.KeyDown && it.key == Key.Escape
                     if (esc) dismiss()
                     esc

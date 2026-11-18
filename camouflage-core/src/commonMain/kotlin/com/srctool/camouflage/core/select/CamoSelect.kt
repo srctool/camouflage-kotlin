@@ -53,6 +53,7 @@ import com.srctool.camouflage.core.provider.Camouflage
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
 import com.srctool.camouflage.core.search.CamoSearchField
+import com.srctool.camouflage.core.speedsearch.fold
 import com.srctool.camouflage.core.text.CamoText
 import kotlinx.coroutines.delay
 
@@ -395,11 +396,3 @@ private fun <T> OptionRow(option: SelectOption<T>, selected: Boolean, style: Sel
         enabled = option.enabled,
     )
 }
-
-private val Accents = mapOf(
-    "aàáâãäåā" to 'a', "cçćč" to 'c', "eèéêëēė" to 'e', "iìíîïī" to 'i', "nñń" to 'n',
-    "oòóôõöøō" to 'o', "sśš" to 's', "uùúûüū" to 'u', "yýÿ" to 'y', "zźżž" to 'z',
-).flatMap { (chars, base) -> chars.map { it to base } }.toMap()
-
-// Lowercase, with the common Latin accents removed ("Zürich" matches "zur").
-internal fun fold(text: String): String = text.lowercase().map { Accents[it] ?: it }.joinToString("")

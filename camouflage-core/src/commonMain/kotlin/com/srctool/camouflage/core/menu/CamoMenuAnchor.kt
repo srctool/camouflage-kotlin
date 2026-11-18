@@ -35,6 +35,7 @@ import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
@@ -85,6 +86,8 @@ import androidx.compose.ui.unit.round
 import com.srctool.camouflage.core.divider.CamoDivider
 import com.srctool.camouflage.core.overlay.CamoAnchoredPopup
 import com.srctool.camouflage.core.provider.Camouflage
+import com.srctool.camouflage.core.speedsearch.CamoSpeedSearchState
+import com.srctool.camouflage.core.speedsearch.CamoSpeedSearchOverlay
 import com.srctool.camouflage.core.provider.requireSkin
 import com.srctool.camouflage.core.provider.requireTheme
 import com.srctool.camouflage.core.theme.Tone
@@ -159,7 +162,9 @@ public class CamoMenuController {
  * The menu shows [items], or [panel]'s custom content in a [CamoMenuPanel] (ADR-30), below the anchor (above
  * it near the bottom edge). Opened from the keyboard, the first item takes focus; Up and Down move, Home and
  * End jump, typing jumps to the next item starting with the typed letters, Enter selects, and Esc or an outside
- * tap closes it, returning focus to the anchor.
+ * tap closes it, returning focus to the anchor. With [speedSearch] typing instead filters the items by what was
+ * typed (prefix, substring or camel-hump), highlights the matches, and Esc clears the text before it closes the
+ * menu; a menu with submenus keeps the plain type-ahead.
  */
 @Composable
 public fun CamoMenuAnchor(
@@ -167,6 +172,7 @@ public fun CamoMenuAnchor(
     items: List<CamoMenuEntry> = emptyList(),
     panel: (@Composable () -> Unit)? = null,
     controller: CamoMenuController? = null,
+    speedSearch: Boolean = false,
     anchor: @Composable (open: () -> Unit) -> Unit,
 ) {
     val state = controller ?: remember { CamoMenuController() }
@@ -179,7 +185,7 @@ public fun CamoMenuAnchor(
     }
     Box(modifier.focusRequester(opener)) {
         anchor(state::open)
-        if (state.isOpen) MenuPopup(items, panel, scope, onClose = close)
+        if (state.isOpen) MenuPopup(items, panel, scope, onClose = close, speedSearch = speedSearch)
     }
 }
 
@@ -265,15 +271,17 @@ internal fun MenuPopup(
     scope: CoroutineScope,
     onClose: () -> Unit,
     minWidth: Dp = 0.dp,
+    speedSearch: Boolean = false,
 ) {
     // A menu with submenus lays out all its levels in one window-sized layer (below); the rest is a plain popup.
     if (panel == null && items.any { it is CamoMenuSubmenu }) {
         NestedMenuPopup(items, scope, onClose)
         return
     }
+    val search = if (speedSearch) remember { CamoSpeedSearchState() } else null
     CamoAnchoredPopup(onClose) {
         CamoMenuPanel {
-            if (panel != null) panel() else MenuEntries(items, scope, onClose, minWidth)
+            if (panel != null) panel() else MenuEntries(items, scope, onClose, minWidth, search = search)
         }
     }
 }
@@ -309,11 +317,16 @@ internal fun MenuEntries(
     childHovered: Boolean = false,
     onOpen: (index: Int, submenu: CamoMenuSubmenu, bounds: IntRect) -> Unit = { _, _, _ -> },
     onCloseChild: () -> Unit = {},
+    search: CamoSpeedSearchState? = null,
 ) {
     val skin = requireSkin("CamoMenuAnchor")
     val theme = requireTheme("CamoMenuAnchor")
     val style = remember(skin, theme) { skin.menu.defaults(theme).merge(theme.components.menu) }
-    val rows = remember(entries) { flatten(entries) }
+    val query = search?.query.orEmpty()
+    val shownEntries = remember(entries, query) {
+        if (search == null || query.isEmpty()) entries else filterEntries(entries, search)
+    }
+    val rows = remember(shownEntries) { flatten(shownEntries) }
     val requesters = remember(rows.size) { List(rows.size) { FocusRequester() } }
     val reserveCheck = rows.any { it.item.checked != null }
     val reserveIcon = rows.any { it.item.leadingIcon != null }
@@ -335,10 +348,20 @@ internal fun MenuEntries(
         withFrameNanos { }
         if (keyboard.inputMode == InputMode.Keyboard) enabled.firstOrNull()?.let { requesters[it].requestFocus() }
     }
+    if (search != null) {
+        SideEffect { search.matchCount = rows.size }
+        // The rows changed with the query: focus the first match (the focused row may be gone).
+        LaunchedEffect(query) {
+            withFrameNanos { }
+            if (query.isNotEmpty()) enabled.firstOrNull()?.let { requesters[it].requestFocus() }
+        }
+    }
     SubmenuTimers(rows, requesters, hovered, open, childHovered, ::openRow, onCloseChild)
 
     fun keys(event: KeyEvent): Boolean {
-        if (event.type != KeyEventType.KeyDown) return false
+        // Speed search takes the typed keys first (and Esc, while it has text).
+        val down = event.type == KeyEventType.KeyDown
+        if (!down || search?.onKey(event) == true) return down
         val canOpen = rows.getOrNull(focused)?.let { it.submenu != null && it.item.enabled } == true
         return when (submenuKey(event.key, toward, away, canOpen, onBack != null)) {
             SubmenuKey.Open -> {
@@ -383,6 +406,7 @@ internal fun MenuEntries(
                         }
                     },
                     modifier,
+                    highlight = search?.match(row.item.text).orEmpty(),
                 )
             } else {
                 MenuItemRow(
@@ -399,7 +423,7 @@ internal fun MenuEntries(
             }
         }
 
-        entries.forEach { entry ->
+        shownEntries.forEach { entry ->
             when (entry) {
                 is CamoMenuItem, is CamoMenuSubmenu -> Row(rows[index])
                 CamoMenuDivider -> CamoDivider(Modifier.padding(vertical = Camouflage.spacing.xs))
@@ -410,8 +434,24 @@ internal fun MenuEntries(
         }
     }
         EdgeScrollbar(rememberCamoScrollAdapter(scroll))
+        if (search != null) {
+            CamoSpeedSearchOverlay(search, Modifier.align(Alignment.BottomStart).padding(Camouflage.spacing.xs))
+        }
     }
 }
+
+// The entries that match the query: items and submenu rows by their text, groups by their matching items; dividers
+// go while a search runs.
+private fun filterEntries(entries: List<CamoMenuEntry>, search: CamoSpeedSearchState): List<CamoMenuEntry> =
+    entries.mapNotNull { entry ->
+        when (entry) {
+            is CamoMenuItem -> entry.takeIf { search.matches(it.text) }
+            is CamoMenuSubmenu -> entry.takeIf { search.matches(it.text) }
+            CamoMenuDivider -> null
+            is CamoMenuGroup -> entry.items.filter { search.matches(it.text) }
+                .takeIf { it.isNotEmpty() }?.let { CamoMenuGroup(it, entry.exclusive) }
+        }
+    }
 
 // The row a key moves focus to: Home and End jump; typed letters find the next item starting with them (a
 // repeated first letter steps through the items starting with it).
@@ -477,6 +517,7 @@ private fun MenuItemRow(
     submenuOpen: Boolean = false,
     onCollapse: () -> Unit = {},
     onHoverChange: ((Boolean) -> Unit)? = null,
+    highlight: List<IntRange> = emptyList(),
 ) {
     val skin = requireSkin("CamoMenuItemRow")
     val theme = requireTheme("CamoMenuItemRow")
@@ -522,6 +563,7 @@ private fun MenuItemRow(
             interactionSource = source,
             hasSubmenu = kind == RowKind.Submenu,
             submenuOpen = submenuOpen,
+            highlight = highlight,
         ),
         MenuItemSlots(item.leadingIcon),
         theme,

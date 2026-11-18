@@ -70,6 +70,7 @@ import com.srctool.camouflage.core.menu.MenuRenderer
 import com.srctool.camouflage.core.menu.MenuStyle
 import com.srctool.camouflage.core.overlay.StackedScrim
 import com.srctool.camouflage.core.provider.Camouflage
+import com.srctool.camouflage.core.speedsearch.CamoHighlightedText
 import com.srctool.camouflage.core.skin.TitleAlign
 import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.core.theme.CamoTheme
@@ -592,8 +593,9 @@ internal fun PaintMenuItem(
                     slots.leadingIcon?.invoke()
                 }
             }
-            BasicText(
+            CamoHighlightedText(
                 state.text,
+                state.highlight,
                 Modifier.weight(1f).padding(end = gap),
                 style = style.textStyle.copy(color = text),
                 maxLines = 1,
