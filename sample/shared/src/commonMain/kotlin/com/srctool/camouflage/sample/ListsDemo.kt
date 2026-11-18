@@ -11,6 +11,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.srctool.camouflage.core.datatable.CamoColumn
+import com.srctool.camouflage.core.datatable.CamoColumnState
 import com.srctool.camouflage.core.datatable.CamoDataTable
 import com.srctool.camouflage.core.datatable.ColumnAlign
 import com.srctool.camouflage.core.datatable.ColumnWidth
@@ -51,10 +52,11 @@ internal fun ListsDemo() {
         if (sort.ascending) order else -order
     }
     val columns = listOf(
-        CamoColumn<Member>("name", "Name", sortable = true, cell = { CamoText(it.name) }),
+        CamoColumn<Member>("name", "Name", sortable = true, text = { it.name }, cell = { CamoText(it.name) }),
         CamoColumn<Member>("role", "Role", width = ColumnWidth.Weight(0.8f), cell = { CamoText(it.role) }),
         CamoColumn<Member>("age", "Age", ColumnWidth.Fixed(AgeWidth), ColumnAlign.End, true, { CamoText("${it.age}") }),
     )
+    val columnState = remember { CamoColumnState(columns.map { it.key }) }
     val tree = listOf(
         CamoTreeNode("docs", "Documents", listOf(CamoTreeNode("cv", "CV.pdf"), CamoTreeNode("notes", "Notes.md"))),
         CamoTreeNode("remote", "Shared drive", remote, hasChildren = true),
@@ -64,6 +66,7 @@ internal fun ListsDemo() {
             columns, rows, { it.id }, "Members", Modifier.height(TableHeight),
             sort = sort, onSortChange = { sort = it },
             selection = selection, onSelectionChange = { selection = it },
+            columnState = columnState,
         )
         CamoText("${selection.size} selected")
         CamoTree(
