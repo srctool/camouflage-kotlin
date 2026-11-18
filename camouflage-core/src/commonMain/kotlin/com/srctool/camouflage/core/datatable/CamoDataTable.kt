@@ -122,7 +122,12 @@ public sealed interface ColumnWidth {
 /** How a column's content lines up. */
 public enum class ColumnAlign { Start, Center, End }
 
-/** A column: its [header], [width], whether it can be sorted, and how to draw its [cell] for a row. */
+/**
+ * A column: its [header], [width], whether it can be sorted, and how to draw its [cell] for a row. With a
+ * `columnState` the user can resize it (not below [minWidth]), hide it and move it, unless [resizable], [hideable]
+ * or [reorderable] say no. [text] is what a row shows as text: a double-click on the resize edge fits the width to
+ * it; without it, a double-click puts the column back to its own width.
+ */
 @Immutable
 public data class CamoColumn<T>(
     val key: Any,
@@ -131,6 +136,11 @@ public data class CamoColumn<T>(
     val align: ColumnAlign = ColumnAlign.Start,
     val sortable: Boolean = false,
     val cell: @Composable (T) -> Unit,
+    val minWidth: Dp = 48.dp,
+    val resizable: Boolean = true,
+    val hideable: Boolean = true,
+    val reorderable: Boolean = true,
+    val text: ((T) -> String)? = null,
 )
 
 /** The sort the table shows: by the column with [columnKey], ascending or not. The app sorts the rows. */
@@ -223,7 +233,8 @@ private val SelectColumn = 48.dp
  * (and does the sorting) and the [selection] (a set of [rowKey]s; `null` means rows can't be selected). A click
  * on a header of a sortable column calls [onSortChange]; a click or Space on a row toggles its selection (a
  * click calls [onRowClick] instead when it is set); Up and Down move between rows. [caption] names the table.
- * Rows are lazy; the header stays above them.
+ * Rows are lazy; the header stays above them. With a [columnState] the user can resize, hide and reorder the
+ * columns (see [CamoColumn]); `null` keeps the columns as given.
  */
 @Composable
 public fun <T> CamoDataTable(
@@ -240,7 +251,10 @@ public fun <T> CamoDataTable(
     empty: (@Composable () -> Unit)? = null,
     loading: Boolean = false,
     footer: (@Composable () -> Unit)? = null,
+    columnState: CamoColumnState? = null,
 ) {
+    val all = columns
+    val shown = columnState?.shown(all) ?: all
     val skin = requireSkin("CamoDataTable")
     val theme = requireTheme("CamoDataTable")
     val style = remember(skin, theme) { skin.dataTable.defaults(theme).merge(theme.components.dataTable) }
@@ -258,7 +272,7 @@ public fun <T> CamoDataTable(
         contentDescription = caption
         if (loading) stateDescription = "Loading"
     }
-    skin.dataTable.Container(TableState(columns.size, rows.size, selectable, loading), theme, style, behavior) {
+    skin.dataTable.Container(TableState(shown.size, rows.size, selectable, loading), theme, style, behavior) {
         Column {
             skin.dataTable.HeaderRow(theme, style, Modifier.fillMaxWidth()) {
                 if (selectable) {
@@ -270,30 +284,54 @@ public fun <T> CamoDataTable(
                         )
                     }
                 }
-                columns.forEach { column -> Header(skin.dataTable, theme, style, column, sort, onSortChange) }
-            }
-            val listState = rememberLazyListState()
-            Box(Modifier.weight(1f, fill = false)) {
-                when {
-                    rows.isEmpty() -> EmptyBody(loading, empty)
-                    else -> LazyColumn(
-                        Modifier.semantics { collectionInfo = CollectionInfo(rows.size, columns.size) },
-                        listState,
-                    ) {
-                        itemsIndexed(rows, key = { _, row -> rowKey(row) }) { index, row ->
-                            BodyRow(
-                                skin.dataTable, theme, style, columns, row, index, rowKey(row), focus,
-                                selection, toggle, onRowClick,
-                            )
-                        }
+                val context = columnState?.let { ColumnContext(all, shown, rows, it) }
+                shown.forEachIndexed { index, column ->
+                    if (context == null) {
+                        Header(skin.dataTable, theme, style, column, sort, onSortChange)
+                    } else {
+                        ColumnHeader(skin.dataTable, theme, style, column, index, context, sort, onSortChange)
                     }
                 }
-                if (rows.isNotEmpty()) {
-                    EdgeScrollbar(rememberCamoScrollAdapter(listState))
-                }
             }
+            TableBody(
+                skin.dataTable, theme, style, shown, rows, rowKey, focus, selection, toggle, onRowClick, empty, loading,
+            )
             footer?.invoke()
         }
+    }
+}
+
+@Composable
+private fun <T> TableBody(
+    renderer: DataTableRenderer,
+    theme: CamoTheme,
+    style: TableStyle,
+    shown: List<CamoColumn<T>>,
+    rows: List<T>,
+    rowKey: (T) -> Any,
+    focus: RovingFocus,
+    selection: Set<Any>?,
+    toggle: (Any) -> Unit,
+    onRowClick: ((T) -> Unit)?,
+    empty: (@Composable () -> Unit)?,
+    loading: Boolean,
+) {
+    val listState = rememberLazyListState()
+    Box {
+        when {
+            rows.isEmpty() -> EmptyBody(loading, empty)
+            else -> LazyColumn(
+                Modifier.semantics { collectionInfo = CollectionInfo(rows.size, shown.size) },
+                listState,
+            ) {
+                itemsIndexed(rows, key = { _, row -> rowKey(row) }) { index, row ->
+                    BodyRow(
+                        renderer, theme, style, shown, row, index, rowKey(row), focus, selection, toggle, onRowClick,
+                    )
+                }
+            }
+        }
+        if (rows.isNotEmpty()) EdgeScrollbar(rememberCamoScrollAdapter(listState))
     }
 }
 
@@ -332,7 +370,7 @@ private fun <T> RowScope.Header(
 }
 
 @Composable
-private fun RowScope.columnModifier(width: ColumnWidth): Modifier = when (width) {
+internal fun RowScope.columnModifier(width: ColumnWidth): Modifier = when (width) {
     is ColumnWidth.Fixed -> Modifier.width(width.width)
     is ColumnWidth.Weight -> Modifier.weight(width.weight)
 }

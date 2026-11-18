@@ -1856,29 +1856,74 @@ public final class com/srctool/camouflage/core/chip/ChipTheme {
 
 public final class com/srctool/camouflage/core/datatable/CamoColumn {
 	public static final field $stable I
-	public fun <init> (Ljava/lang/Object;Ljava/lang/String;Lcom/srctool/camouflage/core/datatable/ColumnWidth;Lcom/srctool/camouflage/core/datatable/ColumnAlign;ZLkotlin/jvm/functions/Function3;)V
-	public synthetic fun <init> (Ljava/lang/Object;Ljava/lang/String;Lcom/srctool/camouflage/core/datatable/ColumnWidth;Lcom/srctool/camouflage/core/datatable/ColumnAlign;ZLkotlin/jvm/functions/Function3;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Object;Ljava/lang/String;Lcom/srctool/camouflage/core/datatable/ColumnWidth;Lcom/srctool/camouflage/core/datatable/ColumnAlign;ZLkotlin/jvm/functions/Function3;FZZZLkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Object;Ljava/lang/String;Lcom/srctool/camouflage/core/datatable/ColumnWidth;Lcom/srctool/camouflage/core/datatable/ColumnAlign;ZLkotlin/jvm/functions/Function3;FZZZLkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Object;
+	public final fun component10 ()Z
+	public final fun component11 ()Lkotlin/jvm/functions/Function1;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lcom/srctool/camouflage/core/datatable/ColumnWidth;
 	public final fun component4 ()Lcom/srctool/camouflage/core/datatable/ColumnAlign;
 	public final fun component5 ()Z
 	public final fun component6 ()Lkotlin/jvm/functions/Function3;
-	public final fun copy (Ljava/lang/Object;Ljava/lang/String;Lcom/srctool/camouflage/core/datatable/ColumnWidth;Lcom/srctool/camouflage/core/datatable/ColumnAlign;ZLkotlin/jvm/functions/Function3;)Lcom/srctool/camouflage/core/datatable/CamoColumn;
-	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/datatable/CamoColumn;Ljava/lang/Object;Ljava/lang/String;Lcom/srctool/camouflage/core/datatable/ColumnWidth;Lcom/srctool/camouflage/core/datatable/ColumnAlign;ZLkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datatable/CamoColumn;
+	public final fun component7-D9Ej5fM ()F
+	public final fun component8 ()Z
+	public final fun component9 ()Z
+	public final fun copy-0vH8DBg (Ljava/lang/Object;Ljava/lang/String;Lcom/srctool/camouflage/core/datatable/ColumnWidth;Lcom/srctool/camouflage/core/datatable/ColumnAlign;ZLkotlin/jvm/functions/Function3;FZZZLkotlin/jvm/functions/Function1;)Lcom/srctool/camouflage/core/datatable/CamoColumn;
+	public static synthetic fun copy-0vH8DBg$default (Lcom/srctool/camouflage/core/datatable/CamoColumn;Ljava/lang/Object;Ljava/lang/String;Lcom/srctool/camouflage/core/datatable/ColumnWidth;Lcom/srctool/camouflage/core/datatable/ColumnAlign;ZLkotlin/jvm/functions/Function3;FZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datatable/CamoColumn;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAlign ()Lcom/srctool/camouflage/core/datatable/ColumnAlign;
 	public final fun getCell ()Lkotlin/jvm/functions/Function3;
 	public final fun getHeader ()Ljava/lang/String;
+	public final fun getHideable ()Z
 	public final fun getKey ()Ljava/lang/Object;
+	public final fun getMinWidth-D9Ej5fM ()F
+	public final fun getReorderable ()Z
+	public final fun getResizable ()Z
 	public final fun getSortable ()Z
+	public final fun getText ()Lkotlin/jvm/functions/Function1;
 	public final fun getWidth ()Lcom/srctool/camouflage/core/datatable/ColumnWidth;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/srctool/camouflage/core/datatable/CamoColumnSnapshot {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Ljava/util/Map;Ljava/util/Set;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Ljava/util/Set;
+	public final fun copy (Ljava/util/List;Ljava/util/Map;Ljava/util/Set;)Lcom/srctool/camouflage/core/datatable/CamoColumnSnapshot;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/datatable/CamoColumnSnapshot;Ljava/util/List;Ljava/util/Map;Ljava/util/Set;ILjava/lang/Object;)Lcom/srctool/camouflage/core/datatable/CamoColumnSnapshot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHidden ()Ljava/util/Set;
+	public final fun getOrder ()Ljava/util/List;
+	public final fun getWidths ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/datatable/CamoColumnState {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;)V
+	public final fun apply (Lcom/srctool/camouflage/core/datatable/CamoColumnSnapshot;)V
+	public final fun getHidden ()Ljava/util/Set;
+	public final fun getOrder ()Ljava/util/List;
+	public final fun getWidths ()Ljava/util/Map;
+	public final fun hide (Ljava/lang/Object;)V
+	public final fun move (Ljava/lang/Object;I)V
+	public final fun moveBy (Ljava/lang/Object;I)V
+	public final fun reset ()V
+	public final fun resetWidths ()V
+	public final fun resize-VpY3zN4 (Ljava/lang/Object;FF)V
+	public static synthetic fun resize-VpY3zN4$default (Lcom/srctool/camouflage/core/datatable/CamoColumnState;Ljava/lang/Object;FFILjava/lang/Object;)V
+	public final fun resizeToOwn (Ljava/lang/Object;)V
+	public final fun show (Ljava/lang/Object;)V
+	public final fun snapshot ()Lcom/srctool/camouflage/core/datatable/CamoColumnSnapshot;
+}
+
 public final class com/srctool/camouflage/core/datatable/CamoDataTableKt {
-	public static final fun CamoDataTable (Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Ljava/lang/String;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/core/datatable/TableSort;Lkotlin/jvm/functions/Function1;Ljava/util/Set;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;III)V
+	public static final fun CamoDataTable (Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Ljava/lang/String;Landroidx/compose/ui/Modifier;Lcom/srctool/camouflage/core/datatable/TableSort;Lkotlin/jvm/functions/Function1;Ljava/util/Set;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/functions/Function2;Lcom/srctool/camouflage/core/datatable/CamoColumnState;Landroidx/compose/runtime/Composer;III)V
 }
 
 public final class com/srctool/camouflage/core/datatable/ColumnAlign : java/lang/Enum {
