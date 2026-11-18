@@ -46,8 +46,8 @@ public class CamoCommandSource(
 ) {
     public companion object {
         /**
-         * A source over [items]: scores every title against the query on a background dispatcher (ten thousand
-         * items are fine) and keeps the best [limit]. An empty query lists the first [limit] items.
+         * A source over [items]: scores every title against the query, on a background dispatcher for a long list (ten
+         * thousand items are fine) and keeps the best [limit]. An empty query lists the first [limit] items.
          */
         public fun of(
             title: String,
@@ -55,10 +55,17 @@ public class CamoCommandSource(
             matchKind: MatchKind = MatchKind.Fuzzy,
             limit: Int = 8,
         ): CamoCommandSource = CamoCommandSource(title, matchKind, limit) { query ->
-            withContext(Dispatchers.Default) { rank(items, query, matchKind, limit) }
+            // A long list is scored off the main thread; a short one inline (no dispatcher hop to wait for).
+            if (items.size > OFF_THREAD_ITEMS) {
+                withContext(Dispatchers.Default) { rank(items, query, matchKind, limit) }
+            } else {
+                rank(items, query, matchKind, limit)
+            }
         }
     }
 }
+
+private const val OFF_THREAD_ITEMS = 1000
 
 // The best [limit] items for [query], best score first and in list order among equals.
 internal fun rank(items: List<CamoCommandItem>, query: String, kind: MatchKind, limit: Int): List<CamoCommandItem> {
