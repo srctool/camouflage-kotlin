@@ -7492,6 +7492,61 @@ public final class com/srctool/camouflage/core/switch/ThumbIcons {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/srctool/camouflage/core/tabs/CamoDocument {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ZZ)V
+	public synthetic fun <init> (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/jvm/functions/Function2;
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun copy (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ZZ)Lcom/srctool/camouflage/core/tabs/CamoDocument;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/tabs/CamoDocument;Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ZZILjava/lang/Object;)Lcom/srctool/camouflage/core/tabs/CamoDocument;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClosable ()Z
+	public final fun getIcon ()Lkotlin/jvm/functions/Function2;
+	public final fun getId ()Ljava/lang/Object;
+	public final fun getModified ()Z
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/tabs/CamoDocumentTabsKt {
+	public static final fun CamoDocumentTabs (Ljava/util/List;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/tabs/CamoDocumentTabsState;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Lcom/srctool/camouflage/core/theme/Appearance;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/srctool/camouflage/core/tabs/CamoDocumentTabsSnapshot {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Ljava/util/Set;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/Set;
+	public final fun copy (Ljava/util/List;Ljava/util/Set;)Lcom/srctool/camouflage/core/tabs/CamoDocumentTabsSnapshot;
+	public static synthetic fun copy$default (Lcom/srctool/camouflage/core/tabs/CamoDocumentTabsSnapshot;Ljava/util/List;Ljava/util/Set;ILjava/lang/Object;)Lcom/srctool/camouflage/core/tabs/CamoDocumentTabsSnapshot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOrder ()Ljava/util/List;
+	public final fun getPinned ()Ljava/util/Set;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/srctool/camouflage/core/tabs/CamoDocumentTabsState {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun apply (Lcom/srctool/camouflage/core/tabs/CamoDocumentTabsSnapshot;)V
+	public final fun getOrder ()Ljava/util/List;
+	public final fun getPinned ()Ljava/util/Set;
+	public final fun isPinned (Ljava/lang/Object;)Z
+	public final fun move (Ljava/lang/Object;I)V
+	public final fun moveBy (Ljava/lang/Object;I)V
+	public final fun pin (Ljava/lang/Object;)V
+	public final fun snapshot ()Lcom/srctool/camouflage/core/tabs/CamoDocumentTabsSnapshot;
+	public final fun unpin (Ljava/lang/Object;)V
+}
+
 public final class com/srctool/camouflage/core/tabs/CamoTab {
 	public static final field $stable I
 	public fun <init> (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Ljava/lang/String;Z)V

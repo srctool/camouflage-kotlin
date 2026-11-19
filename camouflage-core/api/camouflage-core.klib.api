@@ -9205,6 +9205,64 @@ final class com.srctool.camouflage.core.switch/ThumbIcons { // com.srctool.camou
     final fun toString(): kotlin/String // com.srctool.camouflage.core.switch/ThumbIcons.toString|toString(){}[0]
 }
 
+final class com.srctool.camouflage.core.tabs/CamoDocument { // com.srctool.camouflage.core.tabs/CamoDocument|null[0]
+    constructor <init>(kotlin/Any, kotlin/String, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // com.srctool.camouflage.core.tabs/CamoDocument.<init>|<init>(kotlin.Any;kotlin.String;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Boolean;kotlin.Boolean){}[0]
+
+    final val closable // com.srctool.camouflage.core.tabs/CamoDocument.closable|{}closable[0]
+        final fun <get-closable>(): kotlin/Boolean // com.srctool.camouflage.core.tabs/CamoDocument.closable.<get-closable>|<get-closable>(){}[0]
+    final val icon // com.srctool.camouflage.core.tabs/CamoDocument.icon|{}icon[0]
+        final fun <get-icon>(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.srctool.camouflage.core.tabs/CamoDocument.icon.<get-icon>|<get-icon>(){}[0]
+    final val id // com.srctool.camouflage.core.tabs/CamoDocument.id|{}id[0]
+        final fun <get-id>(): kotlin/Any // com.srctool.camouflage.core.tabs/CamoDocument.id.<get-id>|<get-id>(){}[0]
+    final val modified // com.srctool.camouflage.core.tabs/CamoDocument.modified|{}modified[0]
+        final fun <get-modified>(): kotlin/Boolean // com.srctool.camouflage.core.tabs/CamoDocument.modified.<get-modified>|<get-modified>(){}[0]
+    final val title // com.srctool.camouflage.core.tabs/CamoDocument.title|{}title[0]
+        final fun <get-title>(): kotlin/String // com.srctool.camouflage.core.tabs/CamoDocument.title.<get-title>|<get-title>(){}[0]
+
+    final fun component1(): kotlin/Any // com.srctool.camouflage.core.tabs/CamoDocument.component1|component1(){}[0]
+    final fun component2(): kotlin/String // com.srctool.camouflage.core.tabs/CamoDocument.component2|component2(){}[0]
+    final fun component3(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.srctool.camouflage.core.tabs/CamoDocument.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // com.srctool.camouflage.core.tabs/CamoDocument.component4|component4(){}[0]
+    final fun component5(): kotlin/Boolean // com.srctool.camouflage.core.tabs/CamoDocument.component5|component5(){}[0]
+    final fun copy(kotlin/Any = ..., kotlin/String = ..., kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): com.srctool.camouflage.core.tabs/CamoDocument // com.srctool.camouflage.core.tabs/CamoDocument.copy|copy(kotlin.Any;kotlin.String;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Boolean;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.core.tabs/CamoDocument.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.core.tabs/CamoDocument.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.core.tabs/CamoDocument.toString|toString(){}[0]
+}
+
+final class com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot { // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot|null[0]
+    constructor <init>(kotlin.collections/List<kotlin/Any>, kotlin.collections/Set<kotlin/Any>) // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.<init>|<init>(kotlin.collections.List<kotlin.Any>;kotlin.collections.Set<kotlin.Any>){}[0]
+
+    final val order // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.order|{}order[0]
+        final fun <get-order>(): kotlin.collections/List<kotlin/Any> // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.order.<get-order>|<get-order>(){}[0]
+    final val pinned // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.pinned|{}pinned[0]
+        final fun <get-pinned>(): kotlin.collections/Set<kotlin/Any> // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.pinned.<get-pinned>|<get-pinned>(){}[0]
+
+    final fun component1(): kotlin.collections/List<kotlin/Any> // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/Set<kotlin/Any> // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.component2|component2(){}[0]
+    final fun copy(kotlin.collections/List<kotlin/Any> = ..., kotlin.collections/Set<kotlin/Any> = ...): com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.copy|copy(kotlin.collections.List<kotlin.Any>;kotlin.collections.Set<kotlin.Any>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot.toString|toString(){}[0]
+}
+
+final class com.srctool.camouflage.core.tabs/CamoDocumentTabsState { // com.srctool.camouflage.core.tabs/CamoDocumentTabsState|null[0]
+    constructor <init>(kotlin.collections/List<kotlin/Any> = ..., kotlin.collections/Set<kotlin/Any> = ...) // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.<init>|<init>(kotlin.collections.List<kotlin.Any>;kotlin.collections.Set<kotlin.Any>){}[0]
+
+    final val order // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.order|{}order[0]
+        final fun <get-order>(): kotlin.collections/List<kotlin/Any> // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.order.<get-order>|<get-order>(){}[0]
+    final val pinned // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.pinned|{}pinned[0]
+        final fun <get-pinned>(): kotlin.collections/Set<kotlin/Any> // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.pinned.<get-pinned>|<get-pinned>(){}[0]
+
+    final fun apply(com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot) // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.apply|apply(com.srctool.camouflage.core.tabs.CamoDocumentTabsSnapshot){}[0]
+    final fun isPinned(kotlin/Any): kotlin/Boolean // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.isPinned|isPinned(kotlin.Any){}[0]
+    final fun move(kotlin/Any, kotlin/Int) // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.move|move(kotlin.Any;kotlin.Int){}[0]
+    final fun moveBy(kotlin/Any, kotlin/Int) // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.moveBy|moveBy(kotlin.Any;kotlin.Int){}[0]
+    final fun pin(kotlin/Any) // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.pin|pin(kotlin.Any){}[0]
+    final fun snapshot(): com.srctool.camouflage.core.tabs/CamoDocumentTabsSnapshot // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.snapshot|snapshot(){}[0]
+    final fun unpin(kotlin/Any) // com.srctool.camouflage.core.tabs/CamoDocumentTabsState.unpin|unpin(kotlin.Any){}[0]
+}
+
 final class com.srctool.camouflage.core.tabs/CamoTabsScope : androidx.compose.foundation.layout/RowScope { // com.srctool.camouflage.core.tabs/CamoTabsScope|null[0]
     final fun (androidx.compose.ui/Modifier).align(androidx.compose.ui/Alignment.Vertical): androidx.compose.ui/Modifier // com.srctool.camouflage.core.tabs/CamoTabsScope.align|align@androidx.compose.ui.Modifier(androidx.compose.ui.Alignment.Vertical){}[0]
     final fun (androidx.compose.ui/Modifier).alignBy(androidx.compose.ui.layout/HorizontalAlignmentLine): androidx.compose.ui/Modifier // com.srctool.camouflage.core.tabs/CamoTabsScope.alignBy|alignBy@androidx.compose.ui.Modifier(androidx.compose.ui.layout.HorizontalAlignmentLine){}[0]
@@ -11372,6 +11430,9 @@ final val com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_
 final val com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_SwitchStyle$stableprop // com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_SwitchStyle$stableprop|#static{}com_srctool_camouflage_core_switch_SwitchStyle$stableprop[0]
 final val com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_SwitchTheme$stableprop // com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_SwitchTheme$stableprop|#static{}com_srctool_camouflage_core_switch_SwitchTheme$stableprop[0]
 final val com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_ThumbIcons$stableprop // com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_ThumbIcons$stableprop|#static{}com_srctool_camouflage_core_switch_ThumbIcons$stableprop[0]
+final val com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocument$stableprop // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocument$stableprop|#static{}com_srctool_camouflage_core_tabs_CamoDocument$stableprop[0]
+final val com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocumentTabsSnapshot$stableprop // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocumentTabsSnapshot$stableprop|#static{}com_srctool_camouflage_core_tabs_CamoDocumentTabsSnapshot$stableprop[0]
+final val com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocumentTabsState$stableprop // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocumentTabsState$stableprop|#static{}com_srctool_camouflage_core_tabs_CamoDocumentTabsState$stableprop[0]
 final val com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTab$stableprop // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTab$stableprop|#static{}com_srctool_camouflage_core_tabs_CamoTab$stableprop[0]
 final val com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTabsPagerSync$stableprop // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTabsPagerSync$stableprop|#static{}com_srctool_camouflage_core_tabs_CamoTabsPagerSync$stableprop[0]
 final val com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTabsScope$stableprop // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTabsScope$stableprop|#static{}com_srctool_camouflage_core_tabs_CamoTabsScope$stableprop[0]
@@ -11875,7 +11936,11 @@ final fun com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_
 final fun com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_SwitchStyle$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_SwitchStyle$stableprop_getter|com_srctool_camouflage_core_switch_SwitchStyle$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_SwitchTheme$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_SwitchTheme$stableprop_getter|com_srctool_camouflage_core_switch_SwitchTheme$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_ThumbIcons$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.switch/com_srctool_camouflage_core_switch_ThumbIcons$stableprop_getter|com_srctool_camouflage_core_switch_ThumbIcons$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core.tabs/CamoDocumentTabs(kotlin.collections/List<com.srctool.camouflage.core.tabs/CamoDocument>, kotlin/Any, kotlin/Function1<kotlin/Any, kotlin/Unit>, kotlin/Function1<kotlin/Any, kotlin/Unit>, com.srctool.camouflage.core.tabs/CamoDocumentTabsState, androidx.compose.ui/Modifier?, kotlin/Function1<com.srctool.camouflage.core.tabs/CamoDocument, kotlin.collections/List<com.srctool.camouflage.core.menu/CamoMenuEntry>>?, com.srctool.camouflage.core.theme/Appearance?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.core.tabs/CamoDocumentTabs|CamoDocumentTabs(kotlin.collections.List<com.srctool.camouflage.core.tabs.CamoDocument>;kotlin.Any;kotlin.Function1<kotlin.Any,kotlin.Unit>;kotlin.Function1<kotlin.Any,kotlin.Unit>;com.srctool.camouflage.core.tabs.CamoDocumentTabsState;androidx.compose.ui.Modifier?;kotlin.Function1<com.srctool.camouflage.core.tabs.CamoDocument,kotlin.collections.List<com.srctool.camouflage.core.menu.CamoMenuEntry>>?;com.srctool.camouflage.core.theme.Appearance?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
 final fun com.srctool.camouflage.core.tabs/CamoTabsContainer(kotlin/Int, androidx.compose.ui/Modifier?, kotlin/Boolean, com.srctool.camouflage.core.theme/Appearance?, kotlin/Function0<kotlin/Float>?, kotlin/Boolean, kotlin/Function3<com.srctool.camouflage.core.tabs/CamoTabsScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.srctool.camouflage.core.tabs/CamoTabsContainer|CamoTabsContainer(kotlin.Int;androidx.compose.ui.Modifier?;kotlin.Boolean;com.srctool.camouflage.core.theme.Appearance?;kotlin.Function0<kotlin.Float>?;kotlin.Boolean;kotlin.Function3<com.srctool.camouflage.core.tabs.CamoTabsScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocument$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocument$stableprop_getter|com_srctool_camouflage_core_tabs_CamoDocument$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocumentTabsSnapshot$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocumentTabsSnapshot$stableprop_getter|com_srctool_camouflage_core_tabs_CamoDocumentTabsSnapshot$stableprop_getter(){}[0]
+final fun com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocumentTabsState$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoDocumentTabsState$stableprop_getter|com_srctool_camouflage_core_tabs_CamoDocumentTabsState$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTab$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTab$stableprop_getter|com_srctool_camouflage_core_tabs_CamoTab$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTabsPagerSync$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTabsPagerSync$stableprop_getter|com_srctool_camouflage_core_tabs_CamoTabsPagerSync$stableprop_getter(){}[0]
 final fun com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTabsScope$stableprop_getter(): kotlin/Int // com.srctool.camouflage.core.tabs/com_srctool_camouflage_core_tabs_CamoTabsScope$stableprop_getter|com_srctool_camouflage_core_tabs_CamoTabsScope$stableprop_getter(){}[0]

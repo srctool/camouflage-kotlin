@@ -274,7 +274,6 @@ public fun <T> CamoTabs(
  * (`-1` for none, which draws no indicator).
  */
 @Composable
-@Suppress("LongMethod") // the bar's layout, indicator animation and scrolling are one flow
 public fun CamoTabsContainer(
     selectedIndex: Int,
     modifier: Modifier = Modifier,
@@ -284,13 +283,32 @@ public fun CamoTabsContainer(
     enabled: Boolean = true,
     content: @Composable CamoTabsScope.() -> Unit,
 ) {
+    TabsBar(
+        selectedIndex, remember { TabsRegistry() }, rememberScrollState(), modifier, scrollable, appearance,
+        indicatorPosition, enabled, content,
+    )
+}
+
+// The bar itself, with the registry of tab places and the scroll state handed in so a custom bar (the document
+// tabs) can read the first and drive the second.
+@Composable
+@Suppress("LongMethod") // the bar's layout, indicator animation and scrolling are one flow
+internal fun TabsBar(
+    selectedIndex: Int,
+    registry: TabsRegistry,
+    scroll: androidx.compose.foundation.ScrollState,
+    modifier: Modifier,
+    scrollable: Boolean,
+    appearance: Appearance?,
+    indicatorPosition: (() -> Float)?,
+    enabled: Boolean,
+    content: @Composable CamoTabsScope.() -> Unit,
+) {
     val skin = requireSkin("CamoTabsContainer")
     val theme = requireTheme("CamoTabsContainer")
     val style = remember(skin, theme) { skin.tabs.defaults(theme).merge(theme.components.tabs) }
     val resolved = tabsAppearance(appearance ?: style.defaultAppearance)
-    val registry = remember { TabsRegistry() }
     val focus = rememberRovingFocus()
-    val scroll = rememberScrollState()
     val count = registry.bounds.size
     val target = registry.bounds[selectedIndex]?.let { indicatorOf(it, style.indicatorWidth) }
     var placed by remember { mutableStateOf(false) }
