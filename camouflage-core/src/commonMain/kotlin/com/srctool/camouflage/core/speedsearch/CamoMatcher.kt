@@ -18,6 +18,9 @@ public enum class MatchKind {
     Auto,
 }
 
+/** A match with its [ranges] to highlight and a [score] to rank by: higher is a better match. */
+public data class CamoMatch(val ranges: List<IntRange>, val score: Int)
+
 /**
  * Matches a typed query against a text, case- and accent-insensitively ("zur" finds "Zürich"), and says which
  * characters matched so they can be highlighted. Pure and window-free: the same rules back speed search and the
@@ -38,6 +41,50 @@ public object CamoMatcher {
             MatchKind.CamelHump -> hump(q, t, text)
             MatchKind.Fuzzy -> fuzzy(q, t)
             MatchKind.Auto -> prefix(q, t) ?: substring(q, t) ?: hump(q, t, text)
+        }
+    }
+
+    /**
+     * Like [match], and ranks the result: a prefix beats a substring (earlier and at a word start is better),
+     * that beats a camel-hump match, and that beats a loose [MatchKind.Fuzzy] one (consecutive letters and word
+     * starts score, gaps cost). Shorter texts win ties. [MatchKind.Fuzzy] tries every kind in that order.
+     * An empty query matches everything with score 0.
+     */
+    public fun score(query: String, text: String, kind: MatchKind = MatchKind.Fuzzy): CamoMatch? {
+        if (query.isEmpty()) return CamoMatch(emptyList(), 0)
+        val q = foldChars(query)
+        val t = foldChars(text)
+        val kinds = when (kind) {
+            MatchKind.Auto -> listOf(MatchKind.Prefix, MatchKind.Substring, MatchKind.CamelHump)
+            MatchKind.Fuzzy -> listOf(MatchKind.Prefix, MatchKind.Substring, MatchKind.CamelHump, MatchKind.Fuzzy)
+            else -> listOf(kind)
+        }
+        return kinds.firstNotNullOfOrNull { k ->
+            val ranges = when (k) {
+                MatchKind.Prefix -> prefix(q, t)
+                MatchKind.Substring -> substring(q, t)
+                MatchKind.CamelHump -> hump(q, t, text)
+                else -> fuzzy(q, t)
+            }
+            ranges?.let { CamoMatch(it, rank(k, it, text)) }
+        }
+    }
+
+    private fun rank(kind: MatchKind, ranges: List<IntRange>, text: String): Int {
+        val first = ranges.first().first
+        val shortness = -minOf(text.length, SHORT_CAP) / SHORT_DIVISOR
+        return when (kind) {
+            MatchKind.Prefix -> PREFIX_TIER + shortness
+            MatchKind.Substring -> SUBSTRING_TIER - minOf(first, POSITION_CAP) +
+                (if (isHumpStart(text, first)) WORD_START_BONUS else 0) + shortness
+            MatchKind.CamelHump -> HUMP_TIER + shortness
+            else -> {
+                val matched = ranges.sumOf { it.last - it.first + 1 }
+                val runs = ranges.sumOf { (it.last - it.first + 1) * (it.last - it.first + 1) * RUN_WEIGHT }
+                val starts = ranges.count { isHumpStart(text, it.first) } * FUZZY_START_BONUS
+                val gaps = ranges.last().last - first + 1 - matched
+                FUZZY_TIER + runs + starts - minOf(gaps, POSITION_CAP) - minOf(first, FUZZY_POSITION_CAP) + shortness
+            }
         }
     }
 
@@ -102,6 +149,19 @@ public object CamoMatcher {
         return out
     }
 }
+
+// Score tiers: a better kind of match always outranks a worse one.
+private const val PREFIX_TIER = 1000
+private const val SUBSTRING_TIER = 800
+private const val HUMP_TIER = 600
+private const val FUZZY_TIER = 200
+private const val WORD_START_BONUS = 100
+private const val FUZZY_START_BONUS = 15
+private const val RUN_WEIGHT = 4
+private const val POSITION_CAP = 100
+private const val FUZZY_POSITION_CAP = 50
+private const val SHORT_CAP = 200
+private const val SHORT_DIVISOR = 4
 
 private val Accents = mapOf(
     "aàáâãäåā" to 'a', "cçćč" to 'c', "eèéêëēė" to 'e', "iìíîïī" to 'i', "nñń" to 'n',

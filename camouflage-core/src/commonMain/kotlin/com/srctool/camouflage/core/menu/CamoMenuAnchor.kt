@@ -19,6 +19,7 @@ import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.waitForUpOrCancellation
 import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.interaction.FocusInteraction
 import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -507,7 +508,7 @@ private fun typed(event: KeyEvent): Char? {
 private const val DELETE = 0x7F
 
 @Composable
-private fun MenuItemRow(
+internal fun MenuItemRow(
     item: CamoMenuItem,
     kind: RowKind,
     reserveCheck: Boolean,
@@ -518,12 +519,21 @@ private fun MenuItemRow(
     onCollapse: () -> Unit = {},
     onHoverChange: ((Boolean) -> Unit)? = null,
     highlight: List<IntRange> = emptyList(),
+    // Draws the row as focused without giving it focus (the command palette keeps focus in its field).
+    active: Boolean = false,
 ) {
     val skin = requireSkin("CamoMenuItemRow")
     val theme = requireTheme("CamoMenuItemRow")
     val style = remember(skin, theme) { skin.menu.defaults(theme).merge(theme.components.menu) }
     val source = remember { MutableInteractionSource() }
     val interaction = source.collectInteractionState()
+    if (active) {
+        DisposableEffect(source) {
+            val focus = FocusInteraction.Focus()
+            source.tryEmit(focus)
+            onDispose { source.tryEmit(FocusInteraction.Unfocus(focus)) }
+        }
+    }
     val checked = item.checked == true
     if (onHoverChange != null) {
         val hovered = interaction.hovered

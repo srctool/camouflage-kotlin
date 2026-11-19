@@ -27,6 +27,7 @@ import com.srctool.camouflage.core.menu.MenuTheme
 import com.srctool.camouflage.core.navigation.NavigationBarTheme
 import com.srctool.camouflage.core.navigation.NavigationDrawerTheme
 import com.srctool.camouflage.core.navigation.NavigationRailTheme
+import com.srctool.camouflage.core.palette.CommandPaletteTheme
 import com.srctool.camouflage.core.pagedlist.PagedListTheme
 import com.srctool.camouflage.core.pagination.PaginationTheme
 import com.srctool.camouflage.core.popover.PopoverTheme
@@ -116,4 +117,5 @@ public data class CamoComponentThemes(
     val splitPane: SplitPaneTheme? = null,
     val scrollbar: ScrollbarTheme? = null,
     val speedSearch: SpeedSearchTheme? = null,
+    val commandPalette: CommandPaletteTheme? = null,
 )

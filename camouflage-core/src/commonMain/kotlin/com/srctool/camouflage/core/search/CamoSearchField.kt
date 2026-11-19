@@ -8,6 +8,7 @@ import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.clearText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -131,7 +132,8 @@ public interface SearchFieldRenderer {
  * A search field: the search icon, the keyboard's Search action (Enter on desktop and web) calling [onSearch],
  * and a "Clear search" button while there's text, which clears and keeps focus. Esc clears too. [leading]
  * replaces the search icon (a back button when a search is open); [trailing] adds e.g. a mic. Debouncing is the
- * app's: the field reports every change.
+ * app's: the field reports every change. With [autoFocus] the field takes focus when it first appears (a search
+ * that opens on its own, such as the command palette's).
  */
 @Composable
 public fun CamoSearchField(
@@ -145,6 +147,7 @@ public fun CamoSearchField(
     enabled: Boolean = true,
     onFocusChanged: ((Boolean) -> Unit)? = null,
     interactionSource: MutableInteractionSource? = null,
+    autoFocus: Boolean = false,
 ) {
     val skin = requireSkin("CamoSearchField")
     val theme = requireTheme("CamoSearchField")
@@ -155,6 +158,7 @@ public fun CamoSearchField(
     val search by rememberUpdatedState(onSearch)
     val focusChanged by rememberUpdatedState(onFocusChanged)
     val focus = remember { FocusRequester() }
+    if (autoFocus) LaunchedEffect(Unit) { focus.requestFocus() }
     val input: @Composable () -> Unit = {
         SearchInput(buffer, focus, placeholder, enabled, style, source, { search(it) }, { focusChanged?.invoke(it) })
     }

@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 import com.srctool.camouflage.core.datatable.CamoColumn
 import com.srctool.camouflage.core.datatable.CamoColumnState
 import com.srctool.camouflage.core.speedsearch.CamoSpeedSearchState
@@ -17,6 +18,11 @@ import com.srctool.camouflage.core.datatable.CamoDataTable
 import com.srctool.camouflage.core.datatable.ColumnAlign
 import com.srctool.camouflage.core.datatable.ColumnWidth
 import com.srctool.camouflage.core.datatable.TableSort
+import com.srctool.camouflage.core.button.CamoButton
+import com.srctool.camouflage.core.palette.CamoCommandItem
+import com.srctool.camouflage.core.palette.CamoCommandPalette
+import com.srctool.camouflage.core.palette.CamoCommandPaletteState
+import com.srctool.camouflage.core.palette.CamoCommandSource
 import com.srctool.camouflage.core.provider.Camouflage
 import com.srctool.camouflage.core.text.CamoText
 import com.srctool.camouflage.core.tree.CamoTree
@@ -27,6 +33,7 @@ import com.srctool.camouflage.core.tree.CamoTreeNode
 private val TableHeight = 260.dp
 private val TreeHeight = 200.dp
 private val AgeWidth = 72.dp
+private const val REMOTE_DELAY = 600L
 
 private data class Member(val id: Int, val name: String, val role: String, val age: Int)
 
@@ -63,7 +70,28 @@ internal fun ListsDemo() {
         CamoTreeNode("docs", "Documents", listOf(CamoTreeNode("cv", "CV.pdf"), CamoTreeNode("notes", "Notes.md"))),
         CamoTreeNode("remote", "Shared drive", remote, hasChildren = true),
     )
+    val palette = remember { CamoCommandPaletteState() }
+    var lastRun by remember { mutableStateOf("Nothing yet") }
+    val sources = remember {
+        fun item(title: String, shortcut: String? = null) =
+            CamoCommandItem(title, title, { lastRun = title }, shortcut = shortcut)
+        listOf(
+            CamoCommandSource.of(
+                "Actions",
+                listOf(item("Open Repository", "Ctrl+O"), item("Commit", "Ctrl+Enter"), item("Toggle Theme")),
+            ),
+            CamoCommandSource.of("Files", Members.map { item("${it.name}.md") }),
+            // A slow source: the others answer at once and this group shows a loading row.
+            CamoCommandSource("Remote", limit = 3) { query ->
+                delay(REMOTE_DELAY)
+                listOf(item("origin/main"), item("origin/$query")).filter { query.isNotEmpty() }
+            },
+        )
+    }
     Column(verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.m)) {
+        CamoButton("Find action", { palette.show() })
+        CamoText("Last run: $lastRun")
+        CamoCommandPalette(palette, sources)
         CamoDataTable(
             columns, rows, { it.id }, "Members", Modifier.height(TableHeight),
             sort = sort, onSortChange = { sort = it },
