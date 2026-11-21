@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.test.ComposeUiTest
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsFocused
+import androidx.compose.ui.test.assertIsNotFocused
 import androidx.compose.ui.test.getUnclippedBoundsInRoot
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
@@ -54,9 +55,12 @@ class DockLayoutTest {
     }
 
     @Composable
-    private fun Dock(state: CamoDockState, width: Int = 1200, height: Int = 600) {
+    private fun Dock(state: CamoDockState, width: Int = 1200, height: Int = 600, centerFocusable: Boolean = true) {
         Box(Modifier.size(width.dp, height.dp)) {
-            CamoDockLayout(state, windows) { Box(Modifier.fillMaxSize().testTag("center").focusable()) }
+            CamoDockLayout(state, windows) {
+                val center = Modifier.fillMaxSize().testTag("center")
+                Box(if (centerFocusable) center.focusable() else center)
+            }
         }
     }
 
@@ -143,6 +147,17 @@ class DockLayoutTest {
         onNodeWithTag("content-details").assertIsFocused()
         onNodeWithTag("content-details").performKeyInput { pressKey(Key.Escape) }
         onNodeWithTag("center").assertIsFocused()
+    }
+
+    @Test
+    fun escLeavesTheWindowWhenTheCenterHasNothingToFocus() = runComposeUiTest {
+        val state = state()
+        camo { Dock(state, centerFocusable = false) }
+        state.focus("details")
+        waitForIdle()
+        onNodeWithTag("content-details").assertIsFocused()
+        onNodeWithTag("content-details").performKeyInput { pressKey(Key.Escape) }
+        onNodeWithTag("content-details").assertIsNotFocused()
     }
 
     @Test
