@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusManager
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.input.key.Key
@@ -20,6 +21,7 @@ import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.type
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.srctool.camouflage.core.provider.Camouflage
@@ -171,8 +173,15 @@ private fun Stack(
     )
 }
 
+// Esc inside a window: focus goes to the center, or just out of the window when the center has nothing to focus.
+private fun leaveToCenter(focus: DockFocus, focusManager: FocusManager) {
+    val moved = runCatching { focus.center.requestFocus() }.getOrDefault(false)
+    if (!moved) focusManager.clearFocus()
+}
+
 @Composable
 private fun ToolWindowPanel(window: CamoToolWindow, state: CamoDockState, strings: DockStrings, focus: DockFocus) {
+    val focusManager = LocalFocusManager.current
     CamoSurface(level = SurfaceLevel.Surface, modifier = Modifier.fillMaxSize()) {
         Column(
             Modifier
@@ -180,7 +189,8 @@ private fun ToolWindowPanel(window: CamoToolWindow, state: CamoDockState, string
                 // After the window's own content: a text field that takes Esc keeps it.
                 .onKeyEvent {
                     val esc = it.type == KeyEventType.KeyDown && it.key == Key.Escape
-                    if (esc) runCatching { focus.center.requestFocus() }.isSuccess else false
+                    if (esc) leaveToCenter(focus, focusManager)
+                    esc
                 },
         ) {
             ToolWindowHeader(window, state.edgeOf(window.id) ?: window.defaultEdge, state, strings)

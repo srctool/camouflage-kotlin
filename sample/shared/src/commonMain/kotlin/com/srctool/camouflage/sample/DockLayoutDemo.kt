@@ -8,8 +8,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -31,7 +34,7 @@ import com.srctool.camouflage.core.theme.Appearance
 // use a window's menu to move it, maximize or hide it. "Show Log" moves keyboard focus into a window; Esc returns it
 // to the editor. The layout is app state: "Save" keeps a snapshot, "Restore" brings it back.
 
-private val DemoHeight = 420.dp
+private val DemoHeight = 480.dp
 
 private val Windows = listOf(
     Triple("files", "Files", DockEdge.Left),
@@ -47,6 +50,7 @@ internal fun DockLayoutDemo() {
         CamoDockState(Windows.associate { (id, _, edge) -> id to edge }, open = setOf("files", "log"))
     }
     var saved by remember { mutableStateOf<CamoDockSnapshot?>(null) }
+    var opened by remember { mutableIntStateOf(0) }
     val toolWindows = remember {
         Windows.map { (id, title, edge) ->
             CamoToolWindow(id, title, { CamoText(title.take(1)) }, edge) { Panel(title) }
@@ -64,9 +68,14 @@ internal fun DockLayoutDemo() {
         Box(Modifier.fillMaxWidth().height(DemoHeight)) {
             CamoDockLayout(state, toolWindows, Modifier.fillMaxSize()) {
                 CamoSurface(Modifier.fillMaxSize()) {
-                    Column(Modifier.padding(Camouflage.spacing.m)) {
+                    Column(
+                        Modifier.verticalScroll(rememberScrollState()).padding(Camouflage.spacing.m),
+                        verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.s),
+                    ) {
                         CamoText("Editor")
                         CamoText("The center. Esc inside a tool window comes back here.")
+                        CamoButton("Open file", { opened++ }, appearance = Appearance.Outline)
+                        CamoText("Files opened: $opened")
                     }
                 }
             }
@@ -76,7 +85,12 @@ internal fun DockLayoutDemo() {
 
 @Composable
 private fun Panel(title: String) {
-    Column(Modifier.padding(Camouflage.spacing.m)) {
+    Column(
+        Modifier.verticalScroll(rememberScrollState()).padding(Camouflage.spacing.m),
+        verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.s),
+    ) {
         CamoText("$title tool window")
+        // Something to focus: `focus(id)` lands here, Esc leaves.
+        CamoButton("Refresh", {}, appearance = Appearance.Outline)
     }
 }
