@@ -6,6 +6,14 @@ This changelog follows Keep a Changelog and Semantic Versioning.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-21
+
+The desktop foundations: split panes, a dock layout, document tabs, a command palette, speed search, skin-drawn scrollbars, resizable table columns, menu submenus and Carbon density.
+
+### Migration for third-party skins
+
+The skin contract grows from 52 to 54 renderers (ADR-45): `CamoSkin` now requires `splitPane` (`SplitPaneRenderer`) and `scrollbar` (`ScrollbarRenderer`). The five Camouflage skins ship both; a skin of your own must add them before it compiles against 0.2.0. Nothing else in the contract changed. Apps that use a Camouflage skin need no change.
+
 ### Added
 
 - **Skin-drawn scrollbars:** `CamoScrollbar(adapter)` and `CamoScrollArea(vertical, horizontal) { … }` draw a thin overlay bar in the skin's colors: a thumb that grows under the pointer, dragged to scroll, a click on the track pages a viewport, and it shows while scrolling (or always, per skin and theme). It appears automatically in `CamoTree`, `CamoDataTable`, `CamoPagedList`, menus and `CamoSelect`'s list, only with pointer input on desktop and the web; touch platforms keep their native indicators. It takes no focus and is hidden from screen readers; wheel events go to the content. `rememberCamoScrollAdapter` covers `ScrollState` and `LazyListState` (the length of lazy content is an estimate). **The skin contract grows by one more required renderer, `scrollbar` (`ScrollbarRenderer`)**, so every skin, including your own, must add it (ADR-45).

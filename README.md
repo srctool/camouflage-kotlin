@@ -17,7 +17,7 @@ Camouflage is on Maven Central (group `com.srctool.camouflage`) for Android, iOS
 
 ```kotlin
 commonMain.dependencies {
-    implementation(project.dependencies.platform("com.srctool.camouflage:camouflage-bom:0.1.0"))
+    implementation(project.dependencies.platform("com.srctool.camouflage:camouflage-bom:0.2.0"))
     implementation("com.srctool.camouflage:camouflage-core")
     implementation("com.srctool.camouflage:camouflage-skin-material") // or -minimal, -cupertino, -fluent, -carbon
 }
@@ -35,7 +35,7 @@ CamouflageProvider(skin = MaterialSkin, theme = materialTheme(seed = brand)) {
 
 ## Documentation
 
-- Usage docs (getting started, theming, skins, all 52 components): https://camouflage.srctool.com
+- Usage docs (getting started, theming, skins, all 57 components): https://camouflage.srctool.com
 - Contributor docs (design, architecture, contributing): https://camouflage-dev.srctool.com
 - API reference: the Dokka archive attached to each GitHub release.
 
@@ -54,7 +54,7 @@ CamouflageProvider(skin = MaterialSkin, theme = materialTheme(seed = brand)) {
 | `sample` | the sample catalog: `:sample:shared` (Android, iOS, desktop, web) and `:sample:androidApp` |
 | `build-logic` | the `com.srctool.*` convention plugins |
 
-Targets: Android, iOS (arm64, simulator arm64), JVM desktop and wasmJs. Status: **v0.1.0 released**; the API can still change before 1.0.
+Targets: Android, iOS (arm64, simulator arm64), JVM desktop and wasmJs. Status: **v0.2.0 released**; the API can still change before 1.0.
 
 ---
 
