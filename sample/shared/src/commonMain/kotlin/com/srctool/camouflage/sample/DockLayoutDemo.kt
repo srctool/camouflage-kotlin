@@ -36,25 +36,26 @@ import com.srctool.camouflage.core.theme.Appearance
 
 private val DemoHeight = 480.dp
 
+private class SampleWindow(val id: String, val title: String, val edge: DockEdge, val icon: @Composable () -> Unit)
+
+// A stripe button's icon takes the skin's tint, so an open window shows in every skin (Material colors the icon).
 private val Windows = listOf(
-    Triple("files", "Files", DockEdge.Left),
-    Triple("search", "Search", DockEdge.Left),
-    Triple("details", "Details", DockEdge.Right),
-    Triple("log", "Log", DockEdge.Bottom),
-    Triple("terminal", "Terminal", DockEdge.Bottom),
+    SampleWindow("files", "Files", DockEdge.Left) { AppIcon.Archive() },
+    SampleWindow("search", "Search", DockEdge.Left) { AppIcon.Search() },
+    SampleWindow("details", "Details", DockEdge.Right) { AppIcon.Edit() },
+    SampleWindow("log", "Log", DockEdge.Bottom) { AppIcon.Sort() },
+    SampleWindow("terminal", "Terminal", DockEdge.Bottom) { AppIcon.ChevronRight() },
 )
 
 @Composable
 internal fun DockLayoutDemo() {
     val state = remember {
-        CamoDockState(Windows.associate { (id, _, edge) -> id to edge }, open = setOf("files", "log"))
+        CamoDockState(Windows.associate { it.id to it.edge }, open = setOf("files", "log"))
     }
     var saved by remember { mutableStateOf<CamoDockSnapshot?>(null) }
     var opened by remember { mutableIntStateOf(0) }
     val toolWindows = remember {
-        Windows.map { (id, title, edge) ->
-            CamoToolWindow(id, title, { CamoText(title.take(1)) }, edge) { Panel(title) }
-        }
+        Windows.map { w -> CamoToolWindow(w.id, w.title, w.icon, w.edge) { Panel(w.title) } }
     }
     Column(verticalArrangement = Arrangement.spacedBy(Camouflage.spacing.m)) {
         Row(
